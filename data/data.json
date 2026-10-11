@@ -1,10 +1,8336 @@
 {
  "player": {
-  "id": "",
-  "name": "",
-  "currentDoubles": null
+  "id": 8127479319,
+  "name": "Colin OConnor",
+  "currentDoubles": 3.549
  },
- "generated": null,
- "syncedAt": "",
- "matches": []
+ "generated": "2026-10-11",
+ "syncedAt": "2026-10-11T12:02:16.199Z",
+ "matches": [
+  {
+   "matchId": 5472371250,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.658,
+    "ratingPre": 3.6983,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.536,
+     "ratingPre": 3.5215,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 6147080698,
+     "name": "Marc Tito",
+     "ratingThen": 3.793,
+     "ratingPre": 3.7773,
+     "ratingNow": 4.06
+    }
+   ],
+   "preRating": 3.032,
+   "impact": -0.08563,
+   "postRating": 2.9464
+  },
+  {
+   "matchId": 6292942635,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.726,
+    "ratingPre": 3.7576,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 8446601308,
+     "name": "Grady Bresnahan",
+     "ratingThen": 3.918,
+     "ratingPre": 3.8075,
+     "ratingNow": 3.941
+    },
+    {
+     "id": 5830275179,
+     "name": "Al Anderson",
+     "ratingThen": 3.918,
+     "ratingPre": 3.8075,
+     "ratingNow": 3.941
+    }
+   ],
+   "preRating": 3.2137,
+   "impact": -0.11019,
+   "postRating": 3.1035
+  },
+  {
+   "matchId": 6428092522,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.71,
+    "ratingPre": 3.7187,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 5837624353,
+     "name": "Nathan Mertens",
+     "ratingThen": 4.128,
+     "ratingPre": 4.1248,
+     "ratingNow": 4.106
+    },
+    {
+     "id": 4777613031,
+     "name": "Jake Mertens",
+     "ratingThen": 3.912,
+     "ratingPre": 3.8991,
+     "ratingNow": 3.808
+    }
+   ],
+   "preRating": 3.0792,
+   "impact": -0.02021,
+   "postRating": 3.059
+  },
+  {
+   "matchId": 6998047508,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.756,
+    "ratingPre": 3.7543,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 8295804220,
+     "name": "Brian Stonecipher",
+     "ratingThen": 3.583,
+     "ratingPre": 3.584,
+     "ratingNow": 3.49
+    },
+    {
+     "id": 8252288978,
+     "name": "Canyon Stonecipher",
+     "ratingThen": 3.765,
+     "ratingPre": 3.7691,
+     "ratingNow": 3.555
+    }
+   ],
+   "preRating": 3.1983,
+   "impact": 0.00894,
+   "postRating": 3.2072
+  },
+  {
+   "matchId": 7346214490,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.754,
+    "ratingPre": 3.8578,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.48,
+     "ratingPre": 3.4577,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 6147080698,
+     "name": "Marc Tito",
+     "ratingThen": 3.729,
+     "ratingPre": 3.7014,
+     "ratingNow": 4.06
+    }
+   ],
+   "preRating": null,
+   "impact": null,
+   "postRating": null
+  },
+  {
+   "matchId": 7357879918,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.653,
+    "ratingPre": 3.6598,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 6543803188,
+     "name": "Floyd Marshall",
+     "ratingThen": 3.785,
+     "ratingPre": 3.7822,
+     "ratingNow": 4.053
+    },
+    {
+     "id": 5632687041,
+     "name": "Ben Ramler",
+     "ratingThen": 4.074,
+     "ratingPre": 4.0715,
+     "ratingNow": 4.174
+    }
+   ],
+   "preRating": 2.9493,
+   "impact": -0.0148,
+   "postRating": 2.9345
+  },
+  {
+   "matchId": 7699805027,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    15
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.66,
+    "ratingPre": 3.6804,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 6543803188,
+     "name": "Floyd Marshall",
+     "ratingThen": 3.757,
+     "ratingPre": 3.7499,
+     "ratingNow": 4.053
+    },
+    {
+     "id": 5632687041,
+     "name": "Ben Ramler",
+     "ratingThen": 4.046,
+     "ratingPre": 4.0392,
+     "ratingNow": 4.174
+    }
+   ],
+   "preRating": 2.9957,
+   "impact": -0.04633,
+   "postRating": 2.9493
+  },
+  {
+   "matchId": 8284325420,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.758,
+    "ratingPre": 3.7561,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 8425217087,
+     "name": "Justin Ng",
+     "ratingThen": 3.851,
+     "ratingPre": 3.8521,
+     "ratingNow": 3.792
+    },
+    {
+     "id": 5657071090,
+     "name": "Colton Roshau",
+     "ratingThen": 4.049,
+     "ratingPre": 4.0508,
+     "ratingNow": 3.998
+    }
+   ],
+   "preRating": 3.2072,
+   "impact": 0.00644,
+   "postRating": 3.2137
+  },
+  {
+   "matchId": 8562197364,
+   "date": "2026-04-25",
+   "event": "TNT Spring Spectacular PB Tournament - Mens Doubles Skill: (3.5) Age: (Any)",
+   "venue": "Fargo, ND",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.719,
+    "ratingPre": 3.7127,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 8198636801,
+     "name": "Jason Schoenack",
+     "ratingThen": 3.83,
+     "ratingPre": 3.8316,
+     "ratingNow": 3.815
+    },
+    {
+     "id": 6612600326,
+     "name": "Joey Haynes",
+     "ratingThen": 4.004,
+     "ratingPre": 4.0064,
+     "ratingNow": 4.225
+    }
+   ],
+   "preRating": 3.0631,
+   "impact": 0.01602,
+   "postRating": 3.0792
+  },
+  {
+   "matchId": 4456511288,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5826328154,
+    "name": "John Patrick Merciales",
+    "ratingThen": 3.527,
+    "ratingPre": 3.5271,
+    "ratingNow": 3.926
+   },
+   "opponents": [
+    {
+     "id": 8518308903,
+     "name": "Kurt Camacho",
+     "ratingThen": 3.576,
+     "ratingPre": 3.5762,
+     "ratingNow": 4.029
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.252,
+     "ratingPre": 3.2526,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.0626,
+   "impact": 0.00052,
+   "postRating": 3.0632
+  },
+  {
+   "matchId": 4723896878,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8518308903,
+    "name": "Kurt Camacho",
+    "ratingThen": 3.581,
+    "ratingPre": 3.5915,
+    "ratingNow": 4.029
+   },
+   "opponents": [
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.286,
+     "ratingPre": 3.2751,
+     "ratingNow": 3.431
+    },
+    {
+     "id": 4519911514,
+     "name": "Caden Reep",
+     "ratingThen": 3.73,
+     "ratingPre": 3.6832,
+     "ratingNow": 3.73
+    }
+   ],
+   "preRating": 3.2341,
+   "impact": -0.02891,
+   "postRating": 3.2052
+  },
+  {
+   "matchId": 4859314714,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.408,
+    "ratingPre": 3.4077,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 4886700692,
+     "name": "Andrew Thomason",
+     "ratingThen": 2.872,
+     "ratingPre": 2.8716,
+     "ratingNow": 2.921
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.267,
+     "ratingPre": 3.267,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.2504,
+   "impact": 0.00001,
+   "postRating": 3.2504
+  },
+  {
+   "matchId": 5755576991,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 4886700692,
+    "name": "Andrew Thomason",
+    "ratingThen": 2.913,
+    "ratingPre": 2.5464,
+    "ratingNow": 2.921
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.503,
+     "ratingPre": 3.5384,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.395,
+     "ratingPre": 3.4302,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 3.1116,
+   "impact": 0.13229,
+   "postRating": 3.2439
+  },
+  {
+   "matchId": 5949509555,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5629210554,
+    "name": "Clark Janssen",
+    "ratingThen": 3.268,
+    "ratingPre": 3.267,
+    "ratingNow": 3.431
+   },
+   "opponents": [
+    {
+     "id": 4519911514,
+     "name": "Caden Reep",
+     "ratingThen": 3.717,
+     "ratingPre": 3.7239,
+     "ratingNow": 3.73
+    },
+    {
+     "id": 8518308903,
+     "name": "Kurt Camacho",
+     "ratingThen": 3.585,
+     "ratingPre": 3.5858,
+     "ratingNow": 4.029
+    }
+   ],
+   "preRating": 3.2504,
+   "impact": 0.0038,
+   "postRating": 3.2542
+  },
+  {
+   "matchId": 6021739878,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 4519911514,
+    "name": "Caden Reep",
+    "ratingThen": 3.979,
+    "ratingPre": 3.8321,
+    "ratingNow": 3.73
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.506,
+     "ratingPre": 3.5134,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.437,
+     "ratingPre": 3.444,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 2.9345,
+   "impact": 0.03815,
+   "postRating": 2.9727
+  },
+  {
+   "matchId": 6101708698,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4519911514,
+    "name": "Caden Reep",
+    "ratingThen": 3.683,
+    "ratingPre": 3.7172,
+    "ratingNow": 3.73
+   },
+   "opponents": [
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.275,
+     "ratingPre": 3.2682,
+     "ratingNow": 3.431
+    },
+    {
+     "id": 8518308903,
+     "name": "Kurt Camacho",
+     "ratingThen": 3.591,
+     "ratingPre": 3.5845,
+     "ratingNow": 4.029
+    }
+   ],
+   "preRating": 3.2542,
+   "impact": -0.02008,
+   "postRating": 3.2341
+  },
+  {
+   "matchId": 6169407052,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 5629210554,
+    "name": "Clark Janssen",
+    "ratingThen": 3.253,
+    "ratingPre": 3.2338,
+    "ratingNow": 3.431
+   },
+   "opponents": [
+    {
+     "id": 4519911514,
+     "name": "Caden Reep",
+     "ratingThen": 3.705,
+     "ratingPre": 3.9789,
+     "ratingNow": 3.73
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.448,
+     "ratingPre": 3.4668,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 2.9727,
+   "impact": 0.08998,
+   "postRating": 3.0626
+  },
+  {
+   "matchId": 6956966070,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 8518308903,
+    "name": "Kurt Camacho",
+    "ratingThen": 3.588,
+    "ratingPre": 3.5761,
+    "ratingNow": 4.029
+   },
+   "opponents": [
+    {
+     "id": 4519911514,
+     "name": "Caden Reep",
+     "ratingThen": 3.667,
+     "ratingPre": 3.7787,
+     "ratingNow": 3.73
+    },
+    {
+     "id": 4886700692,
+     "name": "Andrew Thomason",
+     "ratingThen": 2.546,
+     "ratingPre": 2.7023,
+     "ratingNow": 2.921
+    }
+   ],
+   "preRating": 3.0632,
+   "impact": 0.04848,
+   "postRating": 3.1116
+  },
+  {
+   "matchId": 7321538335,
+   "date": "2026-04-29",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4583134185,
+    "name": "Missy Netland",
+    "ratingThen": 3.397,
+    "ratingPre": 3.3948,
+    "ratingNow": 3.35
+   },
+   "opponents": [
+    {
+     "id": 8518308903,
+     "name": "Kurt Camacho",
+     "ratingThen": 3.588,
+     "ratingPre": 3.5896,
+     "ratingNow": 4.029
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.408,
+     "ratingPre": 3.4095,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.2439,
+   "impact": 0.0065,
+   "postRating": 3.2504
+  },
+  {
+   "matchId": 4372375760,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6960791614,
+    "name": "Renae Spangler",
+    "ratingThen": 2.843,
+    "ratingPre": 2.8846,
+    "ratingNow": 3.317
+   },
+   "opponents": [
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.175,
+     "ratingPre": 3.1498,
+     "ratingNow": 3.299
+    },
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.238,
+     "ratingPre": 3.2169,
+     "ratingNow": 3.454
+    }
+   ],
+   "preRating": 3.2574,
+   "impact": -0.04038,
+   "postRating": 3.2171
+  },
+  {
+   "matchId": 4803848820,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 6960638666,
+    "name": "Changhui Yan",
+    "ratingThen": 3.15,
+    "ratingPre": 3.1176,
+    "ratingNow": 3.299
+   },
+   "opponents": [
+    {
+     "id": 6960791614,
+     "name": "Renae Spangler",
+     "ratingThen": 2.885,
+     "ratingPre": 2.9386,
+     "ratingNow": 3.317
+    },
+    {
+     "id": 6035889067,
+     "name": "Jeana Murphy",
+     "ratingThen": 2.519,
+     "ratingPre": null,
+     "ratingNow": 2.981
+    }
+   ],
+   "preRating": 3.2052,
+   "impact": 0.05221,
+   "postRating": 3.2574
+  },
+  {
+   "matchId": 6156489018,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6035889067,
+    "name": "Jeana Murphy",
+    "ratingThen": 2.551,
+    "ratingPre": 2.5189,
+    "ratingNow": 2.981
+   },
+   "opponents": [
+    {
+     "id": 6960791614,
+     "name": "Renae Spangler",
+     "ratingThen": 2.839,
+     "ratingPre": 2.8429,
+     "ratingNow": 3.317
+    },
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.236,
+     "ratingPre": 3.2382,
+     "ratingNow": 3.454
+    }
+   ],
+   "preRating": 3.2171,
+   "impact": 0.00359,
+   "postRating": 3.2206
+  },
+  {
+   "matchId": 7627533168,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 7228373648,
+    "name": "Greta Kaye Busch",
+    "ratingThen": 3.414,
+    "ratingPre": 3.4,
+    "ratingNow": 3.345
+   },
+   "opponents": [
+    {
+     "id": 5308734593,
+     "name": "Sheri Cook",
+     "ratingThen": 2.534,
+     "ratingPre": 2.5838,
+     "ratingNow": 2.594
+    },
+    {
+     "id": 6615337586,
+     "name": "Russ Laney",
+     "ratingThen": 3.344,
+     "ratingPre": 3.4055,
+     "ratingNow": 3.314
+    }
+   ],
+   "preRating": 3.2399,
+   "impact": 0.01324,
+   "postRating": 3.2531
+  },
+  {
+   "matchId": 7767467836,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 8566705055,
+    "name": "Noah Schoenack",
+    "ratingThen": 3.247,
+    "ratingPre": 3.2362,
+    "ratingNow": 3.454
+   },
+   "opponents": [
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.162,
+     "ratingPre": 3.1751,
+     "ratingNow": 3.299
+    },
+    {
+     "id": 6035889067,
+     "name": "Jeana Murphy",
+     "ratingThen": 2.408,
+     "ratingPre": 2.5508,
+     "ratingNow": 2.981
+    }
+   ],
+   "preRating": 3.2206,
+   "impact": 0.01924,
+   "postRating": 3.2399
+  },
+  {
+   "matchId": 7972218585,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 6615337586,
+    "name": "Russ Laney",
+    "ratingThen": 3.314,
+    "ratingPre": 3.2151,
+    "ratingNow": 3.314
+   },
+   "opponents": [
+    {
+     "id": 7228373648,
+     "name": "Greta Kaye Busch",
+     "ratingThen": 3.349,
+     "ratingPre": 3.3811,
+     "ratingNow": 3.345
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.311,
+     "ratingPre": 3.3279,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.286,
+   "impact": 0.03003,
+   "postRating": 3.316
+  },
+  {
+   "matchId": 8086921797,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5308734593,
+    "name": "Sheri Cook",
+    "ratingThen": 2.595,
+    "ratingPre": 2.5336,
+    "ratingNow": 2.594
+   },
+   "opponents": [
+    {
+     "id": 6615337586,
+     "name": "Russ Laney",
+     "ratingThen": 3.271,
+     "ratingPre": 3.3438,
+     "ratingNow": 3.314
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.311,
+     "ratingPre": 3.3209,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.2531,
+   "impact": 0.01796,
+   "postRating": 3.2711
+  },
+  {
+   "matchId": 8557953042,
+   "date": "2026-05-03",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.319,
+    "ratingPre": 3.3111,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 5308734593,
+     "name": "Sheri Cook",
+     "ratingThen": 2.548,
+     "ratingPre": 2.5947,
+     "ratingNow": 2.594
+    },
+    {
+     "id": 7228373648,
+     "name": "Greta Kaye Busch",
+     "ratingThen": 3.398,
+     "ratingPre": 3.4141,
+     "ratingNow": 3.345
+    }
+   ],
+   "preRating": 3.2711,
+   "impact": 0.01497,
+   "postRating": 3.286
+  },
+  {
+   "matchId": 4480430594,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5398303031,
+    "name": "David Baltes",
+    "ratingThen": 3.251,
+    "ratingPre": null,
+    "ratingNow": 3.336
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.315,
+     "ratingPre": 3.3112,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 8366210628,
+     "name": "Brandon Anderson",
+     "ratingThen": 3.328,
+     "ratingPre": 3.3213,
+     "ratingNow": 3.17
+    }
+   ],
+   "preRating": 3.316,
+   "impact": -0.00599,
+   "postRating": 3.31
+  },
+  {
+   "matchId": 4763450663,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7973905008,
+    "name": "Cody Burington",
+    "ratingThen": 3.32,
+    "ratingPre": 3.3005,
+    "ratingNow": 3.086
+   },
+   "opponents": [
+    {
+     "id": 7508014796,
+     "name": "Chad Pikula",
+     "ratingThen": 3.829,
+     "ratingPre": 3.8664,
+     "ratingNow": 3.083
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.344,
+     "ratingPre": 3.3492,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.3381,
+   "impact": 0.00812,
+   "postRating": 3.3462
+  },
+  {
+   "matchId": 5106631474,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    10
+   ],
+   "partner": {
+    "id": 7508014796,
+    "name": "Chad Pikula",
+    "ratingThen": 3.822,
+    "ratingPre": 3.8294,
+    "ratingNow": 3.083
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.345,
+     "ratingPre": 3.3443,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.645,
+     "ratingPre": 3.6427,
+     "ratingNow": 3.637
+    }
+   ],
+   "preRating": 3.3462,
+   "impact": -0.00187,
+   "postRating": 3.3443
+  },
+  {
+   "matchId": 5321030332,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.367,
+    "ratingPre": 3.349,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 7973905008,
+     "name": "Cody Burington",
+     "ratingThen": 3.178,
+     "ratingPre": 3.2389,
+     "ratingNow": 3.086
+    },
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.652,
+     "ratingPre": 3.6816,
+     "ratingNow": 3.637
+    }
+   ],
+   "preRating": 3.3841,
+   "impact": 0.02869,
+   "postRating": 3.4128
+  },
+  {
+   "matchId": 5475113704,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.688,
+    "ratingPre": 3.6447,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 7508014796,
+     "name": "Chad Pikula",
+     "ratingThen": 3.673,
+     "ratingPre": 3.8217,
+     "ratingNow": 3.083
+    },
+    {
+     "id": 7973905008,
+     "name": "Cody Burington",
+     "ratingThen": 3.226,
+     "ratingPre": 3.3198,
+     "ratingNow": 3.086
+    }
+   ],
+   "preRating": 3.3443,
+   "impact": 0.03977,
+   "postRating": 3.3841
+  },
+  {
+   "matchId": 5685155730,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.349,
+    "ratingPre": 3.3374,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 8366210628,
+     "name": "Brandon Anderson",
+     "ratingThen": 3.309,
+     "ratingPre": 3.332,
+     "ratingNow": 3.17
+    },
+    {
+     "id": 6159146159,
+     "name": "Kirk Kelly",
+     "ratingThen": 3.191,
+     "ratingPre": 3.2413,
+     "ratingNow": 3.147
+    }
+   ],
+   "preRating": 3.3181,
+   "impact": 0.02002,
+   "postRating": 3.3381
+  },
+  {
+   "matchId": 6989226691,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 8366210628,
+    "name": "Brandon Anderson",
+    "ratingThen": 3.332,
+    "ratingPre": 3.3027,
+    "ratingNow": 3.17
+   },
+   "opponents": [
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.068,
+     "ratingPre": 3.2503,
+     "ratingNow": 3.336
+    },
+    {
+     "id": 6159146159,
+     "name": "Kirk Kelly",
+     "ratingThen": 3.241,
+     "ratingPre": 3.3096,
+     "ratingNow": 3.147
+    }
+   ],
+   "preRating": 3.2922,
+   "impact": 0.02588,
+   "postRating": 3.3181
+  },
+  {
+   "matchId": 8340645299,
+   "date": "2026-05-10",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6159146159,
+    "name": "Kirk Kelly",
+    "ratingThen": 3.247,
+    "ratingPre": 3.3027,
+    "ratingNow": 3.147
+   },
+   "opponents": [
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.452,
+     "ratingPre": 3.2509,
+     "ratingNow": 3.336
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.325,
+     "ratingPre": 3.3146,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.31,
+   "impact": -0.01785,
+   "postRating": 3.2922
+  },
+  {
+   "matchId": 4323894813,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 4583134185,
+    "name": "Missy Netland",
+    "ratingThen": 3.411,
+    "ratingPre": 3.3979,
+    "ratingNow": 3.35
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.604,
+     "ratingPre": 3.626,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 7228373648,
+     "name": "Greta Kaye Busch",
+     "ratingThen": 3.209,
+     "ratingPre": 3.2281,
+     "ratingNow": 3.345
+    }
+   ],
+   "preRating": 3.3989,
+   "impact": 0.01826,
+   "postRating": 3.4171
+  },
+  {
+   "matchId": 4434645194,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.588,
+    "ratingPre": 3.6039,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 8043411236,
+     "name": "Ryan Luthi",
+     "ratingThen": 3.621,
+     "ratingPre": 3.6052,
+     "ratingNow": 3.54
+    },
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.112,
+     "ratingPre": 3.102,
+     "ratingNow": 3.299
+    }
+   ],
+   "preRating": 3.4171,
+   "impact": -0.01306,
+   "postRating": 3.4041
+  },
+  {
+   "matchId": 4466277765,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7228373648,
+    "name": "Greta Kaye Busch",
+    "ratingThen": 3.196,
+    "ratingPre": 3.206,
+    "ratingNow": 3.345
+   },
+   "opponents": [
+    {
+     "id": 8043411236,
+     "name": "Ryan Luthi",
+     "ratingThen": 3.631,
+     "ratingPre": 3.6192,
+     "ratingNow": 3.54
+    },
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.41,
+     "ratingPre": 3.4036,
+     "ratingNow": 3.454
+    }
+   ],
+   "preRating": 3.4144,
+   "impact": -0.00972,
+   "postRating": 3.4047
+  },
+  {
+   "matchId": 4557928098,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8566705055,
+    "name": "Noah Schoenack",
+    "ratingThen": 3.387,
+    "ratingPre": 3.3817,
+    "ratingNow": 3.454
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.612,
+     "ratingPre": 3.6213,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.603,
+     "ratingPre": 3.6074,
+     "ratingNow": 3.926
+    }
+   ],
+   "preRating": 3.4128,
+   "impact": 0.0073,
+   "postRating": 3.4201
+  },
+  {
+   "matchId": 5430716385,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 5826328154,
+    "name": "John Patrick Merciales",
+    "ratingThen": 3.599,
+    "ratingPre": 3.596,
+    "ratingNow": 3.926
+   },
+   "opponents": [
+    {
+     "id": 7228373648,
+     "name": "Greta Kaye Busch",
+     "ratingThen": 3.206,
+     "ratingPre": 3.2111,
+     "ratingNow": 3.345
+    },
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.126,
+     "ratingPre": 3.1299,
+     "ratingNow": 3.299
+    }
+   ],
+   "preRating": 3.4098,
+   "impact": 0.00466,
+   "postRating": 3.4144
+  },
+  {
+   "matchId": 6667228211,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8043411236,
+    "name": "Ryan Luthi",
+    "ratingThen": 3.624,
+    "ratingPre": 3.631,
+    "ratingNow": 3.54
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.592,
+     "ratingPre": 3.5878,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.398,
+     "ratingPre": 3.3938,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 3.4047,
+   "impact": -0.0058,
+   "postRating": 3.3989
+  },
+  {
+   "matchId": 8533083617,
+   "date": "2026-05-13",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6960638666,
+    "name": "Changhui Yan",
+    "ratingThen": 3.13,
+    "ratingPre": 3.1378,
+    "ratingNow": 3.299
+   },
+   "opponents": [
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.393,
+     "ratingPre": 3.3866,
+     "ratingNow": 3.454
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.392,
+     "ratingPre": 3.3856,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 3.4201,
+   "impact": -0.0103,
+   "postRating": 3.4098
+  },
+  {
+   "matchId": 5162688547,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7912859077,
+    "name": "Justin Wade",
+    "ratingThen": 3.335,
+    "ratingPre": 3.3366,
+    "ratingNow": 3.335
+   },
+   "opponents": [
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.586,
+     "ratingPre": 3.5797,
+     "ratingNow": 3.363
+    },
+    {
+     "id": 6004057874,
+     "name": "Austin Lancaster",
+     "ratingThen": 3.909,
+     "ratingPre": 3.908,
+     "ratingNow": 3.615
+    }
+   ],
+   "preRating": 3.5216,
+   "impact": -0.001,
+   "postRating": 3.5206
+  },
+  {
+   "matchId": 6135628138,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 6004057874,
+    "name": "Austin Lancaster",
+    "ratingThen": 3.922,
+    "ratingPre": 3.8936,
+    "ratingNow": 3.615
+   },
+   "opponents": [
+    {
+     "id": 6786863452,
+     "name": "Amy Blakeway",
+     "ratingThen": 3.325,
+     "ratingPre": 3.3786,
+     "ratingNow": 2.687
+    },
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.497,
+     "ratingPre": 3.692,
+     "ratingNow": 3.363
+    }
+   ],
+   "preRating": 3.4957,
+   "impact": 0.02596,
+   "postRating": 3.5216
+  },
+  {
+   "matchId": 6169606439,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    0
+   ],
+   "partner": {
+    "id": 4680406125,
+    "name": "Peyton Blakeway",
+    "ratingThen": 3.692,
+    "ratingPre": 3.3557,
+    "ratingNow": 3.363
+   },
+   "opponents": [
+    {
+     "id": 6786863452,
+     "name": "Amy Blakeway",
+     "ratingThen": 3.37,
+     "ratingPre": 3.4544,
+     "ratingNow": 2.687
+    },
+    {
+     "id": 7912859077,
+     "name": "Justin Wade",
+     "ratingThen": 3.323,
+     "ratingPre": 3.3854,
+     "ratingNow": 3.335
+    }
+   ],
+   "preRating": 3.4525,
+   "impact": 0.03897,
+   "postRating": 3.4914
+  },
+  {
+   "matchId": 6369909862,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6786863452,
+    "name": "Amy Blakeway",
+    "ratingThen": 3.379,
+    "ratingPre": 3.3696,
+    "ratingNow": 2.687
+   },
+   "opponents": [
+    {
+     "id": 7912859077,
+     "name": "Justin Wade",
+     "ratingThen": 3.317,
+     "ratingPre": 3.3233,
+     "ratingNow": 3.335
+    },
+    {
+     "id": 6004057874,
+     "name": "Austin Lancaster",
+     "ratingThen": 3.894,
+     "ratingPre": 3.8982,
+     "ratingNow": 3.615
+    }
+   ],
+   "preRating": 3.4914,
+   "impact": 0.00425,
+   "postRating": 3.4957
+  },
+  {
+   "matchId": 6483760865,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 7939063748,
+    "name": "Vanessa Kellems",
+    "ratingThen": 2.594,
+    "ratingPre": 2.5883,
+    "ratingNow": 2.7
+   },
+   "opponents": [
+    {
+     "id": 6404757985,
+     "name": "Gena Syvertson",
+     "ratingThen": 2.908,
+     "ratingPre": 2.914,
+     "ratingNow": 2.88
+    },
+    {
+     "id": 6960791614,
+     "name": "Renae Spangler",
+     "ratingThen": 3.25,
+     "ratingPre": 3.2556,
+     "ratingNow": 3.317
+    }
+   ],
+   "preRating": 3.5416,
+   "impact": 0.00564,
+   "postRating": 3.5472
+  },
+  {
+   "matchId": 6617865161,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 4680406125,
+    "name": "Peyton Blakeway",
+    "ratingThen": 3.363,
+    "ratingPre": 3.3614,
+    "ratingNow": 3.363
+   },
+   "opponents": [
+    {
+     "id": 6404757985,
+     "name": "Gena Syvertson",
+     "ratingThen": 2.911,
+     "ratingPre": 2.9129,
+     "ratingNow": 2.88
+    },
+    {
+     "id": 7939063748,
+     "name": "Vanessa Kellems",
+     "ratingThen": 2.588,
+     "ratingPre": 2.5894,
+     "ratingNow": 2.7
+    }
+   ],
+   "preRating": 3.5472,
+   "impact": 0.00172,
+   "postRating": 3.5489
+  },
+  {
+   "matchId": 7645011917,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 6960791614,
+    "name": "Renae Spangler",
+    "ratingThen": 2.909,
+    "ratingPre": 2.8684,
+    "ratingNow": 3.317
+   },
+   "opponents": [
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.356,
+     "ratingPre": 3.7326,
+     "ratingNow": 3.363
+    },
+    {
+     "id": 7939063748,
+     "name": "Vanessa Kellems",
+     "ratingThen": 2.491,
+     "ratingPre": 2.8678,
+     "ratingNow": 2.7
+    }
+   ],
+   "preRating": 3.4167,
+   "impact": 0.03577,
+   "postRating": 3.4525
+  },
+  {
+   "matchId": 8348827940,
+   "date": "2026-05-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6404757985,
+    "name": "Gena Syvertson",
+    "ratingThen": 2.914,
+    "ratingPre": 2.9138,
+    "ratingNow": 2.88
+   },
+   "opponents": [
+    {
+     "id": 6960791614,
+     "name": "Renae Spangler",
+     "ratingThen": 3.256,
+     "ratingPre": 3.2559,
+     "ratingNow": 3.317
+    },
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.357,
+     "ratingPre": 3.3571,
+     "ratingNow": 3.363
+    }
+   ],
+   "preRating": 3.5414,
+   "impact": 0.00024,
+   "postRating": 3.5416
+  },
+  {
+   "matchId": 4491047195,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.46,
+    "ratingPre": 3.4767,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 6040952162,
+     "name": "Matthew Miller",
+     "ratingThen": 3.776,
+     "ratingPre": 3.7592,
+     "ratingNow": 3.656
+    },
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.748,
+     "ratingPre": 3.7274,
+     "ratingNow": 3.582
+    }
+   ],
+   "preRating": 3.5136,
+   "impact": -0.01723,
+   "postRating": 3.4963
+  },
+  {
+   "matchId": 5117827324,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6960638666,
+    "name": "Changhui Yan",
+    "ratingThen": 3.143,
+    "ratingPre": 3.1486,
+    "ratingNow": 3.299
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.698,
+     "ratingPre": 3.6925,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.446,
+     "ratingPre": 3.4408,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.5019,
+   "impact": -0.00581,
+   "postRating": 3.4961
+  },
+  {
+   "matchId": 5681717421,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6759280569,
+    "name": "Alexandra Eugenio",
+    "ratingThen": 3.56,
+    "ratingPre": 3.5895,
+    "ratingNow": 3.489
+   },
+   "opponents": [
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.744,
+     "ratingPre": 3.7132,
+     "ratingNow": 3.582
+    },
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.124,
+     "ratingPre": 3.0992,
+     "ratingNow": 3.299
+    }
+   ],
+   "preRating": 3.5196,
+   "impact": -0.02612,
+   "postRating": 3.4934
+  },
+  {
+   "matchId": 5932060748,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 5826328154,
+    "name": "John Patrick Merciales",
+    "ratingThen": 3.716,
+    "ratingPre": 3.6982,
+    "ratingNow": 3.926
+   },
+   "opponents": [
+    {
+     "id": 6040952162,
+     "name": "Matthew Miller",
+     "ratingThen": 3.749,
+     "ratingPre": 3.7664,
+     "ratingNow": 3.656
+    },
+    {
+     "id": 6759280569,
+     "name": "Alexandra Eugenio",
+     "ratingThen": 3.538,
+     "ratingPre": 3.5581,
+     "ratingNow": 3.489
+    }
+   ],
+   "preRating": 3.4961,
+   "impact": 0.0178,
+   "postRating": 3.5139
+  },
+  {
+   "matchId": 6208934421,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8231759034,
+    "name": "Michael Smith",
+    "ratingThen": 3.713,
+    "ratingPre": 3.7145,
+    "ratingNow": 3.582
+   },
+   "opponents": [
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.662,
+     "ratingPre": 3.6609,
+     "ratingNow": 3.926
+    },
+    {
+     "id": 8043411236,
+     "name": "Ryan Luthi",
+     "ratingThen": 3.622,
+     "ratingPre": 3.6208,
+     "ratingNow": 3.54
+    }
+   ],
+   "preRating": 3.5206,
+   "impact": -0.00104,
+   "postRating": 3.5196
+  },
+  {
+   "matchId": 6586044533,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 6040952162,
+    "name": "Matthew Miller",
+    "ratingThen": 3.781,
+    "ratingPre": 3.7755,
+    "ratingNow": 3.656
+   },
+   "opponents": [
+    {
+     "id": 8043411236,
+     "name": "Ryan Luthi",
+     "ratingThen": 3.606,
+     "ratingPre": 3.6141,
+     "ratingNow": 3.54
+    },
+    {
+     "id": 6960638666,
+     "name": "Changhui Yan",
+     "ratingThen": 3.149,
+     "ratingPre": 3.154,
+     "ratingNow": 3.299
+    }
+   ],
+   "preRating": 3.4963,
+   "impact": 0.00561,
+   "postRating": 3.5019
+  },
+  {
+   "matchId": 7289371061,
+   "date": "2026-05-20",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 8043411236,
+    "name": "Ryan Luthi",
+    "ratingThen": 3.637,
+    "ratingPre": 3.6087,
+    "ratingNow": 3.54
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.477,
+     "ratingPre": 3.4954,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 6759280569,
+     "name": "Alexandra Eugenio",
+     "ratingThen": 3.537,
+     "ratingPre": 3.56,
+     "ratingNow": 3.489
+    }
+   ],
+   "preRating": 3.4934,
+   "impact": 0.02013,
+   "postRating": 3.5136
+  },
+  {
+   "matchId": 4593627724,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    15
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 7329661271,
+    "name": "Greg Alexander",
+    "ratingThen": 3.427,
+    "ratingPre": 3.4121,
+    "ratingNow": 3.453
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.518,
+     "ratingPre": 3.5304,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 5771743415,
+     "name": "Allyson Kangas",
+     "ratingThen": 3.244,
+     "ratingPre": 3.2631,
+     "ratingNow": 3.105
+    }
+   ],
+   "preRating": 3.5402,
+   "impact": 0.0079,
+   "postRating": 3.5481
+  },
+  {
+   "matchId": 6312772254,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    15
+   ],
+   "partner": {
+    "id": 5771743415,
+    "name": "Allyson Kangas",
+    "ratingThen": 3.226,
+    "ratingPre": 3.2441,
+    "ratingNow": 3.105
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.53,
+     "ratingPre": 3.5177,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 7329661271,
+     "name": "Greg Alexander",
+     "ratingThen": 3.441,
+     "ratingPre": 3.4266,
+     "ratingNow": 3.453
+    }
+   ],
+   "preRating": 3.5481,
+   "impact": -0.00801,
+   "postRating": 3.5401
+  },
+  {
+   "matchId": 6567452772,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    10
+   ],
+   "partner": {
+    "id": 8557535468,
+    "name": "Kelsie Walter",
+    "ratingThen": 4.009,
+    "ratingPre": 4.0122,
+    "ratingNow": 4.01
+   },
+   "opponents": [
+    {
+     "id": 4662848216,
+     "name": "Bradley Ensminger",
+     "ratingThen": 3.678,
+     "ratingPre": 3.6723,
+     "ratingNow": 3.657
+    },
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.52,
+     "ratingPre": 3.5142,
+     "ratingNow": 3.462
+    }
+   ],
+   "preRating": 3.5321,
+   "impact": -0.00362,
+   "postRating": 3.5285
+  },
+  {
+   "matchId": 6640310720,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    15
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.53,
+    "ratingPre": 3.4868,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 7329661271,
+     "name": "Greg Alexander",
+     "ratingThen": 3.412,
+     "ratingPre": 3.462,
+     "ratingNow": 3.453
+    },
+    {
+     "id": 5771743415,
+     "name": "Allyson Kangas",
+     "ratingThen": 3.263,
+     "ratingPre": 3.3295,
+     "ratingNow": 3.105
+    }
+   ],
+   "preRating": 3.5139,
+   "impact": 0.02629,
+   "postRating": 3.5402
+  },
+  {
+   "matchId": 7545143744,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    4
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4662848216,
+    "name": "Bradley Ensminger",
+    "ratingThen": 3.657,
+    "ratingPre": 3.6688,
+    "ratingNow": 3.657
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.002,
+     "ratingPre": 3.9937,
+     "ratingNow": 4.01
+    },
+    {
+     "id": 6725946256,
+     "name": "Kelly Kukowski",
+     "ratingThen": 3.77,
+     "ratingPre": 3.76,
+     "ratingNow": 3.792
+    }
+   ],
+   "preRating": 3.5401,
+   "impact": -0.00795,
+   "postRating": 3.5321
+  },
+  {
+   "matchId": 8196956074,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6725946256,
+    "name": "Kelly Kukowski",
+    "ratingThen": 3.75,
+    "ratingPre": 3.7572,
+    "ratingNow": 3.792
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.015,
+     "ratingPre": 4.0086,
+     "ratingNow": 4.01
+    },
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.529,
+     "ratingPre": 3.5195,
+     "ratingNow": 3.462
+    }
+   ],
+   "preRating": 3.5285,
+   "impact": -0.00642,
+   "postRating": 3.5221
+  },
+  {
+   "matchId": 8231171969,
+   "date": "2026-05-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.526,
+    "ratingPre": 3.5287,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 6725946256,
+     "name": "Kelly Kukowski",
+     "ratingThen": 3.752,
+     "ratingPre": 3.7498,
+     "ratingNow": 3.792
+    },
+    {
+     "id": 4662848216,
+     "name": "Bradley Ensminger",
+     "ratingThen": 3.68,
+     "ratingPre": 3.6776,
+     "ratingNow": 3.657
+    }
+   ],
+   "preRating": 3.5221,
+   "impact": -0.00203,
+   "postRating": 3.5201
+  },
+  {
+   "matchId": 4432707094,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.623,
+    "ratingPre": 3.6368,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.598,
+     "ratingPre": 3.5805,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.644,
+     "ratingPre": 3.6229,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": 3.5543,
+   "impact": -0.01251,
+   "postRating": 3.5418
+  },
+  {
+   "matchId": 4657738497,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    0
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.575,
+    "ratingPre": 3.6246,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 6040952162,
+     "name": "Matthew Miller",
+     "ratingThen": 3.764,
+     "ratingPre": 3.7304,
+     "ratingNow": 3.656
+    },
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.545,
+     "ratingPre": 3.5068,
+     "ratingNow": 3.585
+    }
+   ],
+   "preRating": 3.5711,
+   "impact": -0.03332,
+   "postRating": 3.5378
+  },
+  {
+   "matchId": 5346424414,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8231759034,
+    "name": "Michael Smith",
+    "ratingThen": 3.685,
+    "ratingPre": 3.6818,
+    "ratingNow": 3.582
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.603,
+     "ratingPre": 3.6066,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.625,
+     "ratingPre": 3.6295,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5679,
+   "impact": 0.00319,
+   "postRating": 3.5711
+  },
+  {
+   "matchId": 5455117535,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 8477251326,
+    "name": "Sydney Foy",
+    "ratingThen": 3.563,
+    "ratingPre": 3.5449,
+    "ratingNow": 3.585
+   },
+   "opponents": [
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.666,
+     "ratingPre": 3.6834,
+     "ratingNow": 3.582
+    },
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.637,
+     "ratingPre": 3.6548,
+     "ratingNow": 3.6
+    }
+   ],
+   "preRating": 3.5378,
+   "impact": 0.01651,
+   "postRating": 3.5543
+  },
+  {
+   "matchId": 5667090185,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5839483371,
+    "name": "Carter Smith",
+    "ratingThen": 3.684,
+    "ratingPre": 3.6991,
+    "ratingNow": 3.883
+   },
+   "opponents": [
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.571,
+     "ratingPre": 3.5603,
+     "ratingNow": 3.585
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.636,
+     "ratingPre": 3.6227,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5066,
+   "impact": -0.0103,
+   "postRating": 3.4963
+  },
+  {
+   "matchId": 6156512776,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    1
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8477251326,
+    "name": "Sydney Foy",
+    "ratingThen": 3.551,
+    "ratingPre": 3.5796,
+    "ratingNow": 3.585
+   },
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.686,
+     "ratingPre": 3.6435,
+     "ratingNow": 3.883
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.634,
+     "ratingPre": 3.5981,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5418,
+   "impact": -0.02645,
+   "postRating": 3.5153
+  },
+  {
+   "matchId": 7476617320,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 6040952162,
+    "name": "Matthew Miller",
+    "ratingThen": 3.735,
+    "ratingPre": 3.7314,
+    "ratingNow": 3.656
+   },
+   "opponents": [
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.682,
+     "ratingPre": 3.6862,
+     "ratingNow": 3.582
+    },
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.635,
+     "ratingPre": 3.6424,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": 3.5641,
+   "impact": 0.00387,
+   "postRating": 3.5679
+  },
+  {
+   "matchId": 8106839576,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    0
+   ],
+   "partner": {
+    "id": 5839483371,
+    "name": "Carter Smith",
+    "ratingThen": 3.642,
+    "ratingPre": 3.574,
+    "ratingNow": 3.883
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.629,
+     "ratingPre": 3.6648,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.474,
+     "ratingPre": 3.5167,
+     "ratingNow": 3.585
+    }
+   ],
+   "preRating": 3.5291,
+   "impact": 0.03498,
+   "postRating": 3.5641
+  },
+  {
+   "matchId": 8539297340,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.665,
+    "ratingPre": 3.6555,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 6040952162,
+     "name": "Matthew Miller",
+     "ratingThen": 3.74,
+     "ratingPre": 3.7486,
+     "ratingNow": 3.656
+    },
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.664,
+     "ratingPre": 3.6752,
+     "ratingNow": 3.6
+    }
+   ],
+   "preRating": 3.5201,
+   "impact": 0.00902,
+   "postRating": 3.5291
+  },
+  {
+   "matchId": 8550792214,
+   "date": "2026-05-27",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.623,
+    "ratingPre": 3.6343,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.56,
+     "ratingPre": 3.5512,
+     "ratingNow": 3.585
+    },
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.699,
+     "ratingPre": 3.6857,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": 3.5153,
+   "impact": -0.00868,
+   "postRating": 3.5066
+  },
+  {
+   "matchId": 4455252491,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7956299554,
+    "name": "Dan Perry",
+    "ratingThen": 3.826,
+    "ratingPre": 3.8344,
+    "ratingNow": 3.982
+   },
+   "opponents": [
+    {
+     "id": 8478048405,
+     "name": "Logan Blondell",
+     "ratingThen": 4.249,
+     "ratingPre": 4.2415,
+     "ratingNow": 4.472
+    },
+    {
+     "id": 6147080698,
+     "name": "Marc Tito",
+     "ratingThen": 3.846,
+     "ratingPre": 3.8383,
+     "ratingNow": 4.06
+    }
+   ],
+   "preRating": 3.4409,
+   "impact": -0.00803,
+   "postRating": 3.4328
+  },
+  {
+   "matchId": 4625396010,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8478048405,
+    "name": "Logan Blondell",
+    "ratingThen": 4.224,
+    "ratingPre": 4.2401,
+    "ratingNow": 4.472
+   },
+   "opponents": [
+    {
+     "id": 6045699468,
+     "name": "Justin Berg",
+     "ratingThen": 4.423,
+     "ratingPre": 4.3924,
+     "ratingNow": 4.435
+    },
+    {
+     "id": 6147080698,
+     "name": "Marc Tito",
+     "ratingThen": 3.86,
+     "ratingPre": 3.8437,
+     "ratingNow": 4.06
+    }
+   ],
+   "preRating": 3.4963,
+   "impact": -0.01623,
+   "postRating": 3.4801
+  },
+  {
+   "matchId": 5376230698,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    0
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6147080698,
+    "name": "Marc Tito",
+    "ratingThen": 3.838,
+    "ratingPre": 3.8599,
+    "ratingNow": 4.06
+   },
+   "opponents": [
+    {
+     "id": 6045699468,
+     "name": "Justin Berg",
+     "ratingThen": 4.463,
+     "ratingPre": 4.4234,
+     "ratingNow": 4.435
+    },
+    {
+     "id": 7956299554,
+     "name": "Dan Perry",
+     "ratingThen": 3.817,
+     "ratingPre": 3.7951,
+     "ratingNow": 3.982
+    }
+   ],
+   "preRating": 3.4801,
+   "impact": -0.02162,
+   "postRating": 3.4585
+  },
+  {
+   "matchId": 5383107922,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 8058005332,
+    "name": "Dustin Finch",
+    "ratingThen": 3.783,
+    "ratingPre": 3.7371,
+    "ratingNow": 3.437
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.792,
+     "ratingPre": 3.8084,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 8056696350,
+     "name": "Sanjay Mendis",
+     "ratingThen": 3.81,
+     "ratingPre": 3.8263,
+     "ratingNow": 3.897
+    }
+   ],
+   "preRating": 3.4428,
+   "impact": 0.01652,
+   "postRating": 3.4593
+  },
+  {
+   "matchId": 7450204782,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8040499592,
+    "name": "Eric Pezhman",
+    "ratingThen": 3.778,
+    "ratingPre": 3.7919,
+    "ratingNow": 3.75
+   },
+   "opponents": [
+    {
+     "id": 7956299554,
+     "name": "Dan Perry",
+     "ratingThen": 3.855,
+     "ratingPre": 3.8412,
+     "ratingNow": 3.982
+    },
+    {
+     "id": 8056696350,
+     "name": "Sanjay Mendis",
+     "ratingThen": 3.823,
+     "ratingPre": 3.8098,
+     "ratingNow": 3.897
+    }
+   ],
+   "preRating": 3.4593,
+   "impact": -0.0136,
+   "postRating": 3.4457
+  },
+  {
+   "matchId": 7707356033,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 7956299554,
+    "name": "Dan Perry",
+    "ratingThen": 3.841,
+    "ratingPre": 3.8312,
+    "ratingNow": 3.982
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.808,
+     "ratingPre": 3.8184,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 8058005332,
+     "name": "Dustin Finch",
+     "ratingThen": 3.737,
+     "ratingPre": 3.7666,
+     "ratingNow": 3.437
+    }
+   ],
+   "preRating": 3.4328,
+   "impact": 0.01,
+   "postRating": 3.4428
+  },
+  {
+   "matchId": 7867438930,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6045699468,
+    "name": "Justin Berg",
+    "ratingThen": 4.432,
+    "ratingPre": 4.4632,
+    "ratingNow": 4.435
+   },
+   "opponents": [
+    {
+     "id": 8478048405,
+     "name": "Logan Blondell",
+     "ratingThen": 4.241,
+     "ratingPre": 4.2238,
+     "ratingNow": 4.472
+    },
+    {
+     "id": 7956299554,
+     "name": "Dan Perry",
+     "ratingThen": 3.834,
+     "ratingPre": 3.8167,
+     "ratingNow": 3.982
+    }
+   ],
+   "preRating": 3.4585,
+   "impact": -0.01762,
+   "postRating": 3.4409
+  },
+  {
+   "matchId": 8304290264,
+   "date": "2026-05-31",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8056696350,
+    "name": "Sanjay Mendis",
+    "ratingThen": 3.832,
+    "ratingPre": 3.8234,
+    "ratingNow": 3.897
+   },
+   "opponents": [
+    {
+     "id": 7956299554,
+     "name": "Dan Perry",
+     "ratingThen": 3.846,
+     "ratingPre": 3.8548,
+     "ratingNow": 3.982
+    },
+    {
+     "id": 8058005332,
+     "name": "Dustin Finch",
+     "ratingThen": 3.76,
+     "ratingPre": 3.7832,
+     "ratingNow": 3.437
+    }
+   ],
+   "preRating": 3.4457,
+   "impact": 0.00875,
+   "postRating": 3.4545
+  },
+  {
+   "matchId": 4638544828,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    4
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8566705055,
+    "name": "Noah Schoenack",
+    "ratingThen": 3.465,
+    "ratingPre": 3.4789,
+    "ratingNow": 3.454
+   },
+   "opponents": [
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.637,
+     "ratingPre": 3.6232,
+     "ratingNow": 3.585
+    },
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.492,
+     "ratingPre": 3.4748,
+     "ratingNow": 3.462
+    }
+   ],
+   "preRating": 3.4751,
+   "impact": -0.01374,
+   "postRating": 3.4614
+  },
+  {
+   "matchId": 6100867082,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.49,
+    "ratingPre": 3.4754,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.48,
+     "ratingPre": 3.4991,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 7561639036,
+     "name": "Kelly Lancaster",
+     "ratingThen": 3.507,
+     "ratingPre": 3.5261,
+     "ratingNow": 3.612
+    }
+   ],
+   "preRating": 3.4509,
+   "impact": 0.01418,
+   "postRating": 3.465
+  },
+  {
+   "matchId": 6639425126,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7520651355,
+    "name": "Pat Dew",
+    "ratingThen": 3.409,
+    "ratingPre": 3.4081,
+    "ratingNow": 3.352
+   },
+   "opponents": [
+    {
+     "id": 8477251326,
+     "name": "Sydney Foy",
+     "ratingThen": 3.57,
+     "ratingPre": 3.571,
+     "ratingNow": 3.585
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.489,
+     "ratingPre": 3.4907,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.4545,
+   "impact": 0.00132,
+   "postRating": 3.4558
+  },
+  {
+   "matchId": 6769278899,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.542,
+    "ratingPre": 3.5483,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.492,
+     "ratingPre": 3.4852,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.479,
+     "ratingPre": 3.4725,
+     "ratingNow": 3.454
+    }
+   ],
+   "preRating": 3.4816,
+   "impact": -0.00644,
+   "postRating": 3.4751
+  },
+  {
+   "matchId": 8082432950,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.502,
+    "ratingPre": 3.4797,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.548,
+     "ratingPre": 3.5649,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.411,
+     "ratingPre": 3.428,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.465,
+   "impact": 0.01657,
+   "postRating": 3.4816
+  },
+  {
+   "matchId": 8333212683,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7561639036,
+    "name": "Kelly Lancaster",
+    "ratingThen": 3.526,
+    "ratingPre": 3.5329,
+    "ratingNow": 3.612
+   },
+   "opponents": [
+    {
+     "id": 8566705055,
+     "name": "Noah Schoenack",
+     "ratingThen": 3.482,
+     "ratingPre": 3.4769,
+     "ratingNow": 3.454
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.414,
+     "ratingPre": 3.4094,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.4558,
+   "impact": -0.00491,
+   "postRating": 3.4509
+  },
+  {
+   "matchId": 8584784560,
+   "date": "2026-06-03",
+   "event": "Together We Are Pickle",
+   "venue": "Fargo, ND, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8477251326,
+    "name": "Sydney Foy",
+    "ratingThen": 3.631,
+    "ratingPre": 3.637,
+    "ratingNow": 3.585
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.556,
+     "ratingPre": 3.5502,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 7561639036,
+     "name": "Kelly Lancaster",
+     "ratingThen": 3.525,
+     "ratingPre": 3.5174,
+     "ratingNow": 3.612
+    }
+   ],
+   "preRating": 3.4614,
+   "impact": -0.00582,
+   "postRating": 3.4556
+  },
+  {
+   "matchId": 5666837391,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.418,
+    "ratingPre": 3.4161,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.304,
+     "ratingPre": 3.3049,
+     "ratingNow": 3.544
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.396,
+     "ratingPre": 3.4003,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4472,
+   "impact": 0.00105,
+   "postRating": 3.4483
+  },
+  {
+   "matchId": 6594521911,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5192651300,
+    "name": "Joshua Krueger",
+    "ratingThen": 3.56,
+    "ratingPre": 3.5778,
+    "ratingNow": 3.57
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.416,
+     "ratingPre": 3.4072,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.305,
+     "ratingPre": 3.2986,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.4536,
+   "impact": -0.00634,
+   "postRating": 3.4472
+  },
+  {
+   "matchId": 6599941828,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5398303031,
+    "name": "David Baltes",
+    "ratingThen": 3.409,
+    "ratingPre": 3.4355,
+    "ratingNow": 3.336
+   },
+   "opponents": [
+    {
+     "id": 7329661271,
+     "name": "Greg Alexander",
+     "ratingThen": 3.49,
+     "ratingPre": 3.4738,
+     "ratingNow": 3.453
+    },
+    {
+     "id": 5577422625,
+     "name": "Rick Nepstad",
+     "ratingThen": 3.469,
+     "ratingPre": 3.4515,
+     "ratingNow": 3.425
+    }
+   ],
+   "preRating": 3.4659,
+   "impact": -0.01229,
+   "postRating": 3.4536
+  },
+  {
+   "matchId": 6858881343,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 6253946902,
+    "name": "Connor Hendrickson",
+    "ratingThen": 3.553,
+    "ratingPre": 3.3656,
+    "ratingNow": 3.645
+   },
+   "opponents": [
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.441,
+     "ratingPre": 3.4996,
+     "ratingNow": 3.336
+    },
+    {
+     "id": 5577422625,
+     "name": "Rick Nepstad",
+     "ratingThen": 3.476,
+     "ratingPre": 3.5154,
+     "ratingNow": 3.425
+    }
+   ],
+   "preRating": 3.4588,
+   "impact": 0.02529,
+   "postRating": 3.4841
+  },
+  {
+   "matchId": 7024163177,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5577422625,
+    "name": "Rick Nepstad",
+    "ratingThen": 3.448,
+    "ratingPre": 3.4757,
+    "ratingNow": 3.425
+   },
+   "opponents": [
+    {
+     "id": 6253946902,
+     "name": "Connor Hendrickson",
+     "ratingThen": 3.671,
+     "ratingPre": 3.5531,
+     "ratingNow": 3.645
+    },
+    {
+     "id": 7329661271,
+     "name": "Greg Alexander",
+     "ratingThen": 3.477,
+     "ratingPre": 3.4522,
+     "ratingNow": 3.453
+    }
+   ],
+   "preRating": 3.4841,
+   "impact": -0.01818,
+   "postRating": 3.4659
+  },
+  {
+   "matchId": 7224780189,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 7329661271,
+    "name": "Greg Alexander",
+    "ratingThen": 3.452,
+    "ratingPre": 3.4478,
+    "ratingNow": 3.453
+   },
+   "opponents": [
+    {
+     "id": 6253946902,
+     "name": "Connor Hendrickson",
+     "ratingThen": 3.366,
+     "ratingPre": 3.3933,
+     "ratingNow": 3.645
+    },
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.5,
+     "ratingPre": 3.5074,
+     "ratingNow": 3.336
+    }
+   ],
+   "preRating": 3.4556,
+   "impact": 0.00321,
+   "postRating": 3.4588
+  },
+  {
+   "matchId": 7321815464,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7621156344,
+    "name": "Ademar Moraes",
+    "ratingThen": 3.278,
+    "ratingPre": 3.2796,
+    "ratingNow": 3.544
+   },
+   "opponents": [
+    {
+     "id": 5192651300,
+     "name": "Joshua Krueger",
+     "ratingThen": 3.517,
+     "ratingPre": 3.513,
+     "ratingNow": 3.57
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.465,
+     "ratingPre": 3.4601,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4428,
+   "impact": -0.00165,
+   "postRating": 3.4412
+  },
+  {
+   "matchId": 8240357615,
+   "date": "2026-06-07",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.376,
+    "ratingPre": 3.396,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.425,
+     "ratingPre": 3.4175,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 5192651300,
+     "name": "Joshua Krueger",
+     "ratingThen": 3.575,
+     "ratingPre": 3.5599,
+     "ratingNow": 3.57
+    }
+   ],
+   "preRating": 3.4483,
+   "impact": -0.00546,
+   "postRating": 3.4428
+  },
+  {
+   "matchId": 4333527957,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    10
+   ],
+   "partner": {
+    "id": 4583134185,
+    "name": "Missy Netland",
+    "ratingThen": 3.426,
+    "ratingPre": 3.4222,
+    "ratingNow": 3.35
+   },
+   "opponents": [
+    {
+     "id": 8238871771,
+     "name": "Josh Williams",
+     "ratingThen": 3.54,
+     "ratingPre": 3.5454,
+     "ratingNow": 3.759
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.45,
+     "ratingPre": 3.4571,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4412,
+   "impact": 0.00365,
+   "postRating": 3.4448
+  },
+  {
+   "matchId": 5238501899,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 8238871771,
+    "name": "Josh Williams",
+    "ratingThen": 3.586,
+    "ratingPre": 3.5586,
+    "ratingNow": 3.759
+   },
+   "opponents": [
+    {
+     "id": 4982673632,
+     "name": "Dan Ostlie",
+     "ratingThen": 3.261,
+     "ratingPre": 3.4122,
+     "ratingNow": 3.474
+    },
+    {
+     "id": 8058005332,
+     "name": "Dustin Finch",
+     "ratingThen": 3.442,
+     "ratingPre": 3.4622,
+     "ratingNow": 3.437
+    }
+   ],
+   "preRating": 3.4787,
+   "impact": 0.02045,
+   "postRating": 3.4992
+  },
+  {
+   "matchId": 5303438413,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4982673632,
+    "name": "Dan Ostlie",
+    "ratingThen": 3.187,
+    "ratingPre": 3.2237,
+    "ratingNow": 3.474
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.427,
+     "ratingPre": 3.4207,
+     "ratingNow": 3.588
+    },
+    {
+     "id": 5142013955,
+     "name": "Tony Franzwa",
+     "ratingThen": 3.55,
+     "ratingPre": 3.5391,
+     "ratingNow": 3.612
+    }
+   ],
+   "preRating": 3.4763,
+   "impact": -0.00351,
+   "postRating": 3.4728
+  },
+  {
+   "matchId": 5962115976,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.453,
+    "ratingPre": 3.4536,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 5577422625,
+     "name": "Rick Nepstad",
+     "ratingThen": 3.488,
+     "ratingPre": 3.488,
+     "ratingNow": 3.425
+    },
+    {
+     "id": 8058005332,
+     "name": "Dustin Finch",
+     "ratingThen": 3.493,
+     "ratingPre": 3.492,
+     "ratingNow": 3.437
+    }
+   ],
+   "preRating": 3.4494,
+   "impact": -0.00048,
+   "postRating": 3.4489
+  },
+  {
+   "matchId": 6775288516,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 8058005332,
+    "name": "Dustin Finch",
+    "ratingThen": 3.492,
+    "ratingPre": 3.4875,
+    "ratingNow": 3.437
+   },
+   "opponents": [
+    {
+     "id": 5142013955,
+     "name": "Tony Franzwa",
+     "ratingThen": 3.438,
+     "ratingPre": 3.4561,
+     "ratingNow": 3.612
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.421,
+     "ratingPre": 3.4258,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 3.4448,
+   "impact": 0.00456,
+   "postRating": 3.4494
+  },
+  {
+   "matchId": 6985420987,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 5577422625,
+    "name": "Rick Nepstad",
+    "ratingThen": 3.517,
+    "ratingPre": 3.4885,
+    "ratingNow": 3.425
+   },
+   "opponents": [
+    {
+     "id": 4982673632,
+     "name": "Dan Ostlie",
+     "ratingThen": 3.224,
+     "ratingPre": 3.5787,
+     "ratingNow": 3.474
+    },
+    {
+     "id": 4583134185,
+     "name": "Missy Netland",
+     "ratingThen": 3.383,
+     "ratingPre": 3.4105,
+     "ratingNow": 3.35
+    }
+   ],
+   "preRating": 3.4489,
+   "impact": 0.0274,
+   "postRating": 3.4763
+  },
+  {
+   "matchId": 8206496890,
+   "date": "2026-06-17",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 5142013955,
+    "name": "Tony Franzwa",
+    "ratingThen": 3.568,
+    "ratingPre": 3.5503,
+    "ratingNow": 3.612
+   },
+   "opponents": [
+    {
+     "id": 8238871771,
+     "name": "Josh Williams",
+     "ratingThen": 3.559,
+     "ratingPre": 3.5668,
+     "ratingNow": 3.759
+    },
+    {
+     "id": 5577422625,
+     "name": "Rick Nepstad",
+     "ratingThen": 3.497,
+     "ratingPre": 3.5026,
+     "ratingNow": 3.425
+    }
+   ],
+   "preRating": 3.4728,
+   "impact": 0.00599,
+   "postRating": 3.4787
+  },
+  {
+   "matchId": 4388179475,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.513,
+    "ratingPre": 3.518,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 4576797558,
+     "name": "Kennedy Odegaard",
+     "ratingThen": 2.735,
+     "ratingPre": 2.7177,
+     "ratingNow": 2.735
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.379,
+     "ratingPre": 3.3741,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.4954,
+   "impact": -0.00535,
+   "postRating": 3.49
+  },
+  {
+   "matchId": 5077877461,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7437113832,
+    "name": "Emma Erickson",
+    "ratingThen": 2.746,
+    "ratingPre": 2.7514,
+    "ratingNow": 2.753
+   },
+   "opponents": [
+    {
+     "id": 4576797558,
+     "name": "Kennedy Odegaard",
+     "ratingThen": 2.718,
+     "ratingPre": 2.7043,
+     "ratingNow": 2.735
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.518,
+     "ratingPre": 3.5142,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.4992,
+   "impact": -0.00382,
+   "postRating": 3.4954
+  },
+  {
+   "matchId": 5120111968,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.527,
+    "ratingPre": 3.5306,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.602,
+     "ratingPre": 3.5989,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.56,
+     "ratingPre": 3.5561,
+     "ratingNow": 3.689
+    }
+   ],
+   "preRating": 3.4992,
+   "impact": -0.00352,
+   "postRating": 3.4957
+  },
+  {
+   "matchId": 6299332742,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 4576797558,
+    "name": "Kennedy Odegaard",
+    "ratingThen": 2.704,
+    "ratingPre": 2.6945,
+    "ratingNow": 2.735
+   },
+   "opponents": [
+    {
+     "id": 7437113832,
+     "name": "Emma Erickson",
+     "ratingThen": 2.758,
+     "ratingPre": 2.7617,
+     "ratingNow": 2.753
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.37,
+     "ratingPre": 3.3725,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.4924,
+   "impact": 0.00258,
+   "postRating": 3.495
+  },
+  {
+   "matchId": 6383833222,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    10
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.477,
+    "ratingPre": 3.4727,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.558,
+     "ratingPre": 3.5612,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.508,
+     "ratingPre": 3.5115,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.4892,
+   "impact": 0.00325,
+   "postRating": 3.4924
+  },
+  {
+   "matchId": 6705321406,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.561,
+    "ratingPre": 3.5715,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.605,
+     "ratingPre": 3.5944,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.473,
+     "ratingPre": 3.4575,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4994,
+   "impact": -0.01027,
+   "postRating": 3.4892
+  },
+  {
+   "matchId": 7301437259,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 7520651355,
+    "name": "Pat Dew",
+    "ratingThen": 3.374,
+    "ratingPre": 3.3699,
+    "ratingNow": 3.352
+   },
+   "opponents": [
+    {
+     "id": 7437113832,
+     "name": "Emma Erickson",
+     "ratingThen": 2.751,
+     "ratingPre": 2.7578,
+     "ratingNow": 2.753
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.514,
+     "ratingPre": 3.5185,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.495,
+   "impact": 0.00423,
+   "postRating": 3.4992
+  },
+  {
+   "matchId": 8231351213,
+   "date": "2026-06-21",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.594,
+    "ratingPre": 3.5906,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.511,
+     "ratingPre": 3.5152,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.457,
+     "ratingPre": 3.4632,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4957,
+   "impact": 0.00377,
+   "postRating": 3.4994
+  },
+  {
+   "matchId": 4898689837,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5629210554,
+    "name": "Clark Janssen",
+    "ratingThen": 3.423,
+    "ratingPre": 3.4317,
+    "ratingNow": 3.431
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.553,
+     "ratingPre": 3.5446,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.496,
+     "ratingPre": 3.4859,
+     "ratingNow": 3.462
+    }
+   ],
+   "preRating": 3.4819,
+   "impact": -0.00827,
+   "postRating": 3.4736
+  },
+  {
+   "matchId": 6074354076,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.442,
+    "ratingPre": 3.452,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.54,
+     "ratingPre": 3.5311,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 4857406220,
+     "name": "Ashley Baumler",
+     "ratingThen": 3.512,
+     "ratingPre": 3.5038,
+     "ratingNow": 3.537
+    }
+   ],
+   "preRating": 3.4774,
+   "impact": -0.00844,
+   "postRating": 3.469
+  },
+  {
+   "matchId": 6541052149,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8238871771,
+    "name": "Josh Williams",
+    "ratingThen": 3.578,
+    "ratingPre": 3.5858,
+    "ratingNow": 3.759
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.459,
+     "ratingPre": 3.4516,
+     "ratingNow": 3.588
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.453,
+     "ratingPre": 3.4469,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.49,
+   "impact": -0.006,
+   "postRating": 3.484
+  },
+  {
+   "matchId": 6637171900,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.481,
+    "ratingPre": 3.4757,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 4857406220,
+     "name": "Ashley Baumler",
+     "ratingThen": 3.521,
+     "ratingPre": 3.5263,
+     "ratingNow": 3.537
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.432,
+     "ratingPre": 3.4372,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.4763,
+   "impact": 0.00554,
+   "postRating": 3.4819
+  },
+  {
+   "matchId": 7709978468,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.486,
+    "ratingPre": 3.4768,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.476,
+     "ratingPre": 3.4833,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.456,
+     "ratingPre": 3.4648,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.4688,
+   "impact": 0.00759,
+   "postRating": 3.4763
+  },
+  {
+   "matchId": 8085895605,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4857406220,
+    "name": "Ashley Baumler",
+    "ratingThen": 3.512,
+    "ratingPre": 3.5122,
+    "ratingNow": 3.537
+   },
+   "opponents": [
+    {
+     "id": 8238871771,
+     "name": "Josh Williams",
+     "ratingThen": 3.602,
+     "ratingPre": 3.602,
+     "ratingNow": 3.759
+    },
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.477,
+     "ratingPre": 3.4765,
+     "ratingNow": 3.462
+    }
+   ],
+   "preRating": 3.469,
+   "impact": -0.00018,
+   "postRating": 3.4688
+  },
+  {
+   "matchId": 8320231109,
+   "date": "2026-06-24",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.531,
+    "ratingPre": 3.5377,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 8238871771,
+     "name": "Josh Williams",
+     "ratingThen": 3.586,
+     "ratingPre": 3.5777,
+     "ratingNow": 3.759
+    },
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.515,
+     "ratingPre": 3.5082,
+     "ratingNow": 3.639
+    }
+   ],
+   "preRating": 3.484,
+   "impact": -0.0066,
+   "postRating": 3.4774
+  },
+  {
+   "matchId": 4352284473,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 8428390113,
+    "name": "Ben Ostlie",
+    "ratingThen": 4.052,
+    "ratingPre": 4.0278,
+    "ratingNow": 4.237
+   },
+   "opponents": [
+    {
+     "id": 4391976612,
+     "name": "Austin Avery",
+     "ratingThen": 4.098,
+     "ratingPre": 4.1139,
+     "ratingNow": 4.091
+    },
+    {
+     "id": 6715563848,
+     "name": "Robert Krom",
+     "ratingThen": 3.927,
+     "ratingPre": 3.9421,
+     "ratingNow": 4.02
+    }
+   ],
+   "preRating": 3.4836,
+   "impact": 0.01545,
+   "postRating": 3.4991
+  },
+  {
+   "matchId": 5236659066,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.498,
+    "ratingPre": 3.4909,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.613,
+     "ratingPre": 3.6205,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8583295390,
+     "name": "Eric Momsen",
+     "ratingThen": 3.468,
+     "ratingPre": 3.4763,
+     "ratingNow": 3.24
+    }
+   ],
+   "preRating": 3.4952,
+   "impact": 0.00701,
+   "postRating": 3.5022
+  },
+  {
+   "matchId": 5603565469,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4391976612,
+    "name": "Austin Avery",
+    "ratingThen": 4.114,
+    "ratingPre": 4.1184,
+    "ratingNow": 4.091
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.479,
+     "ratingPre": 3.4743,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 6715563848,
+     "name": "Robert Krom",
+     "ratingThen": 3.942,
+     "ratingPre": 3.9376,
+     "ratingNow": 4.02
+    }
+   ],
+   "preRating": 3.4881,
+   "impact": -0.0045,
+   "postRating": 3.4836
+  },
+  {
+   "matchId": 7168882830,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    0
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.479,
+    "ratingPre": 3.4979,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 8428390113,
+     "name": "Ben Ostlie",
+     "ratingThen": 4.036,
+     "ratingPre": 4.004,
+     "ratingNow": 4.237
+    },
+    {
+     "id": 4391976612,
+     "name": "Austin Avery",
+     "ratingThen": 4.118,
+     "ratingPre": 4.0991,
+     "ratingNow": 4.091
+    }
+   ],
+   "preRating": 3.5022,
+   "impact": -0.01889,
+   "postRating": 3.4833
+  },
+  {
+   "matchId": 7264241352,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.568,
+    "ratingPre": 3.5569,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.62,
+     "ratingPre": 3.6319,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.491,
+     "ratingPre": 3.5023,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.4838,
+   "impact": 0.0114,
+   "postRating": 3.4952
+  },
+  {
+   "matchId": 7715906666,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 6715563848,
+    "name": "Robert Krom",
+    "ratingThen": 3.938,
+    "ratingPre": 3.9328,
+    "ratingNow": 4.02
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.474,
+     "ratingPre": 3.479,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 8428390113,
+     "name": "Ben Ostlie",
+     "ratingThen": 4.028,
+     "ratingPre": 4.0359,
+     "ratingNow": 4.237
+    }
+   ],
+   "preRating": 3.4833,
+   "impact": 0.00485,
+   "postRating": 3.4881
+  },
+  {
+   "matchId": 8169147759,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8583295390,
+    "name": "Eric Momsen",
+    "ratingThen": 3.476,
+    "ratingPre": 3.487,
+    "ratingNow": 3.24
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.557,
+     "ratingPre": 3.5478,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.502,
+     "ratingPre": 3.4932,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.4929,
+   "impact": -0.0091,
+   "postRating": 3.4838
+  },
+  {
+   "matchId": 8419256601,
+   "date": "2026-06-28",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.632,
+    "ratingPre": 3.6126,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.548,
+     "ratingPre": 3.5671,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 8583295390,
+     "name": "Eric Momsen",
+     "ratingThen": 3.487,
+     "ratingPre": 3.5103,
+     "ratingNow": 3.24
+    }
+   ],
+   "preRating": 3.4736,
+   "impact": 0.0193,
+   "postRating": 3.4929
+  },
+  {
+   "matchId": 4928466915,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    1
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4872643743,
+    "name": "Mike Foy",
+    "ratingThen": 3.484,
+    "ratingPre": 3.5148,
+    "ratingNow": 3.639
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.652,
+     "ratingPre": 3.6215,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 6034125492,
+     "name": "Chloe Asuncion",
+     "ratingThen": 3.411,
+     "ratingPre": 3.1836,
+     "ratingNow": 3.689
+    }
+   ],
+   "preRating": 3.5156,
+   "impact": -0.03068,
+   "postRating": 3.4849
+  },
+  {
+   "matchId": 5540097055,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.518,
+    "ratingPre": 3.4956,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.463,
+     "ratingPre": 3.4813,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 5762870277,
+     "name": "Ross Keller",
+     "ratingThen": 3.414,
+     "ratingPre": 3.4474,
+     "ratingNow": 3.344
+    }
+   ],
+   "preRating": 3.4991,
+   "impact": 0.01838,
+   "postRating": 3.5175
+  },
+  {
+   "matchId": 5558941450,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    4
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.445,
+    "ratingPre": 3.4624,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 4872643743,
+     "name": "Mike Foy",
+     "ratingThen": 3.515,
+     "ratingPre": 3.4979,
+     "ratingNow": 3.639
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.441,
+     "ratingPre": 3.4243,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.5326,
+   "impact": -0.01696,
+   "postRating": 3.5156
+  },
+  {
+   "matchId": 6641459624,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5762870277,
+    "name": "Ross Keller",
+    "ratingThen": 3.393,
+    "ratingPre": 3.4072,
+    "ratingNow": 3.344
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.639,
+     "ratingPre": 3.6309,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 5629210554,
+     "name": "Clark Janssen",
+     "ratingThen": 3.422,
+     "ratingPre": 3.413,
+     "ratingNow": 3.431
+    }
+   ],
+   "preRating": 3.5388,
+   "impact": -0.00853,
+   "postRating": 3.5302
+  },
+  {
+   "matchId": 7095382917,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6034125492,
+    "name": "Chloe Asuncion",
+    "ratingThen": 3.227,
+    "ratingPre": 3.2577,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.462,
+     "ratingPre": 3.4592,
+     "ratingNow": 3.588
+    },
+    {
+     "id": 5762870277,
+     "name": "Ross Keller",
+     "ratingThen": 3.356,
+     "ratingPre": 3.3515,
+     "ratingNow": 3.344
+    }
+   ],
+   "preRating": 3.5355,
+   "impact": -0.00299,
+   "postRating": 3.5326
+  },
+  {
+   "matchId": 7139924372,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.631,
+    "ratingPre": 3.6096,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.493,
+     "ratingPre": 3.5178,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.435,
+     "ratingPre": 3.459,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.5175,
+   "impact": 0.02131,
+   "postRating": 3.5388
+  },
+  {
+   "matchId": 8023416641,
+   "date": "2026-07-01",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 5629210554,
+    "name": "Clark Janssen",
+    "ratingThen": 3.427,
+    "ratingPre": 3.4216,
+    "ratingNow": 3.431
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.49,
+     "ratingPre": 3.496,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 6034125492,
+     "name": "Chloe Asuncion",
+     "ratingThen": 3.258,
+     "ratingPre": 3.3266,
+     "ratingNow": 3.689
+    }
+   ],
+   "preRating": 3.5302,
+   "impact": 0.00532,
+   "postRating": 3.5355
+  },
+  {
+   "matchId": 4948300262,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7520651355,
+    "name": "Pat Dew",
+    "ratingThen": 3.316,
+    "ratingPre": 3.309,
+    "ratingNow": 3.352
+   },
+   "opponents": [
+    {
+     "id": 4769958295,
+     "name": "Ava Keene",
+     "ratingThen": 3.951,
+     "ratingPre": 3.9804,
+     "ratingNow": 3.95
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.43,
+     "ratingPre": 3.4371,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.5213,
+   "impact": 0.00678,
+   "postRating": 3.5281
+  },
+  {
+   "matchId": 5447360193,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5366768640,
+    "name": "Vitaly Rubstein",
+    "ratingThen": 3.226,
+    "ratingPre": 3.2279,
+    "ratingNow": 3.171
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.695,
+     "ratingPre": 3.6937,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.446,
+     "ratingPre": 3.444,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.5098,
+   "impact": -0.0017,
+   "postRating": 3.5081
+  },
+  {
+   "matchId": 5754703924,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 7520651355,
+    "name": "Pat Dew",
+    "ratingThen": 3.298,
+    "ratingPre": 3.3028,
+    "ratingNow": 3.352
+   },
+   "opponents": [
+    {
+     "id": 5661042585,
+     "name": "Mariah Pollard",
+     "ratingThen": 2.996,
+     "ratingPre": 2.9669,
+     "ratingNow": 2.963
+    },
+    {
+     "id": 5366768640,
+     "name": "Vitaly Rubstein",
+     "ratingThen": 3.18,
+     "ratingPre": 3.1749,
+     "ratingNow": 3.171
+    }
+   ],
+   "preRating": 3.5344,
+   "impact": -0.0045,
+   "postRating": 3.5299
+  },
+  {
+   "matchId": 5931463695,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 4769958295,
+    "name": "Ava Keene",
+    "ratingThen": 4.007,
+    "ratingPre": 3.9613,
+    "ratingNow": 3.95
+   },
+   "opponents": [
+    {
+     "id": 5661042585,
+     "name": "Mariah Pollard",
+     "ratingThen": 2.641,
+     "ratingPre": 2.7922,
+     "ratingNow": 2.963
+    },
+    {
+     "id": 5366768640,
+     "name": "Vitaly Rubstein",
+     "ratingThen": 3.216,
+     "ratingPre": 3.2259,
+     "ratingNow": 3.171
+    }
+   ],
+   "preRating": 3.5081,
+   "impact": 0.00877,
+   "postRating": 3.5169
+  },
+  {
+   "matchId": 6416616489,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 7072023634,
+    "name": "David Keene",
+    "ratingThen": 3.998,
+    "ratingPre": 3.8842,
+    "ratingNow": 3.998
+   },
+   "opponents": [
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.303,
+     "ratingPre": 3.3182,
+     "ratingNow": 3.352
+    },
+    {
+     "id": 5366768640,
+     "name": "Vitaly Rubstein",
+     "ratingThen": 3.175,
+     "ratingPre": 3.1909,
+     "ratingNow": 3.171
+    }
+   ],
+   "preRating": 3.5191,
+   "impact": 0.01537,
+   "postRating": 3.5344
+  },
+  {
+   "matchId": 6642148036,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 5366768640,
+    "name": "Vitaly Rubstein",
+    "ratingThen": 3.183,
+    "ratingPre": 3.1795,
+    "ratingNow": 3.171
+   },
+   "opponents": [
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.294,
+     "ratingPre": 3.2983,
+     "ratingNow": 3.352
+    },
+    {
+     "id": 5661042585,
+     "name": "Mariah Pollard",
+     "ratingThen": 2.974,
+     "ratingPre": 2.9961,
+     "ratingNow": 2.963
+    }
+   ],
+   "preRating": 3.5299,
+   "impact": 0.00385,
+   "postRating": 3.5338
+  },
+  {
+   "matchId": 6739012419,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5661042585,
+    "name": "Mariah Pollard",
+    "ratingThen": 2.698,
+    "ratingPre": 2.6407,
+    "ratingNow": 2.963
+   },
+   "opponents": [
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.309,
+     "ratingPre": 3.3135,
+     "ratingNow": 3.352
+    },
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.705,
+     "ratingPre": 3.7097,
+     "ratingNow": 3.637
+    }
+   ],
+   "preRating": 3.5169,
+   "impact": 0.00444,
+   "postRating": 3.5213
+  },
+  {
+   "matchId": 7111933866,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 5661042585,
+    "name": "Mariah Pollard",
+    "ratingThen": 3.036,
+    "ratingPre": 2.9739,
+    "ratingNow": 2.963
+   },
+   "opponents": [
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.282,
+     "ratingPre": 3.2944,
+     "ratingNow": 3.352
+    },
+    {
+     "id": 5366768640,
+     "name": "Vitaly Rubstein",
+     "ratingThen": 3.171,
+     "ratingPre": 3.1834,
+     "ratingNow": 3.171
+    }
+   ],
+   "preRating": 3.5338,
+   "impact": 0.01206,
+   "postRating": 3.5458
+  },
+  {
+   "matchId": 7235553546,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.694,
+    "ratingPre": 3.6688,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 7072023634,
+     "name": "David Keene",
+     "ratingThen": 3.256,
+     "ratingPre": null,
+     "ratingNow": 3.998
+    },
+    {
+     "id": 4769958295,
+     "name": "Ava Keene",
+     "ratingThen": 4.066,
+     "ratingPre": 4.2302,
+     "ratingNow": 3.95
+    }
+   ],
+   "preRating": 3.4849,
+   "impact": 0.02492,
+   "postRating": 3.5098
+  },
+  {
+   "matchId": 7763010606,
+   "date": "2026-07-22",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.421,
+    "ratingPre": 3.4303,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 7072023634,
+     "name": "David Keene",
+     "ratingThen": 3.884,
+     "ratingPre": 3.8061,
+     "ratingNow": 3.998
+    },
+    {
+     "id": 5661042585,
+     "name": "Mariah Pollard",
+     "ratingThen": 2.931,
+     "ratingPre": 2.8533,
+     "ratingNow": 2.963
+    }
+   ],
+   "preRating": 3.5281,
+   "impact": -0.00905,
+   "postRating": 3.5191
+  },
+  {
+   "matchId": 5885006495,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.71,
+    "ratingPre": 3.6993,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 5639219366,
+     "name": "Lars Dyrdahl",
+     "ratingThen": 3.591,
+     "ratingPre": 3.6753,
+     "ratingNow": 3.647
+    },
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.629,
+     "ratingPre": 3.6399,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": 3.5483,
+   "impact": 0.01063,
+   "postRating": 3.5589
+  },
+  {
+   "matchId": 5964555781,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8040499592,
+    "name": "Eric Pezhman",
+    "ratingThen": 3.827,
+    "ratingPre": 3.8396,
+    "ratingNow": 3.75
+   },
+   "opponents": [
+    {
+     "id": 5639219366,
+     "name": "Lars Dyrdahl",
+     "ratingThen": 3.696,
+     "ratingPre": 3.6429,
+     "ratingNow": 3.647
+    },
+    {
+     "id": 8366833860,
+     "name": "Chad Kleinknecht",
+     "ratingThen": 3.767,
+     "ratingPre": 3.7218,
+     "ratingNow": 3.81
+    }
+   ],
+   "preRating": 3.558,
+   "impact": -0.01288,
+   "postRating": 3.5451
+  },
+  {
+   "matchId": 6150544277,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8366833860,
+    "name": "Chad Kleinknecht",
+    "ratingThen": 3.84,
+    "ratingPre": 3.8608,
+    "ratingNow": 3.81
+   },
+   "opponents": [
+    {
+     "id": 6543803188,
+     "name": "Floyd Marshall",
+     "ratingThen": 3.983,
+     "ratingPre": 3.9789,
+     "ratingNow": 4.053
+    },
+    {
+     "id": 5639219366,
+     "name": "Lars Dyrdahl",
+     "ratingThen": 3.635,
+     "ratingPre": 3.6101,
+     "ratingNow": 3.647
+    }
+   ],
+   "preRating": 3.5398,
+   "impact": -0.0046,
+   "postRating": 3.5352
+  },
+  {
+   "matchId": 6221799324,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.742,
+    "ratingPre": 3.7282,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 8366833860,
+     "name": "Chad Kleinknecht",
+     "ratingThen": 3.722,
+     "ratingPre": 3.7724,
+     "ratingNow": 3.81
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.727,
+     "ratingPre": 3.7403,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5446,
+   "impact": 0.01336,
+   "postRating": 3.558
+  },
+  {
+   "matchId": 6519060882,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5839483371,
+    "name": "Carter Smith",
+    "ratingThen": 3.64,
+    "ratingPre": 3.6374,
+    "ratingNow": 3.883
+   },
+   "opponents": [
+    {
+     "id": 6543803188,
+     "name": "Floyd Marshall",
+     "ratingThen": 3.985,
+     "ratingPre": 3.9871,
+     "ratingNow": 4.053
+    },
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.737,
+     "ratingPre": 3.739,
+     "ratingNow": 3.637
+    }
+   ],
+   "preRating": 3.5458,
+   "impact": 0.00252,
+   "postRating": 3.5483
+  },
+  {
+   "matchId": 6571427979,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 5639219366,
+    "name": "Lars Dyrdahl",
+    "ratingThen": 3.681,
+    "ratingPre": 3.635,
+    "ratingNow": 3.647
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.848,
+     "ratingPre": 3.8577,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.728,
+     "ratingPre": 3.7377,
+     "ratingNow": 3.637
+    }
+   ],
+   "preRating": 3.5352,
+   "impact": 0.00945,
+   "postRating": 3.5446
+  },
+  {
+   "matchId": 6600160913,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6543803188,
+    "name": "Floyd Marshall",
+    "ratingThen": 3.981,
+    "ratingPre": 3.9906,
+    "ratingNow": 4.053
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.873,
+     "ratingPre": 3.8637,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.72,
+     "ratingPre": 3.7099,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5589,
+   "impact": -0.00965,
+   "postRating": 3.5493
+  },
+  {
+   "matchId": 6709198544,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8366833860,
+    "name": "Chad Kleinknecht",
+    "ratingThen": 3.753,
+    "ratingPre": 3.7673,
+    "ratingNow": 3.81
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.831,
+     "ratingPre": 3.8267,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 5639219366,
+     "name": "Lars Dyrdahl",
+     "ratingThen": 3.713,
+     "ratingPre": 3.696,
+     "ratingNow": 3.647
+    }
+   ],
+   "preRating": 3.5451,
+   "impact": -0.00435,
+   "postRating": 3.5407
+  },
+  {
+   "matchId": 6709713668,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8040499592,
+    "name": "Eric Pezhman",
+    "ratingThen": 3.864,
+    "ratingPre": 3.8734,
+    "ratingNow": 3.75
+   },
+   "opponents": [
+    {
+     "id": 8366833860,
+     "name": "Chad Kleinknecht",
+     "ratingThen": 3.861,
+     "ratingPre": 3.8145,
+     "ratingNow": 3.81
+    },
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.638,
+     "ratingPre": 3.6283,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": 3.5493,
+   "impact": -0.00952,
+   "postRating": 3.5398
+  },
+  {
+   "matchId": 6904507691,
+   "date": "2026-07-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5639219366,
+    "name": "Lars Dyrdahl",
+    "ratingThen": 3.647,
+    "ratingPre": 3.7126,
+    "ratingNow": 3.647
+   },
+   "opponents": [
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.849,
+     "ratingPre": 3.8311,
+     "ratingNow": 3.75
+    },
+    {
+     "id": 8366833860,
+     "name": "Chad Kleinknecht",
+     "ratingThen": 3.81,
+     "ratingPre": 3.7529,
+     "ratingNow": 3.81
+    }
+   ],
+   "preRating": 3.5407,
+   "impact": -0.01829,
+   "postRating": 3.5224
+  },
+  {
+   "matchId": 6693438441,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.445,
+    "ratingPre": 3.4354,
+    "ratingNow": 3.588
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.696,
+     "ratingPre": 3.7064,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 7960272680,
+     "name": "Jake Gunderson",
+     "ratingThen": 3.567,
+     "ratingPre": 3.6035,
+     "ratingNow": 3.707
+    }
+   ],
+   "preRating": 3.552,
+   "impact": 0.00999,
+   "postRating": 3.562
+  },
+  {
+   "matchId": 7164496817,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.61,
+    "ratingPre": 3.6164,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.569,
+     "ratingPre": 3.5625,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 8435067562,
+     "name": "Ovis A",
+     "ratingThen": 3.682,
+     "ratingPre": 3.656,
+     "ratingNow": 3.952
+    }
+   ],
+   "preRating": 3.5262,
+   "impact": -0.00634,
+   "postRating": 3.5198
+  },
+  {
+   "matchId": 7287433307,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.713,
+    "ratingPre": 3.7012,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.476,
+     "ratingPre": 3.4878,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.434,
+     "ratingPre": 3.4459,
+     "ratingNow": 3.588
+    }
+   ],
+   "preRating": 3.526,
+   "impact": 0.01157,
+   "postRating": 3.5375
+  },
+  {
+   "matchId": 7710297324,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 5476389014,
+    "name": "Denim Ottum",
+    "ratingThen": 3.562,
+    "ratingPre": 3.548,
+    "ratingNow": 3.462
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.606,
+     "ratingPre": 3.6201,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.553,
+     "ratingPre": 3.5671,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5224,
+   "impact": 0.01449,
+   "postRating": 3.5369
+  },
+  {
+   "matchId": 8033648068,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7621156344,
+    "name": "Ademar Moraes",
+    "ratingThen": 3.542,
+    "ratingPre": 3.5526,
+    "ratingNow": 3.544
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.616,
+     "ratingPre": 3.6056,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8435067562,
+     "name": "Ovis A",
+     "ratingThen": 3.656,
+     "ratingPre": 3.6087,
+     "ratingNow": 3.952
+    }
+   ],
+   "preRating": 3.5369,
+   "impact": -0.01073,
+   "postRating": 3.5262
+  },
+  {
+   "matchId": 8084495684,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 7960272680,
+    "name": "Jake Gunderson",
+    "ratingThen": 3.622,
+    "ratingPre": 3.5756,
+    "ratingNow": 3.707
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.469,
+     "ratingPre": 3.4797,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.702,
+     "ratingPre": 3.7127,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.541,
+   "impact": 0.01095,
+   "postRating": 3.552
+  },
+  {
+   "matchId": 8273752397,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 8435067562,
+    "name": "Ovis A",
+    "ratingThen": 3.705,
+    "ratingPre": 3.6817,
+    "ratingNow": 3.952
+   },
+   "opponents": [
+    {
+     "id": 5476389014,
+     "name": "Denim Ottum",
+     "ratingThen": 3.563,
+     "ratingPre": 3.5688,
+     "ratingNow": 3.462
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.536,
+     "ratingPre": 3.5419,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5198,
+   "impact": 0.00613,
+   "postRating": 3.526
+  },
+  {
+   "matchId": 8441935258,
+   "date": "2026-07-26",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.48,
+    "ratingPre": 3.4762,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.431,
+     "ratingPre": 3.4343,
+     "ratingNow": 3.588
+    },
+    {
+     "id": 7960272680,
+     "name": "Jake Gunderson",
+     "ratingThen": 3.576,
+     "ratingPre": 3.5918,
+     "ratingNow": 3.707
+    }
+   ],
+   "preRating": 3.5375,
+   "impact": 0.00352,
+   "postRating": 3.541
+  },
+  {
+   "matchId": 4821564434,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7621156344,
+    "name": "Ademar Moraes",
+    "ratingThen": 3.504,
+    "ratingPre": 3.5105,
+    "ratingNow": 3.544
+   },
+   "opponents": [
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.67,
+     "ratingPre": 3.6556,
+     "ratingNow": 3.812
+    },
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.622,
+     "ratingPre": 3.6147,
+     "ratingNow": 3.6
+    }
+   ],
+   "preRating": 3.5534,
+   "impact": -0.00693,
+   "postRating": 3.5465
+  },
+  {
+   "matchId": 4871423700,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 5772581098,
+    "name": "Corey Langer",
+    "ratingThen": 3.23,
+    "ratingPre": 3.2238,
+    "ratingNow": 3.231
+   },
+   "opponents": [
+    {
+     "id": 5678164694,
+     "name": "Christopher Hane",
+     "ratingThen": 3.334,
+     "ratingPre": 3.3402,
+     "ratingNow": 3.276
+    },
+    {
+     "id": 5771743415,
+     "name": "Allyson Kangas",
+     "ratingThen": 3.177,
+     "ratingPre": 3.1835,
+     "ratingNow": 3.105
+    }
+   ],
+   "preRating": 3.5696,
+   "impact": 0.00604,
+   "postRating": 3.5757
+  },
+  {
+   "matchId": 5264137319,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5771743415,
+    "name": "Allyson Kangas",
+    "ratingThen": 3.165,
+    "ratingPre": 3.1774,
+    "ratingNow": 3.105
+   },
+   "opponents": [
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.549,
+     "ratingPre": 3.5361,
+     "ratingNow": 3.544
+    },
+    {
+     "id": 5772581098,
+     "name": "Corey Langer",
+     "ratingThen": 3.242,
+     "ratingPre": 3.2298,
+     "ratingNow": 3.231
+    }
+   ],
+   "preRating": 3.5757,
+   "impact": -0.01257,
+   "postRating": 3.5631
+  },
+  {
+   "matchId": 5332718305,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 4653600006,
+    "name": "Konnor Lorenz",
+    "ratingThen": 3.656,
+    "ratingPre": 3.6415,
+    "ratingNow": 3.812
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.755,
+     "ratingPre": 3.7614,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.511,
+     "ratingPre": 3.5172,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5468,
+   "impact": 0.00667,
+   "postRating": 3.5534
+  },
+  {
+   "matchId": 5589058426,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    0
+   ],
+   "partner": {
+    "id": 7621156344,
+    "name": "Ademar Moraes",
+    "ratingThen": 3.531,
+    "ratingPre": 3.5036,
+    "ratingNow": 3.544
+   },
+   "opponents": [
+    {
+     "id": 5678164694,
+     "name": "Christopher Hane",
+     "ratingThen": 3.345,
+     "ratingPre": 3.3727,
+     "ratingNow": 3.276
+    },
+    {
+     "id": 5772581098,
+     "name": "Corey Langer",
+     "ratingThen": 3.224,
+     "ratingPre": 3.2516,
+     "ratingNow": 3.231
+    }
+   ],
+   "preRating": 3.5465,
+   "impact": 0.02783,
+   "postRating": 3.5743
+  },
+  {
+   "matchId": 6248722214,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.587,
+    "ratingPre": 3.6072,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.723,
+     "ratingPre": 3.7024,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.715,
+     "ratingPre": 3.6678,
+     "ratingNow": 3.812
+    }
+   ],
+   "preRating": 3.562,
+   "impact": -0.02047,
+   "postRating": 3.5415
+  },
+  {
+   "matchId": 6325866517,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.761,
+    "ratingPre": 3.7561,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.615,
+     "ratingPre": 3.62,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.517,
+     "ratingPre": 3.5225,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5415,
+   "impact": 0.00527,
+   "postRating": 3.5468
+  },
+  {
+   "matchId": 7477160760,
+   "date": "2026-08-16",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5678164694,
+    "name": "Christopher Hane",
+    "ratingThen": 3.34,
+    "ratingPre": 3.3449,
+    "ratingNow": 3.276
+   },
+   "opponents": [
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.536,
+     "ratingPre": 3.5314,
+     "ratingNow": 3.544
+    },
+    {
+     "id": 5771743415,
+     "name": "Allyson Kangas",
+     "ratingThen": 3.183,
+     "ratingPre": 3.1788,
+     "ratingNow": 3.105
+    }
+   ],
+   "preRating": 3.5743,
+   "impact": -0.00471,
+   "postRating": 3.5696
+  },
+  {
+   "matchId": 5217332105,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8156037132,
+    "name": "Sean Collins",
+    "ratingThen": 3.769,
+    "ratingPre": 3.7614,
+    "ratingNow": 3.702
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.706,
+     "ratingPre": 3.7132,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.851,
+     "ratingPre": 3.859,
+     "ratingNow": 3.926
+    }
+   ],
+   "preRating": 3.5208,
+   "impact": 0.00768,
+   "postRating": 3.5285
+  },
+  {
+   "matchId": 5594503775,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6592217897,
+    "name": "Jackson Reiswig",
+    "ratingThen": 3.696,
+    "ratingPre": 3.7055,
+    "ratingNow": 3.637
+   },
+   "opponents": [
+    {
+     "id": 7561639036,
+     "name": "Kelly Lancaster",
+     "ratingThen": 3.659,
+     "ratingPre": 3.6488,
+     "ratingNow": 3.612
+    },
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.605,
+     "ratingPre": 3.5956,
+     "ratingNow": 3.689
+    }
+   ],
+   "preRating": 3.5285,
+   "impact": -0.00986,
+   "postRating": 3.5186
+  },
+  {
+   "matchId": 5797593629,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    8
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.608,
+    "ratingPre": 3.6055,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 5209377836,
+     "name": "Kain Carlson",
+     "ratingThen": 3.883,
+     "ratingPre": 3.8855,
+     "ratingNow": 3.862
+    },
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.773,
+     "ratingPre": 3.7757,
+     "ratingNow": 3.702
+    }
+   ],
+   "preRating": 3.5186,
+   "impact": 0.00244,
+   "postRating": 3.5211
+  },
+  {
+   "matchId": 7944924288,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7561639036,
+    "name": "Kelly Lancaster",
+    "ratingThen": 3.66,
+    "ratingPre": 3.6764,
+    "ratingNow": 3.612
+   },
+   "opponents": [
+    {
+     "id": 8156037132,
+     "name": "Sean Collins",
+     "ratingThen": 3.761,
+     "ratingPre": 3.7448,
+     "ratingNow": 3.702
+    },
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.686,
+     "ratingPre": 3.6591,
+     "ratingNow": 3.812
+    }
+   ],
+   "preRating": 3.5374,
+   "impact": -0.01659,
+   "postRating": 3.5208
+  },
+  {
+   "matchId": 8161716400,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5826328154,
+    "name": "John Patrick Merciales",
+    "ratingThen": 3.814,
+    "ratingPre": 3.8136,
+    "ratingNow": 3.926
+   },
+   "opponents": [
+    {
+     "id": 5209377836,
+     "name": "Kain Carlson",
+     "ratingThen": 3.876,
+     "ratingPre": 3.8771,
+     "ratingNow": 3.862
+    },
+    {
+     "id": 7561639036,
+     "name": "Kelly Lancaster",
+     "ratingThen": 3.663,
+     "ratingPre": 3.6639,
+     "ratingNow": 3.612
+    }
+   ],
+   "preRating": 3.5631,
+   "impact": 0.00081,
+   "postRating": 3.5639
+  },
+  {
+   "matchId": 8248114873,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5209377836,
+    "name": "Kain Carlson",
+    "ratingThen": 3.881,
+    "ratingPre": 3.8831,
+    "ratingNow": 3.862
+   },
+   "opponents": [
+    {
+     "id": 6592217897,
+     "name": "Jackson Reiswig",
+     "ratingThen": 3.697,
+     "ratingPre": 3.6947,
+     "ratingNow": 3.637
+    },
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.663,
+     "ratingPre": 3.66,
+     "ratingNow": 3.812
+    }
+   ],
+   "preRating": 3.5211,
+   "impact": -0.00235,
+   "postRating": 3.5187
+  },
+  {
+   "matchId": 8551759742,
+   "date": "2026-08-19",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    1
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4653600006,
+    "name": "Konnor Lorenz",
+    "ratingThen": 3.659,
+    "ratingPre": 3.7033,
+    "ratingNow": 3.812
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.603,
+     "ratingPre": 3.5764,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 5826328154,
+     "name": "John Patrick Merciales",
+     "ratingThen": 3.841,
+     "ratingPre": 3.8144,
+     "ratingNow": 3.926
+    }
+   ],
+   "preRating": 3.5639,
+   "impact": -0.02645,
+   "postRating": 3.5374
+  },
+  {
+   "matchId": 4691964197,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 7520651355,
+    "name": "Pat Dew",
+    "ratingThen": 3.292,
+    "ratingPre": 3.2845,
+    "ratingNow": 3.352
+   },
+   "opponents": [
+    {
+     "id": 7645634715,
+     "name": "Anthony Santos",
+     "ratingThen": 3.08,
+     "ratingPre": 3.0879,
+     "ratingNow": 3.039
+    },
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.581,
+     "ratingPre": 3.5887,
+     "ratingNow": 3.6
+    }
+   ],
+   "preRating": 3.5309,
+   "impact": 0.00796,
+   "postRating": 3.5389
+  },
+  {
+   "matchId": 5749822730,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    9
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.587,
+    "ratingPre": 3.5894,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.615,
+     "ratingPre": 3.6122,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.569,
+     "ratingPre": 3.5668,
+     "ratingNow": 3.582
+    }
+   ],
+   "preRating": 3.5187,
+   "impact": -0.00236,
+   "postRating": 3.5164
+  },
+  {
+   "matchId": 5803015607,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.588,
+    "ratingPre": 3.5901,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 7854117829,
+     "name": "Marty Livingood",
+     "ratingThen": 3.119,
+     "ratingPre": 3.1159,
+     "ratingNow": 3.12
+    },
+    {
+     "id": 7645634715,
+     "name": "Anthony Santos",
+     "ratingThen": 3.105,
+     "ratingPre": 3.1029,
+     "ratingNow": 3.039
+    }
+   ],
+   "preRating": 3.5016,
+   "impact": -0.00232,
+   "postRating": 3.4993
+  },
+  {
+   "matchId": 6087438464,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 7621156344,
+    "name": "Ademar Moraes",
+    "ratingThen": 3.576,
+    "ratingPre": 3.5696,
+    "ratingNow": 3.544
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.59,
+     "ratingPre": 3.5968,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8231759034,
+     "name": "Michael Smith",
+     "ratingThen": 3.551,
+     "ratingPre": 3.5575,
+     "ratingNow": 3.582
+    }
+   ],
+   "preRating": 3.4949,
+   "impact": 0.0067,
+   "postRating": 3.5016
+  },
+  {
+   "matchId": 7368452511,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 7645634715,
+    "name": "Anthony Santos",
+    "ratingThen": 3.088,
+    "ratingPre": 3.0796,
+    "ratingNow": 3.039
+   },
+   "opponents": [
+    {
+     "id": 7854117829,
+     "name": "Marty Livingood",
+     "ratingThen": 3.17,
+     "ratingPre": 3.1795,
+     "ratingNow": 3.12
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.284,
+     "ratingPre": 3.2925,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.5228,
+   "impact": 0.00807,
+   "postRating": 3.5309
+  },
+  {
+   "matchId": 7461366574,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 7854117829,
+    "name": "Marty Livingood",
+    "ratingThen": 3.18,
+    "ratingPre": 3.1502,
+    "ratingNow": 3.12
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.589,
+     "ratingPre": 3.6123,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 7520651355,
+     "name": "Pat Dew",
+     "ratingThen": 3.293,
+     "ratingPre": 3.3161,
+     "ratingNow": 3.352
+    }
+   ],
+   "preRating": 3.4993,
+   "impact": 0.02353,
+   "postRating": 3.5228
+  },
+  {
+   "matchId": 7512325723,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.616,
+    "ratingPre": 3.6262,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.597,
+     "ratingPre": 3.5871,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.57,
+     "ratingPre": 3.5598,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5047,
+   "impact": -0.00977,
+   "postRating": 3.4949
+  },
+  {
+   "matchId": 8419267947,
+   "date": "2026-08-23",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8231759034,
+    "name": "Michael Smith",
+    "ratingThen": 3.558,
+    "ratingPre": 3.5692,
+    "ratingNow": 3.582
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.626,
+     "ratingPre": 3.6146,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 7621156344,
+     "name": "Ademar Moraes",
+     "ratingThen": 3.56,
+     "ratingPre": 3.5482,
+     "ratingNow": 3.544
+    }
+   ],
+   "preRating": 3.5164,
+   "impact": -0.01162,
+   "postRating": 3.5047
+  },
+  {
+   "matchId": 4941244927,
+   "date": "2026-09-27",
+   "event": "Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.597,
+    "ratingPre": 3.5952,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.399,
+     "ratingPre": 3.4005,
+     "ratingNow": 3.363
+    },
+    {
+     "id": 8583295390,
+     "name": "Eric Momsen",
+     "ratingThen": 3.354,
+     "ratingPre": 3.3554,
+     "ratingNow": 3.24
+    }
+   ],
+   "preRating": 3.5541,
+   "impact": 0.0018,
+   "postRating": 3.5559
+  },
+  {
+   "matchId": 7995987576,
+   "date": "2026-09-27",
+   "event": "Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.634,
+    "ratingPre": 3.6273,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.602,
+     "ratingPre": 3.609,
+     "ratingNow": 3.606
+    },
+    {
+     "id": 8583295390,
+     "name": "Eric Momsen",
+     "ratingThen": 3.347,
+     "ratingPre": 3.3536,
+     "ratingNow": 3.24
+    }
+   ],
+   "preRating": 3.5438,
+   "impact": 0.00694,
+   "postRating": 3.5507
+  },
+  {
+   "matchId": 8142819182,
+   "date": "2026-09-27",
+   "event": "Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 8583295390,
+    "name": "Eric Momsen",
+    "ratingThen": 3.355,
+    "ratingPre": 3.3402,
+    "ratingNow": 3.24
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.615,
+     "ratingPre": 3.6304,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 4680406125,
+     "name": "Peyton Blakeway",
+     "ratingThen": 3.4,
+     "ratingPre": 3.4157,
+     "ratingNow": 3.363
+    }
+   ],
+   "preRating": 3.5389,
+   "impact": 0.01523,
+   "postRating": 3.5541
+  },
+  {
+   "matchId": 8213041122,
+   "date": "2026-09-27",
+   "event": "Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    4
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4680406125,
+    "name": "Peyton Blakeway",
+    "ratingThen": 3.387,
+    "ratingPre": 3.3987,
+    "ratingNow": 3.363
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.627,
+     "ratingPre": 3.6152,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.609,
+     "ratingPre": 3.5969,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.5559,
+   "impact": -0.01209,
+   "postRating": 3.5438
+  },
+  {
+   "matchId": 5441692792,
+   "date": "2026-09-28",
+   "event": "Next Game - Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    8
+   ],
+   "partner": {
+    "id": 4854196408,
+    "name": "Jeremiah Walter",
+    "ratingThen": 4.486,
+    "ratingPre": 4.4867,
+    "ratingNow": 4.52
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 3.968,
+     "ratingPre": 3.9675,
+     "ratingNow": 4.01
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.612,
+     "ratingPre": 3.6115,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.5208,
+   "impact": -0.0009,
+   "postRating": 3.5199
+  },
+  {
+   "matchId": 7287758859,
+   "date": "2026-09-28",
+   "event": "Next Game - Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.607,
+    "ratingPre": 3.6192,
+    "ratingNow": 3.606
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 3.978,
+     "ratingPre": 3.9655,
+     "ratingNow": 4.01
+    },
+    {
+     "id": 6407219493,
+     "name": "Carter West",
+     "ratingThen": 4.005,
+     "ratingPre": 3.9923,
+     "ratingNow": 3.99
+    }
+   ],
+   "preRating": 3.5388,
+   "impact": -0.01231,
+   "postRating": 3.5265
+  },
+  {
+   "matchId": 8338646017,
+   "date": "2026-09-28",
+   "event": "Next Game - Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8557535468,
+    "name": "Kelsie Walter",
+    "ratingThen": 3.968,
+    "ratingPre": 3.9732,
+    "ratingNow": 4.01
+   },
+   "opponents": [
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.487,
+     "ratingPre": 4.481,
+     "ratingNow": 4.52
+    },
+    {
+     "id": 6407219493,
+     "name": "Carter West",
+     "ratingThen": 4.015,
+     "ratingPre": 4.0091,
+     "ratingNow": 3.99
+    }
+   ],
+   "preRating": 3.5265,
+   "impact": -0.0057,
+   "postRating": 3.5208
+  },
+  {
+   "matchId": 8500653949,
+   "date": "2026-09-28",
+   "event": "Next Game - Sunday Ladder",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6407219493,
+    "name": "Carter West",
+    "ratingThen": 3.992,
+    "ratingPre": 4.0042,
+    "ratingNow": 3.99
+   },
+   "opponents": [
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.486,
+     "ratingPre": 4.4736,
+     "ratingNow": 4.52
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.619,
+     "ratingPre": 3.6073,
+     "ratingNow": 3.606
+    }
+   ],
+   "preRating": 3.5507,
+   "impact": -0.0119,
+   "postRating": 3.5388
+  },
+  {
+   "matchId": 4580306709,
+   "date": "2026-10-04",
+   "event": "10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 6705717957,
+    "name": "Ty Hagerott",
+    "ratingThen": 3.657,
+    "ratingPre": 3.6211,
+    "ratingNow": 3.623
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.669,
+     "ratingPre": 3.6751,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.645,
+     "ratingPre": 3.6508,
+     "ratingNow": 3.6
+    }
+   ],
+   "preRating": 3.5199,
+   "impact": 0.00598,
+   "postRating": 3.5259
+  },
+  {
+   "matchId": 4658193476,
+   "date": "2026-10-04",
+   "event": "2605 8th St S, Moorhead, MN 56560, USA",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "SINGLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    12
+   ],
+   "partner": null,
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.865,
+     "ratingPre": null,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": null,
+   "impact": null,
+   "postRating": null
+  },
+  {
+   "matchId": 5504327867,
+   "date": "2026-10-04",
+   "event": "10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    4
+   ],
+   "partner": {
+    "id": 7696758175,
+    "name": "Troy Kenkel",
+    "ratingThen": 3.644,
+    "ratingPre": 3.6289,
+    "ratingNow": 3.6
+   },
+   "opponents": [
+    {
+     "id": 8067169056,
+     "name": "Rwit Chakravorty",
+     "ratingThen": 3.67,
+     "ratingPre": 3.6849,
+     "ratingNow": 3.689
+    },
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.393,
+     "ratingPre": 3.4309,
+     "ratingNow": 3.336
+    }
+   ],
+   "preRating": 3.5259,
+   "impact": 0.01519,
+   "postRating": 3.5411
+  },
+  {
+   "matchId": 6063168592,
+   "date": "2026-10-04",
+   "event": "10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 8067169056,
+    "name": "Rwit Chakravorty",
+    "ratingThen": 3.678,
+    "ratingPre": 3.6697,
+    "ratingNow": 3.689
+   },
+   "opponents": [
+    {
+     "id": 6705717957,
+     "name": "Ty Hagerott",
+     "ratingThen": 3.701,
+     "ratingPre": 3.7438,
+     "ratingNow": 3.623
+    },
+    {
+     "id": 5398303031,
+     "name": "David Baltes",
+     "ratingThen": 3.373,
+     "ratingPre": 3.3933,
+     "ratingNow": 3.336
+    }
+   ],
+   "preRating": 3.5411,
+   "impact": 0.00868,
+   "postRating": 3.5497
+  },
+  {
+   "matchId": 6872060684,
+   "date": "2026-10-04",
+   "event": "10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5398303031,
+    "name": "David Baltes",
+    "ratingThen": 3.358,
+    "ratingPre": 3.3728,
+    "ratingNow": 3.336
+   },
+   "opponents": [
+    {
+     "id": 7696758175,
+     "name": "Troy Kenkel",
+     "ratingThen": 3.651,
+     "ratingPre": 3.6441,
+     "ratingNow": 3.6
+    },
+    {
+     "id": 6705717957,
+     "name": "Ty Hagerott",
+     "ratingThen": 3.73,
+     "ratingPre": 3.701,
+     "ratingNow": 3.623
+    }
+   ],
+   "preRating": 3.5497,
+   "impact": -0.00643,
+   "postRating": 3.5433
+  },
+  {
+   "matchId": 7902044753,
+   "date": "2026-10-04",
+   "event": "2605 8th St S, Moorhead, MN 56560, USA",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "SINGLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    4
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": null,
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.865,
+     "ratingPre": null,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": null,
+   "impact": null,
+   "postRating": null
+  },
+  {
+   "matchId": 8301071421,
+   "date": "2026-10-04",
+   "event": "2605 8th St S, Moorhead, MN 56560, USA",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "SINGLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": null,
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.865,
+     "ratingPre": null,
+     "ratingNow": 3.883
+    }
+   ],
+   "preRating": null,
+   "impact": null,
+   "postRating": null
+  },
+  {
+   "matchId": 6692761156,
+   "date": "2026-10-05",
+   "event": "Next Game - 10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 6705717957,
+    "name": "Ty Hagerott",
+    "ratingThen": 3.623,
+    "ratingPre": 3.6333,
+    "ratingNow": 3.623
+   },
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.865,
+     "ratingPre": 3.8616,
+     "ratingNow": 3.883
+    },
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.804,
+     "ratingPre": 3.8012,
+     "ratingNow": 3.75
+    }
+   ],
+   "preRating": 3.5491,
+   "impact": -0.00299,
+   "postRating": 3.5461
+  },
+  {
+   "matchId": 7024570969,
+   "date": "2026-10-05",
+   "event": "Next Game - 10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5839483371,
+    "name": "Carter Smith",
+    "ratingThen": 3.863,
+    "ratingPre": 3.8579,
+    "ratingNow": 3.883
+   },
+   "opponents": [
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.512,
+     "ratingPre": 4.5173,
+     "ratingNow": 4.52
+    },
+    {
+     "id": 8040499592,
+     "name": "Eric Pezhman",
+     "ratingThen": 3.803,
+     "ratingPre": 3.8083,
+     "ratingNow": 3.75
+    }
+   ],
+   "preRating": 3.5433,
+   "impact": 0.00548,
+   "postRating": 3.5488
+  },
+  {
+   "matchId": 8091600684,
+   "date": "2026-10-05",
+   "event": "Next Game - 10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    5
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8040499592,
+    "name": "Eric Pezhman",
+    "ratingThen": 3.801,
+    "ratingPre": 3.8028,
+    "ratingNow": 3.75
+   },
+   "opponents": [
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.515,
+     "ratingPre": 4.5137,
+     "ratingNow": 4.52
+    },
+    {
+     "id": 6705717957,
+     "name": "Ty Hagerott",
+     "ratingThen": 3.633,
+     "ratingPre": 3.6279,
+     "ratingNow": 3.623
+    }
+   ],
+   "preRating": 3.5506,
+   "impact": -0.00153,
+   "postRating": 3.5491
+  },
+  {
+   "matchId": 8112054340,
+   "date": "2026-10-05",
+   "event": "Next Game - 10/4 Ladder League",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    6
+   ],
+   "partner": {
+    "id": 4854196408,
+    "name": "Jeremiah Walter",
+    "ratingThen": 4.514,
+    "ratingPre": 4.5118,
+    "ratingNow": 4.52
+   },
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.862,
+     "ratingPre": 3.8634,
+     "ratingNow": 3.883
+    },
+    {
+     "id": 6705717957,
+     "name": "Ty Hagerott",
+     "ratingThen": 3.628,
+     "ratingPre": 3.6349,
+     "ratingNow": 3.623
+    }
+   ],
+   "preRating": 3.5488,
+   "impact": 0.00184,
+   "postRating": 3.5506
+  }
+ ]
 }
