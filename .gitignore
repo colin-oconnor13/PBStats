@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+# never commit a token
+tok.txt
+*.token
+.env
+.claude/
+# your local copy (tools/serve_local.py): DUPR data + config
+local/

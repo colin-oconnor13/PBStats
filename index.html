@@ -1,0 +1,1511 @@
+<meta charset="utf-8">
+<title>Pickleball</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0E1512">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Pickleball">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    color-scheme:light dark;
+    --bg:#F4F6F3; --surface:#FFFFFF; --surface-2:#EEF1ED;
+    --ink:#16201C; --muted:#5C6B64; --line:#E2E7E2;
+    --accent:#0B7A6B; --accent-soft:#0b7a6b1a; --blue:#1D4ED8; --gold:#C8901B; --dot-dim:#9AA8A2;
+    --optic:#7f9c00; --optic-bright:#A6C400;
+    --win:#0B7A6B; --win-soft:#0b7a6b14;
+    --loss:#C7522A; --loss-soft:#c7522a14;
+    --champ:#A6C40024;
+    --shadow:0 1px 2px #16201c0a,0 8px 24px -12px #16201c1f;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1512; --surface:#16211C; --surface-2:#1c2a24;
+      --ink:#EAF0EC; --muted:#90A099; --line:#263630;
+      --accent:#35B79E; --accent-soft:#35b79e1f; --blue:#7FB0FF; --gold:#E9B949; --dot-dim:#7C8C85;
+      --optic:#C4E62B; --optic-bright:#C4E62B;
+      --win:#35B79E; --win-soft:#35b79e1c;
+      --loss:#E4794C; --loss-soft:#e4794c1f;
+      --champ:#c4e62b26;
+      --shadow:0 1px 2px #0006,0 12px 30px -14px #0009;
+    }
+  }
+  :root[data-theme="light"]{color-scheme:light}
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0E1512; --surface:#16211C; --surface-2:#1c2a24;
+    --ink:#EAF0EC; --muted:#90A099; --line:#263630;
+    --accent:#35B79E; --accent-soft:#35b79e1f; --blue:#7FB0FF; --gold:#E9B949; --dot-dim:#7C8C85;
+    --optic:#C4E62B; --optic-bright:#C4E62B;
+    --win:#35B79E; --win-soft:#35b79e1c;
+    --loss:#E4794C; --loss-soft:#e4794c1f;
+    --champ:#c4e62b26;
+    --shadow:0 1px 2px #0006,0 12px 30px -14px #0009;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:"Instrument Sans",system-ui,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;margin:0}
+  .wrap{max-width:1040px;margin:0 auto;padding:22px 20px 90px}
+  .mono{font-variant-numeric:tabular-nums}
+  h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;margin:0;text-wrap:balance}
+  .sect-h{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+
+  .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+  .brand .name{font-family:"Archivo",sans-serif;font-weight:900;font-size:20px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+  .logo{width:28px;height:28px;flex:none}
+  .idpill{font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+  .btn{background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:999px;
+    padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn:hover{color:var(--ink);border-color:var(--accent)}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+  .pad{padding:18px 20px}
+
+  /* filter bar */
+  .filterbar{z-index:20;margin-bottom:14px}
+  .filterbar.collapsed-f{position:sticky;top:0}
+  .fb-head{display:flex;align-items:center;gap:12px;padding:12px 16px 12px 18px;cursor:pointer;flex-wrap:wrap}
+  .fb-toggle{display:flex;align-items:center;gap:8px;font-family:"Archivo",sans-serif;font-weight:800;font-size:13px;
+    letter-spacing:.02em;color:var(--ink);background:none;border:0;cursor:pointer;padding:0}
+  .chev{transition:transform .18s;font-size:10px;color:var(--muted)}
+  .collapsed-f .chev{transform:rotate(-90deg)}
+  .fb-summary{color:var(--muted);font-size:12.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .fb-count{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;letter-spacing:-.02em;white-space:nowrap}
+  .fb-count small{font-weight:500;font-size:11px;color:var(--muted)}
+  .fb-body{padding:2px 18px 15px;display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:2px;padding-top:14px}
+  .collapsed-f .fb-body,.collapsed-f .manage{display:none}
+  .fld{display:flex;flex-direction:column;gap:5px;min-width:0}
+  .fld label{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;color:var(--muted)}
+  select{font-family:inherit;font-size:13px;padding:8px 30px 8px 11px;border:1px solid var(--line);border-radius:9px;
+    background:var(--surface);color:var(--ink);cursor:pointer;min-width:110px;max-width:200px;appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 15px) 51%,calc(100% - 10px) 51%;background-size:5px 5px;background-repeat:no-repeat}
+  select:focus-visible,.chip:focus-visible,.btn:focus-visible,.tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .ms{position:relative;min-width:120px;max-width:200px}
+  .ms-btn{width:100%;font-family:inherit;font-size:13px;padding:8px 30px 8px 11px;border:1px solid var(--line);border-radius:9px;
+    background:var(--surface);color:var(--ink);cursor:pointer;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 15px) 51%,calc(100% - 10px) 51%;background-size:5px 5px;background-repeat:no-repeat}
+  .ms-btn.active{border-color:var(--accent);color:var(--accent);font-weight:600}
+  .ms-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .ms-panel{position:absolute;z-index:45;top:calc(100% + 4px);left:0;min-width:100%;max-width:min(300px,80vw);max-height:264px;
+    overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:5px}
+  .ms-opt{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:7px;cursor:pointer;font-size:13px}
+  .ms-opt span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .ms-opt:hover{background:var(--surface-2)}
+  .ms-opt input{accent-color:var(--accent);width:15px;height:15px;flex:none;cursor:pointer;margin:0}
+  .ms-opt.all{border-bottom:1px solid var(--line);border-radius:0;margin-bottom:3px;color:var(--muted);font-weight:600}
+  .fb-body .acts{display:flex;flex-direction:column;gap:6px;margin-left:auto;align-items:flex-end}
+  .reset{background:none;border:0;color:var(--accent);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;padding:0}
+  .reset:hover{text-decoration:underline}
+  .reset[disabled]{color:var(--muted);cursor:default;text-decoration:none;opacity:.5}
+  .evclear{margin-top:6px;font-size:12px}
+  .minibtn{background:none;border:0;color:var(--muted);font-family:inherit;font-size:12px;font-weight:600;cursor:pointer;padding:0}
+  .minibtn:hover{color:var(--accent)}
+
+  /* manage panel */
+  .manage{border-top:1px solid var(--line);padding:16px 18px;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+  .msec{min-width:0}
+  .msec .mh{display:flex;align-items:baseline;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+  .msec .mh h4{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin:0}
+  .msec .mh .hint{font-size:11.5px;color:var(--muted)}
+  .msec .mh .quick{margin-left:auto}
+  .mrows{display:flex;flex-wrap:wrap;gap:8px}
+  .mrow{display:inline-flex;align-items:center;gap:7px;background:var(--surface-2);border:1px solid var(--line);
+    border-radius:999px;padding:4px 8px 4px 12px;font-size:12.5px;max-width:100%}
+  .mrow.hidden{opacity:.45}
+  .mrow .cnt{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .mrow input{font-family:inherit;font-size:12.5px;border:1px solid var(--accent);border-radius:6px;padding:2px 6px;width:150px;outline:none;background:var(--surface);color:var(--ink)}
+  .mrow .ic{border:0;background:none;cursor:pointer;color:var(--muted);font-size:13px;line-height:1;padding:2px}
+  .mrow .ic:hover{color:var(--accent)} .mrow .ic.del:hover{color:var(--loss)}
+  .mrow .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:230px}
+  .mnone{font-size:12.5px;color:var(--muted)}
+  .syncbtn{font-family:inherit;font-size:12px;font-weight:600;padding:7px 13px;border-radius:999px;border:1px solid var(--line);
+    background:var(--surface);color:var(--accent);cursor:pointer}
+  .syncbtn:hover{border-color:var(--accent)}
+  .syncbtn.danger{color:var(--loss)} .syncbtn.danger:hover{border-color:var(--loss)}
+  .syncbtn.prim{background:var(--accent);border-color:var(--accent);color:#fff}
+  :root[data-theme="dark"] .syncbtn.prim{color:#0E1512}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .syncbtn.prim{color:#0E1512}}
+  .syncbtn.prim:hover{filter:brightness(1.06)}
+  .tokin{font-family:inherit;font-size:12.5px;padding:7px 11px;border:1px solid var(--accent);border-radius:8px;
+    background:var(--surface);color:var(--ink);outline:none;min-width:230px;flex:1}
+  #syncMain a{color:var(--accent);font-size:12px}
+  .evrows{flex-direction:column;align-items:stretch}
+  .evrows .mrow{width:100%;justify-content:flex-start}
+  .evrows .mrow .evnm{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
+  .evrows .mrow .evnm .nm{max-width:none}
+  .evdate{font-size:10.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .selc{font-family:inherit;font-size:11px;font-weight:600;padding:3px 20px 3px 9px;border:1px solid var(--line);
+    border-radius:999px;background:var(--surface);color:var(--accent);cursor:pointer;appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 12px) 51%,calc(100% - 8px) 51%;background-size:4px 4px;background-repeat:no-repeat}
+  .evrows .mrow .typesel{flex:none;width:120px;min-width:120px}
+  .evrows .mrow .levelsel{flex:none;width:66px;min-width:66px;color:var(--muted)}
+  .evrows .mrow .cnt{flex:none;min-width:34px;text-align:right}
+
+  /* tabs */
+  .tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--surface-2);padding:4px;border-radius:11px;width:fit-content;border:1px solid var(--line)}
+  .tab{font-family:"Archivo",sans-serif;font-weight:700;font-size:13px;padding:7px 18px;border-radius:8px;border:0;
+    background:none;color:var(--muted);cursor:pointer}
+  .tab.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  .tab:hover:not(.on){color:var(--ink)}
+
+  /* KPIs */
+  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:14px 12px}
+  .kpi .v{font-family:"Archivo",sans-serif;font-weight:800;font-size:25px;letter-spacing:-.02em;line-height:1}
+  .kpi .v.big{color:var(--optic)}
+  .kpi .v.blue{color:var(--blue)}
+  .kpi .l{font-size:11.5px;color:var(--muted);margin-top:5px;font-weight:600}
+  #dkpis{grid-template-columns:repeat(4,1fr) 13px repeat(2,1fr)}
+  .kpi-bar{justify-self:center;align-self:stretch;width:1px;background:var(--line)}
+  @media(max-width:760px){#dkpis{grid-template-columns:repeat(3,1fr)}.kpi-bar{display:none}}
+  .kpi .l .sub{color:var(--muted);font-weight:400;opacity:.8}
+  @media(max-width:760px){.kpis{grid-template-columns:repeat(3,1fr)}}
+  @media(min-width:761px){#kpis{grid-template-columns:repeat(7,1fr)}}
+
+  /* tables / breakdown */
+  .bd{margin-bottom:16px;overflow:hidden}
+  .bd-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:18px 20px 6px}
+  .toggle{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:2px;gap:2px}
+  .toggle button{font-family:inherit;font-size:11.5px;font-weight:600;border:0;background:none;color:var(--muted);
+    padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap}
+  .toggle button.on{background:var(--accent);color:#fff}
+  :root[data-theme="dark"] .toggle button.on{color:#0E1512}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .toggle button.on{color:#0E1512}}
+  .tblscroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;text-align:right;padding:8px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+  thead th:first-child{text-align:left}
+  tbody td{padding:11px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td:first-child{text-align:left}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr.dim td{color:var(--muted)}
+  tbody tr.tot td{border-top:2px solid var(--line);font-weight:700}
+  tbody tr.clk{cursor:pointer} tbody tr.clk:hover td{background:var(--surface-2)}
+  tbody tr.champ td{background:var(--champ)}
+  .bandname{font-weight:600;display:flex;align-items:center;gap:8px}
+  .bandtag{width:9px;height:9px;border-radius:3px;flex:none}
+  .evname{font-weight:800;max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:bottom}
+  .evtd{display:block;font-size:11.5px;color:var(--muted);font-weight:500;letter-spacing:.01em;font-variant-numeric:tabular-nums;margin-top:2px}
+  .winbar{display:inline-flex;align-items:center;gap:8px;justify-content:flex-end}
+  .chgbar{width:86px}
+  .cb{position:relative;display:block;width:72px;height:6px;border-radius:4px;background:var(--surface-2);margin:0 auto}
+  .cb::before{content:'';position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:var(--line)}
+  .cb i{position:absolute;top:0;height:100%;border-radius:4px}
+  .winbar .track{width:48px;height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+  .winbar .track>span{display:block;height:100%;background:var(--accent);border-radius:4px}
+  .valcell{font-weight:700;color:var(--optic)}
+  .caphint{font-size:11.5px;color:var(--muted);padding:8px 14px 2px}
+
+  .chart-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .chart-head h3{font-size:14px;font-weight:800}
+  .zoom{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .zlabel{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-right:2px}
+  .chip{font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;font-family:inherit;font-weight:600;white-space:nowrap}
+  .chip:hover{border-color:var(--accent);color:var(--ink)}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  :root[data-theme="dark"] .chip.on{color:#0E1512}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .chip.on{color:#0E1512}}
+  svg{display:block;width:100%;height:auto;overflow:visible}
+  .tip{font-size:12px;color:var(--muted)}
+
+  .logtop{padding:15px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .logtop h2{font-size:15px;font-weight:800}
+  .logtop .lsub{font-size:12px;color:var(--muted);font-weight:400}
+  .tagfilters{display:flex;gap:7px;flex-wrap:wrap}
+  .match{display:grid;grid-template-columns:34px 1fr auto;gap:13px;padding:12px 20px;border-top:1px solid var(--line);align-items:start}
+  .wl{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-family:"Archivo",sans-serif;font-weight:800;font-size:13px}
+  .wl.W{background:var(--win-soft);color:var(--win)} .wl.L{background:var(--loss-soft);color:var(--loss)}
+  .m-opp{font-weight:600;font-size:14px}
+  .m-partner{font-size:12.5px;color:var(--ink);margin-top:2px}
+  .m-event{font-size:12px;color:var(--muted);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .m-right{text-align:right;white-space:nowrap}
+  .m-score{font-size:14px;font-weight:600}
+  .m-date{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .m-imp{font-size:12px;font-weight:600;margin-top:3px}
+  .imp-up{color:var(--win)} .imp-dn{color:var(--loss)}
+  .collapsed .match:nth-child(n+13){display:none}
+  .showmore{width:100%;padding:12px;background:none;border:0;border-top:1px solid var(--line);color:var(--accent);font-family:inherit;font-weight:600;font-size:13px;cursor:pointer}
+  .showmore:hover{background:var(--surface-2)}
+
+  .note{margin-top:20px;padding:14px 18px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:12px;line-height:1.6;background:var(--surface-2)}
+  .note b{color:var(--ink)}
+  .note code{font-family:inherit;font-weight:600;font-size:11.5px;background:var(--surface);padding:1px 5px;border-radius:4px}
+  [hidden]{display:none!important}
+  .banner{background:var(--loss-soft);border:1px solid var(--loss);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:13px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .banner b{color:var(--loss)}
+  .banner button{margin-left:auto;background:var(--loss);color:#fff;border:0;border-radius:8px;padding:6px 13px;font-family:inherit;font-weight:600;font-size:12.5px;cursor:pointer}
+  .tokenhelp{margin-top:16px}
+  .th-head{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:"Archivo",sans-serif;font-weight:800;font-size:14px}
+  .th-body{font-size:13px;line-height:1.65;color:var(--ink);margin-top:12px}
+  .th-body ol{padding-left:20px;margin:8px 0} .th-body li{margin-bottom:11px}
+  .th-body a{color:var(--accent);font-weight:600}
+  .th-body .muted{color:var(--muted);font-size:12px}
+  .th-body code{font-family:inherit;font-weight:600;background:var(--surface-2);padding:1px 5px;border-radius:4px}
+  #dtTable tr.on td{background:var(--accent-soft)}
+  #pplTable tr.on td,#pplLowTable tr.on td{background:var(--accent-soft)}
+  .pplctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .ptag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:5px;margin-left:7px;vertical-align:2px}
+  .ptag.best{background:var(--win-soft);color:var(--win)} .ptag.worst{background:var(--loss-soft);color:var(--loss)}
+  .pxconf{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:5px;white-space:nowrap}
+  .pxconf.c2{background:var(--accent-soft);color:var(--accent)} .pxconf.c1{background:var(--surface-2);color:var(--ink)} .pxconf.c0{color:var(--muted)}
+  #pxTable tr.sep td{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;background:var(--surface-2);padding:7px 14px}
+  #pxTable tr.on td{background:var(--accent-soft)}
+  .mrow .ic.coll{opacity:.45} .mrow .ic.coll.on{opacity:1;background:var(--accent-soft);border-radius:6px}
+  .ptag.low{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  table.lowrel tbody td{color:var(--muted)} table.lowrel .valcell{color:var(--muted)}
+  table.lowrel .evname{font-weight:600}
+  td.mono.enddupr{font-weight:800;color:var(--blue)}
+  .syncov{position:fixed;inset:0;background:rgba(10,16,13,.55);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}
+  .syncov[hidden]{display:none}
+  .synccard{max-width:460px;width:100%;padding:22px}
+  .synccard h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:17px;margin:0 0 10px}
+  .syncstat{font-size:14px;line-height:1.6}
+  .syncstat.err{color:var(--loss)}
+  .syncact{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+  .syncact:empty{display:none}
+  .bm{display:inline-block;background:var(--optic-bright);color:#0E1512!important;padding:5px 11px;border-radius:8px;font-weight:800;text-decoration:none;font-size:12.5px;cursor:grab}
+  .chev2{color:var(--muted);font-size:11px}
+
+  @media(max-width:760px){select,.ms{max-width:none;flex:1}.fld{flex:1 1 42%}.fb-body .acts{margin-left:0;flex-direction:row;width:100%;justify-content:space-between}}
+  @media(max-width:620px){
+    thead th,tbody td{padding:9px 7px}
+    thead th{white-space:normal;font-size:9.5px;line-height:1.25}
+    tbody td{font-size:12px}
+    /* Phone columns: keep the identity, the record, the rating and what it did.
+       Drop Pts%, Margin, the change bar and the opponent spread. */
+    #bdTable th:nth-child(4),#bdTable td:nth-child(4),#bdTable th:nth-child(5),#bdTable td:nth-child(5){display:none}
+    #evTable th:nth-child(4),#evTable td:nth-child(4),#evTable th:nth-child(5),#evTable td:nth-child(5),
+    #evTable th:nth-child(8),#evTable td:nth-child(8),#evTable th:nth-child(10),#evTable td:nth-child(10),
+    #dtTable th:nth-child(4),#dtTable td:nth-child(4),#dtTable th:nth-child(5),#dtTable td:nth-child(5){display:none}
+    .bandname small{display:none} .bandname{gap:6px}
+    .evname{max-width:150px}
+    .winbar .track{display:none} .chgbar{display:none}
+    .tblscroll{overflow-x:auto}
+    .kpi .v{font-size:22px}
+  }
+  @media(max-width:620px){
+    /* One view on a phone: the rating chart and Performance by Date, nothing else. */
+    .tabs{display:none}
+    #tab-overview,#tab-people{display:none!important}
+    #tab-analysis{display:block!important}
+    #tab-analysis .mob-hide{display:none}
+
+    /* Each date becomes two lines: the date + its events, then the four numbers. */
+    #dtTable,#dtTable tbody{display:block}
+    #dtTable thead{display:none}
+    #dtTable tr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 10px;
+      padding:11px 14px;border-bottom:1px solid var(--line);background:none}
+    #dtTable tr.champ{background:var(--champ)}
+    #dtTable tr.on{background:var(--accent-soft)}
+    #dtTable td{display:block;padding:0;border:0;background:none!important;font-size:14px;text-align:left}
+    #dtTable td:first-child{grid-column:1/-1}
+    #dtTable td[data-l]::before{content:attr(data-l);display:block;margin-bottom:1px;
+      font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    #dtTable td[data-l="Pts %"],#dtTable td[data-l="Margin"],#dtTable td[data-l="Value"],
+    #dtTable td[data-l="Opponent"],#dtTable .chgbar{display:none}
+    #dtTable .evname{max-width:none;font-size:14px;white-space:normal}
+    #dtTable td:first-child,#dtTable .evtd{white-space:normal;overflow:visible;text-overflow:clip}
+  }
+  @media(max-width:440px){
+    /* Narrowest phones: down to name, win%, rating, change. */
+    #evTable th:nth-child(2),#evTable td:nth-child(2),#evTable th:nth-child(6),#evTable td:nth-child(6),
+    #bdTable th:nth-child(7),#bdTable td:nth-child(7){display:none}
+    .evname{max-width:135px}
+    /* Fewer, bigger KPI tiles: rating, Value, record — and the three DUPR-change headlines. */
+    #kpis .kpi:nth-child(n+4){display:none}
+    #dkpis .kpi-bar,#dkpis .kpi:nth-child(n+5){display:none}
+    #kpis,#dkpis{grid-template-columns:repeat(3,1fr)!important;gap:10px}
+    .kpi .v{font-size:24px}
+  }
+  @media(max-width:520px){
+    .match{grid-template-columns:30px 1fr;gap:11px}
+    .m-right{grid-column:2;text-align:left;display:flex;gap:14px;align-items:baseline;margin-top:5px}
+    .m-imp{margin-top:0}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<script>
+  // Before first paint: a remembered choice wins, otherwise phones start dark.
+  (function(){try{
+    var t=localStorage.getItem('pb-theme');
+    if(!t&&matchMedia('(max-width:620px)').matches)t='dark';
+    if(t)document.documentElement.setAttribute('data-theme',t);
+  }catch(e){}})();
+</script>
+
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <div class="name">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><mask id="lm"><rect width="32" height="32" fill="#000"/><circle cx="16" cy="16" r="15" fill="#fff"/><circle cx="16" cy="16" r="1.9" fill="#000"/><circle cx="16" cy="8" r="1.9" fill="#000"/><circle cx="22.9" cy="12" r="1.9" fill="#000"/><circle cx="22.9" cy="20" r="1.9" fill="#000"/><circle cx="16" cy="24" r="1.9" fill="#000"/><circle cx="9.1" cy="20" r="1.9" fill="#000"/><circle cx="9.1" cy="12" r="1.9" fill="#000"/></mask><circle cx="16" cy="16" r="15" fill="var(--optic-bright)" mask="url(#lm)"/></svg>
+        Pickleball
+      </div>
+    </div>
+    <div style="display:flex;gap:9px;align-items:center">
+      <span class="idpill mono" id="idpill">DUPR</span>
+      <button class="btn" id="themeBtn">◐ Theme</button>
+    </div>
+  </div>
+
+  <div class="banner" id="staleBanner" hidden>⏰ Last synced from DUPR <b><span id="staleDays"></span> days ago</b>. Played since?<button id="bannerFix">Sync from DUPR →</button></div>
+  <div class="syncov" id="syncOv" hidden><div class="card synccard"><h3>🔄 Sync from DUPR</h3><div class="syncstat" id="syncStat">Waiting for DUPR…</div><div class="syncact" id="syncAct"></div></div></div>
+
+  <div class="card filterbar collapsed-f" id="filterbar">
+    <div class="fb-head" id="fbHead">
+      <button class="fb-toggle" type="button"><span class="chev">▼</span> Filters</button>
+      <div class="fb-summary" id="fSummary">All matches</div>
+      <div class="fb-count"><span id="fCount">0</span> <small>matches</small></div>
+    </div>
+    <div class="fb-body" id="fBody">
+      <div class="fld"><label>Year</label><div class="ms" id="msyear" data-all="All years"></div></div>
+      <div class="fld"><label>Type</label><div class="ms" id="mstype" data-all="All types"></div></div>
+      <div class="fld"><label>Level</label><div class="ms" id="mslevel" data-all="All levels"></div></div>
+      <div class="fld"><label>Event</label><div class="ms" id="msevent" data-all="All events"></div></div>
+      <div class="fld"><label>Partner</label><div class="ms" id="mspartner" data-all="Any partner"></div></div>
+      <div class="acts">
+        <button class="minibtn" id="cleanup">⚙ Clean up data</button>
+        <button class="reset" id="reset">Reset filters</button>
+      </div>
+    </div>
+    <div class="manage" id="managePanel" hidden></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-tab="overview">Overview</button>
+    <button class="tab" data-tab="analysis">Analysis</button>
+    <button class="tab" data-tab="people">Opponents &amp; Partners</button>
+  </div>
+
+  <!-- ===== TAB 1: OVERVIEW ===== -->
+  <div id="tab-overview">
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Subset performance</div><div class="kpis" id="kpis"></div></div>
+
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0">Performance by Event</div>
+          <button class="reset evclear" id="evClear" hidden>✕ Clear filters</button></div>
+      </div>
+      <div class="tblscroll"><table id="evTable"></table></div>
+    </div>
+
+    <div class="card pad" style="margin-bottom:16px">
+      <div class="chart-head"><h3>Rating Over Time — By Event</h3></div>
+      <div id="chartEv"></div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="logtop"><h2 id="eventLogTitle">Event Matches</h2></div>
+      <div id="eventLog"></div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 2: ANALYSIS ===== -->
+  <div id="tab-analysis" hidden>
+    <div class="card pad mob-hide" style="margin-bottom:16px"><div class="sect-h">DUPR changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— fixed recent windows, not affected by the filters</span></div><div class="kpis" id="dkpis"></div></div>
+
+    <div class="card pad" style="margin-bottom:16px">
+      <div class="chart-head"><h3>Rating Over Time</h3><div class="zoom" id="zoom"></div></div>
+      <div id="chart"></div>
+    </div>
+
+    <div class="card pad mob-hide" style="margin-bottom:16px">
+      <div class="chart-head"><h3>Form — Rolling <span id="formN"></span> Matches <span class="lsub" id="formSub" style="font-weight:500"></span></h3>
+        <div class="zoom" id="formMetric"></div></div>
+      <div id="chartForm"></div>
+      <div class="caphint" style="padding:6px 0 0" id="formHint"></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0">Performance by Date</div></div>
+      </div>
+      <div class="tblscroll"><table id="dtTable"></table></div>
+    </div>
+
+    <div class="card bd mob-hide">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0">Performance by Matchup Strength</div></div>
+        <div class="toggle basisToggle"><button data-b="then" class="on">DUPR actual</button><button data-b="now">DUPR now</button></div>
+      </div>
+      <div class="tblscroll"><table id="bdTable"></table></div>
+    </div>
+
+    <div class="card bd mob-hide">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0">Close Games &amp; Deciders</div>
+          <div class="caphint" style="padding:4px 0 0" id="cgHint"></div></div>
+      </div>
+      <div class="tblscroll"><table id="cgTable"></table></div>
+    </div>
+
+    <div class="card bd mob-hide">
+      <div class="bd-head"><div><div class="sect-h" style="margin:0">Streaks &amp; Bounce-back</div>
+        <div class="caphint" style="padding:4px 0 0" id="stkHint"></div></div></div>
+      <div class="kpis" id="stkKpis" style="padding:6px 20px 14px"></div>
+      <div class="tblscroll"><table id="stkTable"></table></div>
+    </div>
+
+    <div class="card mob-hide" style="overflow:hidden">
+      <div class="logtop"><h2>Match Log <span class="lsub" id="logSub"></span></h2>
+        <div class="tagfilters"><span class="chip on" data-wl="all">All</span>
+          <span class="chip" data-wl="W">Wins</span><span class="chip" data-wl="L">Losses</span>
+          <select id="logSort" title="Sort the match log">
+            <option value="new">Newest first</option>
+            <option value="old">Oldest first</option>
+            <option value="up">Biggest DUPR gain</option>
+            <option value="down">Biggest DUPR drop</option>
+          </select></div>
+      </div>
+      <div id="log"></div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 3: OPPONENTS (and partners) ===== -->
+  <div id="tab-people" hidden>
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0" id="pxTitle">Partner Index</div>
+          <div class="caphint" style="padding:4px 0 0" id="pxHint"></div></div>
+        <div class="pplctl">
+          <div class="toggle" id="pplMode"><button data-p="opp" class="on">Opponents</button><button data-p="partner">Partners</button></div>
+          <select id="pxSort" title="Order">
+            <option value="under">Most below expected first</option>
+            <option value="over">Most above expected first</option>
+            <option value="exp">Highest expected win % first</option>
+          </select>
+        </div>
+      </div>
+      <div class="tblscroll"><table id="pxTable"></table></div>
+      <div class="caphint" style="padding:8px 20px 14px" id="pxModel"></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head"><div><div class="sect-h" style="margin:0">You vs Your Partner’s Rating</div>
+        <div class="caphint" style="padding:4px 0 0">Your DUPR minus your partner’s, both going into the match. Do you lift weaker partners, or play better as the lower-rated one?</div></div></div>
+      <div class="tblscroll"><table id="gapTable"></table></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head"><div><div class="sect-h" style="margin:0">Balanced vs Lopsided Opponents</div>
+        <div class="caphint" style="padding:4px 0 0">Gap between your two opponents’ DUPRs. Same average, different game: do you find the weaker player, or get beaten by the stronger one?</div></div></div>
+      <div class="tblscroll"><table id="sprTable"></table></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head"><div><div class="sect-h" style="margin:0" id="rptTitle">Repeat Meetings</div>
+        <div class="caphint" style="padding:4px 0 0" id="rptHint"></div></div></div>
+      <div class="tblscroll"><table id="rptTable"></table></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0" id="pplTitle">Opponents</div>
+          <div class="caphint" style="padding:4px 0 0" id="pplHint"></div></div>
+        <div class="pplctl">
+          <select id="pplSort" title="Rank by">
+            <option value="value">Rank by Value</option>
+            <option value="win">Rank by Win %</option>
+            <option value="pts">Rank by Pts %</option>
+            <option value="margin">Rank by Margin</option>
+            <option value="impact">Rank by DUPR change</option>
+            <option value="beat">Rank by Beat expectations</option>
+            <option value="now">Sort by DUPR now</option>
+          </select>
+        </div>
+      </div>
+      <div class="tblscroll"><table id="pplTable"></table></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0" id="pplLowTitle">Small samples</div>
+          <div class="caphint" style="padding:4px 0 0" id="pplLowHint"></div></div>
+      </div>
+      <div class="tblscroll"><table id="pplLowTable" class="lowrel"></table></div>
+    </div>
+
+    <div class="card" style="overflow:hidden" id="pplLogCard" hidden>
+      <div class="logtop"><h2 id="pplLogTitle"></h2></div>
+      <div id="pplLog"></div>
+    </div>
+  </div>
+
+  <div class="card pad tokenhelp" id="tokenHelp">
+    <div class="th-head" id="thHead"><span>🔄 Sync from DUPR</span><span class="chev2">▾</span></div>
+    <div class="th-body" id="thBody" hidden>
+      <p>Pull in your latest matches whenever you’ve played. The sync runs in your own browser while you’re logged in to DUPR, so no DUPR token is stored anywhere.</p>
+      <p class="muted"><b>One-time setup (desktop Chrome):</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(async () => { const APP = 'https://colin-oconnor13.github.io/PBStats/?sync=1', APPO = new URL(APP).origin; const CODE = 'Z49MRW', API = 'https://api.dupr.com'; let ID = ''; if (!/(^|\.)dupr\.com$/.test(location.hostname)) { alert('Open dashboard.dupr.com (logged in), then click this bookmark there.'); return; } const w = window.open(APP, 'pickleball-sync'); if (!w) { alert('Pop-up blocked. Allow pop-ups for dashboard.dupr.com, then click again.'); return; } let ready = false; const queue = []; const send = m => { if (ready) w.postMessage(m, APPO); else queue.push(m); }; addEventListener('message', e => { if (e.origin === APPO &amp;&amp; e.source === w &amp;&amp; e.data &amp;&amp; e.data.type === 'pb-ready') { ready = true; queue.splice(0).forEach(m => w.postMessage(m, APPO)); } }); const H = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Dupr-Client-Capabilities': 'totp,webauthn' }; const call = async (method, path, body) => { const r = await fetch(API + path, { method, headers: H, credentials: 'include', body: body ? JSON.stringify(body) : undefined }); if (!r.ok) { const t = await r.text().catch(() => ''); const err = new Error(method + ' ' + path + ' returned ' + r.status + ' ' + t.slice(0, 120)); err.status = r.status; throw err; } return r.json(); }; try { send({ type: 'pb-progress', text: 'Reading your DUPR profile…' }); if (!ID) { let me; try { const r = await call('GET', '/user/v1.0/profile'); me = r.result || r; } catch (e) { if (e.status === 401 || e.status === 403) throw e; throw new Error('Could not look up the logged-in player (' + e.message + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); } if (CODE &amp;&amp; me.duprId &amp;&amp; String(me.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Logged in to DUPR as ' + me.duprId + ', but this copy is set up for ' + CODE + '.'); if (!me.id) throw new Error('DUPR profile had no id (keys: ' + Object.keys(me).join(', ') + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); ID = me.id; } ID = Number(ID); const prof = (await call('GET', '/player/v1.0/' + ID)).result; if (CODE &amp;&amp; prof.duprId &amp;&amp; String(prof.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Player ' + ID + ' is ' + prof.duprId + ', not ' + CODE + '.'); const hits = []; let off = 0, total = null, legacy = false, size = 25; for (;;) { let r = null; if (!legacy) { try { r = await call('POST', '/player/v1.0/' + ID + '/history', { filters: { eventFormat: null }, limit: size, offset: off, sort: { order: 'DESC', parameter: 'MATCH_DATE' } }); } catch (e) { if (e.status === 400 &amp;&amp; off === 0 &amp;&amp; size > 10) { size = 10; continue; } if (e.status === 404 || e.status === 405) legacy = true; else throw e; } } if (legacy) r = await call('POST', '/match/v1.0/history', { limit: size, offset: off }); const res = r.result !== undefined ? r.result : r; const page = Array.isArray(res) ? res : (res &amp;&amp; res.hits); if (!Array.isArray(page)) throw new Error('Unexpected match-history response (keys: ' + Object.keys(res || {}).join(', ') + ')'); if (res &amp;&amp; res.total != null) total = res.total; hits.push(...page); off += size; send({ type: 'pb-progress', text: 'Matches: ' + hits.length + (total != null ? ' of ' + total : '') }); if (page.length < size || (total != null &amp;&amp; off >= total)) break; } const ids = [...new Set(hits.flatMap(m => (m.teams || []).flatMap(t => [t.player1, t.player2])) .filter(p => p &amp;&amp; p.id !== ID).map(p => p.id))]; const n = ids.length, now = {}; let done = 0; const worker = async () => { while (ids.length) { const pid = ids.pop(); try { const r = (await call('GET', '/player/v1.0/' + pid)).result; now[pid] = r &amp;&amp; r.ratings ? r.ratings.doubles : null; } catch (e) { if (e.status === 401 || e.status === 403) throw e; now[pid] = null; } done++; send({ type: 'pb-progress', text: 'Current ratings: ' + done + ' of ' + n }); } }; await Promise.all([1, 2, 3, 4, 5, 6].map(worker)); send({ type: 'pb-data', profile: { id: prof.id, fullName: prof.fullName, doubles: prof.ratings &amp;&amp; prof.ratings.doubles }, hits, now }); } catch (e) { send({ type: 'pb-error', text: e.message }); if (e.status === 401 || e.status === 403) alert('DUPR says you are not logged in. Log in at dashboard.dupr.com and click the bookmark again.'); } })();">🔄 Sync to Pickleball</a> and delete any old “Copy DUPR token” bookmark. This browser also needs GitHub connected: <b>Filters → ⚙ Clean up data → Save / sync → Connect GitHub</b>.</p>
+      <ol>
+        <li>Open <a href="https://dashboard.dupr.com" target="_blank" rel="noopener">dashboard.dupr.com</a> and make sure you’re logged in.</li>
+        <li>Click your <b>🔄 Sync to Pickleball</b> bookmark. This app opens in a new tab and shows progress (about half a minute).</li>
+        <li>It saves automatically and opens the updated app. Other devices get the new data about a minute later.</li>
+      </ol>
+      <p class="muted">Pop-up blocked? Allow pop-ups for dashboard.dupr.com and click the bookmark again.</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(async function(){
+  "use strict";
+  let DATA,COMMITTED={};
+  try{DATA=await fetch('./data/data.json?_='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();});}
+  catch(e){document.body.innerHTML='<div style="max-width:560px;margin:60px auto;padding:0 24px;font-family:system-ui;line-height:1.6">'
+    +'<h2>Couldn’t load your data</h2><p>The app reads <code>data/data.json</code>, which didn’t load. '
+    +'If this is a fresh deploy, sync from DUPR with the 🔄 Sync to Pickleball bookmark.</p></div>';return;}
+  try{COMMITTED=await fetch('./data/overrides.json?_='+Date.now()).then(r=>r.ok?r.json():{});}catch(e){COMMITTED={};}
+  // A just-synced data.json, used until GitHub Pages serves the new commit (~1 min).
+  try{const f=JSON.parse(sessionStorage.getItem('pb-fresh')||'null');
+    if(f&&Array.isArray(f.matches)&&(f.syncedAt||'')>(DATA.syncedAt||''))DATA=f;else sessionStorage.removeItem('pb-fresh');}catch(e){}
+  const ME_NOW=DATA.player.currentDoubles;
+  document.getElementById('idpill').textContent='DUPR · '+DATA.player.id;
+  const num=v=>(v==null||v==='NR')?null:+v;
+  const byId=i=>document.getElementById(i);
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const tms=d=>+new Date(d+'T00:00:00');
+  const dayLabel=d=>{const [y,m,dd]=d.split('-');return `${MON[+m-1]} ${+dd}, ${y}`;};
+  const titleCase=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim().replace(/(^|[\s\-'])([a-z])/g,(m,p,c)=>p+c.toUpperCase());
+
+  function eventType(e){e=(e||'').toLowerCase();
+    return /tournament|festival|open|championship|state games|classic|shootout/.test(e)?'Tournament':'League';}
+  function autoShort(e){if(!e)return'—';
+    return e.split(/ - Mens| - Womens| - Coed| - Mixed| Skill:| Powered by/i)[0].replace(/\s+/g,' ').trim().slice(0,46);}
+  function autoLevel(e){const m=(e||'').match(/([2-5]\.[05])/);return m?m[1]:'';}
+
+  const M=DATA.matches.map(m=>{
+    const sc=m.scores||[],op=m.oppScores||[];let mp=0,op_=0,ms=0,g=0;
+    for(let i=0;i<Math.min(sc.length,op.length);i++){const a=sc[i],b=op[i];mp+=a;op_+=b;
+      const target=Math.max(a,b)>=15?15:11;ms+=(a-b)*11/target;g++;}
+    const avg=a=>a.length?a.reduce((s,v)=>s+v,0)/a.length:null;
+    const oT=(m.opponents||[]).map(o=>num(o.ratingThen)).filter(v=>v!=null);
+    const oN=(m.opponents||[]).map(o=>num(o.ratingNow)).filter(v=>v!=null);
+    const pThen=m.partner?num(m.partner.ratingThen):null,pNow=m.partner?num(m.partner.ratingNow):null;
+    const oThen=avg(oT),oNow=avg(oN),myPre=num(m.preRating);
+    const teamThen=(myPre!=null&&pThen!=null)?(myPre+pThen)/2:null;
+    const teamNow=(pNow!=null)?(ME_NOW+pNow)/2:null;
+    // Edge with everyone's rating *going into* the match (synced since 2026-10-11); falls back to
+    // the post-match value per player when an older sync didn't store it. Used by MODEL.
+    const preOf=p=>p?num(p.ratingPre!=null?p.ratingPre:p.ratingThen):null;
+    const oP=(m.opponents||[]).map(preOf).filter(v=>v!=null),pPre=preOf(m.partner);
+    const allPre=!!m.partner&&m.partner.ratingPre!=null&&(m.opponents||[]).length>0&&(m.opponents||[]).every(o=>o.ratingPre!=null);
+    const diffPre=(myPre!=null&&pPre!=null&&oP.length)?(myPre+pPre)/2-avg(oP):null;
+    return {...m,year:m.date.slice(0,4),
+      autoType:eventType(m.event),autoLvl:autoLevel(m.event),evRaw:m.event||'',autoName:autoShort(m.event),
+      partnerName:m.partner?titleCase(m.partner.name):'—',
+      opponents:(m.opponents||[]).map(o=>({...o,name:titleCase(o.name)})),
+      myPts:mp,oPts:op_,games:g,normMargin:g?ms/g:null,
+      partnerThen:pThen,partnerNow:pNow,oppThen:oThen,oppNow:oNow,myPre,
+      diff:(teamThen!=null&&oThen!=null)?teamThen-oThen:null,
+      diffNow:(teamNow!=null&&oNow!=null)?teamNow-oNow:null,diffPre,allPre,
+      // you − partner, and the gap between the two opponents (pre-match where synced)
+      gapPre:(myPre!=null&&pPre!=null)?myPre-pPre:null,sprPre:oP.length===2?Math.abs(oP[0]-oP[1]):null,
+      won:!!m.winner};
+  });
+
+  const TKEY='dupr-tags-v1', MKEY='dupr-meta-v1';
+  const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+  const save=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+  const _cm=(COMMITTED&&COMMITTED.meta)||{}, _ct=(COMMITTED&&COMMITTED.tags)||{};
+  const _lm=load(MKEY,null), _lt=load(TKEY,null);
+  let meta={events:{...(_cm.events||{}),...((_lm&&_lm.events)||{})},
+            partnersHidden:[...new Set([...(_cm.partnersHidden||[]),...((_lm&&_lm.partnersHidden)||[])])]};
+  let tags={...(_ct||{}),...(_lt||{})};
+  const saveMeta=()=>save(MKEY,meta);
+
+  const TYPES=['Tournament','League'], LEVELS=['2.5','3.0','3.5','4.0','4.5','5.0'];
+  const normType=t=>t==='Tournament'?'Tournament':'League';
+  const evName=m=>{const o=meta.events[m.evRaw];return (o&&o.name)?o.name:m.autoName;};
+  const evName2=raw=>{const o=meta.events[raw];return (o&&o.name)?o.name:autoShort(raw);};
+  const typeOf=m=>{const o=meta.events[m.evRaw];return normType((o&&o.type)?o.type:m.autoType);};
+  const typeOfRaw=raw=>{const o=meta.events[raw];return normType((o&&o.type)?o.type:eventType(raw));};
+  const levelOf=m=>{const o=meta.events[m.evRaw];
+    return (o&&o.level)?o.level:(m.autoLvl||autoLevel((o&&o.name)||''));};
+  const levelOfRaw=raw=>{const o=meta.events[raw];
+    return (o&&o.level)?o.level:(autoLevel(raw)||autoLevel((o&&o.name)||''));};
+  const evHidden=raw=>!!(meta.events[raw]&&meta.events[raw].hidden);
+
+  const F={year:[],type:[],level:[],event:[],partner:[],wl:'all',date:''};
+  const Z={year:''};
+  let logSort='new';
+  let tab='overview', basis='then', filtersOpen=false, panelOpen=false, msSig='';
+  const MSKEYS=['year','type','level','event','partner'];
+
+  function optionsFor(key){
+    if(key==='year')return [...new Set(M.map(m=>m.year))].sort((a,b)=>b.localeCompare(a));
+    if(key==='type')return TYPES.filter(t=>M.some(m=>typeOf(m)===t));
+    if(key==='level')return [...new Set(M.map(levelOf))].filter(Boolean).sort();
+    if(key==='event'){const nMin={};M.forEach(m=>{if(evHidden(m.evRaw))return;const e=evName(m);if(!nMin[e]||m.date<nMin[e])nMin[e]=m.date;});
+      return Object.keys(nMin).sort((a,b)=>nMin[b].localeCompare(nMin[a]));}
+    if(key==='partner'){const pc={};M.forEach(m=>pc[m.partnerName]=(pc[m.partnerName]||0)+1);
+      return Object.keys(pc).filter(p=>p!=='—'&&!meta.partnersHidden.includes(p)).sort((a,b)=>a.localeCompare(b));}
+    return [];
+  }
+  function closePanels(except){document.querySelectorAll('.ms-panel').forEach(p=>{if(p!==except)p.hidden=true;});}
+  document.addEventListener('click',e=>{if(!e.target.closest('.ms'))closePanels();});
+  function buildMulti(){
+    MSKEYS.forEach(key=>{
+      const el=byId('ms'+key),vals=optionsFor(key);
+      F[key]=F[key].filter(v=>vals.includes(v));
+      el.innerHTML=`<button type="button" class="ms-btn"></button><div class="ms-panel" hidden>`+
+        `<div class="ms-opt all"><input type="checkbox"><span>${enc(el.dataset.all)}</span></div>`+
+        vals.map(v=>`<label class="ms-opt"><input type="checkbox" value="${enc(v)}"><span>${enc(v)}</span></label>`).join('')+`</div>`;
+      const btn=el.querySelector('.ms-btn'),panel=el.querySelector('.ms-panel');
+      btn.onclick=e=>{e.stopPropagation();const willOpen=panel.hidden;closePanels();panel.hidden=!willOpen;};
+      panel.querySelector('.all input').onchange=()=>{F[key]=[];render();};
+      panel.querySelectorAll('label.ms-opt input').forEach(cb=>cb.onchange=()=>{const v=dec(cb.value);
+        if(cb.checked){if(!F[key].includes(v))F[key].push(v);}else F[key]=F[key].filter(x=>x!==v);render();});
+    });
+  }
+  function msLabel(key){const sel=F[key],el=byId('ms'+key);
+    if(!sel.length)return el.dataset.all;
+    if(key==='event'||key==='partner')return sel.length===1?sel[0]:sel.length+' selected';
+    return sel.length<=2?sel.join(', '):sel.length+' selected';}
+  function syncMulti(){
+    MSKEYS.forEach(key=>{const el=byId('ms'+key);if(!el)return;const btn=el.querySelector('.ms-btn');if(!btn)return;
+      btn.textContent=msLabel(key);btn.classList.toggle('active',F[key].length>0);
+      const allCb=el.querySelector('.all input');if(allCb)allCb.checked=F[key].length===0;
+      el.querySelectorAll('label.ms-opt input').forEach(cb=>cb.checked=F[key].includes(dec(cb.value)));});
+  }
+  function maybeRebuildMulti(){const sig=MSKEYS.map(k=>optionsFor(k).join('|')).join('§');if(sig!==msSig){msSig=sig;buildMulti();}}
+
+  const pass=m=>(!F.year.length||F.year.includes(m.year))&&(!F.type.length||F.type.includes(typeOf(m)))&&
+    (!F.level.length||F.level.includes(levelOf(m)))&&(!F.event.length||F.event.includes(evName(m)))&&
+    (!F.partner.length||F.partner.includes(m.partnerName))&&(F.wl==='all'||(F.wl==='W'?m.won:!m.won))&&
+    (!F.date||m.date===F.date);
+
+  const VALUE_K=50;
+  function agg(list,b){
+    if(!list.length)return null;
+    const bas=b||basis;
+    const n=list.length,wins=list.filter(m=>m.won).length;let mp=0,op=0,ms=0,mg=0,sosSum=0,sosN=0;
+    // DUPR's own rating change already prices in who you played, so it doubles as an
+    // opponent-adjusted result: up = beat DUPR's expectation, even in a loss.
+    let rN=0,imp=0,up=0,lN=0,lUp=0;
+    const avg=a=>{a=a.filter(v=>v!=null);return a.length?a.reduce((s,v)=>s+v,0)/a.length:null};
+    list.forEach(m=>{mp+=m.myPts;op+=m.oPts;if(m.normMargin!=null){ms+=m.normMargin*m.games;mg+=m.games;}
+      const d=bas==='now'?m.diffNow:m.diff;if(d!=null){sosSum+=(-d);sosN++;}
+      if(m.impact!=null){rN++;imp+=m.impact;if(m.impact>0)up++;if(!m.won){lN++;if(m.impact>0)lUp++;}}});
+    const wf=wins/n,pf=(mp+op)?mp/(mp+op):0,sos=sosN?sosSum/sosN:0;
+    return {n,wins,losses:n-wins,winFrac:wf,ptsFrac:pf,normMargin:mg?ms/mg:null,sos,
+      rated:rN,impSum:rN?imp:null,impAvg:rN?imp/rN:null,upFrac:rN?up/rN:null,lossRated:lN,lossUp:lUp,
+      value:wf*100+25*pf+VALUE_K*sos,
+      oThen:avg(list.map(m=>m.oppThen)),oNow:avg(list.map(m=>m.oppNow))};
+  }
+  // DUPR rates a match when it is *processed*, not when it was played, and matchId is not
+  // chronological. Every match stores the rating it started and finished with, so the real
+  // processing order is recoverable by chaining one match's postRating to the next one's pre.
+  const EXACT=1e-6;
+  const ORDER=(function(){
+    const idx=new Map(),rated=M.filter(m=>m.preRating!=null&&m.postRating!=null);
+    if(!rated.length)return idx;
+    let left=rated.slice(),i=0;
+    // The first match is the one whose starting rating is nobody else's finishing rating.
+    let cur=left.find(m=>!rated.some(o=>o!==m&&Math.abs(m.preRating-o.postRating)<EXACT))||left[0];
+    left=left.filter(m=>m!==cur);
+    while(cur){
+      idx.set(cur.matchId,i++);
+      const exact=left.filter(m=>Math.abs(m.preRating-cur.postRating)<EXACT);
+      // Exact link wins; otherwise DUPR restated the rating, so take the closest continuation.
+      const nx=exact.length?exact.sort((x,y)=>x.date.localeCompare(y.date))[0]
+        :(left.length?left.reduce((b,m)=>Math.abs(m.preRating-cur.postRating)<Math.abs(b.preRating-cur.postRating)?m:b):null);
+      left=left.filter(m=>m!==nx);cur=nx;
+    }
+    return idx;
+  })();
+  const ordOf=m=>{const v=ORDER.get(m.matchId);return v==null?Infinity:v;};
+  // Matches DUPR rated only after later-dated ones: entered by hand long after they were played
+  // (e.g. a ladder league typed in afterwards). Their ratings don't belong to their play date.
+  const lateSet=()=>{const s=new Set();let max='';
+    M.filter(m=>ORDER.has(m.matchId)).sort((a,b)=>ordOf(a)-ordOf(b))
+      .forEach(m=>{if(m.date<max)s.add(m.matchId);else max=m.date;});
+    return s;};
+  // An event holding hand-entered matches (e.g. a ladder league typed in months
+  // later in random order) is collapsed onto its final date: DUPR assigned those ratings long
+  // after the nights they were played, so only the event as a whole means anything. Afterwards
+  // they are no longer treated as stray, so the event keeps the rating it really finished on.
+  // Opt-in per event (Clean up → 📅, stored as meta.events[raw].collapse): a weekly league that
+  // merely has a few matches typed in late must keep each night's own date.
+  const STRAY=lateSet();
+  const collapseOn=raw=>!!(meta.events[raw]&&meta.events[raw].collapse);
+  (function(){
+    const stray=STRAY,byEv={};
+    M.forEach(m=>{const e=evName(m);(byEv[e]=byEv[e]||[]).push(m);});
+    Object.values(byEv).forEach(ms=>{
+      if(!ms.some(m=>collapseOn(m.evRaw)))return;
+      if(!ms.some(m=>stray.has(m.matchId)))return;
+      const last=ms.reduce((a,b)=>a.date>b.date?a:b).date;
+      ms.forEach(m=>{m.date=last;m.year=last.slice(0,4);});
+    });
+  })();
+  // They stay flagged after the move: a hand-entered match was rated long after the night it
+  // was played (league entries can land after a later tournament has already moved the rating),
+  // so the rating an event *ended on* is the last one played on time, not the last processed.
+  const LATE=lateSet();
+  const byDate=list=>{const g={};list.forEach(m=>{(g[m.date]=g[m.date]||[]).push(m);});return g;};
+  // Last match of a set in processing order, ignoring late entries when real ones exist.
+  function lastPlayed(list){
+    const r=list.filter(m=>m.postRating!=null);if(!r.length)return null;
+    const onTime=r.filter(m=>!LATE.has(m.matchId));
+    const use=(onTime.length?onTime:r).slice().sort((a,b)=>ordOf(a)-ordOf(b));
+    return use[use.length-1];
+  }
+  // What a set of matches did to the rating: where it finished and how far it moved.
+  // Hand-entered matches are left out when the set also holds real ones, so an event reports
+  // the rating it finished on the night it was played, not the one it was typed in at.
+  function spanOf(list){
+    const rated=list.filter(m=>m.postRating!=null&&m.preRating!=null);
+    if(!rated.length)return {end:null,delta:null};
+    const onTime=rated.filter(m=>!LATE.has(m.matchId));
+    const use=(onTime.length?onTime:rated).slice().sort((a,b)=>ordOf(a)-ordOf(b));
+    const end=use[use.length-1].postRating;
+    // Nothing precedes the first rated match, so its group shows no change.
+    return {end,delta:use.some(m=>ordOf(m)===0)?null:end-use[0].preRating};
+  }
+  const endRating=list=>spanOf(list).end;
+  const pct=v=>v==null?'—':(v*100).toFixed(1)+'%', f2=v=>v==null?'—':v.toFixed(2), sgn=v=>v==null?'—':(v>=0?'+':'')+v.toFixed(2);
+
+  const BANDS=[
+    {name:'Outmatched',hint:'≤ −0.25',c:'#C7522A',test:d=>d<=-0.25},
+    {name:'Underdog',hint:'',c:'#E08A2B',test:d=>d>-0.25&&d<=-0.10},
+    {name:'Even',hint:'±0.10',c:'#8895A0',test:d=>d>-0.10&&d<0.10},
+    {name:'Favored',hint:'',c:'#3E9E8E',test:d=>d>=0.10&&d<0.25},
+    {name:'Dominant',hint:'≥ +0.25',c:'#0B7A6B',test:d=>d>=0.25},
+  ];
+  const enc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+  const dec=s=>String(s).replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&amp;/g,'&');
+
+  function summaryText(){
+    const p=[];
+    if(F.year.length)p.push(F.year.join(', '));
+    if(F.type.length)p.push(F.type.join(', '));
+    if(F.level.length)p.push(F.level.join(', '));
+    if(F.event.length)p.push(F.event.length===1?F.event[0]:F.event.length+' events');
+    if(F.partner.length)p.push('w/ '+(F.partner.length===1?F.partner[0]:F.partner.length+' partners'));
+    if(F.date)p.push(dayLabel(F.date));
+    if(F.wl!=='all')p.push(F.wl==='W'?'wins':'losses');
+    return p.length?p.join(' · '):'All matches';
+  }
+  const endCell=v=>`<td class="mono enddupr" data-l="DUPR">${v==null?'—':v.toFixed(3)}</td>`;
+  // Rating changes read as whole "points" (thousandths of a DUPR rating): 0.013 -> "13 pts".
+  const ptsTxt=(v,signed)=>v==null?'—'
+    :((signed&&v>=0?'+':'')+Math.round(v*1000)+' pts');
+
+  // Diverging bar for the rating change: zero is the centre line, green right, clay left.
+  // Widths are scaled to the biggest move on screen, so the column is self-relative.
+  const CHG_FULL=0.40;          // a half-bar = 400 pts, fixed so every bar is comparable
+  const barCell=v=>{
+    if(v==null)return '<td class="chgbar"><span class="cb"></span></td>';
+    const w=Math.min(1,Math.abs(v)/CHG_FULL)*50;
+    const side=v>=0?`left:50%;background:var(--win)`:`right:50%;background:var(--loss)`;
+    return `<td class="chgbar"><span class="cb"><i style="${side};width:${w.toFixed(1)}%"></i></span></td>`;
+  };
+  const deltaCell=v=>`<td class="mono ${v==null?'':(v>=0?'imp-up':'imp-dn')}" data-l="Change">${ptsTxt(v,true)}</td>`;
+  const statRow=(g,extra)=>`<td class="mono" data-l="M">${g.n}</td><td class="mono" data-l="Win %">${pct(g.winFrac)}</td>`
+    +`<td class="mono" data-l="Pts %">${pct(g.ptsFrac)}</td><td class="mono" data-l="Margin">${sgn(g.normMargin)}</td>`
+    +`<td class="mono valcell" data-l="Value">${g.value.toFixed(1)}</td>${extra||''}`
+    +`<td class="mono" data-l="Opponent">${f2(g.oThen)}→${f2(g.oNow)}</td>`;
+
+  function render(){
+    maybeRebuildMulti();syncMulti();
+    const list=M.filter(pass);
+    byId('fCount').textContent=list.length;
+    renderDeltaKpis();
+    byId('fSummary').textContent=summaryText();
+    byId('reset').disabled=!(['year','type','level','event','partner'].some(k=>F[k].length)||F.wl!=='all'||F.date);
+    byId('evClear').hidden=byId('reset').disabled;
+    byId('filterbar').classList.toggle('collapsed-f',!filtersOpen);
+    byId('tab-overview').hidden=tab!=='overview';
+    byId('tab-analysis').hidden=tab!=='analysis';
+    byId('tab-people').hidden=tab!=='people';
+
+    const a=agg(list,'then');   // always the at-the-time ratings; only the filters move it
+    // KPIs
+    const k=byId('kpis');
+    if(!a)k.innerHTML='<div class="kpi"><div class="v">—</div><div class="l">No matches match these filters</div></div>';
+    else k.innerHTML=[
+      ['blue',ME_NOW==null?'—':ME_NOW.toFixed(3),'Current DUPR',''],
+      ['big',a.value.toFixed(1),'Value',''],
+      ['',pct(a.winFrac),'Win %',`${a.wins}–${a.losses} (${a.n})`],
+      ['',pct(a.ptsFrac),'Pts Won',''],
+      ['',sgn(a.normMargin),'Margin','per 11'],
+      ['',f2(a.oThen),`Avg Opp (Now: ${f2(a.oNow)})`,''],
+      ['',pct(a.upFrac),'Beat expectations',a.lossRated?`${a.lossUp} of ${a.lossRated} losses gained`:''],
+    ].map(x=>`<div class="kpi"><div class="v ${x[0]} mono">${x[1]}</div><div class="l">${x[2]}${x[3]?` <span class="sub">${x[3]}</span>`:''}</div></div>`).join('');
+
+    // Event table (tab 1)
+    const groups={};list.forEach(m=>{const e=evName(m);(groups[e]=groups[e]||[]).push(m);});
+    // "2026-09 (4.0 Tournament)" — starting month, then level + type.
+    const lvlType=ms=>{const l=levelOf(ms[0]),t=typeOf(ms[0]);return (l?l+' ':'')+t;};
+    const evRows=Object.keys(groups).map(e=>{const ds=groups[e].map(m=>m.date);
+      const sp=spanOf(groups[e]);
+      return {e,g:agg(groups[e],'then'),end:sp.end,delta:sp.delta,lt:lvlType(groups[e]),min:ds.reduce((a,b)=>a<b?a:b),max:ds.reduce((a,b)=>a>b?a:b)};})
+      .sort((a,b)=>b.max.localeCompare(a.max)||b.g.n-a.g.n);
+    const evBody=evRows.map(r=>`<tr class="clk ${r.e.trim().endsWith('🏆')?'champ':''}" data-ev="${enc(r.e)}"><td><span class="evname" title="${enc(r.e)}">${enc(r.e)}</span><span class="evtd">${enc(r.lt)} | ${r.min.slice(0,7)}</span></td>${statRow(r.g,endCell(r.end)+barCell(r.delta)+deltaCell(r.delta))}</tr>`).join('');
+    byId('evTable').innerHTML=`<thead><tr><th>Event</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>DUPR</th><th class="chgbar"></th><th>Change</th><th>Opponent</th></tr></thead>`+
+      `<tbody>${evBody||'<tr class="dim"><td colspan="10" class="caphint">No matches in this filter.</td></tr>'}</tbody>`;
+    byId('evTable').querySelectorAll('[data-ev]').forEach(tr=>tr.onclick=()=>{F.event=[dec(tr.dataset.ev)];render();});
+
+    // Date table (tab 2) — same columns as Performance by Event, grouped by day instead.
+    const dGroups=byDate(list);
+    // A 🏆 event spanning several days is only marked on the day it finished.
+    const champEnd={};
+    list.forEach(m=>{const e=evName(m);if(!e.trim().endsWith('🏆'))return;
+      if(!champEnd[e]||m.date>champEnd[e])champEnd[e]=m.date;});
+    const dRows=Object.keys(dGroups).sort((a,b)=>b.localeCompare(a)).map(d=>{
+      const ms=dGroups[d],sp=spanOf(ms);
+      const seen={};ms.forEach(m=>{const e=evName(m);
+        if(!seen[e])seen[e]=((levelOf(m)?levelOf(m)+' ':'')+typeOf(m)).trim();});
+      return {d,g:agg(ms,'then'),end:sp.end,delta:sp.delta,
+        evs:Object.keys(seen),evLabels:Object.keys(seen).map(e=>(seen[e]?`[${seen[e]}] `:'')+e),
+        champ:[...new Set(ms.map(m=>evName(m)))].some(e=>champEnd[e]===d),
+        late:ms.length>0&&ms.every(m=>LATE.has(m.matchId))};});
+    const dBody=dRows.map(r=>`<tr class="clk ${r.champ?'champ':''}${F.date===r.d?' on':''}" data-d="${r.d}">`+
+      `<td><span class="evname">${enc(dayLabel(r.d))}</span><span class="evtd">${enc(r.evLabels.join(' · '))}${r.late?' · entered late, rating is from months afterwards':''}</span></td>`+
+      `${statRow(r.g,endCell(r.end)+barCell(r.delta)+deltaCell(r.delta))}</tr>`).join('');
+    byId('dtTable').innerHTML=`<thead><tr><th>Date</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>DUPR</th><th class="chgbar"></th><th>Change</th><th>Opponent</th></tr></thead>`+
+      `<tbody>${dBody||'<tr class="dim"><td colspan="10" class="caphint">No matches in this filter.</td></tr>'}</tbody>`;
+    byId('dtTable').querySelectorAll('[data-d]').forEach(tr=>tr.onclick=()=>{
+      F.date=(F.date===tr.dataset.d)?'':tr.dataset.d;render();});
+
+    // Matchup-strength breakdown (tab 2)
+    const dOf=m=>basis==='now'?m.diffNow:m.diff;
+    const rows=BANDS.map(b=>({b,g:agg(list.filter(m=>dOf(m)!=null&&b.test(dOf(m))))}));
+    const body=rows.map(r=>{const b=r.b,lab=`<span class="bandname"><span class="bandtag" style="background:${b.c}"></span>${b.name}${b.hint?` <small style="color:var(--muted)">${b.hint}</small>`:''}</span>`;
+      if(!r.g)return`<tr class="dim"><td>${lab}</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
+      return`<tr><td>${lab}</td>${statRow(r.g)}</tr>`;}).join('');
+    byId('bdTable').innerHTML=`<thead><tr><th>Matchup (your team − opp)</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>Opponent</th></tr></thead><tbody>${body}</tbody>`;
+
+    drawZoom();drawOverall();drawEvents(list);renderManage();
+    renderLog(list,'log');
+    renderPeople(list);renderIndex(list);renderPatterns(list);renderClose(list);renderStreaks(list);drawForm(list);
+    if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
+    else{byId('eventLogTitle').textContent='Event Matches';
+      byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
+    byId('logSub').textContent=list.length?('· '+list.length+' matches'+(F.event.length===1?' · '+F.event[0]:'')):'';
+    document.querySelectorAll('.basisToggle button').forEach(b=>b.classList.toggle('on',b.dataset.b===basis));
+  }
+
+  // ---- recent DUPR movement (fixed windows, independent of the filters) ----
+  function renderDeltaKpis(){
+    const cut=n=>Date.now()-n*30.44*86400000;
+    const rated=M.filter(m=>m.impact!=null);
+    // Per match / win / loss use a fixed number of most-recent matches, not a time window.
+    const recent=(list,n)=>list.slice()
+      .sort((a,b)=>b.date.localeCompare(a.date)||(ordOf(b)-ordOf(a))).slice(0,n);
+    const last50=recent(rated,50),wins=recent(rated.filter(m=>m.won),20),
+          losses=recent(rated.filter(m=>!m.won),20);
+    const w12=rated.filter(m=>tms(m.date)>=cut(12));
+    const avg=a=>a.length?a.reduce((x,v)=>x+v,0)/a.length:null;
+    const groups=(list,key)=>{const g={};list.forEach(m=>{(g[key(m)]=g[key(m)]||[]).push(m);});return Object.values(g);};
+    const dayG=groups(w12,m=>m.date),evG=groups(w12,m=>evName(m));
+    const s3=v=>ptsTxt(v,true);
+    const cls=v=>v==null?'':(v>=0?'imp-up':'imp-dn');
+    const abs=a=>avg(a.map(Math.abs));
+    const a3=v=>ptsTxt(v,false);
+    // How big a typical swing is (absolute) for match/date/event; win and loss keep their sign.
+    const dayD=dayG.map(ms=>spanOf(ms).delta).filter(v=>v!=null);
+    const evD=evG.map(ms=>spanOf(ms).delta).filter(v=>v!=null);
+    const tile=(val,label,n,signed)=>`<div class="kpi"><div class="v ${signed?cls(val):''} mono">`
+      +`${signed?s3(val):a3(val)}</div><div class="l">${label}${n==null?'':` (${n})`}</div></div>`;
+    const now=`<div class="kpi"><div class="v blue mono">${ME_NOW==null?'—':ME_NOW.toFixed(3)}</div>`
+      +`<div class="l">Current DUPR</div></div>`;
+    byId('dkpis').innerHTML=(rated.length||w12.length)
+      ? now
+        +tile(abs(evD),'Per event',evD.length)
+        +tile(abs(dayD),'Per date',dayD.length)
+        +tile(abs(last50.map(m=>m.impact)),'Per match',null)
+        +'<div class="kpi-bar"></div>'
+        +tile(avg(wins.map(m=>m.impact)),'Per win',null,true)
+        +tile(avg(losses.map(m=>m.impact)),'Per loss',null,true)
+      : now+'<div class="kpi"><div class="v">—</div><div class="l">No matches in the last 12 months</div></div>';
+  }
+
+  // ---- charts ----
+  const series=M.filter(m=>m.postRating!=null).sort((a,b)=>a.date.localeCompare(b.date));
+  const yearsPresent=[...new Set(series.map(m=>m.year))].sort();
+  // Phones open on the current year (the chart is small); desktop shows everything.
+  if(!Z.year&&yearsPresent.length&&matchMedia('(max-width:620px)').matches)
+    Z.year=yearsPresent[yearsPresent.length-1];
+  const inZoom=m=>!(Z.year&&m.year!==Z.year);
+  function drawZoom(){
+    const z=byId('zoom');z.innerHTML='<span class="zlabel">Zoom</span>'+
+      `<span class="chip ${!Z.year?'on':''}" data-z="all">All</span>`+
+      yearsPresent.map(y=>`<span class="chip ${Z.year===y?'on':''}" data-z="y:${y}">${y}</span>`).join('');
+    z.querySelectorAll('[data-z]').forEach(c=>c.onclick=()=>{const v=c.dataset.z;Z.year=v==='all'?'':v.slice(2);drawZoom();drawOverall();});
+  }
+  // opt.step / opt.fmt: grid spacing and label format (default: DUPR, 0.25 steps).
+  function drawSeries(boxId,tipId,pts,label,opt){
+    const STEP=(opt&&opt.step)||0.25,FMT=(opt&&opt.fmt)||(v=>v.toFixed(2));
+    const box=byId(boxId);box.innerHTML='';
+    if(pts.length<2){box.innerHTML='<div class="tip" style="padding:30px 0;text-align:center">Not enough data in this window.</div>';const t0=tipId&&byId(tipId);if(t0)t0.textContent='';return;}
+    pts=pts.slice().sort((a,b)=>a.t-b.t);
+    const W=680,H=190,pl=6,pr=42,pt=12,pb=26,ys=pts.map(p=>p.y),ts=pts.map(p=>p.t);
+    const ymin=Math.floor(Math.min(...ys)/STEP)*STEP,ymax=Math.ceil(Math.max(...ys)/STEP)*STEP;
+    const t0=Math.min(...ts),t1=Math.max(...ts);
+    const X=t=>t1===t0?(pl+(W-pl-pr)/2):pl+((t-t0)/(t1-t0))*(W-pl-pr);
+    const Y=v=>pt+(1-(v-ymin)/(ymax-ymin||1))*(H-pt-pb);
+    const line=pts.map((p,i)=>(i?'L':'M')+X(p.t).toFixed(1)+' '+Y(p.y).toFixed(1)).join(' ');
+    let grid='';for(let yv=ymin;yv<=ymax+1e-9;yv+=STEP){const yy=Y(yv);
+      grid+=`<line x1="${pl}" x2="${W-pr}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" stroke="var(--line)"/><text x="${W-pr+6}" y="${(yy+3).toFixed(1)}" font-size="9" fill="var(--muted)">${FMT(yv)}</text>`;}
+    if(opt&&opt.ref!=null&&opt.ref>=ymin&&opt.ref<=ymax){const yy=Y(opt.ref).toFixed(1);
+      grid+=`<line x1="${pl}" x2="${W-pr}" y1="${yy}" y2="${yy}" stroke="var(--muted)" stroke-dasharray="4 4" opacity=".8"><title>${enc(opt.refLabel||'')}</title></line>`;}
+    let xax='';const NT=Math.min(5,pts.length);for(let i=0;i<NT;i++){const tt=t0+(t1-t0)*(NT===1?0:i/(NT-1)),xx=X(tt),dd=new Date(tt),lab=MON[dd.getMonth()]+" '"+String(dd.getFullYear()).slice(2);
+      xax+=`<text x="${xx.toFixed(1)}" y="${H-5}" font-size="9" fill="var(--muted)" text-anchor="${i===0?'start':i===NT-1?'end':'middle'}">${lab}</text>`;}
+    const dots=pts.map(p=>{
+      // p.up (rating direction) wins over p.win (result); p.dim = outside the current filter.
+      const up=p.up!=null?p.up:p.win;
+      const fill=p.color||(up==null?null:(up?'var(--win)':'var(--loss)'));
+      if(!fill)return '';
+      return `<circle cx="${X(p.t).toFixed(1)}" cy="${Y(p.y).toFixed(1)}" r="${p.dim?2.4:3.6}" opacity="${p.dim?.45:1}" fill="${fill}" stroke="var(--surface)" stroke-width="1.3"><title>${enc(p.name||'')}</title></circle>`;}).join('');
+    box.innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img"><defs><linearGradient id="fl_${boxId}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--optic)" stop-opacity=".22"/><stop offset="1" stop-color="var(--optic)" stop-opacity="0"/></linearGradient></defs>${grid}${xax}<path d="${line} L${X(pts[pts.length-1].t).toFixed(1)} ${H-pb} L${X(pts[0].t).toFixed(1)} ${H-pb} Z" fill="url(#fl_${boxId})"/><path d="${line}" fill="none" stroke="var(--optic)" stroke-width="2" stroke-linejoin="round"/>${dots}</svg>`;
+    const tip=tipId&&byId(tipId);if(tip)tip.textContent=label||'';
+  }
+  function drawOverall(){
+    const sub=new Set(M.filter(pass).map(m=>m.matchId));
+    // One dot per day: all of a day's matches collapse to where the rating ended up.
+    const days=byDate(series.filter(inZoom));
+    const allDays=byDate(M.filter(inZoom));   // includes unrated matches, for the count shown
+    // A day whose every match was entered late has no rating that DUPR ever held on that
+    // date, so plotting it would invent a spike. Those days sit out of the curve.
+    const dates=Object.keys(days).sort().filter(d=>!days[d].every(m=>LATE.has(m.matchId)));
+    let prev=null;
+    const pts=dates.map(d=>{
+      const ms=days[d].slice().sort((a,b)=>ordOf(a)-ordOf(b));
+      const last=lastPlayed(ms)||ms[ms.length-1],y=last.postRating;
+      // Green/clay compares this day's closing rating with the previous day's close.
+      const chg=prev==null?(ms.some(m=>ordOf(m)===0)?null:y-(ms[0].preRating!=null?ms[0].preRating:y)):y-prev;
+      prev=y;
+      const day=allDays[d]||ms,w=day.filter(m=>m.won).length;
+      return {t:tms(d),y,up:chg==null?true:chg>=0,dim:!day.some(m=>sub.has(m.matchId)),
+        name:`${d} · ${day.length} match${day.length>1?'es':''} (${w}-${day.length-w}) · `
+          +`${chg==null?'':ptsTxt(chg,true)+' → '}${y.toFixed(3)}`};});
+    drawSeries('chart',null,pts);
+  }
+  function drawEvents(list){
+    const g={};list.forEach(m=>{if(m.postRating==null)return;const e=evName(m);(g[e]=g[e]||[]).push(m);});
+    // Same value as the DUPR column: the rating after the event's last match.
+    const pts=Object.keys(g).map(e=>{const ms=g[e],y=endRating(ms);
+      if(y==null)return null;
+      const last=ms.reduce((a,b)=>a.date>b.date?a:b),champ=e.trim().endsWith('🏆');
+      return {t:tms(last.date),y,color:champ?'var(--gold)':'var(--dot-dim)',
+        name:e+' · '+last.date+' · '+y.toFixed(3)};}).filter(Boolean);
+    drawSeries('chartEv',null,pts);
+  }
+
+  // ---- form: rolling window over the filtered matches, in the order DUPR processed them ----
+  const ROLL=20;let formMetric='value';
+  const FORM={value:{label:'Value',step:10,fmt:v=>v.toFixed(0),of:g=>g.value},
+    margin:{label:'Margin',step:1,fmt:v=>(v>0?'+':'')+v.toFixed(1),of:g=>g.normMargin},
+    win:{label:'Win %',step:10,fmt:v=>v.toFixed(0)+'%',of:g=>g.winFrac*100},
+    beat:{label:'Beat exp.',step:10,fmt:v=>v.toFixed(0)+'%',of:g=>g.upFrac==null?null:g.upFrac*100}};
+  function drawForm(list){
+    const fm=FORM[formMetric],box=byId('chartForm');
+    byId('formN').textContent=ROLL;
+    byId('formMetric').innerHTML=Object.keys(FORM).map(k=>`<span class="chip ${k===formMetric?'on':''}" data-fm="${k}">${FORM[k].label}</span>`).join('');
+    byId('formMetric').querySelectorAll('[data-fm]').forEach(c=>c.onclick=()=>{formMetric=c.dataset.fm;drawForm(M.filter(pass));});
+    const seq=list.slice().sort((a,b)=>a.date.localeCompare(b.date)||(ordOf(a)-ordOf(b)));
+    byId('formSub').textContent='';byId('formHint').textContent='';
+    if(seq.length<ROLL){box.innerHTML=`<div class="tip" style="padding:30px 0;text-align:center">Needs ${ROLL} matches in this filter (${seq.length} now).</div>`;return;}
+    const byDay=new Map();   // one point per day, at that day's last match
+    for(let i=ROLL-1;i<seq.length;i++){const g=agg(seq.slice(i-ROLL+1,i+1),'then'),y=fm.of(g);
+      if(y!=null)byDay.set(seq[i].date,{y,g,m:seq[i]});}
+    const pts=[...byDay.entries()].map(([d,p])=>({t:tms(d),y:p.y,color:'var(--optic)',
+      name:`${d} · last ${ROLL}: ${p.g.wins}–${p.g.losses}, Value ${p.g.value.toFixed(1)}, Margin ${sgn(p.g.normMargin)}, `
+        +`beat exp. ${pct(p.g.upFrac)}${p.m.postRating!=null?' · DUPR '+p.m.postRating.toFixed(3):''}`}));
+    const whole=fm.of(agg(seq,'then')),last=pts.length?pts[pts.length-1].y:null;
+    drawSeries('chartForm',null,pts,'',{step:fm.step,fmt:fm.fmt,ref:whole,refLabel:'Overall: '+(whole==null?'—':fm.fmt(whole))});
+    if(last!=null&&whole!=null){
+      byId('formSub').textContent=`· latest ${fm.fmt(last)} vs ${fm.fmt(whole)} overall`;
+      byId('formHint').textContent=`Each point is your last ${ROLL} matches up to that day (within the filters). Above the dashed overall line means you're playing better than your average. `
+        +`Hover a point for the full numbers, including your DUPR on that day.`;}
+  }
+
+  // ---- close games & deciders (tab 2): every game, not every match ----
+  const GAME_MIN=10;
+  function renderClose(list){
+    const gs=[];
+    list.forEach(m=>{const n=Math.min(m.scores.length,m.oppScores.length);
+      for(let i=0;i<n;i++){const a=m.scores[i],b=m.oppScores[i];if(a!==b)gs.push({a,b,i,of:n});}});
+    const by=(lo,hi)=>g=>{const d=Math.abs(g.a-g.b);return d>=lo&&d<=hi;};
+    const rows=[
+      ['All games','',gs],
+      ['Close','won or lost by 2 or fewer',gs.filter(by(0,2))],
+      ['Comfortable','by 3 to 5',gs.filter(by(3,5))],
+      ['One-sided','by 6 or more',gs.filter(by(6,99))],
+      ['Deciding game 3','best-of-3 matches that went to a third game',gs.filter(g=>g.of===3&&g.i===2)],
+    ];
+    const body=rows.map(([name,hint,g])=>{
+      const lab=`<span class="evname">${name}</span>${hint?`<span class="evtd">${hint}</span>`:''}`;
+      if(!g.length)return`<tr class="dim"><td>${lab}</td><td class="mono">0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
+      const w=g.filter(x=>x.a>x.b).length,pf=g.reduce((s,x)=>s+x.a,0),pa=g.reduce((s,x)=>s+x.b,0),low=g.length<GAME_MIN;
+      return`<tr${low?' class="dim"':''}><td>${lab}${low?'<span class="ptag low">small sample</span>':''}</td><td class="mono">${g.length}</td>`
+        +`<td class="mono">${w}–${g.length-w}</td><td class="mono">${pct(w/g.length)}</td><td class="mono">${pct(pf/(pf+pa))}</td>`
+        +`<td class="mono">${(pf/g.length).toFixed(1)}–${(pa/g.length).toFixed(1)}</td></tr>`;}).join('');
+    byId('cgTable').innerHTML=`<thead><tr><th>Games</th><th>N</th><th>W–L</th><th>Win%</th><th>Pts%</th><th>Avg score</th></tr></thead><tbody>${body}</tbody>`;
+    byId('cgHint').textContent=`Every game in the filtered matches. Games are win-by-2, so "close" is mostly 11–9, 12–10 and so on. Under ${GAME_MIN} games is greyed as a small sample.`;
+  }
+
+  // ---- clean-up panel ----
+  function renderManage(){
+    const p=byId('managePanel');
+    if(!panelOpen){p.hidden=true;return;}p.hidden=false;
+    const ec={},pc={};M.forEach(m=>{ec[m.evRaw]=(ec[m.evRaw]||0)+1;pc[m.partnerName]=(pc[m.partnerName]||0)+1;});
+    const partners=Object.keys(pc).filter(x=>x!=='—').sort((a,b)=>pc[b]-pc[a]);
+    const dr={};M.forEach(m=>{const r=m.evRaw;const d=dr[r]||(dr[r]={min:m.date,max:m.date});if(m.date<d.min)d.min=m.date;if(m.date>d.max)d.max=m.date;});
+    const dLabel=x=>{if(!x)return'';const a=x.min.slice(0,7),b=x.max.slice(0,7);return a===b?a:a+' – '+b;};
+    // Newest first: most recent match in the event, then its start date.
+    const evList=Object.keys(ec).sort((a,b)=>(dr[b]&&dr[a]?dr[b].max.localeCompare(dr[a].max):0)
+      ||(dr[b]&&dr[a]?dr[b].min.localeCompare(dr[a].min):0)||evName2(a).localeCompare(evName2(b)));
+    const lateRaw=new Set(M.filter(m=>STRAY.has(m.matchId)).map(m=>m.evRaw));
+    const levOpts=raw=>['',...LEVELS].map(l=>`<option value="${l}" ${levelOfRaw(raw)===l?'selected':''}>${l||'Lvl'}</option>`).join('');
+    const evRow=raw=>`<span class="mrow ev ${evHidden(raw)?'hidden':''}" data-ev="${enc(raw)}"><span class="evnm"><span class="nm" title="DUPR: ${enc(raw)}">${enc(evName2(raw))}</span><span class="evdate">${dLabel(dr[raw])}</span></span><select class="selc typesel" title="Type">${TYPES.map(t=>`<option ${t===typeOfRaw(raw)?'selected':''}>${t}</option>`).join('')}</select><select class="selc levelsel" title="Level">${levOpts(raw)}</select><span class="cnt">×${ec[raw]}</span>${lateRaw.has(raw)?`<button class="ic coll${collapseOn(raw)?' on':''}" title="${collapseOn(raw)?'All matches are shown on the event’s last date. Click to give each match its own date again.':'Some matches here were entered in DUPR late. Click to move every match to the event’s last date (only for a league typed in long after it was played).'}">📅</button>`:''}<button class="ic ren" title="Rename">✎</button><button class="ic hide" title="${evHidden(raw)?'Unhide':'Hide from dropdown'}">${evHidden(raw)?'🙈':'👁'}</button></span>`;
+    const pRow=name=>`<span class="mrow ${meta.partnersHidden.includes(name)?'hidden':''}" data-pn="${enc(name)}"><span class="nm">${enc(name)}</span><span class="cnt">${pc[name]}</span><button class="ic hide">${meta.partnersHidden.includes(name)?'🙈':'👁'}</button></span>`;
+    p.innerHTML=`
+      <div class="msec"><div class="mh"><h4>Events</h4><span class="hint">✎ rename (same name = merge) · set Type &amp; Level · 👁 hide. Add 🏆 to a name to highlight it. Raw names come from DUPR.</span></div><div class="mrows evrows">${evList.map(evRow).join('')}</div></div>
+      <div class="msec"><div class="mh"><h4>Partners</h4><span class="hint">Hide one-off partners (their matches still count).</span><button class="minibtn quick" id="hideOnce">Hide all one-timers</button></div><div class="mrows">${partners.map(pRow).join('')}</div></div>
+      <div class="msec"><div class="mh"><h4>Save / sync</h4><span class="hint">Save your edits so they follow you to every device.</span></div>
+        <div class="mrows" id="syncMain">${localStorage.getItem('gh-token')
+          ? `<button class="syncbtn prim" id="saveRepo">💾 Save to GitHub</button><span class="mnone" id="syncMsg"></span><button class="minibtn" id="ghDisc" style="margin-left:auto">GitHub connected · disconnect</button>`
+          : `<button class="syncbtn prim" id="ghConnect">🔗 Connect GitHub to auto-save</button><span class="mnone" id="syncMsg"></span>`}</div>
+        <div class="mrows" style="margin-top:9px"><button class="syncbtn" id="expOvr">⤓ Export file</button>
+          <label class="syncbtn" style="cursor:pointer">⤒ Import<input id="impOvr" type="file" accept="application/json,.json" hidden></label>
+          <button class="syncbtn danger" id="clrLocal">Clear local edits</button></div></div>`;
+    p.querySelectorAll('[data-ev]').forEach(el=>{const raw=dec(el.dataset.ev),E=()=>meta.events[raw]=meta.events[raw]||{};
+      el.querySelector('.hide').onclick=()=>{E();meta.events[raw].hidden=!evHidden(raw);saveMeta();if(F.event&&evHidden(raw))F.event='';render();};
+      // Dates are settled once at load (ratings order, late flags, charts), so reapply by reloading.
+      const co=el.querySelector('.coll');if(co)co.onclick=()=>{E();meta.events[raw].collapse=collapseOn(raw)?undefined:true;saveMeta();location.reload();};
+      el.querySelector('.typesel').onchange=e=>{E();meta.events[raw].type=e.target.value;saveMeta();render();};
+      el.querySelector('.levelsel').onchange=e=>{E();meta.events[raw].level=e.target.value||undefined;saveMeta();render();};
+      el.querySelector('.ren').onclick=()=>startRename(el,evName2(raw),v=>{E();meta.events[raw].name=v.trim()||undefined;saveMeta();F.event='';render();});});
+    p.querySelectorAll('[data-pn]').forEach(el=>{const name=dec(el.dataset.pn);
+      el.querySelector('.hide').onclick=()=>{const i=meta.partnersHidden.indexOf(name);if(i<0)meta.partnersHidden.push(name);else meta.partnersHidden.splice(i,1);saveMeta();if(F.partner===name)F.partner='';render();};});
+    const ho=byId('hideOnce');if(ho)ho.onclick=()=>{Object.keys(pc).forEach(n=>{if(n!=='—'&&pc[n]===1&&!meta.partnersHidden.includes(n))meta.partnersHidden.push(n);});saveMeta();render();};
+    const sv=byId('saveRepo'); if(sv)sv.onclick=saveToGitHub;
+    const dc=byId('ghDisc'); if(dc)dc.onclick=()=>{if(confirm('Disconnect GitHub? Your token is removed from this browser.')){localStorage.removeItem('gh-token');renderManage();}};
+    const cn=byId('ghConnect'); if(cn)cn.onclick=()=>{
+      byId('syncMain').innerHTML=`<input class="tokin" id="tokIn" type="password" placeholder="Paste fine-grained token (Contents: write)" autocomplete="off"><button class="syncbtn prim" id="tokSave">Connect</button><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">create a token ↗</a><span class="mnone" id="syncMsg"></span>`;
+      const inp=byId('tokIn');inp.focus();
+      byId('tokSave').onclick=async()=>{const v=inp.value.trim();if(!v)return;localStorage.setItem('gh-token',v);renderManage();await saveToGitHub();};
+      inp.onkeydown=e=>{if(e.key==='Enter')byId('tokSave').click();};};
+    byId('expOvr').onclick=()=>{const obj=currentOverrides();const b=new Blob([JSON.stringify(obj,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
+      a.href=u;a.download='overrides.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);byId('syncMsg').textContent='Downloaded — commit it to data/overrides.json.';};
+    byId('clrLocal').onclick=()=>{if(confirm('Clear this browser’s local edits? Make sure you saved/exported first.')){localStorage.removeItem(MKEY);localStorage.removeItem(TKEY);location.reload();}};
+    byId('impOvr').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();
+      rd.onload=()=>{try{const o=JSON.parse(rd.result),m=o.meta||{};save(MKEY,{events:m.events||{},partnersHidden:m.partnersHidden||[]});save(TKEY,o.tags||{});location.reload();}
+        catch(err){byId('syncMsg').textContent='Could not read that file.';}};rd.readAsText(f);};
+  }
+  function startRename(el,val,cb){const html=el.innerHTML;
+    el.innerHTML=`<input value="${enc(val)}" maxlength="60"> <button class="ic ok" title="Save">✓</button>`;
+    const inp=el.querySelector('input');inp.focus();inp.select();
+    const done=go=>{if(go)cb(inp.value);else el.innerHTML=html;};
+    inp.onkeydown=e=>{if(e.key==='Enter')done(true);if(e.key==='Escape')done(false);};
+    el.querySelector('.ok').onclick=()=>done(true);}
+
+  // ---- one-click save via GitHub Contents API ----
+  const REPO='colin-oconnor13/PBStats', OVR_PATH='data/overrides.json';
+  const currentOverrides=()=>({meta:{events:meta.events,partnersHidden:meta.partnersHidden},tags,exportedAt:new Date().toISOString()});
+  // Served by tools/serve_local.py: saves go to that server (your local/data folder), not GitHub.
+  const LOCAL=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  async function ghPutJSON(path,obj,message){
+    if(LOCAL){try{const res=await fetch('./local-api/'+path,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj,null,1)});
+      return res.ok?{ok:true}:{ok:false,text:'Local save failed ('+res.status+'): '+(await res.text().catch(()=>''))};}
+      catch(err){return {ok:false,text:'Local server not reachable. Is tools/serve_local.py running?'};}}
+    const token=localStorage.getItem('gh-token');
+    if(!token)return {ok:false,text:'Connect GitHub first.'};
+    const api=`https://api.github.com/repos/${REPO}/contents/${path}`;
+    const H={Authorization:'Bearer '+token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(obj,null,1))));
+    // 401 and 403 mean different fixes, so say which one GitHub sent and quote its reason.
+    const denied=async res=>{
+      let why='';try{why=(await res.json()).message||'';}catch(e){}
+      const lead=res.status===401
+        ? 'GitHub rejected the token (401) — it has expired or been revoked. Disconnect and connect a new one.'
+        : 'GitHub refused the write (403) — the token needs Contents: Read and write on '+REPO+', and must not have expired.';
+      return {ok:false,text:lead+(why?' GitHub says: “'+why+'”':'')};
+    };
+    for(let attempt=0;attempt<4;attempt++){try{
+      let sha;const cur=await fetch(api+'?ref=main&_='+Date.now(),{headers:H,cache:'no-store'});
+      if(cur.ok)sha=(await cur.json()).sha;else if(cur.status===401||cur.status===403)return denied(cur);
+      const res=await fetch(api,{method:'PUT',headers:H,body:JSON.stringify({message,content,sha,branch:'main'})});
+      if(res.ok)return {ok:true};
+      if(res.status===409){await new Promise(r=>setTimeout(r,700));continue;}
+      if(res.status===401||res.status===403)return denied(res);
+      const e=await res.json().catch(()=>({}));return {ok:false,text:'Save failed ('+res.status+'): '+(e.message||'')};
+    }catch(err){return {ok:false,text:'Network error while saving. Try again.'};}}
+    return {ok:false,text:'Still conflicting — wait a few seconds and try again.'};
+  }
+  async function saveToGitHub(){
+    const msg=t=>{const el=byId('syncMsg');if(el)el.textContent=t;};
+    if(!LOCAL&&!localStorage.getItem('gh-token')){msg('Connect GitHub first.');return;}
+    msg('Saving…');
+    const r=await ghPutJSON(OVR_PATH,currentOverrides(),'Update overrides.json (from app)');
+    msg(r.ok?(LOCAL?'✓ Saved to local/data/overrides.json.':'✓ Saved to GitHub — the live site refreshes in ~1 min.'):r.text);
+  }
+
+  // ---- match log ----
+  function renderLog(list,boxId,emptyMsg){
+    const SORTS={new:(a,b)=>b.date.localeCompare(a.date)||(ordOf(b)-ordOf(a)),
+                 old:(a,b)=>a.date.localeCompare(b.date)||(ordOf(a)-ordOf(b)),
+                 up:(a,b)=>(b.impact==null?-9:b.impact)-(a.impact==null?-9:a.impact),
+                 down:(a,b)=>(a.impact==null?9:a.impact)-(b.impact==null?9:b.impact)};
+    const log=byId(boxId),rows=list.slice().sort(SORTS[logSort]||SORTS.new);
+    if(!rows.length){log.innerHTML=`<div class="caphint" style="padding:26px;text-align:center">${emptyMsg||'No matches in this filter.'}</div>`;return;}
+    log.className=rows.length>12?'collapsed':'';
+    log.innerHTML=rows.map(m=>{
+      // Ratings follow the DUPR actual / now toggle, but the order is always by
+      // rating AT THE TIME, strongest opponent first.
+      const oRt=o=>{const v=num(basis==='now'?o.ratingNow:o.ratingThen);return v==null?'':` (${v.toFixed(2)})`;};
+      const opps=(m.opponents||[]).slice().sort((a,b)=>(num(b.ratingThen)??-1)-(num(a.ratingThen)??-1));
+      const opp=opps.map(o=>o.name+oRt(o)).join(' & ')||'—';
+      const pv=num(basis==='now'?m.partnerNow:m.partnerThen);
+      const partner=m.partnerName+(pv==null?'':' - '+pv.toFixed(2));
+      const sc=m.scores.length?m.scores.map((s,i)=>s+'-'+(m.oppScores[i]??'')).join(', '):'—';
+      const imp=m.impact,ih=imp==null?'':`<div class="m-imp ${imp>=0?'imp-up':'imp-dn'} mono">${ptsTxt(imp,true)}</div>`;
+      return`<div class="match"><div class="wl ${m.won?'W':'L'}">${m.won?'W':'L'}</div>
+        <div><div class="m-opp">${enc(opp)}</div><div class="m-partner">[${enc(partner)}]</div><div class="m-event">${enc(((levelOf(m)?levelOf(m)+' ':'')+typeOf(m))+' - '+evName(m))}</div></div>
+        <div class="m-right"><div class="m-score mono">${sc}</div><div class="m-date mono">${m.date}</div>${ih}</div></div>`;}).join('')+
+      (rows.length>12?`<button class="showmore">Show all ${rows.length}</button>`:'');
+    const sm=log.querySelector('.showmore');if(sm)sm.onclick=()=>{log.classList.remove('collapsed');sm.remove();};
+  }
+
+  // ---- opponents / partners (tab 3) ----
+  // Everyone you've played against (or with) in the filtered matches, ranked. Fewer than
+  // PPL_MIN matches is too small a sample to rank on, so those go in a separate, muted list.
+  const PPL_MIN=4;
+  let pplMode='opp',pplSort='value',pplSel='',pplAll=false;
+  // Keys take the person row (r.g = their agg); "now" is their current rating, not a result.
+  const PPL_KEY={value:r=>r.g.value,win:r=>r.g.winFrac,pts:r=>r.g.ptsFrac,margin:r=>r.g.normMargin,
+    impact:r=>r.g.impAvg,beat:r=>r.g.upFrac,now:r=>r.now};
+  const impCell=(v,l)=>`<td class="mono ${v==null?'':(v>=0?'imp-up':'imp-dn')}" data-l="${l}">${ptsTxt(v,true)}</td>`;
+  function peopleOf(list){
+    const g=new Map();
+    const add=(p,name,m)=>{if(!p||p.id==null)return;let r=g.get(p.id);
+      if(!r){r={id:String(p.id),name,ms:[],last:'',now:null};g.set(p.id,r);}
+      r.ms.push(m);if(m.date>=r.last){r.last=m.date;r.now=num(p.ratingNow);r.name=name;}};
+    list.forEach(m=>{
+      if(pplMode==='opp')(m.opponents||[]).forEach(o=>add(o,o.name,m));
+      else if(m.partner)add(m.partner,m.partnerName,m);});
+    const key=PPL_KEY[pplSort]||PPL_KEY.value;
+    return [...g.values()].map(r=>({...r,g:agg(r.ms,'then')}))
+      .sort((a,b)=>((key(b)??-1e9)-(key(a)??-1e9))||(b.g.n-a.g.n)||a.name.localeCompare(b.name));
+  }
+  // ---- expected-results model (Partner / Opponent Index) ----
+  // Win chance is the pb repo's DUPR curve, P = 1/(1+10^(−Δ/S)), Δ = your team's average DUPR
+  // minus the opponents' average, at the time. pb hard-codes S (4, or 400 in places), which on
+  // DUPR's 2–6 scale is close to a coin flip, so S is fitted to your own matches here (maximum
+  // likelihood). Expected margin is a straight-line fit of the per-11 margin on Δ. Δ uses each
+  // player's pre-match rating (m.diffPre), so the match's own result isn't baked into the edge;
+  // matches synced before those were stored fall back to post-match values (m.allPre false).
+  const MODEL=(function(){
+    const X=M.filter(m=>m.diffPre!=null);
+    const ll=S=>X.reduce((s,m)=>{const p=1/(1+Math.pow(10,-m.diffPre/S));return s+Math.log(Math.max(1e-12,m.won?p:1-p));},0);
+    let S=0.4,fitted=false;
+    if(X.length>=30){let best=-Infinity;for(let i=10;i<=300;i++){const s=i/100,v=ll(s);if(v>best){best=v;S=s;}}fitted=true;}
+    const Y=X.filter(m=>m.normMargin!=null);let a=0,b=0;
+    if(Y.length>=10){const mx=Y.reduce((s,m)=>s+m.diffPre,0)/Y.length,my=Y.reduce((s,m)=>s+m.normMargin,0)/Y.length;
+      const sxx=Y.reduce((s,m)=>s+(m.diffPre-mx)**2,0);b=sxx?Y.reduce((s,m)=>s+(m.diffPre-mx)*(m.normMargin-my),0)/sxx:0;a=my-b*mx;}
+    return {S,fitted,n:X.length,nPre:X.filter(m=>m.allPre).length,a,b,pWin:d=>1/(1+Math.pow(10,-d/S)),margin:d=>a+b*d};
+  })();
+  // Expected-vs-actual for any set of matches (same maths as the index), one table row each.
+  function expStats(ms){
+    ms=ms.filter(m=>m.diffPre!=null);if(!ms.length)return null;
+    const ps=ms.map(m=>MODEL.pWin(m.diffPre)),exp=ps.reduce((s,p)=>s+p,0),w=ms.filter(m=>m.won).length;
+    const sd=Math.sqrt(ps.reduce((s,p)=>s+p*(1-p),0)),mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
+    const im=ms.filter(m=>m.impact!=null).map(m=>m.impact);
+    return {n:ms.length,w,exp,woe:w-exp,z:sd?(w-exp)/sd:0,expPct:exp/ms.length,
+      mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null,imp:im.length?im.reduce((s,v)=>s+v,0)/im.length:null};
+  }
+  function expTable(id,label,rows){
+    const sig=s=>{if(s.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';const z=Math.abs(s.z);
+      return z>=2?'<span class="pxconf c2">Strong</span>':z>=1?'<span class="pxconf c1">Some</span>':'<span class="pxconf c0">Noise</span>';};
+    const body=rows.map(([name,hint,ms])=>{const s=expStats(ms),lab=`<span class="evname">${name}</span>${hint?`<span class="evtd">${hint}</span>`:''}`;
+      if(!s)return`<tr class="dim"><td>${lab}</td><td class="mono">0</td><td colspan="7"></td></tr>`;
+      const low=s.n<PPL_MIN;
+      return`<tr${low?' class="dim"':''}><td>${lab}${low?'<span class="ptag low">small sample</span>':''}</td><td class="mono">${s.n}</td>`
+        +`<td class="mono">${s.w}–${s.n-s.w}</td><td class="mono">${pct(s.w/s.n)}</td><td class="mono">${pct(s.expPct)}</td>`
+        +`<td class="mono valcell ${s.woe>=0?'imp-up':'imp-dn'}">${(s.woe>=0?'+':'')+s.woe.toFixed(1)}</td>`
+        +`<td class="mono ${s.mres==null?'':(s.mres>=0?'imp-up':'imp-dn')}">${sgn(s.mres)}</td>`
+        +`<td class="mono ${s.imp==null?'':(s.imp>=0?'imp-up':'imp-dn')}">${ptsTxt(s.imp,true)}</td><td>${sig(s)}</td></tr>`;}).join('');
+    byId(id).innerHTML=`<thead><tr><th>${label}</th><th>M</th><th>W–L</th><th>Win%</th><th>Exp Win%</th><th>Wins vs exp</th><th>Margin vs exp</th><th>DUPR Δ / match</th><th>Signal</th></tr></thead><tbody>${body}</tbody>`;
+  }
+  // Nth time you've met each opponent / played with each partner, counted over the whole history
+  // in entry order (date, then matchId), so filters don't renumber them.
+  (function(){const seen=new Map(),k=(t,id)=>t+id;
+    M.slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.matchId-b.matchId)).forEach(m=>{
+      m.oppMeet=(m.opponents||[]).map(o=>{const c=(seen.get(k('o',o.id))||0)+1;seen.set(k('o',o.id),c);return c;});
+      if(m.partner){const c=(seen.get(k('p',m.partner.id))||0)+1;seen.set(k('p',m.partner.id),c);m.partnerMeet=c;}});})();
+  function renderPatterns(list){
+    const g=(lo,hi,f)=>list.filter(m=>{const v=f(m);return v!=null&&v>=lo&&v<hi;});
+    expTable('gapTable','You − partner',[
+      ['You’re stronger by 0.15+','',g(0.15,9,m=>m.gapPre)],
+      ['You’re stronger by 0.05–0.15','',g(0.05,0.15,m=>m.gapPre)],
+      ['About even','within 0.05',g(-0.05,0.05,m=>m.gapPre)],
+      ['Partner stronger by 0.05–0.15','',g(-0.15,-0.05,m=>m.gapPre)],
+      ['Partner stronger by 0.15+','',g(-9,-0.15,m=>m.gapPre)]]);
+    expTable('sprTable','Opponent gap',[
+      ['Balanced','opponents within 0.10',g(0,0.10,m=>m.sprPre)],
+      ['Some gap','0.10–0.25 apart',g(0.10,0.25,m=>m.sprPre)],
+      ['Lopsided','0.25+ apart',g(0.25,9,m=>m.sprPre)]]);
+    const opp=pplMode==='opp';
+    // Opponent mode counts each match once per opponent, at that opponent's meeting number.
+    const meet=opp?list.flatMap(m=>(m.oppMeet||[]).map(c=>({m,c}))):list.filter(m=>m.partnerMeet).map(m=>({m,c:m.partnerMeet}));
+    const mb=(lo,hi)=>meet.filter(x=>x.c>=lo&&x.c<=hi).map(x=>x.m);
+    byId('rptTitle').textContent=opp?'Repeat Meetings — Opponents':'Repeat Meetings — Partners';
+    byId('rptHint').textContent=opp
+      ?'Your results by how many times you’d faced that opponent. Each match counts once per opponent. Do you adapt to people, or do they figure you out?'
+      :'Your results by how many times you’d played with that partner. Does chemistry build?';
+    expTable('rptTable',opp?'Meeting':'Match together',[
+      ['First time','',mb(1,1)],['Second time','',mb(2,2)],['3rd to 5th','',mb(3,5)],['6th or later','',mb(6,1e9)]]);
+  }
+  // ---- streaks & bounce-back (tab 2): entry order within a night = playing order ----
+  function renderStreaks(list){
+    const seq=list.slice().sort((a,b)=>a.date.localeCompare(b.date)||(a.matchId-b.matchId));
+    const after=[],first=[];let runs=[];
+    seq.forEach((m,i)=>{const p=seq[i-1];
+      if(!p||p.date!==m.date){first.push(m);return;}
+      let k=0;for(let j=i-1;j>=0&&seq[j].date===m.date&&seq[j].won===p.won;j--)k++;
+      after.push({m,won:p.won,k});});
+    // Streaks run across nights, in the same order.
+    let best={W:{n:0},L:{n:0}},cur=null;
+    seq.forEach(m=>{const r=m.won?'W':'L';if(cur&&cur.r===r){cur.n++;cur.end=m.date;}else cur={r,n:1,start:m.date,end:m.date};
+      if(cur.n>best[r].n)best[r]={...cur};});
+    const span=s=>s.n?(s.start===s.end?s.start:s.start+' → '+s.end):'';
+    byId('stkKpis').innerHTML=seq.length?[
+      [best.W.n,'Longest win streak',span(best.W)],[best.L.n,'Longest losing streak',span(best.L)],
+      [cur?cur.n+(cur.r==='W'?' W':' L'):'—','Current streak',cur?'since '+cur.start:'']]
+      .map(x=>`<div class="kpi"><div class="v mono">${x[0]}</div><div class="l">${x[1]}${x[2]?` <span class="sub">${x[2]}</span>`:''}</div></div>`).join(''):'';
+    expTable('stkTable','Situation',[
+      ['First match of the night','',first],
+      ['After a win','same night',after.filter(x=>x.won).map(x=>x.m)],
+      ['After a loss','same night',after.filter(x=>!x.won).map(x=>x.m)],
+      ['After 2+ wins in a row','same night',after.filter(x=>x.won&&x.k>=2).map(x=>x.m)],
+      ['After 2+ losses in a row','same night',after.filter(x=>!x.won&&x.k>=2).map(x=>x.m)]]);
+    byId('stkHint').textContent='Matches in the order they were entered in DUPR, taken as the order you played them. '
+      +'“After a loss” compares your next match that night with what the ratings expected, so a tough next draw doesn’t count against you.';
+  }
+  let pxSort='under',pxAll=false;
+  function renderIndex(list){
+    const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
+    let unrated=0;
+    const rows=peopleOf(list).map(r=>{
+      const ms=r.ms.filter(m=>m.diffPre!=null);if(!ms.length){unrated++;return null;}
+      const ps=ms.map(m=>MODEL.pWin(m.diffPre)),exp=ps.reduce((s,p)=>s+p,0),w=ms.filter(m=>m.won).length;
+      const sd=Math.sqrt(ps.reduce((s,p)=>s+p*(1-p),0)),woe=w-exp;
+      const mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
+      return {...r,n:ms.length,w,exp,woe,z:sd?woe/sd:0,expPct:exp/ms.length,
+        edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length,mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null};
+    }).filter(Boolean);
+    const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
+    rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
+    const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
+    const conf=r=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';
+      const z=Math.abs(r.z);return z>=2?'<span class="pxconf c2" title="Gap is over 2× what chance alone would give">Strong</span>'
+      :z>=1?'<span class="pxconf c1" title="Gap is 1–2× what chance alone would give">Some</span>':'<span class="pxconf c0" title="Within what chance alone would give">Noise</span>';};
+    const row=(r,tags)=>{
+      // Tagged only when the gap is beyond chance (signal Some or Strong), whatever the odds were.
+      const tag=!tags?'':r.z<=-1?'<span class="ptag worst">Below expected</span>'
+        :r.z>=1?'<span class="ptag best">Above expected</span>':'';
+      return`<tr class="clk${pplSel===r.id?' on':''}" data-pid="${enc(r.id)}"><td><span class="evname" title="${enc(r.name)}">${enc(r.name)}</span>${tag}`
+        +`<span class="evtd">avg edge ${sgn(r.edge)} DUPR · DUPR now ${f2(r.now)}</span></td>`
+        +`<td class="mono">${r.n}</td><td class="mono">${pct(r.expPct)}</td><td class="mono">${pct(r.w/r.n)}</td>`
+        +`<td class="mono">${r.exp.toFixed(1)}–${(r.n-r.exp).toFixed(1)}</td><td class="mono">${r.w}–${r.n-r.w}</td>`
+        +`<td class="mono valcell ${r.woe>=0?'imp-up':'imp-dn'}">${(r.woe>=0?'+':'')+r.woe.toFixed(1)}</td>`
+        +`<td class="mono ${r.mres==null?'':(r.mres>=0?'imp-up':'imp-dn')}">${sgn(r.mres)}</td><td>${conf(r)}</td></tr>`;};
+    byId('pxTitle').textContent=(opp?'Opponent':'Partner')+' Index — expected vs actual';
+    byId('pxHint').textContent=opp
+      ?'How you should do against each opponent given everyone’s DUPR at the time, against how you actually did. Top of the list: the opponents you should be beating more.'
+      :'How each partnership should do given everyone’s DUPR at the time, against how it actually did. Top of the list: the partners you should be winning more with.';
+    byId('pxTable').innerHTML=`<thead><tr><th>${who}</th><th>M</th><th title="Average model win chance across your matches">Exp Win%</th><th>Win%</th>`
+      +`<th title="Wins–losses the model expected">Exp W–L</th><th>W–L</th><th title="Actual wins minus expected wins">Wins vs exp</th>`
+      +`<th title="Average per-11 margin minus the margin expected for that DUPR edge">Margin vs exp</th><th title="How far the gap is beyond what chance alone would give">Signal</th></tr></thead><tbody>`
+      +(solid.map(r=>row(r,true)).join('')||`<tr class="dim"><td colspan="9" class="caphint">No ${who.toLowerCase()} has ${PPL_MIN}+ rated matches in this filter.</td></tr>`)
+      +(low.length?`<tr class="sep"><td colspan="9">Small samples — 1 to ${PPL_MIN-1} matches · low reliability</td></tr>`+(pxAll?low:low.slice(0,15)).map(r=>row(r,false)).join(''):'')
+      +'</tbody>'+(low.length>15?`<tfoot><tr><td colspan="9" style="padding:0"><button class="showmore" id="pxMore">${pxAll?'Show fewer':'Show all '+low.length+' small samples'}</button></td></tr></tfoot>`:'');
+    const pm=byId('pxMore');if(pm)pm.onclick=()=>{pxAll=!pxAll;render();};
+    byId('pxTable').querySelectorAll('[data-pid]').forEach(tr=>tr.onclick=()=>{
+      const id=dec(tr.dataset.pid);pplSel=pplSel===id?'':id;render();
+      if(pplSel)byId('pplLogCard').scrollIntoView({behavior:'smooth',block:'start'});});
+    byId('pxModel').textContent=`Expected win % = 1 / (1 + 10^(−Δ / ${MODEL.S.toFixed(2)})), the DUPR curve from the pb predictor, `
+      +(MODEL.fitted?`with its scale fitted to your ${MODEL.n} rated matches (pb’s fixed scale of 4 would give a +0.25 edge ${pct(1/(1+Math.pow(10,-0.25/4)))}; your matches say ${pct(MODEL.pWin(0.25))}). `
+        :`using a default scale (fewer than 30 rated matches to fit one). `)
+      +`Expected margin = ${sgn(MODEL.a)} ${MODEL.b>=0?'+':'−'} ${Math.abs(MODEL.b).toFixed(1)} × Δ points per 11. Δ = (you + partner) / 2 − opponents’ average. `
+      +(MODEL.nPre===MODEL.n?'Everyone’s DUPR is taken going into the match, so the result itself doesn’t shift the edge.'
+        :MODEL.nPre?`Everyone’s DUPR going into the match, except ${MODEL.n-MODEL.nPre} older matches that still use partners’ and opponents’ post-match ratings (sync again to fill them in).`
+        :`Your DUPR is pre-match; partners’ and opponents’ are DUPR’s post-match values, which lean slightly toward the winner. Sync again to switch them to pre-match.`)
+      +(unrated?` ${unrated} ${opp?'opponent':'partner'}${unrated>1?'s':''} left out: no ratings on file for those matches.`:'');
+  }
+  function renderPeople(list){
+    const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
+    const all=peopleOf(list),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
+    if(pplSel&&!all.some(r=>r.id===pplSel))pplSel='';
+    const sortName=byId('pplSort').selectedOptions[0].textContent.replace('Rank by ','');
+    // Top and bottom few of the reliable list get a Best / Worst tag (never overlapping).
+    // Sorting by DUPR now says who is strongest, not how you did, so no Best / Worst tags.
+    const tagN=pplSort==='now'?0:solid.length>=6?3:solid.length>=2?1:0;
+    const head=`<thead><tr><th>${who}</th><th>M</th><th>W–L</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th>`
+      +`<th title="Your average DUPR change per match">DUPR Δ / match</th><th title="Your total DUPR change across these matches">DUPR Δ total</th>`
+      +`<th title="Share of matches where your rating went up, i.e. you did better than DUPR expected">Beat exp.</th><th>DUPR now</th></tr></thead>`;
+    const row=(r,i,n,tags)=>{
+      const tag=!tags?'':i<tagN?'<span class="ptag best">Best</span>':i>=n-tagN?'<span class="ptag worst">Worst</span>':'';
+      return`<tr class="clk${pplSel===r.id?' on':''}" data-pid="${enc(r.id)}"><td><span class="evname" title="${enc(r.name)}">${enc(r.name)}</span>${tag}`
+        +`<span class="evtd">last played ${r.last}</span></td>`
+        +`<td class="mono" data-l="M">${r.g.n}</td><td class="mono" data-l="W–L">${r.g.wins}–${r.g.losses}</td>`
+        +`<td class="mono" data-l="Win %">${pct(r.g.winFrac)}</td><td class="mono" data-l="Pts %">${pct(r.g.ptsFrac)}</td>`
+        +`<td class="mono" data-l="Margin">${sgn(r.g.normMargin)}</td><td class="mono valcell" data-l="Value">${r.g.value.toFixed(1)}</td>`
+        +impCell(r.g.impAvg,'DUPR Δ / match')+impCell(r.g.impSum,'DUPR Δ total')
+        +`<td class="mono" data-l="Beat exp.">${pct(r.g.upFrac)}</td>`
+        +`<td class="mono" data-l="DUPR now">${f2(r.now)}</td></tr>`;};
+    const empty=t=>`<tr class="dim"><td colspan="11" class="caphint">${t}</td></tr>`;
+    byId('pplTitle').textContent=(opp?'Opponents':'Partners')+` — ${PPL_MIN}+ matches`;
+    byId('pplHint').textContent=(pplSort==='now'?`Highest to lowest current DUPR.`
+      :`Best to worst by ${sortName}${opp?' (your results against them)':' (your results together)'}.`)+' Click a row to see the matches.';
+    byId('pplTable').innerHTML=head+`<tbody>${solid.map((r,i)=>row(r,i,solid.length,true)).join('')
+      ||empty(`No ${opp?'opponent':'partner'} has ${PPL_MIN}+ matches in this filter.`)}</tbody>`;
+    const CAP=15,shown=pplAll?low:low.slice(0,CAP);
+    byId('pplLowTitle').textContent=`Small samples — 1 to ${PPL_MIN-1} matches`;
+    byId('pplLowHint').textContent=low.length?`Low reliability: ${low.length} ${opp?'opponents':'partners'}, same order. One good or bad night moves these a lot.`:'';
+    byId('pplLowTable').innerHTML=head+`<tbody>${shown.map((r,i)=>row(r,i,shown.length,false)).join('')||empty('None in this filter.')}</tbody>`
+      +(low.length>CAP?`<tfoot><tr><td colspan="11" style="padding:0"><button class="showmore" id="pplMore">${pplAll?'Show fewer':'Show all '+low.length}</button></td></tr></tfoot>`:'');
+    const more=byId('pplMore');if(more)more.onclick=()=>{pplAll=!pplAll;render();};
+    document.querySelectorAll('#pplTable [data-pid],#pplLowTable [data-pid]').forEach(tr=>tr.onclick=()=>{
+      const id=dec(tr.dataset.pid);pplSel=pplSel===id?'':id;render();
+      if(pplSel)byId('pplLogCard').scrollIntoView({behavior:'smooth',block:'start'});});
+    const sel=all.find(r=>r.id===pplSel),card=byId('pplLogCard');
+    card.hidden=!sel;
+    if(sel){byId('pplLogTitle').innerHTML=`${opp?'Against':'With'} ${enc(sel.name)} <span class="lsub">· ${sel.g.wins}–${sel.g.losses} in ${sel.g.n} match${sel.g.n>1?'es':''}</span>`;
+      renderLog(sel.ms,'pplLog');}
+    document.querySelectorAll('#pplMode button').forEach(b=>b.classList.toggle('on',b.dataset.p===pplMode));
+  }
+
+  // ---- wiring ----
+  document.querySelectorAll('#pplMode button').forEach(b=>b.onclick=()=>{pplMode=b.dataset.p;pplSel='';pplAll=false;pxAll=false;render();});
+  byId('pplSort').onchange=e=>{pplSort=e.target.value;render();};
+  byId('pxSort').onchange=e=>{pxSort=e.target.value;render();};
+  byId('fbHead').onclick=e=>{if(e.target.closest('select'))return;filtersOpen=!filtersOpen;render();};
+  document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{tab=t.dataset.tab;
+    document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));render();});
+  document.querySelectorAll('.basisToggle button').forEach(b=>b.onclick=()=>{basis=b.dataset.b;render();});
+  byId('logSort').onchange=e=>{logSort=e.target.value;render();};
+  document.querySelectorAll('[data-wl]').forEach(c=>c.onclick=()=>{F.wl=c.dataset.wl;
+    document.querySelectorAll('[data-wl]').forEach(x=>x.classList.toggle('on',x===c));render();});
+  byId('cleanup').onclick=e=>{e.stopPropagation();panelOpen=!panelOpen;
+    byId('cleanup').textContent=panelOpen?'✕ Close clean up':'⚙ Clean up data';renderManage();};
+  byId('reset').onclick=e=>{e.stopPropagation();Object.assign(F,{year:[],type:[],level:[],event:[],partner:[],wl:'all',date:''});
+    document.querySelectorAll('[data-wl]').forEach(x=>x.classList.toggle('on',x.dataset.wl==='all'));render();};
+  byId('evClear').onclick=()=>byId('reset').click();
+  byId('themeBtn').onclick=()=>{const r=document.documentElement,c=r.getAttribute('data-theme');
+    const next=c?(c==='dark'?'light':'dark')
+      :(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark');
+    r.setAttribute('data-theme',next);
+    try{localStorage.setItem('pb-theme',next);}catch(e){}   // the choice sticks across reloads
+    render();};
+
+  // ---- sync help + staleness banner ----
+  (function(){
+    const thHead=byId('thHead'),thBody=byId('thBody');
+    const toggle=open=>{thBody.hidden=!open;thHead.querySelector('.chev2').textContent=open?'▴':'▾';};
+    thHead.onclick=()=>toggle(thBody.hidden);
+    const gen=DATA.generated;
+    const days=gen?Math.floor((Date.now()-Date.parse(gen+'T00:00:00Z'))/86400000):null;
+    if(days!=null&&days>21){byId('staleDays').textContent=days;byId('staleBanner').hidden=false;}
+    byId('bannerFix').onclick=()=>{toggle(true);byId('tokenHelp').scrollIntoView({behavior:'smooth',block:'center'});};
+  })();
+
+  // ---- DUPR raw history -> data.json (port of the old fetch_dupr.py transform) ----
+  function duprToData(d){
+    const ID=d.profile&&d.profile.id,hits=d.hits||[],now=d.now||{};
+    if(!ID)throw new Error('no player profile');
+    if(hits.length&&!Array.isArray(hits[0].teams))throw new Error('unexpected match format (fields: '+Object.keys(hits[0]).join(', ')+')');
+    const nr=v=>(v==null||v===''||v==='NR')?null:+v;
+    const r4=(v,k)=>v==null?null:Math.round(v*k)/k;
+    const matches=[];
+    for(const m of hits){
+      const teams=m.teams||[];let me=null,mine=null;
+      for(const t of teams)for(const sl of ['player1','player2']){const pl=t[sl];if(pl&&pl.id===ID){me=t;mine=sl;}}
+      if(!me)continue;
+      const other=teams.find(t=>t!==me)||null;
+      const partner=me[mine==='player1'?'player2':'player1'];
+      const pm=me.preMatchRatingAndImpact||{},N=mine==='player1'?'Player1':'Player2';
+      const pre=pm['preMatchDoubleRating'+N]??null,imp=pm['matchDoubleRatingImpact'+N]??null;
+      const post=(pre!=null&&imp!=null)?pre+imp:null;
+      // ratingThen is DUPR's post-match value; ratingPre is the same player's rating going in,
+      // from their team's preMatchRatingAndImpact block (or post − impact if only that is there).
+      const pinfo=(pl,t,sl)=>{const b=(t&&t.preMatchRatingAndImpact)||{},K=sl==='player1'?'Player1':'Player2';
+        const post=(pl.postMatchRating||{}).doubles??null,pi=b['matchDoubleRatingImpact'+K]??null;
+        let pr=b['preMatchDoubleRating'+K]??null;if(pr==null&&post!=null&&pi!=null)pr=+post-pi;
+        return {id:pl.id,name:titleCase(pl.fullName),ratingThen:post,ratingPre:r4(pr,1e4),ratingNow:nr(now[pl.id])};};
+      const games=t=>t?[1,2,3,4,5].map(i=>t['game'+i]).filter(g=>g!=null&&g!==-1):[];
+      matches.push({matchId:m.matchId,date:m.eventDate,event:(m.league||'').trim()||(m.venue??null),
+        venue:m.venue??null,format:m.eventFormat??null,confirmed:m.confirmed??null,winner:me.winner??null,
+        scores:games(me),oppScores:games(other),partner:partner?pinfo(partner,me,mine==='player1'?'player2':'player1'):null,
+        opponents:other?['player1','player2'].filter(sl=>other[sl]).map(sl=>pinfo(other[sl],other,sl)):[],
+        preRating:r4(pre,1e4),impact:r4(imp,1e5),postRating:r4(post,1e4)});
+    }
+    matches.sort((x,y)=>x.date<y.date?-1:x.date>y.date?1:(x.matchId-y.matchId));
+    const at=new Date();
+    return {player:{id:ID,name:d.profile.fullName,currentDoubles:nr(d.profile.doubles)},
+      generated:at.toISOString().slice(0,10),syncedAt:at.toISOString(),matches};
+  }
+
+  // ---- sync from DUPR: data handed over by the bookmark running on dashboard.dupr.com ----
+  (function(){
+    const DUPR_ORIGIN='https://dashboard.dupr.com';
+    if(!new URLSearchParams(location.search).has('sync'))return;
+    const ov=byId('syncOv'),stat=byId('syncStat'),act=byId('syncAct');
+    ov.hidden=false;
+    const show=(t,err)=>{stat.textContent=t;stat.classList.toggle('err',!!err);};
+    const buttons=list=>{act.innerHTML='';list.forEach(([label,fn,prim])=>{const b=document.createElement('button');
+      b.className='syncbtn'+(prim?' prim':'');b.textContent=label;b.onclick=fn;act.appendChild(b);});};
+    const closeBtn=['Close',()=>{history.replaceState(null,'','./');ov.hidden=true;}];
+    if(!window.opener){show('To sync, open dashboard.dupr.com (logged in) and click your 🔄 Sync to Pickleball bookmark there.');buttons([closeBtn]);return;}
+    show('Fetching your matches from DUPR…');buttons([]);
+    let got=false;
+    const timer=setTimeout(()=>{if(!got){show('Nothing arrived from DUPR. Make sure you clicked the bookmark on dashboard.dupr.com while logged in, then try again.',true);buttons([closeBtn]);}},120000);
+    addEventListener('message',async e=>{
+      if(e.origin!==DUPR_ORIGIN||e.source!==window.opener||!e.data||got)return;
+      const d=e.data;
+      if(d.type==='pb-progress'){show(d.text);return;}
+      if(d.type==='pb-error'){got=true;clearTimeout(timer);show('DUPR sync failed: '+d.text,true);buttons([closeBtn]);return;}
+      if(d.type!=='pb-data')return;
+      got=true;clearTimeout(timer);
+      let fresh;
+      try{fresh=duprToData(d);}catch(err){show('Couldn’t read DUPR’s data: '+err.message,true);buttons([closeBtn]);return;}
+      const had=DATA.matches.length,n=fresh.matches.length;
+      if(n<had){show(`DUPR returned ${n} matches but you already have ${had}, so nothing was saved. DUPR may have changed its data format.`,true);buttons([closeBtn]);return;}
+      const rt=fresh.player.currentDoubles;
+      const summary=`${n} matches${n>had?` (${n-had} new)`:''}${rt!=null?', DUPR '+rt.toFixed(3):''}`;
+      const open=()=>{try{sessionStorage.setItem('pb-fresh',JSON.stringify(fresh));}catch(err){}location.replace('./');};
+      const same=x=>JSON.stringify([x.player,x.matches]);
+      if(same(fresh)===same(DATA)){show('✓ Already up to date: '+summary+'.');buttons([['Open app',()=>location.replace('./'),true]]);return;}
+      const download=['⤓ Download data.json',()=>{const b=new Blob([JSON.stringify(fresh,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
+        a.href=u;a.download='data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}];
+      if(!LOCAL&&!localStorage.getItem('gh-token')){
+        show(`Fetched ${summary}, but GitHub isn’t connected in this browser, so it can’t be saved. Connect GitHub (Filters → ⚙ Clean up data → Save / sync) and sync again.`,true);
+        buttons([['View without saving',open,true],download,closeBtn]);return;}
+      const save=async()=>{
+        show('Saving '+summary+(LOCAL?' locally…':' to GitHub…'));buttons([]);
+        const r=await ghPutJSON('data/data.json',fresh,'Sync DUPR data: '+fresh.generated+' (from app)');
+        if(!r.ok){show('Fetched '+summary+', but saving failed: '+r.text,true);buttons([['Try again',save,true],['View without saving',open],download]);return;}
+        show('✓ Synced '+summary+'. Opening the app…');setTimeout(open,1200);
+      };
+      save();
+    });
+    window.opener.postMessage({type:'pb-ready'},DUPR_ORIGIN);
+  })();
+
+  render();
+})();
+</script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script>
