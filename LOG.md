@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — easier mobile sync
+- **Sync now** button (header, sync card, and the stale banner): opens dashboard.dupr.com in a
+  new tab, copies the keyword "PB Sync", and shows a tip reminding you to type it in the address
+  bar and tap the bookmark. Turns "remember to go to DUPR first" into one tap.
+- **Visual setup cards**: the phone bookmark setup is now 3 numbered steps (copy code / bookmark
+  page / paste + rename) instead of a text paragraph — the copy-paste step was the #1 failure.
+- **Chart presets**: Rating Over Time gains rolling-window pills 3M / 6M / 1Y alongside All and
+  per-year (`Z.months`); phones default to 3M. SW rj-v61.
+
 ## 2026-10-11 — view other players ("scouting")
 - **From a player's DUPR page** (`dashboard.dupr.com/dashboard/player/<id>`) the bookmark asks
   "Sync <name> (view only)" or "Sync my own matches". **On your own sync** it offers
