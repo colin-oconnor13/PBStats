@@ -279,6 +279,20 @@
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stepn{color:#0E1512}}
   .synctip{margin-bottom:14px;padding:12px 16px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-soft);font-size:13px;line-height:1.55;display:flex;gap:10px;align-items:flex-start}
   .synctip button{margin-left:auto;background:none;border:0;color:var(--muted);font-family:inherit;font-size:16px;cursor:pointer;line-height:1}
+  .guide{max-width:760px}
+  .guide h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin:0 0 6px}
+  .guide h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;margin:2px 0 10px}
+  .guide p{font-size:13.5px;line-height:1.65;margin:0 0 12px}
+  .guide .lead{font-size:14.5px;color:var(--ink)}
+  .gdef{display:grid;grid-template-columns:140px 1fr;gap:4px 16px;font-size:13.5px;line-height:1.55;padding:9px 0;border-top:1px solid var(--line)}
+  .gdef:first-of-type{border-top:0}
+  .gdef b{color:var(--ink);font-weight:800}
+  .gdef .d{color:var(--ink)}
+  .gdef .d em{color:var(--muted);font-style:normal}
+  .guide .pill-ex{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:5px;margin-right:6px;vertical-align:1px}
+  .guide .pe-good{background:var(--win-soft);color:var(--win)} .guide .pe-bad{background:var(--loss-soft);color:var(--loss)} .guide .pe-mid{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+  .guide .tip{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:12px 15px;font-size:13.5px;line-height:1.6;margin-top:4px}
+  @media(max-width:620px){.gdef{grid-template-columns:1fr;gap:2px}.gdef b{margin-top:2px}}
   .welcome{margin-bottom:16px;border-color:var(--accent)}
   .welcome h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin:0 0 8px}
   .welcome p,.welcome li{font-size:13.5px;line-height:1.6} .welcome ol{padding-left:20px;margin:8px 0}
@@ -408,6 +422,7 @@
     <button class="tab on" data-tab="overview">Overview</button>
     <button class="tab" data-tab="analysis">Analysis</button>
     <button class="tab" data-tab="people"><span class="tl-full">Opponents &amp; Partners</span><span class="tl-short">People</span></button>
+    <button class="tab" data-tab="guide"><span class="tl-full">How to read this</span><span class="tl-short">Guide</span></button>
   </div>
 
   <!-- ===== TAB 1: OVERVIEW ===== -->
@@ -561,6 +576,62 @@
     <div class="card" style="overflow:hidden" id="pplLogCard" hidden>
       <div class="logtop"><h2 id="pplLogTitle"></h2></div>
       <div id="pplLog"></div>
+    </div>
+  </div>
+
+  <!-- ===== TAB 4: HOW TO READ THIS ===== -->
+  <div id="tab-guide" hidden>
+    <div class="card pad guide">
+      <h2>How to read this</h2>
+      <p class="lead">This is your real pickleball history from DUPR, sliced up so you can see what’s actually going on — who you beat, who beats you, and whether you’re playing better or worse than your rating says you should. Here’s what everything means.</p>
+    </div>
+
+    <div class="card pad guide">
+      <h3>The three views (tabs at the top)</h3>
+      <div class="gdef"><b>Overview</b><span class="d">Your headline numbers, and how you do broken down by event (each league or tournament).</span></div>
+      <div class="gdef"><b>Analysis</b><span class="d">Your rating over time, your recent form, close games, and winning/losing streaks.</span></div>
+      <div class="gdef"><b>Opponents &amp; Partners</b><span class="d">Who you play best and worst <em>with</em> (partners) and <em>against</em> (opponents) — and how that compares with what the ratings expect.</span></div>
+      <p style="margin-top:12px"><b>Filters</b> (the bar near the top) narrow everything to a slice — one year, only tournaments, one partner, and so on. Every number on the page updates to match. The one exception is “Recent rating changes” on Analysis, which always shows your latest matches on purpose.</p>
+    </div>
+
+    <div class="card pad guide">
+      <h3>The numbers</h3>
+      <div class="gdef"><b>DUPR</b><span class="d">Your official rating from DUPR. Higher is stronger.</span></div>
+      <div class="gdef"><b>Win %</b><span class="d">The share of matches you won.</span></div>
+      <div class="gdef"><b>Points won %</b><span class="d">Of all the points played, how many you won. A truer measure of how close things were than win–loss alone.</span></div>
+      <div class="gdef"><b>Margin</b><span class="d">On average, how many points you win or lose a game by — rescaled to an 11-point game so an 11–9 and a 15–12 compare fairly. <em>+2.0 means you typically win by about 2; −2.0 means you lose by about 2.</em></span></div>
+      <div class="gdef"><b>Value</b><span class="d">One overall score combining your win %, points won, and how strong your opponents were. Higher is better — around 60 is a solid, even run; 90+ is a strong one; below 40 is a rough patch.</span></div>
+      <div class="gdef"><b>DUPR change</b><span class="d">How much a match (or a group of matches) moved your rating — DUPR’s own number. It already takes the strength of everyone on court into account.</span></div>
+      <div class="gdef"><b>Beat expectations</b><span class="d">How often your rating went <em>up</em>. You can lose a match and still gain rating if you played a strong team closely — that counts here.</span></div>
+      <div class="gdef"><b>Avg Opp</b><span class="d">The average DUPR of the opponents in that slice. Shows how tough your schedule was.</span></div>
+    </div>
+
+    <div class="card pad guide">
+      <h3>Expected vs actual — the big idea</h3>
+      <p>Because every player has a rating, the app can work out how you <em>should</em> do in a match, then compare it with what really happened. This is what the <b>Opponents &amp; Partners</b> tab is built on.</p>
+      <div class="gdef"><b>Expected Win% / W–L</b><span class="d">What the ratings say should happen when you play these people.</span></div>
+      <div class="gdef"><b>Wins vs expected</b><span class="d">Your real wins minus the wins the ratings predicted. <em>+2 = you won two more than expected (you punch above your rating here). −2 = two fewer (something isn’t clicking).</em></span></div>
+      <div class="gdef"><b>Margin vs expected</b><span class="d">The same idea for the score: do you win (or lose) by more or less than the ratings say you should?</span></div>
+      <div class="tip">This is why a partner can show a winning record but still read as “below expected” — if you <em>should</em> have won even more given how the ratings stacked up. It’s how the tab finds the people you should be winning with, but aren’t.</div>
+    </div>
+
+    <div class="card pad guide">
+      <h3>How much to trust a row</h3>
+      <p>A few good or bad nights can make any split look dramatic. Two things help you tell a real pattern from a fluke:</p>
+      <div class="gdef"><b>Signal</b><span class="d"><span class="pill-ex pe-good">Strong</span> a real pattern, well beyond luck. <span class="pill-ex pe-mid">Some</span> a hint, not certain. <span class="pill-ex pe-mid">Could be luck</span> within the range of normal chance — don’t read into it.</span></div>
+      <div class="gdef"><b>Small samples</b><span class="d">Anyone you’ve played fewer than <b>4</b> times (or fewer than <b>10</b> games, in the games table) is listed separately and greyed out. One result swings these a lot, so treat them as early hints, not conclusions.</span></div>
+    </div>
+
+    <div class="card pad guide">
+      <h3>The charts and the rating line</h3>
+      <p><b>Rating Over Time</b> plots your DUPR after each day of play. The <b>3M / 6M / 1Y / All</b> pills zoom the time range.</p>
+      <p><b>Form</b> (on Analysis) smooths out the noise: each dot is your last 20 matches rolled together. When the line sits <em>above</em> the dashed line, you’ve been playing better than your own average lately — a sign your rating may be about to follow.</p>
+    </div>
+
+    <div class="card pad guide">
+      <h3>Looking up other players</h3>
+      <p>From another player’s DUPR page you can pull in <em>their</em> history, or grab your most recent opponents and partners in one go, and see all these same breakdowns for them — handy for scouting before a match. Anyone you pull in is kept on this device only, under the <b>👁 Viewing</b> bar at the top, and never mixed into your own numbers.</p>
+      <div class="tip">The one thing to remember: a good loss against strong players can still raise your rating, and a lucky win over weak ones may not. That’s why “vs expected” tells you more than your win–loss record alone.</div>
     </div>
   </div>
 
@@ -882,6 +953,7 @@
     byId('tab-overview').hidden=tab!=='overview';
     byId('tab-analysis').hidden=tab!=='analysis';
     byId('tab-people').hidden=tab!=='people';
+    byId('tab-guide').hidden=tab!=='guide';
 
     const a=agg(list,'then');   // always the at-the-time ratings; only the filters move it
     // KPIs

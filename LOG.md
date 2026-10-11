@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — "How to read this" guide tab
+- New 4th tab (**How to read this** / **Guide** on mobile): a static, data-free explainer so it
+  works even before a first sync. Covers the three views, filters, every metric (DUPR, Win %,
+  Points won %, Margin, Value, DUPR change, Beat expectations, Avg Opp), the expected-vs-actual
+  idea (Wins/Margin vs expected), the Strong/Some/Could-be-luck signal and 4-match/10-game
+  small-sample rule, the charts, and viewing other players. Plain language, `.gdef` glossary
+  grid that stacks on phones. SW rj-v62.
+
 ## 2026-10-11 — plainer wording for non-technical users
 - Removed jargon from visible text: "Subset performance" → "Your performance"; "DUPR changes —
   fixed recent windows" → "Recent rating changes — your most recent matches…"; the `Δ` symbol in
