@@ -2,10 +2,10 @@
  "player": {
   "id": 8127479319,
   "name": "Colin OConnor",
-  "currentDoubles": 3.549
+  "currentDoubles": 3.545
  },
  "generated": "2026-10-11",
- "syncedAt": "2026-10-11T12:02:16.199Z",
+ "syncedAt": "2026-10-11T16:35:40.262Z",
  "matches": [
   {
    "matchId": 5472371250,
@@ -2445,7 +2445,7 @@
     "name": "Kelsie Walter",
     "ratingThen": 4.009,
     "ratingPre": 4.0122,
-    "ratingNow": 4.01
+    "ratingNow": 4.052
    },
    "opponents": [
     {
@@ -2535,7 +2535,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.002,
      "ratingPre": 3.9937,
-     "ratingNow": 4.01
+     "ratingNow": 4.052
     },
     {
      "id": 6725946256,
@@ -2576,7 +2576,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.015,
      "ratingPre": 4.0086,
-     "ratingNow": 4.01
+     "ratingNow": 4.052
     },
     {
      "id": 5476389014,
@@ -2665,7 +2665,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.644,
      "ratingPre": 3.6229,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": 3.5543,
@@ -2814,7 +2814,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.684,
     "ratingPre": 3.6991,
-    "ratingNow": 3.883
+    "ratingNow": 3.869
    },
    "opponents": [
     {
@@ -2863,7 +2863,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.686,
      "ratingPre": 3.6435,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     },
     {
      "id": 8156037132,
@@ -2911,7 +2911,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.635,
      "ratingPre": 3.6424,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": 3.5641,
@@ -2937,7 +2937,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.642,
     "ratingPre": 3.574,
-    "ratingNow": 3.883
+    "ratingNow": 3.869
    },
    "opponents": [
     {
@@ -3034,7 +3034,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.699,
      "ratingPre": 3.6857,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": 3.5153,
@@ -5945,7 +5945,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.629,
      "ratingPre": 3.6399,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": 3.5483,
@@ -6094,7 +6094,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.64,
     "ratingPre": 3.6374,
-    "ratingNow": 3.883
+    "ratingNow": 3.869
    },
    "opponents": [
     {
@@ -6273,7 +6273,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.638,
      "ratingPre": 3.6283,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": 3.5493,
@@ -6676,7 +6676,7 @@
      "name": "Konnor Lorenz",
      "ratingThen": 3.67,
      "ratingPre": 3.6556,
-     "ratingNow": 3.812
+     "ratingNow": 3.788
     },
     {
      "id": 7696758175,
@@ -6791,7 +6791,7 @@
     "name": "Konnor Lorenz",
     "ratingThen": 3.656,
     "ratingPre": 3.6415,
-    "ratingNow": 3.812
+    "ratingNow": 3.788
    },
    "opponents": [
     {
@@ -6888,7 +6888,7 @@
      "name": "Konnor Lorenz",
      "ratingThen": 3.715,
      "ratingPre": 3.6678,
-     "ratingNow": 3.812
+     "ratingNow": 3.788
     }
    ],
    "preRating": 3.562,
@@ -7134,7 +7134,7 @@
      "name": "Konnor Lorenz",
      "ratingThen": 3.686,
      "ratingPre": 3.6591,
-     "ratingNow": 3.812
+     "ratingNow": 3.788
     }
    ],
    "preRating": 3.5374,
@@ -7216,7 +7216,7 @@
      "name": "Konnor Lorenz",
      "ratingThen": 3.663,
      "ratingPre": 3.66,
-     "ratingNow": 3.812
+     "ratingNow": 3.788
     }
    ],
    "preRating": 3.5211,
@@ -7242,7 +7242,7 @@
     "name": "Konnor Lorenz",
     "ratingThen": 3.659,
     "ratingPre": 3.7033,
-    "ratingNow": 3.812
+    "ratingNow": 3.788
    },
    "opponents": [
     {
@@ -7775,7 +7775,7 @@
     "name": "Jeremiah Walter",
     "ratingThen": 4.486,
     "ratingPre": 4.4867,
-    "ratingNow": 4.52
+    "ratingNow": 4.494
    },
    "opponents": [
     {
@@ -7783,7 +7783,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 3.968,
      "ratingPre": 3.9675,
-     "ratingNow": 4.01
+     "ratingNow": 4.052
     },
     {
      "id": 8386918145,
@@ -7824,7 +7824,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 3.978,
      "ratingPre": 3.9655,
-     "ratingNow": 4.01
+     "ratingNow": 4.052
     },
     {
      "id": 6407219493,
@@ -7857,7 +7857,7 @@
     "name": "Kelsie Walter",
     "ratingThen": 3.968,
     "ratingPre": 3.9732,
-    "ratingNow": 4.01
+    "ratingNow": 4.052
    },
    "opponents": [
     {
@@ -7865,7 +7865,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.487,
      "ratingPre": 4.481,
-     "ratingNow": 4.52
+     "ratingNow": 4.494
     },
     {
      "id": 6407219493,
@@ -7906,7 +7906,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.486,
      "ratingPre": 4.4736,
-     "ratingNow": 4.52
+     "ratingNow": 4.494
     },
     {
      "id": 8386918145,
@@ -7982,7 +7982,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": null,
@@ -8133,7 +8133,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": null,
@@ -8161,7 +8161,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     }
    ],
    "preRating": null,
@@ -8195,7 +8195,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": 3.8616,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     },
     {
      "id": 8040499592,
@@ -8228,7 +8228,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.863,
     "ratingPre": 3.8579,
-    "ratingNow": 3.883
+    "ratingNow": 3.869
    },
    "opponents": [
     {
@@ -8236,7 +8236,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.512,
      "ratingPre": 4.5173,
-     "ratingNow": 4.52
+     "ratingNow": 4.494
     },
     {
      "id": 8040499592,
@@ -8277,7 +8277,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.515,
      "ratingPre": 4.5137,
-     "ratingNow": 4.52
+     "ratingNow": 4.494
     },
     {
      "id": 6705717957,
@@ -8310,7 +8310,7 @@
     "name": "Jeremiah Walter",
     "ratingThen": 4.514,
     "ratingPre": 4.5118,
-    "ratingNow": 4.52
+    "ratingNow": 4.494
    },
    "opponents": [
     {
@@ -8318,7 +8318,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.862,
      "ratingPre": 3.8634,
-     "ratingNow": 3.883
+     "ratingNow": 3.869
     },
     {
      "id": 6705717957,
@@ -8331,6 +8331,293 @@
    "preRating": 3.5488,
    "impact": 0.00184,
    "postRating": 3.5506
+  },
+  {
+   "matchId": 5194956461,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    5
+   ],
+   "partner": {
+    "id": 7736561169,
+    "name": "Alex Kotula",
+    "ratingThen": 4.583,
+    "ratingPre": 4.5188,
+    "ratingNow": 4.642
+   },
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.865,
+     "ratingPre": 3.8826,
+     "ratingNow": 3.869
+    },
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.499,
+     "ratingPre": 4.5166,
+     "ratingNow": 4.494
+    }
+   ],
+   "preRating": 3.5564,
+   "impact": 0.0173,
+   "postRating": 3.5737
+  },
+  {
+   "matchId": 5734359693,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    10
+   ],
+   "oppScores": [
+    12
+   ],
+   "partner": {
+    "id": 4653600006,
+    "name": "Konnor Lorenz",
+    "ratingThen": 3.823,
+    "ratingPre": 3.8117,
+    "ratingNow": 3.788
+   },
+   "opponents": [
+    {
+     "id": 7736561169,
+     "name": "Alex Kotula",
+     "ratingThen": 4.517,
+     "ratingPre": 4.5678,
+     "ratingNow": 4.642
+    },
+    {
+     "id": 7871036649,
+     "name": "Bipin Shrestha",
+     "ratingThen": 3.862,
+     "ratingPre": 3.8742,
+     "ratingNow": 3.88
+    }
+   ],
+   "preRating": 3.5489,
+   "impact": 0.0118,
+   "postRating": 3.5607
+  },
+  {
+   "matchId": 6814986979,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    0
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 7080278638,
+    "name": "Alec Kores",
+    "ratingThen": 4.049,
+    "ratingPre": 4.0695,
+    "ratingNow": 4.036
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.057,
+     "ratingPre": 4.0368,
+     "ratingNow": 4.052
+    },
+    {
+     "id": 7736561169,
+     "name": "Alex Kotula",
+     "ratingThen": 4.663,
+     "ratingPre": 4.5983,
+     "ratingNow": 4.642
+    }
+   ],
+   "preRating": 3.5629,
+   "impact": -0.02005,
+   "postRating": 3.5429
+  },
+  {
+   "matchId": 6898628231,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    2
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 8557535468,
+    "name": "Kelsie Walter",
+    "ratingThen": 4.044,
+    "ratingPre": 4.0569,
+    "ratingNow": 4.052
+   },
+   "opponents": [
+    {
+     "id": 7871036649,
+     "name": "Bipin Shrestha",
+     "ratingThen": 3.864,
+     "ratingPre": 3.8506,
+     "ratingNow": 3.88
+    },
+    {
+     "id": 4854196408,
+     "name": "Jeremiah Walter",
+     "ratingThen": 4.485,
+     "ratingPre": 4.4722,
+     "ratingNow": 4.494
+    }
+   ],
+   "preRating": 3.5429,
+   "impact": -0.01333,
+   "postRating": 3.5296
+  },
+  {
+   "matchId": 6972422607,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 7871036649,
+    "name": "Bipin Shrestha",
+    "ratingThen": 3.88,
+    "ratingPre": 3.8639,
+    "ratingNow": 3.88
+   },
+   "opponents": [
+    {
+     "id": 5839483371,
+     "name": "Carter Smith",
+     "ratingThen": 3.869,
+     "ratingPre": 3.8846,
+     "ratingNow": 3.869
+    },
+    {
+     "id": 7080278638,
+     "name": "Alec Kores",
+     "ratingThen": 4.036,
+     "ratingPre": 4.0511,
+     "ratingNow": 4.036
+    }
+   ],
+   "preRating": 3.5296,
+   "impact": 0.01557,
+   "postRating": 3.5451
+  },
+  {
+   "matchId": 7080857064,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    6
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5839483371,
+    "name": "Carter Smith",
+    "ratingThen": 3.883,
+    "ratingPre": 3.887,
+    "ratingNow": 3.869
+   },
+   "opponents": [
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.018,
+     "ratingPre": 4.0138,
+     "ratingNow": 4.052
+    },
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.828,
+     "ratingPre": 3.8235,
+     "ratingNow": 3.788
+    }
+   ],
+   "preRating": 3.5607,
+   "impact": -0.00434,
+   "postRating": 3.5564
+  },
+  {
+   "matchId": 8223945947,
+   "date": "2026-10-11",
+   "event": "Sunday Crazy 8",
+   "venue": "Courts and Pints",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    7
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4854196408,
+    "name": "Jeremiah Walter",
+    "ratingThen": 4.489,
+    "ratingPre": 4.4993,
+    "ratingNow": 4.494
+   },
+   "opponents": [
+    {
+     "id": 4653600006,
+     "name": "Konnor Lorenz",
+     "ratingThen": 3.815,
+     "ratingPre": 3.8046,
+     "ratingNow": 3.788
+    },
+    {
+     "id": 7080278638,
+     "name": "Alec Kores",
+     "ratingThen": 4.07,
+     "ratingPre": 4.0588,
+     "ratingNow": 4.036
+    }
+   ],
+   "preRating": 3.5737,
+   "impact": -0.01074,
+   "postRating": 3.5629
   }
  ]
 }
