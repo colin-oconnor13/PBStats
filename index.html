@@ -158,6 +158,7 @@
     background:none;color:var(--muted);cursor:pointer}
   .tab.on{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
   .tab:hover:not(.on){color:var(--ink)}
+  .tab .tl-short{display:none}
 
   /* KPIs */
   .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:14px 12px}
@@ -278,54 +279,41 @@
 
   @media(max-width:760px){select,.ms{max-width:none;flex:1}.fld{flex:1 1 42%}.fb-body .acts{margin-left:0;flex-direction:row;width:100%;justify-content:space-between}}
   @media(max-width:620px){
-    thead th,tbody td{padding:9px 7px}
-    thead th{white-space:normal;font-size:9.5px;line-height:1.25}
-    tbody td{font-size:12px}
-    /* Phone columns: keep the identity, the record, the rating and what it did.
-       Drop Pts%, Margin, the change bar and the opponent spread. */
-    #bdTable th:nth-child(4),#bdTable td:nth-child(4),#bdTable th:nth-child(5),#bdTable td:nth-child(5){display:none}
-    #evTable th:nth-child(4),#evTable td:nth-child(4),#evTable th:nth-child(5),#evTable td:nth-child(5),
-    #evTable th:nth-child(8),#evTable td:nth-child(8),#evTable th:nth-child(10),#evTable td:nth-child(10),
-    #dtTable th:nth-child(4),#dtTable td:nth-child(4),#dtTable th:nth-child(5),#dtTable td:nth-child(5){display:none}
-    .bandname small{display:none} .bandname{gap:6px}
-    .evname{max-width:150px}
-    .winbar .track{display:none} .chgbar{display:none}
-    .tblscroll{overflow-x:auto}
+    /* Phones get the whole app: all three tabs, and every table row becomes a card, the name
+       across the top, the numbers in a grid underneath, each with its column's label (copied
+       from the header into data-l by labelTables()). */
+    .tabs{width:100%;box-sizing:border-box}
+    .tab{flex:1;padding:8px 4px;font-size:12.5px}
+    .tab .tl-full{display:none} .tab .tl-short{display:inline}
     .kpi .v{font-size:22px}
-  }
-  @media(max-width:620px){
-    /* One view on a phone: the rating chart and Performance by Date, nothing else. */
-    .tabs{display:none}
-    #tab-overview,#tab-people{display:none!important}
-    #tab-analysis{display:block!important}
-    #tab-analysis .mob-hide{display:none}
-
-    /* Each date becomes two lines: the date + its events, then the four numbers. */
-    #dtTable,#dtTable tbody{display:block}
-    #dtTable thead{display:none}
-    #dtTable tr{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 10px;
+    .bd-head{padding:16px 14px 6px}
+    .bd-head .caphint{padding-left:0!important}
+    .pplctl{width:100%} .pplctl select{flex:1}
+    .tblscroll{overflow:visible}
+    .tblscroll table,.tblscroll tbody,.tblscroll tfoot{display:block}
+    .tblscroll thead{display:none}
+    .tblscroll tbody tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 10px;
       padding:11px 14px;border-bottom:1px solid var(--line);background:none}
-    #dtTable tr.champ{background:var(--champ)}
-    #dtTable tr.on{background:var(--accent-soft)}
-    #dtTable td{display:block;padding:0;border:0;background:none!important;font-size:14px;text-align:left}
-    #dtTable td:first-child{grid-column:1/-1}
-    #dtTable td[data-l]::before{content:attr(data-l);display:block;margin-bottom:1px;
-      font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
-    #dtTable td[data-l="Pts %"],#dtTable td[data-l="Margin"],#dtTable td[data-l="Value"],
-    #dtTable td[data-l="Opponent"],#dtTable .chgbar{display:none}
-    #dtTable .evname{max-width:none;font-size:14px;white-space:normal}
-    #dtTable td:first-child,#dtTable .evtd{white-space:normal;overflow:visible;text-overflow:clip}
+    .tblscroll tbody tr:last-child{border-bottom:0}
+    .tblscroll tbody td{display:block;padding:0;border:0;background:none!important;font-size:13.5px;
+      text-align:left;white-space:normal;min-width:0;overflow-wrap:anywhere}
+    .tblscroll tbody td:first-child,.tblscroll td[colspan]{grid-column:1/-1}
+    .tblscroll td[data-l]::before{content:attr(data-l);display:block;margin-bottom:1px;font-size:9px;
+      letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .tblscroll .chgbar{display:none}
+    .tblscroll tbody tr.champ{background:var(--champ)}
+    .tblscroll tbody tr.on{background:var(--accent-soft)}
+    .tblscroll tbody tr.sep{display:block;padding:7px 14px;background:var(--surface-2)}
+    .tblscroll tbody tr.sep td{padding:0}
+    .tblscroll tbody tr.dim:has(td[colspan]){display:block}
+    .tblscroll tfoot tr,.tblscroll tfoot td{display:block;padding:0}
+    .tblscroll .evname{max-width:none;font-size:14.5px;white-space:normal;display:inline}
+    .tblscroll .evtd,.tblscroll td:first-child{white-space:normal;overflow:visible;text-overflow:clip}
+    .bandname small{display:inline}
+    .chart-head{flex-direction:column;align-items:flex-start}
   }
-  @media(max-width:440px){
-    /* Narrowest phones: down to name, win%, rating, change. */
-    #evTable th:nth-child(2),#evTable td:nth-child(2),#evTable th:nth-child(6),#evTable td:nth-child(6),
-    #bdTable th:nth-child(7),#bdTable td:nth-child(7){display:none}
-    .evname{max-width:135px}
-    /* Fewer, bigger KPI tiles: rating, Value, record — and the three DUPR-change headlines. */
-    #kpis .kpi:nth-child(n+4){display:none}
-    #dkpis .kpi-bar,#dkpis .kpi:nth-child(n+5){display:none}
-    #kpis,#dkpis{grid-template-columns:repeat(3,1fr)!important;gap:10px}
-    .kpi .v{font-size:24px}
+  @media(max-width:380px){
+    .tblscroll tbody tr{grid-template-columns:repeat(3,minmax(0,1fr))}
   }
   @media(max-width:520px){
     .match{grid-template-columns:30px 1fr;gap:11px}
@@ -384,7 +372,7 @@
   <div class="tabs">
     <button class="tab on" data-tab="overview">Overview</button>
     <button class="tab" data-tab="analysis">Analysis</button>
-    <button class="tab" data-tab="people">Opponents &amp; Partners</button>
+    <button class="tab" data-tab="people"><span class="tl-full">Opponents &amp; Partners</span><span class="tl-short">People</span></button>
   </div>
 
   <!-- ===== TAB 1: OVERVIEW ===== -->
@@ -412,14 +400,14 @@
 
   <!-- ===== TAB 2: ANALYSIS ===== -->
   <div id="tab-analysis" hidden>
-    <div class="card pad mob-hide" style="margin-bottom:16px"><div class="sect-h">DUPR changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— fixed recent windows, not affected by the filters</span></div><div class="kpis" id="dkpis"></div></div>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">DUPR changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— fixed recent windows, not affected by the filters</span></div><div class="kpis" id="dkpis"></div></div>
 
     <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Rating Over Time</h3><div class="zoom" id="zoom"></div></div>
       <div id="chart"></div>
     </div>
 
-    <div class="card pad mob-hide" style="margin-bottom:16px">
+    <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Form — Rolling <span id="formN"></span> Matches <span class="lsub" id="formSub" style="font-weight:500"></span></h3>
         <div class="zoom" id="formMetric"></div></div>
       <div id="chartForm"></div>
@@ -433,7 +421,7 @@
       <div class="tblscroll"><table id="dtTable"></table></div>
     </div>
 
-    <div class="card bd mob-hide">
+    <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0">Performance by Matchup Strength</div></div>
         <div class="toggle basisToggle"><button data-b="then" class="on">DUPR actual</button><button data-b="now">DUPR now</button></div>
@@ -441,7 +429,7 @@
       <div class="tblscroll"><table id="bdTable"></table></div>
     </div>
 
-    <div class="card bd mob-hide">
+    <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0">Close Games &amp; Deciders</div>
           <div class="caphint" style="padding:4px 0 0" id="cgHint"></div></div>
@@ -449,14 +437,14 @@
       <div class="tblscroll"><table id="cgTable"></table></div>
     </div>
 
-    <div class="card bd mob-hide">
+    <div class="card bd">
       <div class="bd-head"><div><div class="sect-h" style="margin:0">Streaks &amp; Bounce-back</div>
         <div class="caphint" style="padding:4px 0 0" id="stkHint"></div></div></div>
       <div class="kpis" id="stkKpis" style="padding:6px 20px 14px"></div>
       <div class="tblscroll"><table id="stkTable"></table></div>
     </div>
 
-    <div class="card mob-hide" style="overflow:hidden">
+    <div class="card" style="overflow:hidden">
       <div class="logtop"><h2>Match Log <span class="lsub" id="logSub"></span></h2>
         <div class="tagfilters"><span class="chip on" data-wl="all">All</span>
           <span class="chip" data-wl="W">Wins</span><span class="chip" data-wl="L">Losses</span>
@@ -895,6 +883,15 @@
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
     byId('logSub').textContent=list.length?('· '+list.length+' matches'+(F.event.length===1?' · '+F.event[0]:'')):'';
     document.querySelectorAll('.basisToggle button').forEach(b=>b.classList.toggle('on',b.dataset.b===basis));
+    labelTables();
+  }
+  // Phone card rows show each number with its column name: copy the header text into data-l
+  // on any cell that doesn't set its own (the first column is the row's title, so it's skipped).
+  function labelTables(){
+    document.querySelectorAll('.tblscroll table').forEach(t=>{
+      const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+      t.querySelectorAll('tbody tr').forEach(tr=>{if(tr.querySelector('td[colspan]'))return;
+        [...tr.children].forEach((td,i)=>{if(i&&!td.dataset.l&&hs[i])td.dataset.l=hs[i];});});});
   }
 
   // ---- recent DUPR movement (fixed windows, independent of the filters) ----

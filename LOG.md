@@ -2,6 +2,13 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — full app on phones
+- Phones (≤620px) now get everything: all three tabs (the third is labelled "People"), every
+  chart and table. Table rows become cards: the name across the top, the numbers in a 4-column
+  grid (3 under 380px), each labelled from its column header. `labelTables()` copies header text
+  into `data-l` after each render, so new tables work on phones without extra CSS. The old
+  phone-only "Analysis minus `mob-hide`" view is gone. SW rj-v56.
+
 ## 2026-10-11 — fresh start
 Started from [kyeill/pickleball](https://github.com/kyeill/pickleball) at `ba02a40`, with a new
 history and without its match data (committed `data/` files are empty starters). Changes made on
