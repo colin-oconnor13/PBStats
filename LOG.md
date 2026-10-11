@@ -2,6 +2,16 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — plainer wording for non-technical users
+- Removed jargon from visible text: "Subset performance" → "Your performance"; "DUPR changes —
+  fixed recent windows" → "Recent rating changes — your most recent matches…"; the `Δ` symbol in
+  column headers → "DUPR change"; "Exp Win% / Wins vs exp / Margin vs exp" → "Expected…"; the
+  "Could be luck" signal (was "Noise") with plain tooltips; and the Partner-Index model note is
+  now plain English (no formula or "pb predictor" reference). Tooltips reworded throughout.
+- Browser-storage copies now show no "GitHub" wording anywhere visible: the view-bar note and the
+  scouted-player message are mode-aware (`BROWSER`), and all other GitHub strings are on
+  GitHub-mode-only code paths (confirmed by render scan: 0 visible GitHub text nodes).
+
 ## 2026-10-11 — easier mobile sync
 - **Sync now** button (header, sync card, and the stale banner): opens dashboard.dupr.com in a
   new tab, copies the keyword "PB Sync", and shows a tip reminding you to type it in the address

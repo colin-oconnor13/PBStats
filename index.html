@@ -412,7 +412,7 @@
 
   <!-- ===== TAB 1: OVERVIEW ===== -->
   <div id="tab-overview">
-    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Subset performance</div><div class="kpis" id="kpis"></div></div>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Your performance</div><div class="kpis" id="kpis"></div></div>
 
     <div class="card bd">
       <div class="bd-head">
@@ -435,7 +435,7 @@
 
   <!-- ===== TAB 2: ANALYSIS ===== -->
   <div id="tab-analysis" hidden>
-    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">DUPR changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— fixed recent windows, not affected by the filters</span></div><div class="kpis" id="dkpis"></div></div>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Recent rating changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— your most recent matches; the filters above don’t change these</span></div><div class="kpis" id="dkpis"></div></div>
 
     <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Rating Over Time</h3><div class="zoom" id="zoom"></div></div>
@@ -1321,7 +1321,7 @@
   }
   function expTable(id,label,rows){
     const sig=s=>{if(s.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';const z=Math.abs(s.z);
-      return z>=2?'<span class="pxconf c2">Strong</span>':z>=1?'<span class="pxconf c1">Some</span>':'<span class="pxconf c0">Noise</span>';};
+      return z>=2?'<span class="pxconf c2" title="A real pattern — well beyond what luck alone would give">Strong</span>':z>=1?'<span class="pxconf c1" title="Some sign of a pattern, but not certain">Some</span>':'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
     const body=rows.map(([name,hint,ms])=>{const s=expStats(ms),lab=`<span class="evname">${name}</span>${hint?`<span class="evtd">${hint}</span>`:''}`;
       if(!s)return`<tr class="dim"><td>${lab}</td><td class="mono">0</td><td colspan="7"></td></tr>`;
       const low=s.n<PPL_MIN;
@@ -1330,7 +1330,7 @@
         +`<td class="mono valcell ${s.woe>=0?'imp-up':'imp-dn'}">${(s.woe>=0?'+':'')+s.woe.toFixed(1)}</td>`
         +`<td class="mono ${s.mres==null?'':(s.mres>=0?'imp-up':'imp-dn')}">${sgn(s.mres)}</td>`
         +`<td class="mono ${s.imp==null?'':(s.imp>=0?'imp-up':'imp-dn')}">${ptsTxt(s.imp,true)}</td><td>${sig(s)}</td></tr>`;}).join('');
-    byId(id).innerHTML=`<thead><tr><th>${label}</th><th>M</th><th>W–L</th><th>Win%</th><th>Exp Win%</th><th>Wins vs exp</th><th>Margin vs exp</th><th>DUPR Δ / match</th><th>Signal</th></tr></thead><tbody>${body}</tbody>`;
+    byId(id).innerHTML=`<thead><tr><th>${label}</th><th>M</th><th>W–L</th><th>Win%</th><th>Expected win%</th><th>Wins vs expected</th><th>Margin vs expected</th><th>DUPR change / match</th><th>Signal</th></tr></thead><tbody>${body}</tbody>`;
   }
   // Nth time you've met each opponent / played with each partner, counted over the whole history
   // in entry order (date, then matchId), so filters don't renumber them.
@@ -1403,8 +1403,8 @@
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
     const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
     const conf=r=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';
-      const z=Math.abs(r.z);return z>=2?'<span class="pxconf c2" title="Gap is over 2× what chance alone would give">Strong</span>'
-      :z>=1?'<span class="pxconf c1" title="Gap is 1–2× what chance alone would give">Some</span>':'<span class="pxconf c0" title="Within what chance alone would give">Noise</span>';};
+      const z=Math.abs(r.z);return z>=2?'<span class="pxconf c2" title="A real pattern — well beyond what luck alone would give">Strong</span>'
+      :z>=1?'<span class="pxconf c1" title="Some sign of a pattern, but not certain">Some</span>':'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
     const row=(r,tags)=>{
       // Tagged only when the gap is beyond chance (signal Some or Strong), whatever the odds were.
       const tag=!tags?'':r.z<=-1?'<span class="ptag worst">Below expected</span>'
@@ -1419,9 +1419,9 @@
     byId('pxHint').textContent=opp
       ?'How you should do against each opponent given everyone’s DUPR at the time, against how you actually did. Top of the list: the opponents you should be beating more.'
       :'How each partnership should do given everyone’s DUPR at the time, against how it actually did. Top of the list: the partners you should be winning more with.';
-    byId('pxTable').innerHTML=`<thead><tr><th>${who}</th><th>M</th><th title="Average model win chance across your matches">Exp Win%</th><th>Win%</th>`
-      +`<th title="Wins–losses the model expected">Exp W–L</th><th>W–L</th><th title="Actual wins minus expected wins">Wins vs exp</th>`
-      +`<th title="Average per-11 margin minus the margin expected for that DUPR edge">Margin vs exp</th><th title="How far the gap is beyond what chance alone would give">Signal</th></tr></thead><tbody>`
+    byId('pxTable').innerHTML=`<thead><tr><th>${who}</th><th>M</th><th title="On average, how often the ratings say you should win these">Expected win%</th><th>Win%</th>`
+      +`<th title="The win–loss record the ratings predict">Expected W–L</th><th>W–L</th><th title="Your real wins minus the wins the ratings predicted. Positive = you did better than expected">Wins vs expected</th>`
+      +`<th title="How your point margin compares with what the ratings predicted. Positive = you win by more than expected">Margin vs expected</th><th title="How sure we can be this is a real pattern and not just luck">Signal</th></tr></thead><tbody>`
       +(solid.map(r=>row(r,true)).join('')||`<tr class="dim"><td colspan="9" class="caphint">No ${who.toLowerCase()} has ${PPL_MIN}+ rated matches in this filter.</td></tr>`)
       +(low.length?`<tr class="sep"><td colspan="9">Small samples — 1 to ${PPL_MIN-1} matches · low reliability</td></tr>`+(pxAll?low:low.slice(0,15)).map(r=>row(r,false)).join(''):'')
       +'</tbody>'+(low.length>15?`<tfoot><tr><td colspan="9" style="padding:0"><button class="showmore" id="pxMore">${pxAll?'Show fewer':'Show all '+low.length+' small samples'}</button></td></tr></tfoot>`:'');
@@ -1429,13 +1429,13 @@
     byId('pxTable').querySelectorAll('[data-pid]').forEach(tr=>tr.onclick=()=>{
       const id=dec(tr.dataset.pid);pplSel=pplSel===id?'':id;render();
       if(pplSel)byId('pplLogCard').scrollIntoView({behavior:'smooth',block:'start'});});
-    byId('pxModel').textContent=`Expected win % = 1 / (1 + 10^(−Δ / ${MODEL.S.toFixed(2)})), the DUPR curve from the pb predictor, `
-      +(MODEL.fitted?`with its scale fitted to your ${MODEL.n} rated matches (pb’s fixed scale of 4 would give a +0.25 edge ${pct(1/(1+Math.pow(10,-0.25/4)))}; your matches say ${pct(MODEL.pWin(0.25))}). `
-        :`using a default scale (fewer than 30 rated matches to fit one). `)
-      +`Expected margin = ${sgn(MODEL.a)} ${MODEL.b>=0?'+':'−'} ${Math.abs(MODEL.b).toFixed(1)} × Δ points per 11. Δ = (you + partner) / 2 − opponents’ average. `
-      +(MODEL.nPre===MODEL.n?'Everyone’s DUPR is taken going into the match, so the result itself doesn’t shift the edge.'
-        :MODEL.nPre?`Everyone’s DUPR going into the match, except ${MODEL.n-MODEL.nPre} older matches that still use partners’ and opponents’ post-match ratings (sync again to fill them in).`
-        :`Your DUPR is pre-match; partners’ and opponents’ are DUPR’s post-match values, which lean slightly toward the winner. Sync again to switch them to pre-match.`)
+    byId('pxModel').textContent=`How “expected” works: for each match we take the rating gap between the teams and turn it into a win chance, `
+      +(MODEL.fitted?`tuned to your own results — for you, a team that’s 0.25 higher rated wins about ${pct(MODEL.pWin(0.25))} of the time. `
+        :`using a standard setting (you have fewer than 30 rated matches to tune it from). `)
+      +`“Expected margin” does the same for the score: how much you’d win or lose by given the rating gap. The gap is your team’s average DUPR minus your opponents’, `
+      +(MODEL.nPre===MODEL.n?'using everyone’s rating as it was going into the match.'
+        :MODEL.nPre?`using everyone’s rating going into the match (${MODEL.n-MODEL.nPre} older matches fall back to after-match ratings — sync again to fix).`
+        :`but partners’ and opponents’ ratings are from just after each match (sync again to use their before-match ratings, which are more accurate here).`)
       +(unrated?` ${unrated} ${opp?'opponent':'partner'}${unrated>1?'s':''} left out: no ratings on file for those matches.`:'');
   }
   function renderPeople(list){
@@ -1447,7 +1447,7 @@
     // Sorting by DUPR now says who is strongest, not how you did, so no Best / Worst tags.
     const tagN=pplSort==='now'?0:solid.length>=6?3:solid.length>=2?1:0;
     const head=`<thead><tr><th>${who}</th><th>M</th><th>W–L</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th>`
-      +`<th title="Your average DUPR change per match">DUPR Δ / match</th><th title="Your total DUPR change across these matches">DUPR Δ total</th>`
+      +`<th title="Your average DUPR change per match">DUPR change / match</th><th title="Your total DUPR change across these matches">DUPR change total</th>`
       +`<th title="Share of matches where your rating went up, i.e. you did better than DUPR expected">Beat exp.</th><th>DUPR now</th></tr></thead>`;
     const row=(r,i,n,tags)=>{
       const tag=!tags?'':i<tagN?'<span class="ptag best">Best</span>':i>=n-tagN?'<span class="ptag worst">Worst</span>':'';
@@ -1456,7 +1456,7 @@
         +`<td class="mono" data-l="M">${r.g.n}</td><td class="mono" data-l="W–L">${r.g.wins}–${r.g.losses}</td>`
         +`<td class="mono" data-l="Win %">${pct(r.g.winFrac)}</td><td class="mono" data-l="Pts %">${pct(r.g.ptsFrac)}</td>`
         +`<td class="mono" data-l="Margin">${sgn(r.g.normMargin)}</td><td class="mono valcell" data-l="Value">${r.g.value.toFixed(1)}</td>`
-        +impCell(r.g.impAvg,'DUPR Δ / match')+impCell(r.g.impSum,'DUPR Δ total')
+        +impCell(r.g.impAvg,'DUPR change / match')+impCell(r.g.impSum,'DUPR change total')
         +`<td class="mono" data-l="Beat exp.">${pct(r.g.upFrac)}</td>`
         +`<td class="mono" data-l="DUPR now">${f2(r.now)}</td></tr>`;};
     const empty=t=>`<tr class="dim"><td colspan="11" class="caphint">${t}</td></tr>`;
@@ -1535,7 +1535,7 @@
       bar.hidden=false;bar.classList.toggle('other',!!VIEW);
       bar.innerHTML=`<span>👁 Viewing</span><select id="viewSel"><option value="">${mine}</option>`
         +ids.map(id=>`<option value="${enc(id)}"${id===VIEW?' selected':''}>${enc(nm(SCOUTS[id]))} · ${SCOUTS[id].matches.length} matches</option>`).join('')+`</select>`
-        +(VIEW?`<span class="vnote">synced ${enc((SCOUTS[VIEW].generated||'').slice(0,10))} · kept in this browser only, never saved to GitHub</span><button class="danger" id="viewDel">Remove</button>`:'');
+        +(VIEW?`<span class="vnote">synced ${enc((SCOUTS[VIEW].generated||'').slice(0,10))} · kept in this browser only${BROWSER?'':', never saved to GitHub'}</span><button class="danger" id="viewDel">Remove</button>`:'');
       byId('viewSel').onchange=e=>setView(e.target.value);
       const del=byId('viewDel');if(del)del.onclick=()=>{if(!del.dataset.sure){del.dataset.sure=1;del.textContent='Tap again to remove';return;}
         IDB.del(VIEW).catch(()=>{}).then(()=>setView(''));};}
@@ -1617,7 +1617,7 @@
         const id=String(fresh.player.id),nm=fresh.player.name||('player '+id),rt0=fresh.player.currentDoubles;
         const keep=()=>IDB.put(id,fresh).then(()=>setView(id),
           ()=>{show('This browser wouldn’t store another player (private window or out of room?). Remove one with the 👁 Viewing bar, then try again.',true);buttons([closeBtn]);});
-        show(`Fetched ${fresh.matches.length} matches for ${nm}${rt0!=null?' (DUPR '+rt0.toFixed(3)+')':''}. They’re kept in this browser only to view, and never saved to GitHub or mixed with your own data.`);
+        show(`Fetched ${fresh.matches.length} matches for ${nm}${rt0!=null?' (DUPR '+rt0.toFixed(3)+')':''}. They’re kept in this browser only to view, and ${BROWSER?'not mixed with your own data.':'never saved to GitHub or mixed with your own data.'}`);
         buttons([[`View ${nm}’s matches`,keep,true],closeBtn]);return;
       }
       // Recent opponents/partners synced alongside your own matches: view-only, this browser only.
