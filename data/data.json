@@ -5,7 +5,7 @@
   "currentDoubles": 3.545
  },
  "generated": "2026-10-11",
- "syncedAt": "2026-10-11T16:35:40.262Z",
+ "syncedAt": "2026-10-11T19:29:51.090Z",
  "matches": [
   {
    "matchId": 5472371250,
@@ -362,7 +362,7 @@
      "name": "Jason Schoenack",
      "ratingThen": 3.83,
      "ratingPre": 3.8316,
-     "ratingNow": 3.815
+     "ratingNow": 3.788
     },
     {
      "id": 6612600326,
@@ -3191,7 +3191,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.792,
      "ratingPre": 3.8084,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 8056696350,
@@ -3224,7 +3224,7 @@
     "name": "Eric Pezhman",
     "ratingThen": 3.778,
     "ratingPre": 3.7919,
-    "ratingNow": 3.75
+    "ratingNow": 3.723
    },
    "opponents": [
     {
@@ -3273,7 +3273,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.808,
      "ratingPre": 3.8184,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 8058005332,
@@ -5971,7 +5971,7 @@
     "name": "Eric Pezhman",
     "ratingThen": 3.827,
     "ratingPre": 3.8396,
-    "ratingNow": 3.75
+    "ratingNow": 3.723
    },
    "opponents": [
     {
@@ -6143,7 +6143,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.848,
      "ratingPre": 3.8577,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 6592217897,
@@ -6184,7 +6184,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.873,
      "ratingPre": 3.8637,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 8156037132,
@@ -6225,7 +6225,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.831,
      "ratingPre": 3.8267,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 5639219366,
@@ -6258,7 +6258,7 @@
     "name": "Eric Pezhman",
     "ratingThen": 3.864,
     "ratingPre": 3.8734,
-    "ratingNow": 3.75
+    "ratingNow": 3.723
    },
    "opponents": [
     {
@@ -6307,7 +6307,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.849,
      "ratingPre": 3.8311,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     },
     {
      "id": 8366833860,
@@ -8202,7 +8202,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.804,
      "ratingPre": 3.8012,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     }
    ],
    "preRating": 3.5491,
@@ -8243,7 +8243,7 @@
      "name": "Eric Pezhman",
      "ratingThen": 3.803,
      "ratingPre": 3.8083,
-     "ratingNow": 3.75
+     "ratingNow": 3.723
     }
    ],
    "preRating": 3.5433,
@@ -8269,7 +8269,7 @@
     "name": "Eric Pezhman",
     "ratingThen": 3.801,
     "ratingPre": 3.8028,
-    "ratingNow": 3.75
+    "ratingNow": 3.723
    },
    "opponents": [
     {
