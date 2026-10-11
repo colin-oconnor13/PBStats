@@ -40,7 +40,8 @@ bookmark, name it **PB Sync** and paste the code over its address.
 1. Log in at <https://dashboard.dupr.com> as usual, including DUPR's 2FA prompt.
 2. Run the bookmark there (on a phone: type **PB Sync** in the address bar and tap the
    bookmark suggestion). A panel on the DUPR page shows progress, then the app opens in the same
-   tab. Tap **Save**. The first time on a device it asks for your GitHub token.
+   tab. Tap **Save**. The first time on a device it asks for your GitHub token. On Android, sync from
+   **Chrome**: Edge doesn't run bookmarks like this (viewing in Edge is fine).
 
 The data travels in the part of the address after `#`, which browsers never send to a server.
 
