@@ -2,6 +2,17 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — view other players ("scouting")
+- **From a player's DUPR page** (`dashboard.dupr.com/dashboard/player/<id>`) the bookmark asks
+  "Sync <name> (view only)" or "Sync my own matches". **On your own sync** it offers
+  "Me + my 14 most recent people" (partners and opponents, newest first; `RECENT` in the
+  bookmark), reusing your sync's current-ratings lookups instead of fetching theirs.
+- Other players are stored **only in this browser** (IndexedDB `pb-scouts`, keyed by DUPR id) and
+  are never saved to GitHub or mixed with your data. A **👁 Viewing** bar switches the whole app
+  to any of them (`pb-view`) and removes them; own syncs always compare against your own data
+  (`OWN`). Payload over 1.5M chars drops the largest extras and says so. Tested end-to-end in
+  real time (headless Chrome, fake DUPR API): single player, recent 14, switch, remove. SW rj-v60.
+
 ## 2026-10-11 — site.json: one codebase, personal or shared
 - New `site.json` holds everything copy-specific: `storage` ("github" | "browser"), `repo`,
   the Sync bookmark's `app` URL and optional `duprId` / `duprCode`. `build_bookmarklet.py` reads
