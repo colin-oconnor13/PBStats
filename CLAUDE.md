@@ -21,13 +21,14 @@ See README for the user-facing story; see LOG.md for change history.
   overrides to the repo via the GitHub Contents API (token in localStorage `gh-token`).
   Standard sans throughout (Archivo for headings; no monospace). SW `sw.js` (network-first,
   cache bumped on shell changes). Lime pickleball logo (header SVG + `favicon.svg` + `icons/`).
-- **Sync** (replaced the GitHub Action, 2026-09-16) — `tools/sync_bookmarklet.js` runs on
-  dashboard.dupr.com (login cookie works there), opens the app with `?sync=1` (local server or Pages), fetches profile +
-  paged history + every opponent's current rating (6 parallel), and `postMessage`s the raw data
-  after the app sends `pb-ready` (origins checked both ways). The app's `duprToData()` (a verified
-  port of the old Python transform) builds data.json, refuses to save if it has fewer matches,
-  skips the commit if unchanged, then commits via `ghPutJSON()` (Contents API, gh-token) and
-  stashes it in sessionStorage `pb-fresh` (used while `syncedAt` is newer than Pages' copy).
+- **Sync** — `tools/sync_bookmarklet.js` runs on dashboard.dupr.com (login cookie works there),
+  shows a progress panel on that page, fetches profile + paged history + every other player's
+  current rating (6 parallel), trims to the fields `duprToData` reads, gzips, and opens the app in
+  the same tab at `?sync=1#pb=<z|j><base64url>` (no pop-up: phones pause background tabs). The
+  app's `decodePb()` reads it, strips it from the URL, and `handle()` builds data.json, refuses
+  fewer matches, skips unchanged, **asks before saving** (crafted links), prompts for a gh-token
+  inline if missing, commits via `ghPutJSON()` and stashes `pb-fresh` in sessionStorage. Old
+  pop-up bookmarks still postMessage after `pb-ready` (origins checked) into the same `handle()`.
   After editing the bookmarklet source run `python tools/build_bookmarklet.py` (escapes % & ").
   data.json: `{player:{id,name,currentDoubles(number)}, generated, syncedAt, matches:[...]}`.
 - `data/overrides.json` — durable user edits:

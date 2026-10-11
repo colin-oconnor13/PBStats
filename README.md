@@ -29,13 +29,20 @@ they never get committed or pushed. The `data/` files in the repo are empty star
 Sync whenever you've played. It runs in your own browser while you're logged in to DUPR, so
 **no DUPR password, 2FA code or token is stored anywhere**.
 
-**One time:** open <http://localhost:8000> → **🔄 Sync from DUPR** card (bottom of the page) →
-drag the **🔄 Sync to Pickleball** button to your bookmarks bar.
+**One time, computer:** open the app → **🔄 Sync from DUPR** card (bottom of the page) → drag the
+**🔄 Sync to Pickleball** button to your bookmarks bar.
+
+**One time, phone:** in the same card tap **📋 Copy bookmark code**, bookmark any page, edit that
+bookmark, name it **PB Sync** and paste the code over its address.
 
 **Each sync:**
 
 1. Log in at <https://dashboard.dupr.com> as usual, including DUPR's 2FA prompt.
-2. Click **🔄 Sync to Pickleball** there. The app opens in a new tab, shows progress and saves.
+2. Run the bookmark there (on a phone: type **PB Sync** in the address bar and tap the
+   bookmark suggestion). A panel on the DUPR page shows progress, then the app opens in the same
+   tab. Tap **Save**. The first time on a device it asks for your GitHub token.
+
+The data travels in the part of the address after `#`, which browsers never send to a server.
 
 The bookmark works out who is logged in and refuses to run if that isn't the DUPR id you gave.
 If it can't work out who is logged in, put your numeric DUPR id in `local/config.json` as `"id"`

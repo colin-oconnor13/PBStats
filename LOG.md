@@ -2,6 +2,20 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — phone-friendly sync bookmark
+- The bookmark no longer opens a pop-up (phones pause the background DUPR tab, and you can't
+  drag a bookmark there). It now fetches on dashboard.dupr.com with an on-page progress panel,
+  trims the history to the fields `duprToData` uses, gzips it (CompressionStream) and opens the
+  app **in the same tab** at `…?sync=1#pb=<z|j><base64url>` (~19.5 KB for 204 matches). The app
+  decodes it, removes it from the address bar and history, and **asks before saving** (anyone
+  can craft such a link; a different player than the one on file gets a warning). With no
+  GitHub token in that browser it asks for one inline (Connect & save). Old pop-up bookmarks
+  still work through the postMessage path; both share one `handle()`.
+- Sync card: **📋 Copy bookmark code** + phone steps (bookmark any page, paste the code as its
+  address, run it by typing its name in the address bar on dashboard.dupr.com).
+- Tested end-to-end in headless Chrome with the real bookmark against a fake DUPR API built from
+  synced data: identical matches after the round trip (bar fixture rounding). SW rj-v57.
+
 ## 2026-10-11 — full app on phones
 - Phones (≤620px) now get everything: all three tabs (the third is labelled "People"), every
   chart and table. Table rows become cards: the name across the top, the numbers in a 4-column

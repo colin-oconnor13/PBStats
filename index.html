@@ -533,13 +533,14 @@
     <div class="th-head" id="thHead"><span>🔄 Sync from DUPR</span><span class="chev2">▾</span></div>
     <div class="th-body" id="thBody" hidden>
       <p>Pull in your latest matches whenever you’ve played. The sync runs in your own browser while you’re logged in to DUPR, so no DUPR token is stored anywhere.</p>
-      <p class="muted"><b>One-time setup (desktop Chrome):</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(async () => { const APP = 'https://colin-oconnor13.github.io/PBStats/?sync=1', APPO = new URL(APP).origin; const CODE = 'Z49MRW', API = 'https://api.dupr.com'; let ID = ''; if (!/(^|\.)dupr\.com$/.test(location.hostname)) { alert('Open dashboard.dupr.com (logged in), then click this bookmark there.'); return; } const w = window.open(APP, 'pickleball-sync'); if (!w) { alert('Pop-up blocked. Allow pop-ups for dashboard.dupr.com, then click again.'); return; } let ready = false; const queue = []; const send = m => { if (ready) w.postMessage(m, APPO); else queue.push(m); }; addEventListener('message', e => { if (e.origin === APPO &amp;&amp; e.source === w &amp;&amp; e.data &amp;&amp; e.data.type === 'pb-ready') { ready = true; queue.splice(0).forEach(m => w.postMessage(m, APPO)); } }); const H = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Dupr-Client-Capabilities': 'totp,webauthn' }; const call = async (method, path, body) => { const r = await fetch(API + path, { method, headers: H, credentials: 'include', body: body ? JSON.stringify(body) : undefined }); if (!r.ok) { const t = await r.text().catch(() => ''); const err = new Error(method + ' ' + path + ' returned ' + r.status + ' ' + t.slice(0, 120)); err.status = r.status; throw err; } return r.json(); }; try { send({ type: 'pb-progress', text: 'Reading your DUPR profile…' }); if (!ID) { let me; try { const r = await call('GET', '/user/v1.0/profile'); me = r.result || r; } catch (e) { if (e.status === 401 || e.status === 403) throw e; throw new Error('Could not look up the logged-in player (' + e.message + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); } if (CODE &amp;&amp; me.duprId &amp;&amp; String(me.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Logged in to DUPR as ' + me.duprId + ', but this copy is set up for ' + CODE + '.'); if (!me.id) throw new Error('DUPR profile had no id (keys: ' + Object.keys(me).join(', ') + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); ID = me.id; } ID = Number(ID); const prof = (await call('GET', '/player/v1.0/' + ID)).result; if (CODE &amp;&amp; prof.duprId &amp;&amp; String(prof.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Player ' + ID + ' is ' + prof.duprId + ', not ' + CODE + '.'); const hits = []; let off = 0, total = null, legacy = false, size = 25; for (;;) { let r = null; if (!legacy) { try { r = await call('POST', '/player/v1.0/' + ID + '/history', { filters: { eventFormat: null }, limit: size, offset: off, sort: { order: 'DESC', parameter: 'MATCH_DATE' } }); } catch (e) { if (e.status === 400 &amp;&amp; off === 0 &amp;&amp; size > 10) { size = 10; continue; } if (e.status === 404 || e.status === 405) legacy = true; else throw e; } } if (legacy) r = await call('POST', '/match/v1.0/history', { limit: size, offset: off }); const res = r.result !== undefined ? r.result : r; const page = Array.isArray(res) ? res : (res &amp;&amp; res.hits); if (!Array.isArray(page)) throw new Error('Unexpected match-history response (keys: ' + Object.keys(res || {}).join(', ') + ')'); if (res &amp;&amp; res.total != null) total = res.total; hits.push(...page); off += size; send({ type: 'pb-progress', text: 'Matches: ' + hits.length + (total != null ? ' of ' + total : '') }); if (page.length < size || (total != null &amp;&amp; off >= total)) break; } const ids = [...new Set(hits.flatMap(m => (m.teams || []).flatMap(t => [t.player1, t.player2])) .filter(p => p &amp;&amp; p.id !== ID).map(p => p.id))]; const n = ids.length, now = {}; let done = 0; const worker = async () => { while (ids.length) { const pid = ids.pop(); try { const r = (await call('GET', '/player/v1.0/' + pid)).result; now[pid] = r &amp;&amp; r.ratings ? r.ratings.doubles : null; } catch (e) { if (e.status === 401 || e.status === 403) throw e; now[pid] = null; } done++; send({ type: 'pb-progress', text: 'Current ratings: ' + done + ' of ' + n }); } }; await Promise.all([1, 2, 3, 4, 5, 6].map(worker)); send({ type: 'pb-data', profile: { id: prof.id, fullName: prof.fullName, doubles: prof.ratings &amp;&amp; prof.ratings.doubles }, hits, now }); } catch (e) { send({ type: 'pb-error', text: e.message }); if (e.status === 401 || e.status === 403) alert('DUPR says you are not logged in. Log in at dashboard.dupr.com and click the bookmark again.'); } })();">🔄 Sync to Pickleball</a> and delete any old “Copy DUPR token” bookmark. This browser also needs GitHub connected: <b>Filters → ⚙ Clean up data → Save / sync → Connect GitHub</b>.</p>
+      <p class="muted"><b>Computer, one time:</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(async () => { const APP = 'https://colin-oconnor13.github.io/PBStats/?sync=1'; const CODE = 'Z49MRW', API = 'https://api.dupr.com'; let ID = ''; if (!/(^|\.)dupr\.com$/.test(location.hostname)) { alert('Open dashboard.dupr.com (logged in), then run this bookmark there.'); return; } if (document.getElementById('pb-sync-panel')) return; const box = document.createElement('div'); box.id = 'pb-sync-panel'; box.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:2147483647;max-width:420px;margin:0 auto;' + 'background:#14201a;color:#eef3ef;border:1px solid #35B79E;border-radius:14px;padding:16px 18px;' + 'font:15px/1.5 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.4)'; box.innerHTML = '<b style=&quot;font-size:16px&quot;>🔄 Sync to Pickleball</b><div id=&quot;pb-sync-msg&quot; style=&quot;margin-top:6px&quot;>Starting…</div>'; document.body.appendChild(box); const say = t => { box.querySelector('#pb-sync-msg').textContent = t; }; const fail = t => { say(t); const b = document.createElement('button'); b.textContent = 'Close'; b.style.cssText = 'margin-top:10px;padding:7px 14px;border-radius:8px;border:1px solid #35B79E;background:none;color:#35B79E;font:inherit;font-weight:600'; b.onclick = () => box.remove(); box.appendChild(b); }; const H = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Dupr-Client-Capabilities': 'totp,webauthn' }; const call = async (method, path, body) => { const r = await fetch(API + path, { method, headers: H, credentials: 'include', body: body ? JSON.stringify(body) : undefined }); if (!r.ok) { const t = await r.text().catch(() => ''); const err = new Error(method + ' ' + path + ' returned ' + r.status + ' ' + t.slice(0, 120)); err.status = r.status; throw err; } return r.json(); }; try { say('Reading your DUPR profile…'); if (!ID) { let me; try { const r = await call('GET', '/user/v1.0/profile'); me = r.result || r; } catch (e) { if (e.status === 401 || e.status === 403) throw e; throw new Error('Could not look up the logged-in player (' + e.message + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); } if (CODE &amp;&amp; me.duprId &amp;&amp; String(me.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Logged in to DUPR as ' + me.duprId + ', but this copy is set up for ' + CODE + '.'); if (!me.id) throw new Error('DUPR profile had no id (keys: ' + Object.keys(me).join(', ') + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); ID = me.id; } ID = Number(ID); const prof = (await call('GET', '/player/v1.0/' + ID)).result; if (CODE &amp;&amp; prof.duprId &amp;&amp; String(prof.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Player ' + ID + ' is ' + prof.duprId + ', not ' + CODE + '.'); const hits = []; let off = 0, total = null, legacy = false, size = 25; for (;;) { let r = null; if (!legacy) { try { r = await call('POST', '/player/v1.0/' + ID + '/history', { filters: { eventFormat: null }, limit: size, offset: off, sort: { order: 'DESC', parameter: 'MATCH_DATE' } }); } catch (e) { if (e.status === 400 &amp;&amp; off === 0 &amp;&amp; size > 10) { size = 10; continue; } if (e.status === 404 || e.status === 405) legacy = true; else throw e; } } if (legacy) r = await call('POST', '/match/v1.0/history', { limit: size, offset: off }); const res = r.result !== undefined ? r.result : r; const page = Array.isArray(res) ? res : (res &amp;&amp; res.hits); if (!Array.isArray(page)) throw new Error('Unexpected match-history response (keys: ' + Object.keys(res || {}).join(', ') + ')'); if (res &amp;&amp; res.total != null) total = res.total; hits.push(...page); off += size; say('Matches: ' + hits.length + (total != null ? ' of ' + total : '')); if (page.length < size || (total != null &amp;&amp; off >= total)) break; } const ids = [...new Set(hits.flatMap(m => (m.teams || []).flatMap(t => [t.player1, t.player2])) .filter(p => p &amp;&amp; p.id !== ID).map(p => p.id))]; const n = ids.length, now = {}; let done = 0; const worker = async () => { while (ids.length) { const pid = ids.pop(); try { const r = (await call('GET', '/player/v1.0/' + pid)).result; now[pid] = r &amp;&amp; r.ratings ? r.ratings.doubles : null; } catch (e) { if (e.status === 401 || e.status === 403) throw e; now[pid] = null; } done++; say('Current ratings: ' + done + ' of ' + n); } }; await Promise.all([1, 2, 3, 4, 5, 6].map(worker)); say('Packing ' + hits.length + ' matches…'); const K = ['preMatchDoubleRatingPlayer1', 'preMatchDoubleRatingPlayer2', 'matchDoubleRatingImpactPlayer1', 'matchDoubleRatingImpactPlayer2']; const P = p => p &amp;&amp; { id: p.id, fullName: p.fullName, postMatchRating: { doubles: (p.postMatchRating || {}).doubles } }; const T = t => { const o = { player1: P(t.player1), player2: P(t.player2), winner: t.winner }; for (let i = 1; i <= 5; i++) if (t['game' + i] != null) o['game' + i] = t['game' + i]; const b = t.preMatchRatingAndImpact; if (b) { o.preMatchRatingAndImpact = {}; K.forEach(k => { if (b[k] != null) o.preMatchRatingAndImpact[k] = b[k]; }); } return o; }; const slim = hits.map(m => ({ matchId: m.matchId, eventDate: m.eventDate, league: m.league, venue: m.venue, eventFormat: m.eventFormat, confirmed: m.confirmed, teams: (m.teams || []).map(T) })); const json = JSON.stringify({ v: 2, profile: { id: prof.id, fullName: prof.fullName, doubles: prof.ratings &amp;&amp; prof.ratings.doubles }, hits: slim, now }); let bytes = new TextEncoder().encode(json), tag = 'j'; if (window.CompressionStream) { bytes = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer()); tag = 'z'; } let bin = ''; for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768)); const b64 = btoa(bin).split('+').join('-').split('/').join('_').replace(/=+$/, ''); say('Opening the app…'); location.href = APP + '#pb=' + tag + b64; } catch (e) { if (e.status === 401 || e.status === 403) fail('DUPR says you are not logged in. Log in at dashboard.dupr.com (2FA too), then run the bookmark again.'); else fail('Sync failed: ' + e.message); } })();">🔄 Sync to Pickleball</a></p>
+      <p class="muted"><b>Phone, one time</b> (you can’t drag there): tap <button class="syncbtn" id="copyBm" type="button">📋 Copy bookmark code</button> <span id="copyMsg"></span><br>then bookmark any page (☆), edit that bookmark, name it <b>PB Sync</b> and paste the code over its address. To run it on dashboard.dupr.com, tap the address bar, type <b>PB Sync</b> and tap the bookmark in the suggestions. The first sync on a device asks for your GitHub token so it can save.</p>
       <ol>
         <li>Open <a href="https://dashboard.dupr.com" target="_blank" rel="noopener">dashboard.dupr.com</a> and make sure you’re logged in.</li>
-        <li>Click your <b>🔄 Sync to Pickleball</b> bookmark. This app opens in a new tab and shows progress (about half a minute).</li>
-        <li>It saves automatically and opens the updated app. Other devices get the new data about a minute later.</li>
+        <li>Run your <b>🔄 Sync to Pickleball</b> / <b>PB Sync</b> bookmark there. A small panel shows progress on the DUPR page (about half a minute), then this app opens in the same tab.</li>
+        <li>Tap <b>Save</b>. Other devices get the new data about a minute later.</li>
       </ol>
-      <p class="muted">Pop-up blocked? Allow pop-ups for dashboard.dupr.com and click the bookmark again.</p>
+      <p class="muted">Made the bookmark before 2026-10-11? It still works on a computer, but replace it to get the phone-friendly version.</p>
     </div>
   </div>
 
@@ -1418,6 +1419,12 @@
     const days=gen?Math.floor((Date.now()-Date.parse(gen+'T00:00:00Z'))/86400000):null;
     if(days!=null&&days>21){byId('staleDays').textContent=days;byId('staleBanner').hidden=false;}
     byId('bannerFix').onclick=()=>{toggle(true);byId('tokenHelp').scrollIntoView({behavior:'smooth',block:'center'});};
+    // Phones can't drag a link to the bookmarks bar, so hand over the same javascript: URL as text.
+    byId('copyBm').onclick=async()=>{const code=byId('syncBm').getAttribute('href'),msg=byId('copyMsg');
+      try{await navigator.clipboard.writeText(code);msg.textContent='✓ Copied';}
+      catch(e){msg.innerHTML='';const ta=document.createElement('textarea');ta.value=code;ta.readOnly=true;ta.rows=3;
+        ta.style.cssText='width:100%;font-size:11px;margin-top:6px';msg.appendChild(ta);ta.focus();ta.select();
+        msg.insertAdjacentText('afterbegin','Copy this (select all → copy):');}};
   })();
 
   // ---- DUPR raw history -> data.json (port of the old fetch_dupr.py transform) ----
@@ -1457,47 +1464,80 @@
   }
 
   // ---- sync from DUPR: data handed over by the bookmark running on dashboard.dupr.com ----
+  // Current bookmark: same tab, data in the #pb= fragment (gzip + base64url; never sent to a
+  // server). Anyone can craft such a link, so this path always asks before saving. Older
+  // bookmarks open this page as a pop-up and postMessage the data from dashboard.dupr.com.
+  async function decodePb(s){
+    const tag=s[0],bin=atob(s.slice(1).replace(/-/g,'+').replace(/_/g,'/'));
+    const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));
+    const txt=tag==='z'?await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text()
+      :new TextDecoder().decode(bytes);
+    return JSON.parse(txt);
+  }
   (function(){
     const DUPR_ORIGIN='https://dashboard.dupr.com';
-    if(!new URLSearchParams(location.search).has('sync'))return;
+    const hash=location.hash.startsWith('#pb=')?location.hash.slice(4):'';
+    if(!hash&&!new URLSearchParams(location.search).has('sync'))return;
+    // Take the data out of the address bar (and history) straight away.
+    history.replaceState(null,'',location.pathname+'?sync=1');
     const ov=byId('syncOv'),stat=byId('syncStat'),act=byId('syncAct');
     ov.hidden=false;
     const show=(t,err)=>{stat.textContent=t;stat.classList.toggle('err',!!err);};
     const buttons=list=>{act.innerHTML='';list.forEach(([label,fn,prim])=>{const b=document.createElement('button');
       b.className='syncbtn'+(prim?' prim':'');b.textContent=label;b.onclick=fn;act.appendChild(b);});};
     const closeBtn=['Close',()=>{history.replaceState(null,'','./');ov.hidden=true;}];
-    if(!window.opener){show('To sync, open dashboard.dupr.com (logged in) and click your 🔄 Sync to Pickleball bookmark there.');buttons([closeBtn]);return;}
-    show('Fetching your matches from DUPR…');buttons([]);
-    let got=false;
-    const timer=setTimeout(()=>{if(!got){show('Nothing arrived from DUPR. Make sure you clicked the bookmark on dashboard.dupr.com while logged in, then try again.',true);buttons([closeBtn]);}},120000);
-    addEventListener('message',async e=>{
-      if(e.origin!==DUPR_ORIGIN||e.source!==window.opener||!e.data||got)return;
-      const d=e.data;
-      if(d.type==='pb-progress'){show(d.text);return;}
-      if(d.type==='pb-error'){got=true;clearTimeout(timer);show('DUPR sync failed: '+d.text,true);buttons([closeBtn]);return;}
-      if(d.type!=='pb-data')return;
-      got=true;clearTimeout(timer);
+    function handle(d,confirmFirst){
       let fresh;
       try{fresh=duprToData(d);}catch(err){show('Couldn’t read DUPR’s data: '+err.message,true);buttons([closeBtn]);return;}
       const had=DATA.matches.length,n=fresh.matches.length;
       if(n<had){show(`DUPR returned ${n} matches but you already have ${had}, so nothing was saved. DUPR may have changed its data format.`,true);buttons([closeBtn]);return;}
       const rt=fresh.player.currentDoubles;
       const summary=`${n} matches${n>had?` (${n-had} new)`:''}${rt!=null?', DUPR '+rt.toFixed(3):''}`;
+      const who=fresh.player.name||('player '+fresh.player.id);
       const open=()=>{try{sessionStorage.setItem('pb-fresh',JSON.stringify(fresh));}catch(err){}location.replace('./');};
       const same=x=>JSON.stringify([x.player,x.matches]);
       if(same(fresh)===same(DATA)){show('✓ Already up to date: '+summary+'.');buttons([['Open app',()=>location.replace('./'),true]]);return;}
       const download=['⤓ Download data.json',()=>{const b=new Blob([JSON.stringify(fresh,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
         a.href=u;a.download='data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}];
-      if(!LOCAL&&!localStorage.getItem('gh-token')){
-        show(`Fetched ${summary}, but GitHub isn’t connected in this browser, so it can’t be saved. Connect GitHub (Filters → ⚙ Clean up data → Save / sync) and sync again.`,true);
-        buttons([['View without saving',open,true],download,closeBtn]);return;}
       const save=async()=>{
         show('Saving '+summary+(LOCAL?' locally…':' to GitHub…'));buttons([]);
         const r=await ghPutJSON('data/data.json',fresh,'Sync DUPR data: '+fresh.generated+' (from app)');
         if(!r.ok){show('Fetched '+summary+', but saving failed: '+r.text,true);buttons([['Try again',save,true],['View without saving',open],download]);return;}
         show('✓ Synced '+summary+'. Opening the app…');setTimeout(open,1200);
       };
+      // A different player than the one on file is almost always a mistake (or a crafted link).
+      const other=DATA.player&&DATA.player.id&&String(DATA.player.id)!==String(fresh.player.id)&&DATA.matches.length;
+      const warn=other?` ⚠ This is ${who}, but the app currently holds ${DATA.player.name||DATA.player.id}'s data; saving replaces it.`:'';
+      if(!LOCAL&&!localStorage.getItem('gh-token')){
+        // First sync in this browser (e.g. a phone): connect GitHub right here, then save.
+        show(`Fetched ${summary} for ${who}. To save it, paste your GitHub token (Contents: Read and write on ${REPO}). It stays in this browser.`+warn,!!other);
+        act.innerHTML='';
+        const inp=document.createElement('input');inp.type='password';inp.className='tokin';inp.placeholder='GitHub fine-grained token';inp.autocomplete='off';
+        const go=document.createElement('button');go.className='syncbtn prim';go.textContent='Connect & save';
+        go.onclick=()=>{const v=inp.value.trim();if(!v){inp.focus();return;}localStorage.setItem('gh-token',v);save();};
+        act.append(inp,go);
+        [['View without saving',open],download,closeBtn].forEach(([l,f])=>{const b=document.createElement('button');b.className='syncbtn';b.textContent=l;b.onclick=f;act.appendChild(b);});
+        return;}
+      if(confirmFirst||other){show(`Fetched ${summary} for ${who}. Save it${LOCAL?'':' to GitHub'}?`+warn,!!other);
+        buttons([[LOCAL?'Save':'Save to GitHub',save,true],['View without saving',open],closeBtn]);return;}
       save();
+    }
+    if(hash){
+      show('Reading the data from DUPR…');buttons([]);
+      decodePb(hash).then(d=>handle(d,true),err=>{show('The sync data didn’t come through intact ('+err.message+'). Run the bookmark again on dashboard.dupr.com.',true);buttons([closeBtn]);});
+      return;
+    }
+    if(!window.opener){show('To sync, open dashboard.dupr.com (logged in) and run your 🔄 Sync to Pickleball bookmark there.');buttons([closeBtn]);return;}
+    show('Fetching your matches from DUPR…');buttons([]);
+    let got=false;
+    const timer=setTimeout(()=>{if(!got){show('Nothing arrived from DUPR. Make sure you clicked the bookmark on dashboard.dupr.com while logged in, then try again.',true);buttons([closeBtn]);}},120000);
+    addEventListener('message',e=>{
+      if(e.origin!==DUPR_ORIGIN||e.source!==window.opener||!e.data||got)return;
+      const d=e.data;
+      if(d.type==='pb-progress'){show(d.text);return;}
+      if(d.type==='pb-error'){got=true;clearTimeout(timer);show('DUPR sync failed: '+d.text,true);buttons([closeBtn]);return;}
+      if(d.type!=='pb-data')return;
+      got=true;clearTimeout(timer);handle(d,false);
     });
     window.opener.postMessage({type:'pb-ready'},DUPR_ORIGIN);
   })();
