@@ -1,8 +1,8 @@
 /* Rating Journal service worker — installable + offline.
    Network-first for everything (so a new deploy always reaches you), with a
    cache fallback that keeps the app usable offline. Bump CACHE on shell changes. */
-const CACHE = 'rj-v58';
-const SHELL = ['./', './index.html', './manifest.webmanifest', './favicon.svg',
+const CACHE = 'rj-v59';
+const SHELL = ['./', './index.html', './site.json', './manifest.webmanifest', './favicon.svg',
                './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -21,7 +21,7 @@ self.addEventListener('fetch', e => {
   // Never touch cross-origin requests (e.g. the GitHub API save calls).
   if (u.origin !== self.location.origin) return;
   // Data files carry a cache-busting query; key the cache on the bare path.
-  const key = (u.pathname.endsWith('/data.json') || u.pathname.endsWith('/overrides.json'))
+  const key = (u.pathname.endsWith('/data.json') || u.pathname.endsWith('/overrides.json') || u.pathname.endsWith('/site.json'))
     ? u.origin + u.pathname : e.request;
   e.respondWith(
     fetch(e.request).then(r => {

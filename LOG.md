@@ -2,6 +2,16 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-11 — site.json: one codebase, personal or shared
+- New `site.json` holds everything copy-specific: `storage` ("github" | "browser"), `repo`,
+  the Sync bookmark's `app` URL and optional `duprId` / `duprCode`. `build_bookmarklet.py` reads
+  it; the app reads it on load. This copy is unchanged ("github", pinned to Z49MRW).
+- **Browser storage mode** (for a shareable copy): synced data goes to localStorage `pb-data-v1`
+  and is preferred over `data/data.json`; a welcome card appears when there are no matches; the
+  Clean up panel offers Export my data / Import data / Delete my data instead of GitHub saving.
+  Bookmark with no pinned player syncs whoever is logged in. Tested end-to-end (fake DUPR API →
+  save → reload shows 204 matches) and the github mode re-checked. SW rj-v59 (caches site.json).
+
 ## 2026-10-11 — phone-friendly sync bookmark
 - The bookmark no longer opens a pop-up (phones pause the background DUPR tab, and you can't
   drag a bookmark there). It now fetches on dashboard.dupr.com with an on-page progress panel,

@@ -261,6 +261,10 @@
   .pxconf.c2{background:var(--accent-soft);color:var(--accent)} .pxconf.c1{background:var(--surface-2);color:var(--ink)} .pxconf.c0{color:var(--muted)}
   #pxTable tr.sep td{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700;background:var(--surface-2);padding:7px 14px}
   #pxTable tr.on td{background:var(--accent-soft)}
+  .welcome{margin-bottom:16px;border-color:var(--accent)}
+  .welcome h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin:0 0 8px}
+  .welcome p,.welcome li{font-size:13.5px;line-height:1.6} .welcome ol{padding-left:20px;margin:8px 0}
+  .welcome .muted{color:var(--muted);font-size:12.5px}
   .mrow .ic.coll{opacity:.45} .mrow .ic.coll.on{opacity:1;background:var(--accent-soft);border-radius:6px}
   .ptag.low{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
   table.lowrel tbody td{color:var(--muted)} table.lowrel .valcell{color:var(--muted)}
@@ -346,6 +350,16 @@
     </div>
   </div>
 
+  <div class="card pad welcome" id="welcome" hidden>
+    <h2>👋 Your DUPR history, analysed</h2>
+    <p>See how you do by event, partner and opponent, who you play best and worst with compared with what the ratings expect, your form, close games and streaks.</p>
+    <ol>
+      <li>Set up the <b>🔄 Sync</b> bookmark (one time, about a minute).</li>
+      <li>Log in at dashboard.dupr.com and run it. Your matches appear here.</li>
+    </ol>
+    <p class="muted br-only">Your matches stay in this browser. They aren’t sent to this site or anyone else. The sync uses your normal DUPR login in your browser, so your password and 2FA are never seen.</p>
+    <button class="syncbtn prim" id="welcomeGo">Set up the Sync bookmark →</button>
+  </div>
   <div class="banner" id="staleBanner" hidden>⏰ Last synced from DUPR <b><span id="staleDays"></span> days ago</b>. Played since?<button id="bannerFix">Sync from DUPR →</button></div>
   <div class="syncov" id="syncOv" hidden><div class="card synccard"><h3>🔄 Sync from DUPR</h3><div class="syncstat" id="syncStat">Waiting for DUPR…</div><div class="syncact" id="syncAct"></div></div></div>
 
@@ -534,7 +548,7 @@
     <div class="th-body" id="thBody" hidden>
       <p>Pull in your latest matches whenever you’ve played. The sync runs in your own browser while you’re logged in to DUPR, so no DUPR token is stored anywhere.</p>
       <p class="muted"><b>Computer, one time:</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(async () => { const APP = 'https://colin-oconnor13.github.io/PBStats/?sync=1'; const CODE = 'Z49MRW', API = 'https://api.dupr.com'; let ID = ''; if (!/(^|\.)dupr\.com$/.test(location.hostname)) { alert('Open dashboard.dupr.com (logged in), then run this bookmark there.'); return; } if (document.getElementById('pb-sync-panel')) return; const box = document.createElement('div'); box.id = 'pb-sync-panel'; box.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:2147483647;max-width:420px;margin:0 auto;' + 'background:#14201a;color:#eef3ef;border:1px solid #35B79E;border-radius:14px;padding:16px 18px;' + 'font:15px/1.5 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.4)'; box.innerHTML = '<b style=&quot;font-size:16px&quot;>🔄 Sync to Pickleball</b><div id=&quot;pb-sync-msg&quot; style=&quot;margin-top:6px&quot;>Starting…</div>'; document.body.appendChild(box); const say = t => { box.querySelector('#pb-sync-msg').textContent = t; }; const fail = t => { say(t); const b = document.createElement('button'); b.textContent = 'Close'; b.style.cssText = 'margin-top:10px;padding:7px 14px;border-radius:8px;border:1px solid #35B79E;background:none;color:#35B79E;font:inherit;font-weight:600'; b.onclick = () => box.remove(); box.appendChild(b); }; const H = { 'Accept': 'application/json', 'Content-Type': 'application/json', 'X-Dupr-Client-Capabilities': 'totp,webauthn' }; const call = async (method, path, body) => { const r = await fetch(API + path, { method, headers: H, credentials: 'include', body: body ? JSON.stringify(body) : undefined }); if (!r.ok) { const t = await r.text().catch(() => ''); const err = new Error(method + ' ' + path + ' returned ' + r.status + ' ' + t.slice(0, 120)); err.status = r.status; throw err; } return r.json(); }; try { say('Reading your DUPR profile…'); if (!ID) { let me; try { const r = await call('GET', '/user/v1.0/profile'); me = r.result || r; } catch (e) { if (e.status === 401 || e.status === 403) throw e; throw new Error('Could not look up the logged-in player (' + e.message + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); } if (CODE &amp;&amp; me.duprId &amp;&amp; String(me.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Logged in to DUPR as ' + me.duprId + ', but this copy is set up for ' + CODE + '.'); if (!me.id) throw new Error('DUPR profile had no id (keys: ' + Object.keys(me).join(', ') + '). Put your numeric DUPR id in local/config.json as &quot;id&quot;.'); ID = me.id; } ID = Number(ID); const prof = (await call('GET', '/player/v1.0/' + ID)).result; if (CODE &amp;&amp; prof.duprId &amp;&amp; String(prof.duprId).toUpperCase() !== CODE.toUpperCase()) throw new Error('Player ' + ID + ' is ' + prof.duprId + ', not ' + CODE + '.'); const hits = []; let off = 0, total = null, legacy = false, size = 25; for (;;) { let r = null; if (!legacy) { try { r = await call('POST', '/player/v1.0/' + ID + '/history', { filters: { eventFormat: null }, limit: size, offset: off, sort: { order: 'DESC', parameter: 'MATCH_DATE' } }); } catch (e) { if (e.status === 400 &amp;&amp; off === 0 &amp;&amp; size > 10) { size = 10; continue; } if (e.status === 404 || e.status === 405) legacy = true; else throw e; } } if (legacy) r = await call('POST', '/match/v1.0/history', { limit: size, offset: off }); const res = r.result !== undefined ? r.result : r; const page = Array.isArray(res) ? res : (res &amp;&amp; res.hits); if (!Array.isArray(page)) throw new Error('Unexpected match-history response (keys: ' + Object.keys(res || {}).join(', ') + ')'); if (res &amp;&amp; res.total != null) total = res.total; hits.push(...page); off += size; say('Matches: ' + hits.length + (total != null ? ' of ' + total : '')); if (page.length < size || (total != null &amp;&amp; off >= total)) break; } const ids = [...new Set(hits.flatMap(m => (m.teams || []).flatMap(t => [t.player1, t.player2])) .filter(p => p &amp;&amp; p.id !== ID).map(p => p.id))]; const n = ids.length, now = {}; let done = 0; const worker = async () => { while (ids.length) { const pid = ids.pop(); try { const r = (await call('GET', '/player/v1.0/' + pid)).result; now[pid] = r &amp;&amp; r.ratings ? r.ratings.doubles : null; } catch (e) { if (e.status === 401 || e.status === 403) throw e; now[pid] = null; } done++; say('Current ratings: ' + done + ' of ' + n); } }; await Promise.all([1, 2, 3, 4, 5, 6].map(worker)); say('Packing ' + hits.length + ' matches…'); const K = ['preMatchDoubleRatingPlayer1', 'preMatchDoubleRatingPlayer2', 'matchDoubleRatingImpactPlayer1', 'matchDoubleRatingImpactPlayer2']; const P = p => p &amp;&amp; { id: p.id, fullName: p.fullName, postMatchRating: { doubles: (p.postMatchRating || {}).doubles } }; const T = t => { const o = { player1: P(t.player1), player2: P(t.player2), winner: t.winner }; for (let i = 1; i <= 5; i++) if (t['game' + i] != null) o['game' + i] = t['game' + i]; const b = t.preMatchRatingAndImpact; if (b) { o.preMatchRatingAndImpact = {}; K.forEach(k => { if (b[k] != null) o.preMatchRatingAndImpact[k] = b[k]; }); } return o; }; const slim = hits.map(m => ({ matchId: m.matchId, eventDate: m.eventDate, league: m.league, venue: m.venue, eventFormat: m.eventFormat, confirmed: m.confirmed, teams: (m.teams || []).map(T) })); const json = JSON.stringify({ v: 2, profile: { id: prof.id, fullName: prof.fullName, doubles: prof.ratings &amp;&amp; prof.ratings.doubles }, hits: slim, now }); let bytes = new TextEncoder().encode(json), tag = 'j'; if (window.CompressionStream) { bytes = new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new CompressionStream('gzip'))).arrayBuffer()); tag = 'z'; } let bin = ''; for (let i = 0; i < bytes.length; i += 32768) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768)); const b64 = btoa(bin).split('+').join('-').split('/').join('_').replace(/=+$/, ''); say('Opening the app…'); location.href = APP + '#pb=' + tag + b64; } catch (e) { if (e.status === 401 || e.status === 403) fail('DUPR says you are not logged in. Log in at dashboard.dupr.com (2FA too), then run the bookmark again.'); else fail('Sync failed: ' + e.message); } })();">🔄 Sync to Pickleball</a></p>
-      <p class="muted"><b>Phone, one time</b> (you can’t drag there): tap <button class="syncbtn" id="copyBm" type="button">📋 Copy bookmark code</button> <span id="copyMsg"></span><br>then bookmark any page (☆), edit that bookmark, name it <b>PB Sync</b> and paste the code over its address. To run it on dashboard.dupr.com, tap the address bar, type <b>PB Sync</b> and tap the bookmark in the suggestions. The first sync on a device asks for your GitHub token so it can save. On Android use <b>Chrome</b>: Edge won’t run bookmarks like this one (viewing the app in Edge is fine).</p>
+      <p class="muted"><b>Phone, one time</b> (you can’t drag there): tap <button class="syncbtn" id="copyBm" type="button">📋 Copy bookmark code</button> <span id="copyMsg"></span><br>then bookmark any page (☆), edit that bookmark, name it <b>PB Sync</b> and paste the code over its address. To run it on dashboard.dupr.com, tap the address bar, type <b>PB Sync</b> and tap the bookmark in the suggestions. <span class="gh-only">The first sync on a device asks for your GitHub token so it can save. </span>On Android use <b>Chrome</b>: Edge won’t run bookmarks like this one (viewing the app in Edge is fine).</p>
       <ol>
         <li>Open <a href="https://dashboard.dupr.com" target="_blank" rel="noopener">dashboard.dupr.com</a> and make sure you’re logged in.</li>
         <li>Run your <b>🔄 Sync to Pickleball</b> / <b>PB Sync</b> bookmark there. A small panel shows progress on the DUPR page (about half a minute), then this app opens in the same tab.</li>
@@ -550,16 +564,25 @@
 (async function(){
   "use strict";
   let DATA,COMMITTED={};
-  try{DATA=await fetch('./data/data.json?_='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();});}
-  catch(e){document.body.innerHTML='<div style="max-width:560px;margin:60px auto;padding:0 24px;font-family:system-ui;line-height:1.6">'
+  // site.json says whose copy this is and where synced data goes: "github" commits it to
+  // SITE.repo (token in this browser); "browser" keeps each visitor's data in their own
+  // localStorage, so a shared copy works for anyone and nothing leaves their browser.
+  let SITE={storage:'browser',repo:''};
+  try{SITE={...SITE,...await fetch('./site.json?_='+Date.now()).then(r=>r.ok?r.json():{})};}catch(e){}
+  const LOCAL=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);   // tools/serve_local.py
+  const BROWSER=!LOCAL&&SITE.storage==='browser',DKEY='pb-data-v1';
+  const EMPTY={player:{id:'',name:'',currentDoubles:null},generated:null,syncedAt:'',matches:[]};
+  if(BROWSER){try{const s=JSON.parse(localStorage.getItem(DKEY)||'null');if(s&&Array.isArray(s.matches))DATA=s;}catch(e){}}
+  if(!DATA)try{DATA=await fetch('./data/data.json?_='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();});}
+  catch(e){if(BROWSER)DATA=EMPTY;else{document.body.innerHTML='<div style="max-width:560px;margin:60px auto;padding:0 24px;font-family:system-ui;line-height:1.6">'
     +'<h2>Couldn’t load your data</h2><p>The app reads <code>data/data.json</code>, which didn’t load. '
-    +'If this is a fresh deploy, sync from DUPR with the 🔄 Sync to Pickleball bookmark.</p></div>';return;}
+    +'If this is a fresh deploy, sync from DUPR with the 🔄 Sync to Pickleball bookmark.</p></div>';return;}}
   try{COMMITTED=await fetch('./data/overrides.json?_='+Date.now()).then(r=>r.ok?r.json():{});}catch(e){COMMITTED={};}
   // A just-synced data.json, used until GitHub Pages serves the new commit (~1 min).
   try{const f=JSON.parse(sessionStorage.getItem('pb-fresh')||'null');
     if(f&&Array.isArray(f.matches)&&(f.syncedAt||'')>(DATA.syncedAt||''))DATA=f;else sessionStorage.removeItem('pb-fresh');}catch(e){}
   const ME_NOW=DATA.player.currentDoubles;
-  document.getElementById('idpill').textContent='DUPR · '+DATA.player.id;
+  document.getElementById('idpill').textContent=DATA.player.id?'DUPR · '+DATA.player.id:'DUPR';
   const num=v=>(v==null||v==='NR')?null:+v;
   const byId=i=>document.getElementById(i);
   const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1073,13 +1096,18 @@
     p.innerHTML=`
       <div class="msec"><div class="mh"><h4>Events</h4><span class="hint">✎ rename (same name = merge) · set Type &amp; Level · 👁 hide. Add 🏆 to a name to highlight it. Raw names come from DUPR.</span></div><div class="mrows evrows">${evList.map(evRow).join('')}</div></div>
       <div class="msec"><div class="mh"><h4>Partners</h4><span class="hint">Hide one-off partners (their matches still count).</span><button class="minibtn quick" id="hideOnce">Hide all one-timers</button></div><div class="mrows">${partners.map(pRow).join('')}</div></div>
-      <div class="msec"><div class="mh"><h4>Save / sync</h4><span class="hint">Save your edits so they follow you to every device.</span></div>
+      ${BROWSER
+      ? `<div class="msec"><div class="mh"><h4>Your data</h4><span class="hint">Your matches and these edits are kept in this browser only. Export them to move to another device or keep a backup.</span></div>
+        <div class="mrows"><button class="syncbtn" id="expData">⤓ Export my data</button>
+          <label class="syncbtn" style="cursor:pointer">⤒ Import data<input id="impData" type="file" accept="application/json,.json" hidden></label>
+          <button class="syncbtn danger" id="clrAll">Delete my data from this browser</button><span class="mnone" id="syncMsg"></span></div></div>`
+      : `<div class="msec"><div class="mh"><h4>Save / sync</h4><span class="hint">Save your edits so they follow you to every device.</span></div>
         <div class="mrows" id="syncMain">${localStorage.getItem('gh-token')
           ? `<button class="syncbtn prim" id="saveRepo">💾 Save to GitHub</button><span class="mnone" id="syncMsg"></span><button class="minibtn" id="ghDisc" style="margin-left:auto">GitHub connected · disconnect</button>`
           : `<button class="syncbtn prim" id="ghConnect">🔗 Connect GitHub to auto-save</button><span class="mnone" id="syncMsg"></span>`}</div>
         <div class="mrows" style="margin-top:9px"><button class="syncbtn" id="expOvr">⤓ Export file</button>
           <label class="syncbtn" style="cursor:pointer">⤒ Import<input id="impOvr" type="file" accept="application/json,.json" hidden></label>
-          <button class="syncbtn danger" id="clrLocal">Clear local edits</button></div></div>`;
+          <button class="syncbtn danger" id="clrLocal">Clear local edits</button></div></div>`}`;
     p.querySelectorAll('[data-ev]').forEach(el=>{const raw=dec(el.dataset.ev),E=()=>meta.events[raw]=meta.events[raw]||{};
       el.querySelector('.hide').onclick=()=>{E();meta.events[raw].hidden=!evHidden(raw);saveMeta();if(F.event&&evHidden(raw))F.event='';render();};
       // Dates are settled once at load (ratings order, late flags, charts), so reapply by reloading.
@@ -1097,6 +1125,21 @@
       const inp=byId('tokIn');inp.focus();
       byId('tokSave').onclick=async()=>{const v=inp.value.trim();if(!v)return;localStorage.setItem('gh-token',v);renderManage();await saveToGitHub();};
       inp.onkeydown=e=>{if(e.key==='Enter')byId('tokSave').click();};};
+    // Browser mode: one file holds everything (matches + edits) so a backup or a move to another
+    // device is a single export / import.
+    if(BROWSER){
+      byId('expData').onclick=()=>{const obj={pbExport:1,data:DATA,overrides:currentOverrides()};
+        const b=new Blob([JSON.stringify(obj,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
+        a.href=u;a.download='pickleball-'+(DATA.player.id||'data')+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);byId('syncMsg').textContent='Downloaded.';};
+      byId('impData').onchange=e=>{const f=e.target.files[0];if(!f)return;const rd=new FileReader();
+        rd.onload=()=>{try{const o=JSON.parse(rd.result),d=o.data||o;if(!Array.isArray(d.matches))throw 0;
+          localStorage.setItem(DKEY,JSON.stringify(d));const ov=o.overrides;
+          if(ov){const m=ov.meta||{};save(MKEY,{events:m.events||{},partnersHidden:m.partnersHidden||[]});save(TKEY,ov.tags||{});}
+          location.reload();}catch(err){byId('syncMsg').textContent='That isn’t a Pickleball export file.';}};rd.readAsText(f);};
+      const ca=byId('clrAll');ca.onclick=()=>{if(ca.dataset.sure){[DKEY,MKEY,TKEY].forEach(k=>{try{localStorage.removeItem(k);}catch(e){}});location.reload();}
+        else{ca.dataset.sure=1;ca.textContent='Tap again to delete everything';}};
+      return;
+    }
     byId('expOvr').onclick=()=>{const obj=currentOverrides();const b=new Blob([JSON.stringify(obj,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
       a.href=u;a.download='overrides.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);byId('syncMsg').textContent='Downloaded — commit it to data/overrides.json.';};
     byId('clrLocal').onclick=()=>{if(confirm('Clear this browser’s local edits? Make sure you saved/exported first.')){localStorage.removeItem(MKEY);localStorage.removeItem(TKEY);location.reload();}};
@@ -1112,11 +1155,16 @@
     el.querySelector('.ok').onclick=()=>done(true);}
 
   // ---- one-click save via GitHub Contents API ----
-  const REPO='colin-oconnor13/PBStats', OVR_PATH='data/overrides.json';
+  const REPO=SITE.repo||'', OVR_PATH='data/overrides.json';
   const currentOverrides=()=>({meta:{events:meta.events,partnersHidden:meta.partnersHidden},tags,exportedAt:new Date().toISOString()});
-  // Served by tools/serve_local.py: saves go to that server (your local/data folder), not GitHub.
-  const LOCAL=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  // Where saves go: LOCAL → tools/serve_local.py (local/data); BROWSER → this browser only;
+  // otherwise GitHub. WHERE is the wording for messages.
+  const WHERE=LOCAL?'locally':BROWSER?'in this browser':'to GitHub';
   async function ghPutJSON(path,obj,message){
+    if(BROWSER){try{if(path==='data/data.json')localStorage.setItem(DKEY,JSON.stringify(obj));
+        else{save(MKEY,{events:(obj.meta||{}).events||{},partnersHidden:(obj.meta||{}).partnersHidden||[]});save(TKEY,obj.tags||{});}
+        return {ok:true};}
+      catch(err){return {ok:false,text:'This browser wouldn’t store the data (private mode or storage full?). Try a normal window, or ⤓ Download it.'};}}
     if(LOCAL){try{const res=await fetch('./local-api/'+path,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(obj,null,1)});
       return res.ok?{ok:true}:{ok:false,text:'Local save failed ('+res.status+'): '+(await res.text().catch(()=>''))};}
       catch(err){return {ok:false,text:'Local server not reachable. Is tools/serve_local.py running?'};}}
@@ -1146,10 +1194,10 @@
   }
   async function saveToGitHub(){
     const msg=t=>{const el=byId('syncMsg');if(el)el.textContent=t;};
-    if(!LOCAL&&!localStorage.getItem('gh-token')){msg('Connect GitHub first.');return;}
+    if(!LOCAL&&!BROWSER&&!localStorage.getItem('gh-token')){msg('Connect GitHub first.');return;}
     msg('Saving…');
     const r=await ghPutJSON(OVR_PATH,currentOverrides(),'Update overrides.json (from app)');
-    msg(r.ok?(LOCAL?'✓ Saved to local/data/overrides.json.':'✓ Saved to GitHub — the live site refreshes in ~1 min.'):r.text);
+    msg(r.ok?(LOCAL?'✓ Saved to local/data/overrides.json.':BROWSER?'✓ Saved in this browser.':'✓ Saved to GitHub — the live site refreshes in ~1 min.'):r.text);
   }
 
   // ---- match log ----
@@ -1419,6 +1467,10 @@
     const days=gen?Math.floor((Date.now()-Date.parse(gen+'T00:00:00Z'))/86400000):null;
     if(days!=null&&days>21){byId('staleDays').textContent=days;byId('staleBanner').hidden=false;}
     byId('bannerFix').onclick=()=>{toggle(true);byId('tokenHelp').scrollIntoView({behavior:'smooth',block:'center'});};
+    // Nothing synced yet (a shared copy's first visit): explain, and open the setup steps.
+    document.querySelectorAll(BROWSER?'.gh-only':'.br-only').forEach(el=>el.hidden=true);
+    if(!DATA.matches.length){byId('welcome').hidden=false;
+      byId('welcomeGo').onclick=()=>{toggle(true);byId('tokenHelp').scrollIntoView({behavior:'smooth',block:'start'});};}
     // Phones can't drag a link to the bookmarks bar, so hand over the same javascript: URL as text.
     byId('copyBm').onclick=async()=>{const code=byId('syncBm').getAttribute('href'),msg=byId('copyMsg');
       try{await navigator.clipboard.writeText(code);msg.textContent='✓ Copied';}
@@ -1500,7 +1552,7 @@
       const download=['⤓ Download data.json',()=>{const b=new Blob([JSON.stringify(fresh,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
         a.href=u;a.download='data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}];
       const save=async()=>{
-        show('Saving '+summary+(LOCAL?' locally…':' to GitHub…'));buttons([]);
+        show('Saving '+summary+' '+WHERE+'…');buttons([]);
         const r=await ghPutJSON('data/data.json',fresh,'Sync DUPR data: '+fresh.generated+' (from app)');
         if(!r.ok){show('Fetched '+summary+', but saving failed: '+r.text,true);buttons([['Try again',save,true],['View without saving',open],download]);return;}
         show('✓ Synced '+summary+'. Opening the app…');setTimeout(open,1200);
@@ -1508,7 +1560,7 @@
       // A different player than the one on file is almost always a mistake (or a crafted link).
       const other=DATA.player&&DATA.player.id&&String(DATA.player.id)!==String(fresh.player.id)&&DATA.matches.length;
       const warn=other?` ⚠ This is ${who}, but the app currently holds ${DATA.player.name||DATA.player.id}'s data; saving replaces it.`:'';
-      if(!LOCAL&&!localStorage.getItem('gh-token')){
+      if(!LOCAL&&!BROWSER&&!localStorage.getItem('gh-token')){
         // First sync in this browser (e.g. a phone): connect GitHub right here, then save.
         show(`Fetched ${summary} for ${who}. To save it, paste your GitHub token (Contents: Read and write on ${REPO}). It stays in this browser.`+warn,!!other);
         act.innerHTML='';
@@ -1518,8 +1570,8 @@
         act.append(inp,go);
         [['View without saving',open],download,closeBtn].forEach(([l,f])=>{const b=document.createElement('button');b.className='syncbtn';b.textContent=l;b.onclick=f;act.appendChild(b);});
         return;}
-      if(confirmFirst||other){show(`Fetched ${summary} for ${who}. Save it${LOCAL?'':' to GitHub'}?`+warn,!!other);
-        buttons([[LOCAL?'Save':'Save to GitHub',save,true],['View without saving',open],closeBtn]);return;}
+      if(confirmFirst||other){show(`Fetched ${summary} for ${who}. Save it ${WHERE}?`+warn,!!other);
+        buttons([[LOCAL||BROWSER?'Save':'Save to GitHub',save,true],['View without saving',open],closeBtn]);return;}
       save();
     }
     if(hash){

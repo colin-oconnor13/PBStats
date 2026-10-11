@@ -10,15 +10,16 @@ it, & and " as HTML entities). Run after editing the bookmarklet source:
 tools/serve_local.py imports bookmark_href() / inject() to build a local copy's bookmark on
 the fly, so the committed index.html always keeps the published (GitHub Pages) one.
 """
-import io, os, re
+import io, json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "tools", "sync_bookmarklet.js")
 HTML = os.path.join(ROOT, "index.html")
 
-# The published app: this repo's GitHub Pages site. id '' = whoever is logged in to DUPR,
-# checked against the short DUPR id in "code".
-PUBLISHED = {"app": "https://colin-oconnor13.github.io/PBStats/?sync=1", "id": "", "code": "Z49MRW"}
+# The published app comes from site.json: its address, and optionally a DUPR player it is
+# pinned to (duprId numeric / duprCode short). Both empty = whoever is logged in to DUPR.
+_site = json.load(io.open(os.path.join(ROOT, "site.json"), encoding="utf-8"))
+PUBLISHED = {"app": _site["app"], "id": str(_site.get("duprId") or ""), "code": _site.get("duprCode") or ""}
 ANCHOR = re.compile(r'(<a class="bm" id="syncBm" href=")[^"]*(")')
 
 

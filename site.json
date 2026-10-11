@@ -1,0 +1,9 @@
+{
+ "_about": "Whose copy this is. storage: \"github\" commits synced data to repo (needs a token in the browser); \"browser\" keeps each visitor's data in their own browser. app = this site's address + ?sync=1 (used by the Sync bookmark). duprId / duprCode pin the bookmark to one player; leave both empty to sync whoever is logged in to DUPR. After editing, run: python tools/build_bookmarklet.py",
+ "name": "Pickleball",
+ "storage": "github",
+ "repo": "colin-oconnor13/PBStats",
+ "app": "https://colin-oconnor13.github.io/PBStats/?sync=1",
+ "duprId": "",
+ "duprCode": "Z49MRW"
+}

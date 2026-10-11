@@ -7,6 +7,14 @@ locally with `python tools/serve_local.py` (data in git-ignored `local/data/`); 
 `data/` files are empty seeds. Displayed app name is "Pickleball".
 See README for the user-facing story; see LOG.md for change history.
 
+**`site.json` is the only per-copy setting** (whose copy, where data goes, the Sync bookmark's
+app URL and optional pinned DUPR player). `storage: "github"` (this repo) commits synced data to
+`repo`; `storage: "browser"` (the shared copy) keeps each visitor's data in localStorage
+`pb-data-v1`, shows a welcome card when empty, and swaps the GitHub save UI for Export / Import /
+Delete. Code is meant to stay identical across copies: port changes by copying everything except
+`site.json`, `data/`, README/CLAUDE/LOG. Run `python tools/build_bookmarklet.py` after editing
+`site.json` (it reads app / duprId / duprCode from there).
+
 ## Architecture
 - `index.html` — the whole app. Async IIFE: fetches `./data/data.json` then
   `./data/overrides.json`, merges committed overrides with `localStorage` (local wins), renders.
