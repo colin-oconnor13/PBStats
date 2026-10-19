@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — desktop tables wrap instead of scrolling
+- `thead th` now wraps (`white-space:normal`, bottom-aligned) so long headers like "Wins vs
+  expected" / "Margin vs expected" stack to two lines instead of forcing the Opponents & Partners
+  grids to scroll sideways.
+- `.evname` and `.evtd` wrap too (were `nowrap` + ellipsis), so event names — e.g. the long
+  Moorhead address row, and the event-label line under each date on Analysis → Performance by
+  Date — show in full rather than being clipped or widening the column. Mobile (cards) unchanged.
+  SW rj-v63.
+
 ## 2026-10-11 — "How to read this" guide tab
 - New 4th tab (**How to read this** / **Guide** on mobile): a static, data-free explainer so it
   works even before a first sync. Covers the three views, filters, every metric (DUPR, Win %,
