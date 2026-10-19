@@ -2,10 +2,10 @@
  "player": {
   "id": 8127479319,
   "name": "Colin OConnor",
-  "currentDoubles": 3.507
+  "currentDoubles": 3.593
  },
- "generated": "2026-10-15",
- "syncedAt": "2026-10-15T11:49:12.068Z",
+ "generated": "2026-10-19",
+ "syncedAt": "2026-10-19T11:46:55.774Z",
  "matches": [
   {
    "matchId": 5472371250,
@@ -403,7 +403,7 @@
      "name": "Kurt Camacho",
      "ratingThen": 3.576,
      "ratingPre": 3.5762,
-     "ratingNow": 3.945
+     "ratingNow": 3.934
     },
     {
      "id": 5629210554,
@@ -436,7 +436,7 @@
     "name": "Kurt Camacho",
     "ratingThen": 3.581,
     "ratingPre": 3.5915,
-    "ratingNow": 3.945
+    "ratingNow": 3.934
    },
    "opponents": [
     {
@@ -574,7 +574,7 @@
      "name": "Kurt Camacho",
      "ratingThen": 3.585,
      "ratingPre": 3.5858,
-     "ratingNow": 3.945
+     "ratingNow": 3.934
     }
    ],
    "preRating": 3.2504,
@@ -656,7 +656,7 @@
      "name": "Kurt Camacho",
      "ratingThen": 3.591,
      "ratingPre": 3.5845,
-     "ratingNow": 3.945
+     "ratingNow": 3.934
     }
    ],
    "preRating": 3.2542,
@@ -723,7 +723,7 @@
     "name": "Kurt Camacho",
     "ratingThen": 3.588,
     "ratingPre": 3.5761,
-    "ratingNow": 3.945
+    "ratingNow": 3.934
    },
    "opponents": [
     {
@@ -772,7 +772,7 @@
      "name": "Kurt Camacho",
      "ratingThen": 3.588,
      "ratingPre": 3.5896,
-     "ratingNow": 3.945
+     "ratingNow": 3.934
     },
     {
      "id": 4872643743,
@@ -861,7 +861,7 @@
      "name": "Jeana Murphy",
      "ratingThen": 2.519,
      "ratingPre": null,
-     "ratingNow": 2.925
+     "ratingNow": 2.858
     }
    ],
    "preRating": 3.2052,
@@ -887,7 +887,7 @@
     "name": "Jeana Murphy",
     "ratingThen": 2.551,
     "ratingPre": 2.5189,
-    "ratingNow": 2.925
+    "ratingNow": 2.858
    },
    "opponents": [
     {
@@ -984,7 +984,7 @@
      "name": "Jeana Murphy",
      "ratingThen": 2.408,
      "ratingPre": 2.5508,
-     "ratingNow": 2.925
+     "ratingNow": 2.858
     }
    ],
    "preRating": 3.2206,
@@ -1025,7 +1025,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.311,
      "ratingPre": 3.3279,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.286,
@@ -1066,7 +1066,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.311,
      "ratingPre": 3.3209,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.2531,
@@ -1092,7 +1092,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.319,
     "ratingPre": 3.3111,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -1133,7 +1133,7 @@
     "name": "David Baltes",
     "ratingThen": 3.251,
     "ratingPre": null,
-    "ratingNow": 3.213
+    "ratingNow": 3.189
    },
    "opponents": [
     {
@@ -1141,14 +1141,14 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.315,
      "ratingPre": 3.3112,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 8366210628,
      "name": "Brandon Anderson",
      "ratingThen": 3.328,
      "ratingPre": 3.3213,
-     "ratingNow": 3.181
+     "ratingNow": 3.186
     }
    ],
    "preRating": 3.316,
@@ -1182,14 +1182,14 @@
      "name": "Chad Pikula",
      "ratingThen": 3.829,
      "ratingPre": 3.8664,
-     "ratingNow": 3.083
+     "ratingNow": 3.075
     },
     {
      "id": 8386918145,
      "name": "Maulik Dabhi",
      "ratingThen": 3.344,
      "ratingPre": 3.3492,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.3381,
@@ -1215,7 +1215,7 @@
     "name": "Chad Pikula",
     "ratingThen": 3.822,
     "ratingPre": 3.8294,
-    "ratingNow": 3.083
+    "ratingNow": 3.075
    },
    "opponents": [
     {
@@ -1223,7 +1223,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.345,
      "ratingPre": 3.3443,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 6592217897,
@@ -1256,7 +1256,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.367,
     "ratingPre": 3.349,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -1305,7 +1305,7 @@
      "name": "Chad Pikula",
      "ratingThen": 3.673,
      "ratingPre": 3.8217,
-     "ratingNow": 3.083
+     "ratingNow": 3.075
     },
     {
      "id": 7973905008,
@@ -1338,7 +1338,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.349,
     "ratingPre": 3.3374,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -1346,7 +1346,7 @@
      "name": "Brandon Anderson",
      "ratingThen": 3.309,
      "ratingPre": 3.332,
-     "ratingNow": 3.181
+     "ratingNow": 3.186
     },
     {
      "id": 6159146159,
@@ -1379,7 +1379,7 @@
     "name": "Brandon Anderson",
     "ratingThen": 3.332,
     "ratingPre": 3.3027,
-    "ratingNow": 3.181
+    "ratingNow": 3.186
    },
    "opponents": [
     {
@@ -1387,7 +1387,7 @@
      "name": "David Baltes",
      "ratingThen": 3.068,
      "ratingPre": 3.2503,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     },
     {
      "id": 6159146159,
@@ -1428,14 +1428,14 @@
      "name": "David Baltes",
      "ratingThen": 3.452,
      "ratingPre": 3.2509,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     },
     {
      "id": 8386918145,
      "name": "Maulik Dabhi",
      "ratingThen": 3.325,
      "ratingPre": 3.3146,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.31,
@@ -1797,7 +1797,7 @@
      "name": "Amy Blakeway",
      "ratingThen": 3.325,
      "ratingPre": 3.3786,
-     "ratingNow": 2.678
+     "ratingNow": 2.69
     },
     {
      "id": 4680406125,
@@ -1838,7 +1838,7 @@
      "name": "Amy Blakeway",
      "ratingThen": 3.37,
      "ratingPre": 3.4544,
-     "ratingNow": 2.678
+     "ratingNow": 2.69
     },
     {
      "id": 7912859077,
@@ -1871,7 +1871,7 @@
     "name": "Amy Blakeway",
     "ratingThen": 3.379,
     "ratingPre": 3.3696,
-    "ratingNow": 2.678
+    "ratingNow": 2.69
    },
    "opponents": [
     {
@@ -1920,7 +1920,7 @@
      "name": "Gena Syvertson",
      "ratingThen": 2.908,
      "ratingPre": 2.914,
-     "ratingNow": 2.836
+     "ratingNow": 2.874
     },
     {
      "id": 6960791614,
@@ -1961,7 +1961,7 @@
      "name": "Gena Syvertson",
      "ratingThen": 2.911,
      "ratingPre": 2.9129,
-     "ratingNow": 2.836
+     "ratingNow": 2.874
     },
     {
      "id": 7939063748,
@@ -2035,7 +2035,7 @@
     "name": "Gena Syvertson",
     "ratingThen": 2.914,
     "ratingPre": 2.9138,
-    "ratingNow": 2.836
+    "ratingNow": 2.874
    },
    "opponents": [
     {
@@ -2445,7 +2445,7 @@
     "name": "Kelsie Walter",
     "ratingThen": 4.009,
     "ratingPre": 4.0122,
-    "ratingNow": 4.037
+    "ratingNow": 3.999
    },
    "opponents": [
     {
@@ -2453,7 +2453,7 @@
      "name": "Bradley Ensminger",
      "ratingThen": 3.678,
      "ratingPre": 3.6723,
-     "ratingNow": 3.657
+     "ratingNow": 3.511
     },
     {
      "id": 5476389014,
@@ -2527,7 +2527,7 @@
     "name": "Bradley Ensminger",
     "ratingThen": 3.657,
     "ratingPre": 3.6688,
-    "ratingNow": 3.657
+    "ratingNow": 3.511
    },
    "opponents": [
     {
@@ -2535,7 +2535,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.002,
      "ratingPre": 3.9937,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 6725946256,
@@ -2576,7 +2576,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.015,
      "ratingPre": 4.0086,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 5476389014,
@@ -2624,7 +2624,7 @@
      "name": "Bradley Ensminger",
      "ratingThen": 3.68,
      "ratingPre": 3.6776,
-     "ratingNow": 3.657
+     "ratingNow": 3.511
     }
    ],
    "preRating": 3.5221,
@@ -2665,7 +2665,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.644,
      "ratingPre": 3.6229,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": 3.5543,
@@ -2814,7 +2814,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.684,
     "ratingPre": 3.6991,
-    "ratingNow": 3.869
+    "ratingNow": 3.859
    },
    "opponents": [
     {
@@ -2863,7 +2863,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.686,
      "ratingPre": 3.6435,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     },
     {
      "id": 8156037132,
@@ -2911,7 +2911,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.635,
      "ratingPre": 3.6424,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": 3.5641,
@@ -2937,7 +2937,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.642,
     "ratingPre": 3.574,
-    "ratingNow": 3.869
+    "ratingNow": 3.859
    },
    "opponents": [
     {
@@ -3034,7 +3034,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.699,
      "ratingPre": 3.6857,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": 3.5153,
@@ -3470,7 +3470,7 @@
     "name": "Pat Dew",
     "ratingThen": 3.409,
     "ratingPre": 3.4081,
-    "ratingNow": 3.316
+    "ratingNow": 3.301
    },
    "opponents": [
     {
@@ -3567,7 +3567,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.411,
      "ratingPre": 3.428,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.465,
@@ -3608,7 +3608,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.414,
      "ratingPre": 3.4094,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.4558,
@@ -3690,7 +3690,7 @@
      "name": "James Russell",
      "ratingThen": 3.396,
      "ratingPre": 3.4003,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4472,
@@ -3757,7 +3757,7 @@
     "name": "David Baltes",
     "ratingThen": 3.409,
     "ratingPre": 3.4355,
-    "ratingNow": 3.213
+    "ratingNow": 3.189
    },
    "opponents": [
     {
@@ -3806,7 +3806,7 @@
      "name": "David Baltes",
      "ratingThen": 3.441,
      "ratingPre": 3.4996,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     },
     {
      "id": 5577422625,
@@ -3895,7 +3895,7 @@
      "name": "David Baltes",
      "ratingThen": 3.5,
      "ratingPre": 3.5074,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     }
    ],
    "preRating": 3.4556,
@@ -3936,7 +3936,7 @@
      "name": "James Russell",
      "ratingThen": 3.465,
      "ratingPre": 3.4601,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4428,
@@ -3962,7 +3962,7 @@
     "name": "James Russell",
     "ratingThen": 3.376,
     "ratingPre": 3.396,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -4018,7 +4018,7 @@
      "name": "James Russell",
      "ratingThen": 3.45,
      "ratingPre": 3.4571,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4412,
@@ -4093,7 +4093,7 @@
      "name": "James Russell",
      "ratingThen": 3.427,
      "ratingPre": 3.4207,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     },
     {
      "id": 5142013955,
@@ -4126,7 +4126,7 @@
     "name": "James Russell",
     "ratingThen": 3.453,
     "ratingPre": 3.4536,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -4305,7 +4305,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.379,
      "ratingPre": 3.3741,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.4954,
@@ -4428,7 +4428,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.37,
      "ratingPre": 3.3725,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.4924,
@@ -4454,7 +4454,7 @@
     "name": "James Russell",
     "ratingThen": 3.477,
     "ratingPre": 3.4727,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -4510,7 +4510,7 @@
      "name": "James Russell",
      "ratingThen": 3.473,
      "ratingPre": 3.4575,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4994,
@@ -4536,7 +4536,7 @@
     "name": "Pat Dew",
     "ratingThen": 3.374,
     "ratingPre": 3.3699,
-    "ratingNow": 3.316
+    "ratingNow": 3.301
    },
    "opponents": [
     {
@@ -4592,7 +4592,7 @@
      "name": "James Russell",
      "ratingThen": 3.457,
      "ratingPre": 3.4632,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4957,
@@ -4659,7 +4659,7 @@
     "name": "James Russell",
     "ratingThen": 3.442,
     "ratingPre": 3.452,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -4708,7 +4708,7 @@
      "name": "James Russell",
      "ratingThen": 3.459,
      "ratingPre": 3.4516,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     },
     {
      "id": 5629210554,
@@ -4797,7 +4797,7 @@
      "name": "James Russell",
      "ratingThen": 3.456,
      "ratingPre": 3.4648,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.4688,
@@ -4946,7 +4946,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.498,
     "ratingPre": 3.4909,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -4995,7 +4995,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.479,
      "ratingPre": 3.4743,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 6715563848,
@@ -5028,7 +5028,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.479,
     "ratingPre": 3.4979,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -5084,7 +5084,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.491,
      "ratingPre": 3.5023,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.4838,
@@ -5118,7 +5118,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.474,
      "ratingPre": 3.479,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 8428390113,
@@ -5166,7 +5166,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.502,
      "ratingPre": 3.4932,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.4929,
@@ -5315,7 +5315,7 @@
     "name": "James Russell",
     "ratingThen": 3.445,
     "ratingPre": 3.4624,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -5405,7 +5405,7 @@
      "name": "James Russell",
      "ratingThen": 3.462,
      "ratingPre": 3.4592,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     },
     {
      "id": 5762870277,
@@ -5453,7 +5453,7 @@
      "name": "James Russell",
      "ratingThen": 3.435,
      "ratingPre": 3.459,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.5175,
@@ -5520,7 +5520,7 @@
     "name": "Pat Dew",
     "ratingThen": 3.316,
     "ratingPre": 3.309,
-    "ratingNow": 3.316
+    "ratingNow": 3.301
    },
    "opponents": [
     {
@@ -5535,7 +5535,7 @@
      "name": "James Russell",
      "ratingThen": 3.43,
      "ratingPre": 3.4371,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.5213,
@@ -5576,7 +5576,7 @@
      "name": "James Russell",
      "ratingThen": 3.446,
      "ratingPre": 3.444,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.5098,
@@ -5602,7 +5602,7 @@
     "name": "Pat Dew",
     "ratingThen": 3.298,
     "ratingPre": 3.3028,
-    "ratingNow": 3.316
+    "ratingNow": 3.301
    },
    "opponents": [
     {
@@ -5692,7 +5692,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.303,
      "ratingPre": 3.3182,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     },
     {
      "id": 5366768640,
@@ -5733,7 +5733,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.294,
      "ratingPre": 3.2983,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     },
     {
      "id": 5661042585,
@@ -5774,7 +5774,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.309,
      "ratingPre": 3.3135,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     },
     {
      "id": 6592217897,
@@ -5815,7 +5815,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.282,
      "ratingPre": 3.2944,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     },
     {
      "id": 5366768640,
@@ -5889,7 +5889,7 @@
     "name": "James Russell",
     "ratingThen": 3.421,
     "ratingPre": 3.4303,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -5945,7 +5945,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.629,
      "ratingPre": 3.6399,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": 3.5483,
@@ -6094,7 +6094,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.64,
     "ratingPre": 3.6374,
-    "ratingNow": 3.869
+    "ratingNow": 3.859
    },
    "opponents": [
     {
@@ -6273,7 +6273,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.638,
      "ratingPre": 3.6283,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": 3.5493,
@@ -6340,7 +6340,7 @@
     "name": "James Russell",
     "ratingThen": 3.445,
     "ratingPre": 3.4354,
-    "ratingNow": 3.588
+    "ratingNow": 3.557
    },
    "opponents": [
     {
@@ -6430,14 +6430,14 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.476,
      "ratingPre": 3.4878,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 5841965713,
      "name": "James Russell",
      "ratingThen": 3.434,
      "ratingPre": 3.4459,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     }
    ],
    "preRating": 3.526,
@@ -6553,7 +6553,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.469,
      "ratingPre": 3.4797,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 8156037132,
@@ -6627,7 +6627,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.48,
     "ratingPre": 3.4762,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -6635,7 +6635,7 @@
      "name": "James Russell",
      "ratingThen": 3.431,
      "ratingPre": 3.4343,
-     "ratingNow": 3.588
+     "ratingNow": 3.557
     },
     {
      "id": 7960272680,
@@ -6709,7 +6709,7 @@
     "name": "Corey Langer",
     "ratingThen": 3.23,
     "ratingPre": 3.2238,
-    "ratingNow": 3.219
+    "ratingNow": 3.169
    },
    "opponents": [
     {
@@ -6717,7 +6717,7 @@
      "name": "Christopher Hane",
      "ratingThen": 3.334,
      "ratingPre": 3.3402,
-     "ratingNow": 3.26
+     "ratingNow": 3.277
     },
     {
      "id": 5771743415,
@@ -6765,7 +6765,7 @@
      "name": "Corey Langer",
      "ratingThen": 3.242,
      "ratingPre": 3.2298,
-     "ratingNow": 3.219
+     "ratingNow": 3.169
     }
    ],
    "preRating": 3.5757,
@@ -6840,14 +6840,14 @@
      "name": "Christopher Hane",
      "ratingThen": 3.345,
      "ratingPre": 3.3727,
-     "ratingNow": 3.26
+     "ratingNow": 3.277
     },
     {
      "id": 5772581098,
      "name": "Corey Langer",
      "ratingThen": 3.224,
      "ratingPre": 3.2516,
-     "ratingNow": 3.219
+     "ratingNow": 3.169
     }
    ],
    "preRating": 3.5465,
@@ -6955,7 +6955,7 @@
     "name": "Christopher Hane",
     "ratingThen": 3.34,
     "ratingPre": 3.3449,
-    "ratingNow": 3.26
+    "ratingNow": 3.277
    },
    "opponents": [
     {
@@ -7283,7 +7283,7 @@
     "name": "Pat Dew",
     "ratingThen": 3.292,
     "ratingPre": 3.2845,
-    "ratingNow": 3.316
+    "ratingNow": 3.301
    },
    "opponents": [
     {
@@ -7291,7 +7291,7 @@
      "name": "Anthony Santos",
      "ratingThen": 3.08,
      "ratingPre": 3.0879,
-     "ratingNow": 3.039
+     "ratingNow": 3.106
     },
     {
      "id": 7696758175,
@@ -7380,7 +7380,7 @@
      "name": "Anthony Santos",
      "ratingThen": 3.105,
      "ratingPre": 3.1029,
-     "ratingNow": 3.039
+     "ratingNow": 3.106
     }
    ],
    "preRating": 3.5016,
@@ -7447,7 +7447,7 @@
     "name": "Anthony Santos",
     "ratingThen": 3.088,
     "ratingPre": 3.0796,
-    "ratingNow": 3.039
+    "ratingNow": 3.106
    },
    "opponents": [
     {
@@ -7462,7 +7462,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.284,
      "ratingPre": 3.2925,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.5228,
@@ -7503,7 +7503,7 @@
      "name": "Pat Dew",
      "ratingThen": 3.293,
      "ratingPre": 3.3161,
-     "ratingNow": 3.316
+     "ratingNow": 3.301
     }
    ],
    "preRating": 3.4993,
@@ -7611,7 +7611,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.597,
     "ratingPre": 3.5952,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -7660,7 +7660,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.602,
      "ratingPre": 3.609,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 8583295390,
@@ -7749,7 +7749,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.609,
      "ratingPre": 3.5969,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.5559,
@@ -7775,7 +7775,7 @@
     "name": "Jeremiah Walter",
     "ratingThen": 4.486,
     "ratingPre": 4.4867,
-    "ratingNow": 4.559
+    "ratingNow": 4.564
    },
    "opponents": [
     {
@@ -7783,14 +7783,14 @@
      "name": "Kelsie Walter",
      "ratingThen": 3.968,
      "ratingPre": 3.9675,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 8386918145,
      "name": "Maulik Dabhi",
      "ratingThen": 3.612,
      "ratingPre": 3.6115,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.5208,
@@ -7816,7 +7816,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.607,
     "ratingPre": 3.6192,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -7824,14 +7824,14 @@
      "name": "Kelsie Walter",
      "ratingThen": 3.978,
      "ratingPre": 3.9655,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 6407219493,
      "name": "Carter West",
      "ratingThen": 4.005,
      "ratingPre": 3.9923,
-     "ratingNow": 3.999
+     "ratingNow": 4.099
     }
    ],
    "preRating": 3.5388,
@@ -7857,7 +7857,7 @@
     "name": "Kelsie Walter",
     "ratingThen": 3.968,
     "ratingPre": 3.9732,
-    "ratingNow": 4.037
+    "ratingNow": 3.999
    },
    "opponents": [
     {
@@ -7865,14 +7865,14 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.487,
      "ratingPre": 4.481,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     },
     {
      "id": 6407219493,
      "name": "Carter West",
      "ratingThen": 4.015,
      "ratingPre": 4.0091,
-     "ratingNow": 3.999
+     "ratingNow": 4.099
     }
    ],
    "preRating": 3.5265,
@@ -7898,7 +7898,7 @@
     "name": "Carter West",
     "ratingThen": 3.992,
     "ratingPre": 4.0042,
-    "ratingNow": 3.999
+    "ratingNow": 4.099
    },
    "opponents": [
     {
@@ -7906,14 +7906,14 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.486,
      "ratingPre": 4.4736,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     },
     {
      "id": 8386918145,
      "name": "Maulik Dabhi",
      "ratingThen": 3.619,
      "ratingPre": 3.6073,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.5507,
@@ -7982,7 +7982,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": null,
@@ -8023,7 +8023,7 @@
      "name": "David Baltes",
      "ratingThen": 3.393,
      "ratingPre": 3.4309,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     }
    ],
    "preRating": 3.5259,
@@ -8064,7 +8064,7 @@
      "name": "David Baltes",
      "ratingThen": 3.373,
      "ratingPre": 3.3933,
-     "ratingNow": 3.213
+     "ratingNow": 3.189
     }
    ],
    "preRating": 3.5411,
@@ -8090,7 +8090,7 @@
     "name": "David Baltes",
     "ratingThen": 3.358,
     "ratingPre": 3.3728,
-    "ratingNow": 3.213
+    "ratingNow": 3.189
    },
    "opponents": [
     {
@@ -8133,7 +8133,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": null,
@@ -8161,7 +8161,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": null,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     }
    ],
    "preRating": null,
@@ -8195,7 +8195,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": 3.8616,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     },
     {
      "id": 8040499592,
@@ -8228,7 +8228,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.863,
     "ratingPre": 3.8579,
-    "ratingNow": 3.869
+    "ratingNow": 3.859
    },
    "opponents": [
     {
@@ -8236,7 +8236,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.512,
      "ratingPre": 4.5173,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     },
     {
      "id": 8040499592,
@@ -8277,7 +8277,7 @@
      "name": "Jeremiah Walter",
      "ratingThen": 4.515,
      "ratingPre": 4.5137,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     },
     {
      "id": 6705717957,
@@ -8310,7 +8310,7 @@
     "name": "Jeremiah Walter",
     "ratingThen": 4.514,
     "ratingPre": 4.5118,
-    "ratingNow": 4.559
+    "ratingNow": 4.564
    },
    "opponents": [
     {
@@ -8318,7 +8318,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.862,
      "ratingPre": 3.8634,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     },
     {
      "id": 6705717957,
@@ -8351,7 +8351,7 @@
     "name": "Maulik Dabhi",
     "ratingThen": 3.595,
     "ratingPre": 3.6056,
-    "ratingNow": 3.567
+    "ratingNow": 3.601
    },
    "opponents": [
     {
@@ -8366,7 +8366,7 @@
      "name": "Gabriel Zafra",
      "ratingThen": 3.541,
      "ratingPre": 3.5304,
-     "ratingNow": 3.583
+     "ratingNow": 3.651
     }
    ],
    "preRating": 3.5244,
@@ -8400,14 +8400,14 @@
      "name": "Carter Smith",
      "ratingThen": 3.865,
      "ratingPre": 3.8826,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     },
     {
      "id": 4854196408,
      "name": "Jeremiah Walter",
      "ratingThen": 4.499,
      "ratingPre": 4.5166,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     }
    ],
    "preRating": 3.5564,
@@ -8448,7 +8448,7 @@
      "name": "Gabriel Zafra",
      "ratingThen": 3.53,
      "ratingPre": 3.5269,
-     "ratingNow": 3.583
+     "ratingNow": 3.651
     }
    ],
    "preRating": 3.5279,
@@ -8489,7 +8489,7 @@
      "name": "Bipin Shrestha",
      "ratingThen": 3.862,
      "ratingPre": 3.8742,
-     "ratingNow": 3.88
+     "ratingNow": 3.885
     }
    ],
    "preRating": 3.5489,
@@ -8530,7 +8530,7 @@
      "name": "Imoesi Abdul-Saliu",
      "ratingThen": 3.347,
      "ratingPre": 3.3387,
-     "ratingNow": 3.328
+     "ratingNow": 3.389
     }
    ],
    "preRating": 3.5055,
@@ -8597,7 +8597,7 @@
     "name": "Imoesi Abdul-Saliu",
     "ratingThen": 3.327,
     "ratingPre": 3.3304,
-    "ratingNow": 3.328
+    "ratingNow": 3.389
    },
    "opponents": [
     {
@@ -8638,7 +8638,7 @@
     "name": "Gabriel Zafra",
     "ratingThen": 3.533,
     "ratingPre": 3.5413,
-    "ratingNow": 3.583
+    "ratingNow": 3.651
    },
    "opponents": [
     {
@@ -8646,7 +8646,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.603,
      "ratingPre": 3.5947,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     },
     {
      "id": 7696758175,
@@ -8687,7 +8687,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.057,
      "ratingPre": 4.0368,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 7736561169,
@@ -8720,7 +8720,7 @@
     "name": "Kelsie Walter",
     "ratingThen": 4.044,
     "ratingPre": 4.0569,
-    "ratingNow": 4.037
+    "ratingNow": 3.999
    },
    "opponents": [
     {
@@ -8728,14 +8728,14 @@
      "name": "Bipin Shrestha",
      "ratingThen": 3.864,
      "ratingPre": 3.8506,
-     "ratingNow": 3.88
+     "ratingNow": 3.885
     },
     {
      "id": 4854196408,
      "name": "Jeremiah Walter",
      "ratingThen": 4.485,
      "ratingPre": 4.4722,
-     "ratingNow": 4.559
+     "ratingNow": 4.564
     }
    ],
    "preRating": 3.5429,
@@ -8761,7 +8761,7 @@
     "name": "Bipin Shrestha",
     "ratingThen": 3.88,
     "ratingPre": 3.8639,
-    "ratingNow": 3.88
+    "ratingNow": 3.885
    },
    "opponents": [
     {
@@ -8769,7 +8769,7 @@
      "name": "Carter Smith",
      "ratingThen": 3.869,
      "ratingPre": 3.8846,
-     "ratingNow": 3.869
+     "ratingNow": 3.859
     },
     {
      "id": 7080278638,
@@ -8802,7 +8802,7 @@
     "name": "Carter Smith",
     "ratingThen": 3.883,
     "ratingPre": 3.887,
-    "ratingNow": 3.869
+    "ratingNow": 3.859
    },
    "opponents": [
     {
@@ -8810,7 +8810,7 @@
      "name": "Kelsie Walter",
      "ratingThen": 4.018,
      "ratingPre": 4.0138,
-     "ratingNow": 4.037
+     "ratingNow": 3.999
     },
     {
      "id": 4653600006,
@@ -8858,7 +8858,7 @@
      "name": "Maulik Dabhi",
      "ratingThen": 3.623,
      "ratingPre": 3.6061,
-     "ratingNow": 3.567
+     "ratingNow": 3.601
     }
    ],
    "preRating": 3.5451,
@@ -8884,7 +8884,7 @@
     "name": "Jeremiah Walter",
     "ratingThen": 4.489,
     "ratingPre": 4.4993,
-    "ratingNow": 4.559
+    "ratingNow": 4.564
    },
    "opponents": [
     {
@@ -8933,7 +8933,7 @@
      "name": "Imoesi Abdul-Saliu",
      "ratingThen": 3.334,
      "ratingPre": 3.3268,
-     "ratingNow": 3.328
+     "ratingNow": 3.389
     },
     {
      "id": 4680406125,
@@ -9063,7 +9063,7 @@
      "name": "Gabriel Zafra",
      "ratingThen": 3.567,
      "ratingPre": 3.5611,
-     "ratingNow": 3.583
+     "ratingNow": 3.651
     }
    ],
    "preRating": 3.5022,
@@ -9145,7 +9145,7 @@
      "name": "Gabriel Zafra",
      "ratingThen": 3.566,
      "ratingPre": 3.5649,
-     "ratingNow": 3.583
+     "ratingNow": 3.651
     }
    ],
    "preRating": 3.4994,
@@ -9171,7 +9171,7 @@
     "name": "Gabriel Zafra",
     "ratingThen": 3.577,
     "ratingPre": 3.5665,
-    "ratingNow": 3.583
+    "ratingNow": 3.651
    },
    "opponents": [
     {
@@ -9233,6 +9233,334 @@
    "preRating": 3.4947,
    "impact": 0.00469,
    "postRating": 3.4994
+  },
+  {
+   "matchId": 4912171541,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 4688103412,
+    "name": "Wenhao Dai",
+    "ratingThen": 3.408,
+    "ratingPre": 3.4348,
+    "ratingNow": 3.459
+   },
+   "opponents": [
+    {
+     "id": 7441772606,
+     "name": "Gabriel Zafra",
+     "ratingThen": 3.618,
+     "ratingPre": 3.6004,
+     "ratingNow": 3.651
+    },
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.568,
+     "ratingPre": 3.5503,
+     "ratingNow": 3.601
+    }
+   ],
+   "preRating": 3.588,
+   "impact": -0.01751,
+   "postRating": 3.5705
+  },
+  {
+   "matchId": 4971174674,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    2
+   ],
+   "partner": {
+    "id": 8386918145,
+    "name": "Maulik Dabhi",
+    "ratingThen": 3.592,
+    "ratingPre": 3.5674,
+    "ratingNow": 3.601
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.563,
+     "ratingPre": 3.5882,
+     "ratingNow": 3.557
+    },
+    {
+     "id": 7441772606,
+     "name": "Gabriel Zafra",
+     "ratingThen": 3.558,
+     "ratingPre": 3.5835,
+     "ratingNow": 3.651
+    }
+   ],
+   "preRating": 3.5073,
+   "impact": 0.025,
+   "postRating": 3.5323
+  },
+  {
+   "matchId": 5833514074,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 7441772606,
+    "name": "Gabriel Zafra",
+    "ratingThen": 3.6,
+    "ratingPre": 3.5726,
+    "ratingNow": 3.651
+   },
+   "opponents": [
+    {
+     "id": 5841965713,
+     "name": "James Russell",
+     "ratingThen": 3.521,
+     "ratingPre": 3.5491,
+     "ratingNow": 3.557
+    },
+    {
+     "id": 4688103412,
+     "name": "Wenhao Dai",
+     "ratingThen": 3.479,
+     "ratingPre": 3.524,
+     "ratingNow": 3.459
+    }
+   ],
+   "preRating": 3.5323,
+   "impact": 0.02781,
+   "postRating": 3.5601
+  },
+  {
+   "matchId": 5890964693,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    1
+   ],
+   "partner": {
+    "id": 5841965713,
+    "name": "James Russell",
+    "ratingThen": 3.549,
+    "ratingPre": 3.5212,
+    "ratingNow": 3.557
+   },
+   "opponents": [
+    {
+     "id": 8386918145,
+     "name": "Maulik Dabhi",
+     "ratingThen": 3.55,
+     "ratingPre": 3.5782,
+     "ratingNow": 3.601
+    },
+    {
+     "id": 4688103412,
+     "name": "Wenhao Dai",
+     "ratingThen": 3.435,
+     "ratingPre": 3.4788,
+     "ratingNow": 3.459
+    }
+   ],
+   "preRating": 3.5601,
+   "impact": 0.02792,
+   "postRating": 3.588
+  },
+  {
+   "matchId": 6486540830,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    3
+   ],
+   "partner": {
+    "id": 7539414865,
+    "name": "Peter Jacobson",
+    "ratingThen": 3.851,
+    "ratingPre": 3.7875,
+    "ratingNow": 3.819
+   },
+   "opponents": [
+    {
+     "id": 5204788495,
+     "name": "Charles Krieg",
+     "ratingThen": 3.364,
+     "ratingPre": 3.5141,
+     "ratingNow": 3.427
+    },
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.007,
+     "ratingPre": 4.0282,
+     "ratingNow": 3.999
+    }
+   ],
+   "preRating": 3.5704,
+   "impact": 0.02128,
+   "postRating": 3.5916
+  },
+  {
+   "matchId": 7446799400,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": false,
+   "scores": [
+    3
+   ],
+   "oppScores": [
+    11
+   ],
+   "partner": {
+    "id": 5204788495,
+    "name": "Charles Krieg",
+    "ratingThen": 3.514,
+    "ratingPre": 3.6162,
+    "ratingNow": 3.427
+   },
+   "opponents": [
+    {
+     "id": 7441772606,
+     "name": "Gabriel Zafra",
+     "ratingThen": 3.643,
+     "ratingPre": 3.6303,
+     "ratingNow": 3.651
+    },
+    {
+     "id": 8557535468,
+     "name": "Kelsie Walter",
+     "ratingThen": 4.028,
+     "ratingPre": 4.0157,
+     "ratingNow": 3.999
+    }
+   ],
+   "preRating": 3.5829,
+   "impact": -0.01248,
+   "postRating": 3.5704
+  },
+  {
+   "matchId": 8375951868,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    7
+   ],
+   "partner": {
+    "id": 7441772606,
+    "name": "Gabriel Zafra",
+    "ratingThen": 3.63,
+    "ratingPre": 3.6179,
+    "ratingNow": 3.651
+   },
+   "opponents": [
+    {
+     "id": 5204788495,
+     "name": "Charles Krieg",
+     "ratingThen": 3.616,
+     "ratingPre": 3.7362,
+     "ratingNow": 3.427
+    },
+    {
+     "id": 7539414865,
+     "name": "Peter Jacobson",
+     "ratingThen": 3.788,
+     "ratingPre": 3.8268,
+     "ratingNow": 3.819
+    }
+   ],
+   "preRating": 3.5705,
+   "impact": 0.01237,
+   "postRating": 3.5829
+  },
+  {
+   "matchId": 8550326519,
+   "date": "2026-10-18",
+   "event": "Courts & Pints",
+   "venue": "2605 8th St S, Moorhead, MN 56560, USA",
+   "format": "DOUBLES",
+   "confirmed": true,
+   "winner": true,
+   "scores": [
+    11
+   ],
+   "oppScores": [
+    9
+   ],
+   "partner": {
+    "id": 8557535468,
+    "name": "Kelsie Walter",
+    "ratingThen": 4.009,
+    "ratingPre": 4.0069,
+    "ratingNow": 3.999
+   },
+   "opponents": [
+    {
+     "id": 7441772606,
+     "name": "Gabriel Zafra",
+     "ratingThen": 3.641,
+     "ratingPre": 3.6428,
+     "ratingNow": 3.651
+    },
+    {
+     "id": 7539414865,
+     "name": "Peter Jacobson",
+     "ratingThen": 3.846,
+     "ratingPre": 3.8512,
+     "ratingNow": 3.819
+    }
+   ],
+   "preRating": 3.5916,
+   "impact": 0.00184,
+   "postRating": 3.5935
   }
  ]
 }
