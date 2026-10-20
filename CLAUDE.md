@@ -18,12 +18,17 @@ Delete. Code is meant to stay identical across copies: port changes by copying e
 ## Architecture
 - `index.html` — the whole app. Async IIFE: fetches `./data/data.json` then
   `./data/overrides.json`, merges committed overrides with `localStorage` (local wins), renders.
-  **Three tabs** — *Overview* (KPIs, Performance by Event, per-event rating chart, event-scoped
-  match list), *Analysis* (overall rating chart, Performance by Matchup Strength, full Match
-  Log) and *Opponents & Partners* (`renderIndex`: expected-vs-actual index from `MODEL`, a
-  logistic win curve fitted to the user's matches; `renderPeople`: per-opponent or per-partner
-  `agg`, ranked; <`PPL_MIN`=4 matches go to a separate low-reliability list; desktop only). Collapsible sticky-when-collapsed filter bar (Year/Type/Level/Event/Partner). Charts
-  use a real date x-axis; zoom is All + years only. Matchup + event tables share a
+  **Six tabs** (`tab-<name>`, toggled in `render()`; internal id `analysis` is labelled "Trends"):
+  *Overview* (grouped KPI **clusters** with tooltips + `SPARK` sparklines, the real rating line,
+  `renderLatest` last day's games, Highlights teasers), *Trends* (recent rating changes, Form,
+  goal, Performance by Event + Event Matches, by Date, Matchup Strength, `renderBuckets` opponent
+  bands, Close Games, Streaks), *Opponents & Partners* (`renderIndex` expected-vs-actual from
+  `MODEL`; `renderPeople` ranked lists with a `pplRecent` 60-day toggle + last-played; `renderChem`
+  partner margin with/without; Standouts; predictor), *Matches* (the Match Log), *Highlights*
+  (`renderHighlights`: upset index + notable results), *Guide*. `MODEL` is a logistic win curve
+  fitted to the user's matches; <`PPL_MIN`=4 matches go to low-reliability lists; desktop tables
+  become cards on phones. Collapsible sticky-when-collapsed filter bar (Year/Type/Level/Event/Partner). Charts
+  use a real date x-axis; zoom is 3M/6M/1Y + All + years. Matchup + event tables share a
   "DUPR actual / DUPR now" basis toggle (global `basis`). Clean-up panel edits events
   (rename/merge-by-name, Type, Level, hide, 🏆-highlight), hides one-off partners, and saves
   overrides to the repo via the GitHub Contents API (token in localStorage `gh-token`).

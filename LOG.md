@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — layout rebuild, phase 3: Highlights tab
+- New **Highlights** tab (6th): **upset index** (upset wins = won as rating underdog by `diffPre`;
+  given up = lost as favorite; net; biggest upset) and **notable results** (biggest upset win,
+  toughest loss on paper, biggest win, closest call) — `renderHighlights`.
+- Overview gains a **Worth a look** teaser strip (biggest upset, biggest win, current streak via
+  `streakNow`) with a button to the Highlights tab (`goTab`).
+- Guide tab list and CLAUDE.md updated to the six-tab structure. SW rj-v73.
+
 ## 2026-10-20 — layout rebuild, phase 2: new analytics
 - **Opponent strength buckets** ("Who you struggle with") on Trends: win % + avg margin against
   opponents grouped by their actual DUPR (<3.0 … >4.5), by `oppThen` (`renderBuckets`).
