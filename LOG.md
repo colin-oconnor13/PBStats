@@ -2,6 +2,12 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — cap scouted players at 150 recent games
+- "Me + my 14 most recent people" now caps each scouted player's history to their **150 most
+  recent matches** (`SCOUT_CAP`); `getHist` takes a `cap` and stops paging once reached (history
+  is newest-first, so the cap keeps the latest). Your own sync is unaffected. Shrinks the sync
+  time and the URL payload. SW rj-v64.
+
 ## 2026-10-19 — desktop tables wrap instead of scrolling
 - `thead th` now wraps (`white-space:normal`, bottom-aligned) so long headers like "Wins vs
   expected" / "Margin vs expected" stack to two lines instead of forcing the Opponents & Partners

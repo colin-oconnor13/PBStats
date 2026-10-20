@@ -13,7 +13,7 @@
   const APP = '__APP__';
   const CODE = '__CODE__', API = 'https://api.dupr.com';
   let ID = '__ID__';
-  const RECENT = 14;
+  const RECENT = 14, SCOUT_CAP = 150;
   if (!/(^|\.)dupr\.com$/.test(location.hostname)) {
     alert('Open dashboard.dupr.com (logged in), then run this bookmark there.');
     return;
@@ -89,7 +89,7 @@
     if (!scout && CODE && prof.duprId && String(prof.duprId).toUpperCase() !== CODE.toUpperCase())
       throw new Error('Player ' + target + ' is ' + prof.duprId + ', not ' + CODE + '.');
 
-    const getHist = async (pid, own, label) => {
+    const getHist = async (pid, own, label, cap) => {
       const out = [];
       let off = 0, total = null, legacy = false, size = 25;
       for (;;) {
@@ -114,6 +114,8 @@
         out.push(...page);
         off += size;
         say(label + ': ' + out.length + (total != null ? ' of ' + total : '') + ' matches');
+        // History comes newest-first, so a cap keeps the most recent games (for scouted players).
+        if (cap && out.length >= cap) { out.length = cap; break; }
         if (page.length < size || (total != null && off >= total)) break;
       }
       return out;
@@ -156,7 +158,7 @@
             i++;
             try {
               const pp = (await call('GET', '/player/v1.0/' + pid)).result || {};
-              const h = await getHist(pid, false, '(' + i + '/' + seen.size + ') ' + nm);
+              const h = await getHist(pid, false, '(' + i + '/' + seen.size + ') ' + nm, SCOUT_CAP);
               extra.push({ profile: { id: pp.id || pid, fullName: pp.fullName || nm, doubles: pp.ratings && pp.ratings.doubles }, hits: h });
               now[pid] = pp.ratings ? pp.ratings.doubles : now[pid];
             } catch (e) {
