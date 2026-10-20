@@ -2,6 +2,16 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — layout rebuild, phase 1: tabs + Overview
+Approved via mocks. **Tabs:** Overview / Trends (was Analysis) / Opponents & Partners / Matches /
+Guide. The **Match Log moved to its own Matches tab**; **Performance by Event + Event Matches
+moved to Trends**.
+- **Overview redesigned:** grouped KPI **clusters** (Rating / Results / Context) with hover
+  tooltips and **sparklines** (`SPARK`, filter-independent chronological buckets; `sparkSvg`); the
+  real **Rating Over Time** line (moved from Analysis, with event markers) replaces the misleading
+  one-dot-per-event chart (`drawEvents` dropped); and **Latest matches** (`renderLatest`) showing
+  the most recent day you played. SW rj-v71.
+
 ## 2026-10-19 — rating goal tracker + Standouts
 - **Rating goal** card on Analysis: enter a target DUPR and it estimates how many matches (and
   wins) to get there from your recent win rate and per-win/per-loss rating change. Handles

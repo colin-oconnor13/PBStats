@@ -171,7 +171,22 @@
   @media(max-width:760px){#dkpis{grid-template-columns:repeat(3,1fr)}.kpi-bar{display:none}}
   .kpi .l .sub{color:var(--muted);font-weight:400;opacity:.8}
   @media(max-width:760px){.kpis{grid-template-columns:repeat(3,1fr)}}
-  @media(min-width:761px){#kpis{grid-template-columns:repeat(7,1fr)}}
+  /* Overview grouped KPI clusters */
+  .clusters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .cluster{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px 15px;min-width:0}
+  .cluster-h{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:12px}
+  .cluster .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .cluster .dot.r{background:var(--blue)} .cluster .dot.w{background:var(--win)} .cluster .dot.c{background:var(--accent)}
+  .tiles{display:flex;flex-direction:column;gap:14px}
+  .tile{display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+  .tile .lhs{min-width:0}
+  .tile .v{font-family:"Archivo",sans-serif;font-weight:800;font-size:26px;line-height:1;letter-spacing:-.02em}
+  .tile .v.blue{color:var(--blue)} .tile .v.accent{color:var(--optic)}
+  .tile .l{font-size:12px;color:var(--muted);margin-top:5px}
+  .tile .l .sub{color:var(--muted);opacity:.8}
+  .help{border-bottom:1px dotted var(--muted);cursor:help}
+  .spark{flex:none;width:52px;height:22px}
+  @media(max-width:760px){.clusters{grid-template-columns:1fr}}
 
   /* tables / breakdown */
   .bd{margin-bottom:16px;overflow:hidden}
@@ -433,42 +448,30 @@
 
   <div class="tabs">
     <button class="tab on" data-tab="overview">Overview</button>
-    <button class="tab" data-tab="analysis">Analysis</button>
+    <button class="tab" data-tab="analysis">Trends</button>
     <button class="tab" data-tab="people"><span class="tl-full">Opponents &amp; Partners</span><span class="tl-short">People</span></button>
+    <button class="tab" data-tab="matches">Matches</button>
     <button class="tab" data-tab="guide"><span class="tl-full">How to read this</span><span class="tl-short">Guide</span></button>
   </div>
 
-  <!-- ===== TAB 1: OVERVIEW ===== -->
+  <!-- ===== OVERVIEW ===== -->
   <div id="tab-overview">
-    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Your performance</div><div class="kpis" id="kpis"></div></div>
-
-    <div class="card bd">
-      <div class="bd-head">
-        <div><div class="sect-h" style="margin:0">Performance by Event</div>
-          <button class="reset evclear" id="evClear" hidden>✕ Clear filters</button></div>
-      </div>
-      <div class="tblscroll"><table id="evTable"></table></div>
-    </div>
-
-    <div class="card pad" style="margin-bottom:16px">
-      <div class="chart-head"><h3>Rating Over Time — By Event</h3></div>
-      <div id="chartEv"></div>
-    </div>
-
-    <div class="card" style="overflow:hidden">
-      <div class="logtop"><h2 id="eventLogTitle">Event Matches</h2></div>
-      <div id="eventLog"></div>
-    </div>
-  </div>
-
-  <!-- ===== TAB 2: ANALYSIS ===== -->
-  <div id="tab-analysis" hidden>
-    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Recent rating changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— your most recent matches; the filters above don’t change these</span></div><div class="kpis" id="dkpis"></div><div class="caphint" style="padding:10px 0 0">“Per event / date / match” is the <b>typical swing</b> (how much your rating moves either way). “Per win / loss” is the <b>average change</b>, with its sign.</div></div>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Your performance</div><div class="clusters" id="kpis"></div></div>
 
     <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Rating Over Time</h3><div class="zoom" id="zoom"></div></div>
       <div id="chart"></div>
     </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="logtop"><h2 id="lastDayTitle">Latest matches</h2><span class="lsub" id="lastDaySub"></span></div>
+      <div id="lastDay"></div>
+    </div>
+  </div>
+
+  <!-- ===== TRENDS ===== -->
+  <div id="tab-analysis" hidden>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Recent rating changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— your most recent matches; the filters above don’t change these</span></div><div class="kpis" id="dkpis"></div><div class="caphint" style="padding:10px 0 0">“Per event / date / match” is the <b>typical swing</b> (how much your rating moves either way). “Per win / loss” is the <b>average change</b>, with its sign.</div></div>
 
     <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Form — Rolling <span id="formN"></span> Matches <span class="lsub" id="formSub" style="font-weight:500"></span></h3>
@@ -482,6 +485,19 @@
       <div class="caphint" style="padding:0 0 10px">A rough projection from your recent pace — how many matches to reach a target rating.</div>
       <label class="pdfld" style="max-width:160px">Target DUPR<input id="goalTarget" type="text" inputmode="decimal" autocomplete="off" placeholder="3.75"></label>
       <div class="predict-out" id="goalOut"></div>
+    </div>
+
+    <div class="card bd">
+      <div class="bd-head">
+        <div><div class="sect-h" style="margin:0">Performance by Event</div>
+          <button class="reset evclear" id="evClear" hidden>✕ Clear filters</button></div>
+      </div>
+      <div class="tblscroll"><table id="evTable"></table></div>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="logtop"><h2 id="eventLogTitle">Event Matches</h2></div>
+      <div id="eventLog"></div>
     </div>
 
     <div class="card bd">
@@ -513,7 +529,10 @@
       <div class="kpis" id="stkKpis" style="padding:6px 20px 14px"></div>
       <div class="tblscroll"><table id="stkTable"></table></div>
     </div>
+  </div>
 
+  <!-- ===== MATCHES ===== -->
+  <div id="tab-matches" hidden>
     <div class="card" style="overflow:hidden">
       <div class="logtop"><h2>Match Log <span class="lsub" id="logSub"></span></h2>
         <div class="tagfilters"><span class="chip on" data-wl="all">All</span>
@@ -996,21 +1015,32 @@
     byId('tab-overview').hidden=tab!=='overview';
     byId('tab-analysis').hidden=tab!=='analysis';
     byId('tab-people').hidden=tab!=='people';
+    byId('tab-matches').hidden=tab!=='matches';
     byId('tab-guide').hidden=tab!=='guide';
 
     const a=agg(list,'then');   // always the at-the-time ratings; only the filters move it
     // KPIs
     const k=byId('kpis');
-    if(!a)k.innerHTML='<div class="kpi"><div class="v">—</div><div class="l">No matches match these filters</div></div>';
-    else k.innerHTML=[
-      ['blue',ME_NOW==null?'—':ME_NOW.toFixed(3),'Current DUPR',''],
-      ['big',a.value.toFixed(1),'Value',''],
-      ['',pct(a.winFrac),'Win %',`${a.wins}–${a.losses} (${a.n})`],
-      ['',pct(a.ptsFrac),'Pts Won',''],
-      ['',sgn(a.normMargin),'Margin','per 11'],
-      ['',f2(a.oThen),`Avg Opp (Now: ${f2(a.oNow)})`,''],
-      ['',pct(a.upFrac),'Rating rose',a.lossRated?`${a.lossUp} of ${a.lossRated} losses too`:'of your matches'],
-    ].map(x=>`<div class="kpi"><div class="v ${x[0]} mono">${x[1]}</div><div class="l">${x[2]}${x[3]?` <span class="sub">${x[3]}</span>`:''}</div></div>`).join('');
+    if(!a)k.innerHTML='<div class="cluster"><div class="tile"><div class="lhs"><div class="v mono">—</div><div class="l">No matches match these filters</div></div></div></div>';
+    else{
+      const sp=(data,sc)=>(data&&data.length>1)?sparkSvg(data,'var(--'+sc+')'):'';
+      const tile=(v,cls,l,tip,sub,spk)=>`<div class="tile"><div class="lhs"><div class="v ${cls||''} mono">${v}</div>`
+        +`<div class="l"><span class="help" title="${tip}">${l}</span>${sub?` <span class="sub">${enc(sub)}</span>`:''}</div></div>${spk||''}</div>`;
+      k.innerHTML=
+        `<div class="cluster"><div class="cluster-h"><span class="dot r"></span>Rating</div><div class="tiles">`
+          +tile(ME_NOW==null?'—':ME_NOW.toFixed(3),'blue','Current DUPR','Your official DUPR doubles rating.','',sp(SPARK.dupr,'blue'))
+          +tile(pct(a.upFrac),'','Rating rose','Share of matches your rating went up — a good loss against a strong team can still raise it.',a.lossRated?`${a.lossUp} of ${a.lossRated} losses too`:'',sp(SPARK.rose,'win'))
+        +`</div></div>`
+        +`<div class="cluster"><div class="cluster-h"><span class="dot w"></span>Results</div><div class="tiles">`
+          +tile(pct(a.winFrac),'','Win %','Share of matches you won.',`${a.wins}–${a.losses} (${a.n})`,sp(SPARK.win,'win'))
+          +tile(pct(a.ptsFrac),'','Points won','Of all points played, the share you won — a truer read of how close matches were.','',sp(SPARK.pts,'win'))
+        +`</div></div>`
+        +`<div class="cluster"><div class="cluster-h"><span class="dot c"></span>Context</div><div class="tiles">`
+          +tile(a.value.toFixed(1),'accent','Value','Win %, points won and opponent strength in one score. ~60 is even, 90+ strong; can exceed 100.','')
+          +tile(sgn(a.normMargin),'','Margin','Average points you win or lose a game by, scaled to an 11-point game.','per 11')
+          +tile(f2(a.oThen),'','Avg opponent','Average rating of the opponents you faced.',`now ${f2(a.oNow)}`)
+        +`</div></div>`;
+    }
 
     // Event table (tab 1)
     const groups={};list.forEach(m=>{const e=evName(m);(groups[e]=groups[e]||[]).push(m);});
@@ -1063,8 +1093,8 @@
       return`<tr><td>${lab}</td>${statRow(r.g)}</tr>`;}).join('');
     byId('bdTable').innerHTML=`<thead><tr><th>Matchup (your team − opp)</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>Opponent</th></tr></thead><tbody>${body}</tbody>`;
 
-    drawZoom();drawOverall();drawEvents(list);renderManage();
-    renderLog(list,'log');
+    drawZoom();drawOverall();renderManage();
+    renderLog(list,'log');renderLatest();
     renderPeople(list);renderIndex(list);renderStandouts(list);renderPatterns(list);renderClose(list);renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
@@ -1120,6 +1150,29 @@
   // ---- charts ----
   const series=M.filter(m=>m.postRating!=null).sort((a,b)=>a.date.localeCompare(b.date));
   const yearsPresent=[...new Set(series.map(m=>m.year))].sort();
+  // Tiny inline trend line for a KPI tile.
+  function sparkSvg(data,color){const w=52,h=22,min=Math.min(...data),max=Math.max(...data),r=(max-min)||1,n=data.length;
+    const pts=data.map((v,i)=>[(i/(n-1))*(w-2)+1,h-1-((v-min)/r)*(h-2)]);
+    const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' '),e=pts[pts.length-1];
+    return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path d="${d} L${w-1} ${h-1} L1 ${h-1} Z" fill="${color}" opacity=".12"/>`
+      +`<path d="${d}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${e[0].toFixed(1)}" cy="${e[1].toFixed(1)}" r="2.3" fill="${color}"/></svg>`;}
+  // Overall trends for the Overview sparklines (filter-independent): chronological buckets.
+  const SPARK=(function(){
+    const sorted=M.slice().sort((a,b)=>a.date.localeCompare(b.date)||(ordOf(a)-ordOf(b)));
+    const K=Math.min(12,Math.max(4,Math.round(sorted.length/18)||4)),dupr=[],win=[],pts=[],rose=[];
+    for(let i=0;i<K;i++){const c=sorted.slice(Math.floor(i*sorted.length/K),Math.floor((i+1)*sorted.length/K)),g=agg(c,'then');if(!g)continue;
+      win.push(g.winFrac*100);pts.push(g.ptsFrac*100);rose.push((g.upFrac||0)*100);
+      const rr=c.filter(m=>m.postRating!=null);if(rr.length)dupr.push(rr[rr.length-1].postRating);}
+    return {dupr,win,pts,rose};
+  })();
+  // Overview "Latest matches": the most recent day you played (filter-independent).
+  function renderLatest(){
+    if(!M.length){byId('lastDay').innerHTML='<div class="caphint" style="padding:26px 20px;text-align:center">No matches yet — sync from DUPR.</div>';byId('lastDaySub').textContent='';return;}
+    const maxDate=M.reduce((a,m)=>m.date>a?m.date:a,'');
+    const day=M.filter(m=>m.date===maxDate),w=day.filter(m=>m.won).length,imp=day.reduce((s,m)=>s+(m.impact||0),0);
+    byId('lastDaySub').innerHTML=`· ${dayLabel(maxDate)} · ${w}–${day.length-w}`+(day.some(m=>m.impact!=null)?` · <span class="${imp>=0?'imp-up':'imp-dn'} mono">${ptsTxt(imp,true)}</span>`:'');
+    renderLog(day,'lastDay');
+  }
   // Phones open on a tight recent window (the chart is small); desktop shows everything.
   if(!Z.year&&!Z.months&&yearsPresent.length&&matchMedia('(max-width:620px)').matches)
     Z.months=3;
