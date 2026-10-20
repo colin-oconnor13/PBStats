@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — rating goal tracker + Standouts
+- **Rating goal** card on Analysis: enter a target DUPR and it estimates how many matches (and
+  wins) to get there from your recent win rate and per-win/per-loss rating change. Handles
+  "already there" and "not on current pace" (with the win rate you'd need). Rough, filter-independent.
+- **Standouts** card on Opponents & Partners: best / toughest partner and favourite opponent /
+  nemesis by wins-vs-expected (4+ matches), at a glance (`renderStandouts`, reuses `expStats`).
+  Follows the filters. SW rj-v70.
+
 ## 2026-10-19 — sortable Event table + player search
 - **Performance by Event** headers are clickable to sort (Event / M / Win% / Pts% / Margin /
   Value / DUPR / Change), with a ▲/▼ arrow; re-click toggles direction (`evSort`). Default stays

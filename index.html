@@ -477,6 +477,13 @@
       <div class="caphint" style="padding:6px 0 0" id="formHint"></div>
     </div>
 
+    <div class="card pad" id="goalCard" style="margin-bottom:16px">
+      <div class="sect-h">Rating goal</div>
+      <div class="caphint" style="padding:0 0 10px">A rough projection from your recent pace — how many matches to reach a target rating.</div>
+      <label class="pdfld" style="max-width:160px">Target DUPR<input id="goalTarget" type="text" inputmode="decimal" autocomplete="off" placeholder="3.75"></label>
+      <div class="predict-out" id="goalOut"></div>
+    </div>
+
     <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0">Performance by Date</div></div>
@@ -535,6 +542,11 @@
       </div>
       <datalist id="pdPlayers"></datalist>
       <div class="predict-out" id="pdOut"></div>
+    </div>
+    <div class="card pad" id="standCard" style="margin-bottom:16px" hidden>
+      <div class="sect-h">Standouts</div>
+      <div class="caphint" style="padding:0 0 8px">Where you do most above or below what the ratings expect (4+ matches together / against).</div>
+      <div class="kpis" id="standKpis"></div>
     </div>
     <div class="card bd">
       <div class="bd-head">
@@ -1053,7 +1065,7 @@
 
     drawZoom();drawOverall();drawEvents(list);renderManage();
     renderLog(list,'log');
-    renderPeople(list);renderIndex(list);renderPatterns(list);renderClose(list);renderStreaks(list);drawForm(list);
+    renderPeople(list);renderIndex(list);renderStandouts(list);renderPatterns(list);renderClose(list);renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
@@ -1555,6 +1567,22 @@
         :`but partners’ and opponents’ ratings are from just after each match (sync again to use their before-match ratings, which are more accurate here).`)
       +(unrated?` ${unrated} ${opp?'opponent':'partner'}${unrated>1?'s':''} left out: no ratings on file for those matches.`:'');
   }
+  // Best/worst partner and opponent by wins-vs-expected, at a glance (reuses expStats).
+  function renderStandouts(list){
+    const build=mode=>{const g=new Map();
+      list.forEach(m=>{if(m.diffPre==null)return;const add=p=>{if(!p||p.id==null)return;const k=String(p.id);
+          const r=g.get(k)||{name:nameCase(p.name||''),ms:[]};r.ms.push(m);g.set(k,r);};
+        if(mode==='opp')(m.opponents||[]).forEach(add);else if(m.partner)add(m.partner);});
+      return [...g.values()].map(r=>({name:r.name,s:expStats(r.ms)})).filter(r=>r.s&&r.s.n>=PPL_MIN);};
+    const partners=build('partner'),opps=build('opp');
+    const by=(arr,best)=>arr.length?arr.slice().sort((a,b)=>best?b.s.woe-a.s.woe:a.s.woe-b.s.woe)[0]:null;
+    const tiles=[];const tile=(lab,r)=>{if(!r)return;const v=(r.s.woe>=0?'+':'')+r.s.woe.toFixed(1);
+      tiles.push(`<div class="kpi"><div class="v mono ${r.s.woe>=0?'imp-up':'imp-dn'}" style="font-size:15px;line-height:1.2">${enc(r.name)}</div><div class="l">${lab} <span class="sub">${v} vs exp · ${r.s.n} M</span></div></div>`);};
+    const bp=by(partners,true),wp=by(partners,false),fo=by(opps,true),no=by(opps,false);
+    tile('Best partner',bp);if(wp&&wp!==bp)tile('Toughest partner',wp);
+    tile('Favourite opponent',fo);if(no&&no!==fo)tile('Nemesis',no);
+    byId('standCard').hidden=!tiles.length;byId('standKpis').innerHTML=tiles.join('');
+  }
   function renderPeople(list){
     const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
     const all=peopleOf(list).filter(matchName),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
@@ -1627,6 +1655,34 @@
     ['pdMe','pdPartner','pdOpp1','pdOpp2'].forEach(id=>byId(id).addEventListener('input',compute));
     compute();
   })();
+  // ---- rating goal tracker (independent of filters) ----
+  function renderGoal(){
+    const out=byId('goalOut'),ti=byId('goalTarget'),cur=OWN.player&&OWN.player.currentDoubles;
+    if(cur==null){out.innerHTML='<span class="caphint" style="padding:0">Sync your matches to use this.</span>';return;}
+    const cut=Date.now()-12*30.44*86400000;
+    let rated=M.filter(m=>m.impact!=null&&tms(m.date)>=cut);
+    if(rated.length<10)rated=M.filter(m=>m.impact!=null).slice(-50);
+    const wins=rated.filter(m=>m.won),losses=rated.filter(m=>!m.won);
+    const wr=rated.length?wins.length/rated.length:0;
+    const gw=wins.length?wins.reduce((s,m)=>s+m.impact,0)/wins.length:0;
+    const gl=losses.length?losses.reduce((s,m)=>s+m.impact,0)/losses.length:0;
+    const perMatch=wr*gw+(1-wr)*gl;
+    if(!ti.value)ti.value=(Math.floor(cur/0.25)*0.25+0.25).toFixed(2);
+    const tgt=parseFloat(ti.value);
+    const stat=`Recent pace (last ${rated.length}): ${pct(wr)} wins · +${gw.toFixed(3)} per win · ${gl.toFixed(3)} per loss`;
+    if(!(tgt>0&&tgt<=8)){out.innerHTML='<span class="caphint" style="padding:0">Enter a target rating (1–8).</span>';return;}
+    if(tgt<=cur){out.innerHTML=`<div class="pd-big imp-up">Already there</div><div class="pd-sub">You’re at ${cur.toFixed(3)}, at or above ${tgt.toFixed(2)}.</div><div class="caphint" style="padding:6px 0 0">${stat}</div>`;return;}
+    if(perMatch<=0){const wrNeeded=(gw-gl)?(-gl)/(gw-gl):null;
+      out.innerHTML=`<div class="pd-big imp-dn">Not on current pace</div>`
+        +`<div class="pd-sub">At ${pct(wr)} wins your rating isn’t climbing toward ${tgt.toFixed(2)}.${wrNeeded!=null&&wrNeeded>0&&wrNeeded<1?` You’d need to win about ${pct(wrNeeded)} to start gaining.`:''}</div>`
+        +`<div class="caphint" style="padding:6px 0 0">${stat}</div>`;return;}
+    const matches=Math.ceil((tgt-cur)/perMatch),winsNeeded=Math.round(matches*wr);
+    out.innerHTML=`<div class="pd-big imp-up">~${matches} matches</div>`
+      +`<div class="pd-sub">to reach ${tgt.toFixed(2)} from ${cur.toFixed(3)} — about ${winsNeeded} wins at your recent pace.</div>`
+      +`<div class="caphint" style="padding:6px 0 0">${stat}. Rough estimate; it assumes similar opponents, and DUPR leans on your recent results.</div>`;
+  }
+  byId('goalTarget').addEventListener('input',renderGoal);
+  renderGoal();
   byId('fbHead').onclick=e=>{if(e.target.closest('select'))return;filtersOpen=!filtersOpen;render();};
   document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{tab=t.dataset.tab;
     document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));render();});
