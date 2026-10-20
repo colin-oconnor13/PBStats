@@ -2,6 +2,13 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — page-level 60-day filter (Opponents + Matches)
+- Replaced the per-person "recent" toggle with a **page-level Last-60-days report filter**
+  (`recent60` / `inRecent60`) shown at the top of the **Opponents & Partners** page and the
+  **Matches** tab, synced between the two (`.recentT` toggles). It limits the *matches* feeding
+  those pages (`recentList`), so opponent/partner stats and the match log reflect only recent
+  play. Overview, Trends and Highlights are untouched — Highlights keeps its own window. SW rj-v75.
+
 ## 2026-10-20 — Highlights: recent/lifetime, peak-low, clickable
 - **Recent · 60 days / All-time toggle** on Highlights (`hlWindow`): the upset index and notable
   results recompute over the chosen window (from `M`, independent of the top filters).

@@ -592,6 +592,7 @@
 
   <!-- ===== MATCHES ===== -->
   <div id="tab-matches" hidden>
+    <div class="hlbar"><span class="caphint" style="padding:0">Show</span><div class="toggle recentT"><button data-r="0" class="on">All time</button><button data-r="1">Last 60 days</button></div><span class="caphint recentNote" style="padding:0"></span></div>
     <div class="card" style="overflow:hidden">
       <div class="logtop"><h2>Match Log <span class="lsub" id="logSub"></span></h2>
         <div class="tagfilters"><span class="chip on" data-wl="all">All</span>
@@ -628,6 +629,7 @@
 
   <!-- ===== TAB 3: OPPONENTS (and partners) ===== -->
   <div id="tab-people" hidden>
+    <div class="hlbar"><span class="caphint" style="padding:0">Show</span><div class="toggle recentT"><button data-r="0" class="on">All time</button><button data-r="1">Last 60 days</button></div><span class="caphint recentNote" style="padding:0"></span></div>
     <div class="card pad" id="predictCard" style="margin-bottom:16px">
       <div class="sect-h">Matchup predictor</div>
       <div class="caphint" style="padding:0 0 10px">Pick your partner and two opponents — type a name or a rating — to see your expected win chance and margin before you play.</div>
@@ -657,7 +659,6 @@
           <div class="caphint" style="padding:4px 0 0" id="pxHint"></div></div>
         <div class="pplctl">
           <div class="toggle" id="pplMode"><button data-p="opp" class="on">Opponents</button><button data-p="partner">Partners</button></div>
-          <label class="switch" id="recentSw"><span>Recent · 60d</span><span class="track"><i></i></span></label>
           <input id="pplSearch" class="pplsearch" type="search" placeholder="🔎 Search player…" autocomplete="off">
           <select id="pxSort" title="Order">
             <option value="under">Most below expected first</option>
@@ -1182,8 +1183,11 @@
     byId('bdTable').innerHTML=`<thead><tr><th>Matchup (your team − opp)</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>Opponent</th></tr></thead><tbody>${body}</tbody>`;
 
     drawZoom();drawOverall();renderManage();
-    renderLog(list,'log');renderLatest();
-    renderPeople(list);renderIndex(list);renderStandouts(list);renderChem(list);renderPatterns(list);renderBuckets(list);renderClose(list);renderHighlights();renderStreaks(list);drawForm(list);
+    // The Opponents & Partners page and the Match Log honour the page-level 60-day filter.
+    const recentList=recent60?list.filter(inRecent60):list;
+    document.querySelectorAll('.recentNote').forEach(e=>e.textContent=recent60?`${recentList.length} matches in the last 60 days`:'');
+    renderLog(recentList,'log');renderLatest();
+    renderPeople(recentList);renderIndex(recentList);renderStandouts(recentList);renderChem(recentList);renderPatterns(recentList);renderBuckets(list);renderClose(list);renderHighlights();renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
@@ -1559,9 +1563,12 @@
   // Everyone you've played against (or with) in the filtered matches, ranked. Fewer than
   // PPL_MIN matches is too small a sample to rank on, so those go in a separate, muted list.
   const PPL_MIN=4;
-  let pplMode='opp',pplSort='value',pplSel='',pplAll=false,pplRecent=false;
+  let pplMode='opp',pplSort='value',pplSel='',pplAll=false;
   const RECENT_DAYS=60;
-  const recentOk=r=>!pplRecent||(!r.last)||((Date.now()-tms(r.last))/864e5<=RECENT_DAYS);
+  // Page-level report filter: limit the Opponents & Partners page and the Match Log to the
+  // last 60 days. Does not touch Overview/Trends/Highlights (Highlights has its own window).
+  let recent60=false;
+  const inRecent60=m=>tms(m.date)>=Date.now()-RECENT_DAYS*864e5;
   // "2026-10-18 · 3d ago"
   const lastPlayedTxt=d=>{if(!d)return 'last played —';const days=Math.round((Date.now()-tms(d))/864e5);
     const ago=days<=1?'today':days<30?days+'d ago':days<365?Math.round(days/30)+'mo ago':(Math.round(days/365*10)/10)+'y ago';
@@ -1687,7 +1694,7 @@
       const mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
       return {...r,n:ms.length,w,exp,woe,z:sd?woe/sd:0,expPct:exp/ms.length,
         edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length,mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null};
-    }).filter(Boolean).filter(matchName).filter(recentOk);
+    }).filter(Boolean).filter(matchName);
     const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
     const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
@@ -1817,7 +1824,7 @@
   }
   function renderPeople(list){
     const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
-    const all=peopleOf(list).filter(matchName).filter(recentOk),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
+    const all=peopleOf(list).filter(matchName),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
     if(pplSel&&!all.some(r=>r.id===pplSel))pplSel='';
     const sortName=byId('pplSort').selectedOptions[0].textContent.replace('Rank by ','');
     // Top and bottom few of the reliable list get a Best / Worst tag (never overlapping).
@@ -1863,7 +1870,9 @@
   byId('pplSort').onchange=e=>{pplSort=e.target.value;render();};
   byId('pxSort').onchange=e=>{pxSort=e.target.value;render();};
   byId('pplSearch').addEventListener('input',e=>{pplQuery=e.target.value;render();});
-  byId('recentSw').onclick=()=>{pplRecent=!pplRecent;byId('recentSw').classList.toggle('on',pplRecent);render();};
+  // Page-level 60-day filter, shared across both its toggles (Opponents page + Match Log).
+  const syncRecent=()=>document.querySelectorAll('.recentT button').forEach(b=>b.classList.toggle('on',(b.dataset.r==='1')===recent60));
+  document.querySelectorAll('.recentT button').forEach(b=>b.onclick=()=>{recent60=b.dataset.r==='1';syncRecent();render();});
   // ---- matchup predictor (independent of filters; reuses MODEL) ----
   (function initPredict(){
     const players={};   // name -> current rating, from your own match history
