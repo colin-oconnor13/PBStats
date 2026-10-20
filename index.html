@@ -1214,6 +1214,8 @@
     p.innerHTML=`
       <div class="msec"><div class="mh"><h4>Events</h4><span class="hint">✎ rename (same name = merge) · set Type &amp; Level · 👁 hide. Add 🏆 to a name to highlight it. Raw names come from DUPR.</span></div><div class="mrows evrows">${evList.map(evRow).join('')}</div></div>
       <div class="msec"><div class="mh"><h4>Partners</h4><span class="hint">Hide one-off partners (their matches still count).</span><button class="minibtn quick" id="hideOnce">Hide all one-timers</button></div><div class="mrows">${partners.map(pRow).join('')}</div></div>
+      ${Object.keys(SCOUTS).length?`<div class="msec"><div class="mh"><h4>Viewed players</h4><span class="hint">Other players you’ve pulled in to view (👁 bar at the top) are kept on this device only — ${Object.keys(SCOUTS).length} saved. Clearing them doesn’t touch your own matches.</span></div>
+        <div class="mrows"><button class="syncbtn danger" id="clrScouts">Clear all viewed players</button><span class="mnone" id="scoutMsg"></span></div></div>`:''}
       ${BROWSER
       ? `<div class="msec"><div class="mh"><h4>Your data</h4><span class="hint">Your matches and these edits are kept in this browser only. Export them to move to another device or keep a backup.</span></div>
         <div class="mrows"><button class="syncbtn" id="expData">⤓ Export my data</button>
@@ -1226,6 +1228,9 @@
         <div class="mrows" style="margin-top:9px"><button class="syncbtn" id="expOvr">⤓ Export file</button>
           <label class="syncbtn" style="cursor:pointer">⤒ Import<input id="impOvr" type="file" accept="application/json,.json" hidden></label>
           <button class="syncbtn danger" id="clrLocal">Clear local edits</button></div></div>`}`;
+    // Clear the on-device cache of other players (IndexedDB), leaving your own data untouched.
+    const cs=byId('clrScouts');if(cs)cs.onclick=()=>{if(!cs.dataset.sure){cs.dataset.sure=1;cs.textContent='Tap again to clear all viewed players';return;}
+      cs.textContent='Clearing…';IDB.clear().catch(()=>{}).then(()=>{try{localStorage.removeItem(VKEY);}catch(e){}location.reload();});};
     p.querySelectorAll('[data-ev]').forEach(el=>{const raw=dec(el.dataset.ev),E=()=>meta.events[raw]=meta.events[raw]||{};
       el.querySelector('.hide').onclick=()=>{E();meta.events[raw].hidden=!evHidden(raw);saveMeta();if(F.event&&evHidden(raw))F.event='';render();};
       // Dates are settled once at load (ratings order, late flags, charts), so reapply by reloading.

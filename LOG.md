@@ -2,6 +2,13 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — clear viewed players from Clean up
+- Clean up data now has a **Viewed players** section (shown when any other players are cached)
+  with a **Clear all viewed players** button (two-tap confirm). It empties the on-device
+  `pb-scouts` IndexedDB store and the `pb-view` key, leaving your own matches untouched — the
+  one-click version of the earlier dev-tools-only clear. Works in both GitHub and browser modes.
+  SW rj-v65.
+
 ## 2026-10-19 — cap scouted players at 150 recent games
 - "Me + my 14 most recent people" now caps each scouted player's history to their **150 most
   recent matches** (`SCOUT_CAP`); `getHist` takes a `cap` and stops paging once reached (history
