@@ -2,6 +2,12 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — matchup predictor
+- New card at the top of Opponents & Partners: enter your partner and two opponents (pick a
+  player from your history or type a rating) and it shows your expected win % and margin, using
+  `MODEL` (the win curve fitted to your matches). "You" defaults to your current DUPR. Independent
+  of the filters; players come from your own match history. SW rj-v68.
+
 ## 2026-10-19 — clarity cleanup (from AI review)
 - **Rating changes now shown as DUPR deltas** (`+0.388`, `+0.011`) instead of `+388 pts` — ends
   the clash with "Pts Won" (rally points). `ptsTxt` reformatted; affects every Change / DUPR-change

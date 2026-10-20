@@ -281,6 +281,14 @@
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stepn{color:#0E1512}}
   .synctip{margin-bottom:14px;padding:12px 16px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-soft);font-size:13px;line-height:1.55;display:flex;gap:10px;align-items:flex-start}
   .synctip button{margin-left:auto;background:none;border:0;color:var(--muted);font-family:inherit;font-size:16px;cursor:pointer;line-height:1}
+  .predict-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  @media(max-width:620px){.predict-grid{grid-template-columns:1fr 1fr}}
+  .pdfld{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .pdfld input{font-family:inherit;font-size:14px;font-weight:600;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);text-transform:none;letter-spacing:0}
+  .pdfld input:focus{outline:none;border-color:var(--accent)}
+  .predict-out{margin-top:14px;min-height:28px}
+  .pd-big{font-family:"Archivo",sans-serif;font-weight:800;font-size:26px;letter-spacing:-.02em}
+  .pd-sub{font-size:13px;color:var(--ink);font-weight:600;margin-top:3px}
   .guide{max-width:760px}
   .guide h2{font-family:"Archivo",sans-serif;font-weight:800;font-size:18px;margin:0 0 6px}
   .guide h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;margin:2px 0 10px}
@@ -513,6 +521,18 @@
 
   <!-- ===== TAB 3: OPPONENTS (and partners) ===== -->
   <div id="tab-people" hidden>
+    <div class="card pad" id="predictCard" style="margin-bottom:16px">
+      <div class="sect-h">Matchup predictor</div>
+      <div class="caphint" style="padding:0 0 10px">Pick your partner and two opponents — type a name or a rating — to see your expected win chance and margin before you play.</div>
+      <div class="predict-grid">
+        <label class="pdfld">You<input id="pdMe" type="text" inputmode="decimal" autocomplete="off" placeholder="3.50"></label>
+        <label class="pdfld">Partner<input id="pdPartner" list="pdPlayers" autocomplete="off" placeholder="name or rating"></label>
+        <label class="pdfld">Opponent 1<input id="pdOpp1" list="pdPlayers" autocomplete="off" placeholder="name or rating"></label>
+        <label class="pdfld">Opponent 2<input id="pdOpp2" list="pdPlayers" autocomplete="off" placeholder="name or rating"></label>
+      </div>
+      <datalist id="pdPlayers"></datalist>
+      <div class="predict-out" id="pdOut"></div>
+    </div>
     <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0" id="pxTitle">Partner Index</div>
@@ -1567,6 +1587,30 @@
   document.querySelectorAll('#pplMode button').forEach(b=>b.onclick=()=>{pplMode=b.dataset.p;pplSel='';pplAll=false;pxAll=false;render();});
   byId('pplSort').onchange=e=>{pplSort=e.target.value;render();};
   byId('pxSort').onchange=e=>{pxSort=e.target.value;render();};
+  // ---- matchup predictor (independent of filters; reuses MODEL) ----
+  (function initPredict(){
+    const players={};   // name -> current rating, from your own match history
+    OWN.matches.forEach(m=>{const add=p=>{if(!p||!p.name)return;const r=num(p.ratingNow);if(r!=null)players[p.name]=r;};
+      (m.opponents||[]).forEach(add);if(m.partner)add(m.partner);});
+    const list=Object.keys(players).sort((a,b)=>a.localeCompare(b));
+    byId('pdPlayers').innerHTML=list.map(n=>`<option value="${enc(n+' ('+players[n].toFixed(2)+')')}"></option>`).join('');
+    const resolve=v=>{v=(v||'').trim();if(!v)return null;
+      const mm=v.match(/\(([\d.]+)\)\s*$/);if(mm)return +mm[1];            // "Name (3.52)"
+      if(players[v]!=null)return players[v];                               // exact name
+      const n=parseFloat(v);return (n>=1&&n<=8)?n:null;};                  // typed rating
+    const me=byId('pdMe'),own=OWN.player&&OWN.player.currentDoubles;if(own!=null)me.value=own.toFixed(2);
+    const compute=()=>{
+      const you=resolve(me.value),pa=resolve(byId('pdPartner').value),o1=resolve(byId('pdOpp1').value),o2=resolve(byId('pdOpp2').value);
+      const out=byId('pdOut');
+      if([you,pa,o1,o2].some(v=>v==null)){out.innerHTML='<span class="caphint" style="padding:0">Enter all four — pick a player or type a rating (1–8).</span>';return;}
+      const edge=(you+pa)/2-(o1+o2)/2,p=MODEL.pWin(edge),mg=MODEL.margin(edge),fav=p>=0.5;
+      out.innerHTML=`<div class="pd-big ${fav?'imp-up':'imp-dn'}">${pct(p)} to win</div>`
+        +`<div class="pd-sub">Expected margin ${mg>=0?'+':''}${mg.toFixed(1)} per 11 · your team’s edge ${edge>=0?'+':''}${edge.toFixed(2)} DUPR</div>`
+        +`<div class="caphint" style="padding:6px 0 0">${fav?'You’re favoured here.':'You’re the underdog here.'} Based on the win curve fitted to your own matches.</div>`;
+    };
+    ['pdMe','pdPartner','pdOpp1','pdOpp2'].forEach(id=>byId(id).addEventListener('input',compute));
+    compute();
+  })();
   byId('fbHead').onclick=e=>{if(e.target.closest('select'))return;filtersOpen=!filtersOpen;render();};
   document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{tab=t.dataset.tab;
     document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===t));render();});
