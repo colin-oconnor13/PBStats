@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — layout rebuild, phase 2: new analytics
+- **Opponent strength buckets** ("Who you struggle with") on Trends: win % + avg margin against
+  opponents grouped by their actual DUPR (<3.0 … >4.5), by `oppThen` (`renderBuckets`).
+- **Opponents & Partners: Recent · 60d toggle** (`pplRecent`/`recentOk`) filtering the Index and
+  ranked lists by last-played; the ranked list now shows the date **and** relative "3d ago"
+  (`lastPlayedTxt`).
+- **Partner chemistry** card (`renderChem`): your average per-11 margin *with* each partner vs
+  your overall baseline, as diverging bars (4+ matches). SW rj-v72.
+
 ## 2026-10-19 — layout rebuild, phase 1: tabs + Overview
 Approved via mocks. **Tabs:** Overview / Trends (was Analysis) / Opponents & Partners / Matches /
 Guide. The **Match Log moved to its own Matches tab**; **Performance by Event + Event Matches

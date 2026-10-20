@@ -187,6 +187,34 @@
   .help{border-bottom:1px dotted var(--muted);cursor:help}
   .spark{flex:none;width:52px;height:22px}
   @media(max-width:760px){.clusters{grid-template-columns:1fr}}
+  /* opponent strength buckets */
+  .bucket{display:grid;grid-template-columns:92px 1fr 54px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+  .bucket:first-child{border-top:0}
+  .bk-label{font-weight:700;font-size:13px} .bk-sub{font-size:11px;color:var(--muted)}
+  .bk-barwrap{position:relative;height:24px;background:var(--surface-2);border-radius:7px;overflow:hidden}
+  .bk-bar{position:absolute;left:0;top:0;height:100%;border-radius:7px;display:flex;align-items:center;padding-left:9px}
+  .bk-bar span{font-size:12px;font-weight:700;color:#fff}
+  :root[data-theme="dark"] .bk-bar span,:root:not([data-theme="light"]) .bk-bar span{color:#07120f}
+  .bk-mid{position:absolute;left:50%;top:0;bottom:0;width:1px;background:var(--line)}
+  .bk-margin{text-align:right;font-weight:700;font-size:13px}
+  .bucket.dim .bk-label,.bucket.dim .bk-margin{color:var(--muted)}
+  /* recent-only switch */
+  .switch{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;user-select:none;white-space:nowrap}
+  .switch .track{width:34px;height:20px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);position:relative;transition:background .15s;flex:none}
+  .switch .track i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:var(--muted);transition:.15s}
+  .switch.on .track{background:var(--accent);border-color:var(--accent)} .switch.on .track i{left:16px;background:#fff}
+  :root[data-theme="dark"] .switch.on .track i,:root:not([data-theme="light"]) .switch.on .track i{background:#07120f}
+  /* partner chemistry diverging bars */
+  .pw{display:grid;grid-template-columns:150px 1fr 60px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+  .pw:first-child{border-top:0}
+  .pw-name{font-weight:700;font-size:13px} .pw-sub{font-size:11px;color:var(--muted)}
+  .pw-track{position:relative;height:22px;background:var(--surface-2);border-radius:7px}
+  .pw-zero{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--line)}
+  .pw-fill{position:absolute;top:0;height:100%;border-radius:6px}
+  .pw-delta{text-align:right;font-weight:800;font-size:13px}
+  .legend{display:flex;gap:16px;font-size:11.5px;color:var(--muted);flex-wrap:wrap}
+  .swatch{display:inline-block;width:10px;height:10px;border-radius:3px;vertical-align:-1px;margin-right:5px}
+  @media(max-width:620px){.pw{grid-template-columns:110px 1fr 52px}}
 
   /* tables / breakdown */
   .bd{margin-bottom:16px;overflow:hidden}
@@ -515,6 +543,12 @@
       <div class="tblscroll"><table id="bdTable"></table></div>
     </div>
 
+    <div class="card pad">
+      <div class="sect-h" style="margin:0 0 4px">Who you struggle with</div>
+      <div class="caphint" style="padding:0 0 10px">Your record against opponents grouped by their <b>actual</b> DUPR (not your team's edge). Bar is win %; the number is your average margin per 11.</div>
+      <div id="buckets"></div>
+    </div>
+
     <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0">Close Games &amp; Deciders</div>
@@ -567,6 +601,12 @@
       <div class="caphint" style="padding:0 0 8px">Where you do most above or below what the ratings expect (4+ matches together / against).</div>
       <div class="kpis" id="standKpis"></div>
     </div>
+    <div class="card pad" id="chemCard" style="margin-bottom:16px" hidden>
+      <div class="sect-h" style="margin:0 0 4px">Partner chemistry</div>
+      <div class="caphint" style="padding:0 0 10px">Your average margin <em>with</em> each partner vs your overall (<span id="chemBase" class="mono"></span>). Bars right of the line = you do better together. 4+ matches.</div>
+      <div id="chem"></div>
+      <div class="legend" style="margin-top:12px"><span><span class="swatch" style="background:var(--win)"></span>Better with them</span><span><span class="swatch" style="background:var(--loss)"></span>Worse together</span></div>
+    </div>
     <div class="card bd">
       <div class="bd-head">
         <div><div class="sect-h" style="margin:0" id="pxTitle">Partner Index</div>
@@ -608,6 +648,7 @@
         <div><div class="sect-h" style="margin:0" id="pplTitle">Opponents</div>
           <div class="caphint" style="padding:4px 0 0" id="pplHint"></div></div>
         <div class="pplctl">
+          <label class="switch" id="recentSw"><span>Recent · 60d</span><span class="track"><i></i></span></label>
           <select id="pplSort" title="Rank by">
             <option value="value">Rank by Value</option>
             <option value="win">Rank by Win %</option>
@@ -1095,7 +1136,7 @@
 
     drawZoom();drawOverall();renderManage();
     renderLog(list,'log');renderLatest();
-    renderPeople(list);renderIndex(list);renderStandouts(list);renderPatterns(list);renderClose(list);renderStreaks(list);drawForm(list);
+    renderPeople(list);renderIndex(list);renderStandouts(list);renderChem(list);renderPatterns(list);renderBuckets(list);renderClose(list);renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
@@ -1277,6 +1318,19 @@
 
   // ---- close games & deciders (tab 2): every game, not every match ----
   const GAME_MIN=10;
+  // Record against opponents grouped by their actual DUPR (at the time). "Who you struggle with."
+  function renderBuckets(list){
+    const bands=[['Under 3.0',0,3.0],['3.0 – 3.5',3.0,3.5],['3.5 – 4.0',3.5,4.0],['4.0 – 4.5',4.0,4.5],['Over 4.5',4.5,99]];
+    const rated=list.filter(m=>m.oppThen!=null);
+    byId('buckets').innerHTML=bands.map(([lab,lo,hi])=>{
+      const ms=rated.filter(m=>m.oppThen>=lo&&m.oppThen<hi),g=ms.length?agg(ms,'then'):null;
+      if(!g)return `<div class="bucket dim"><div><div class="bk-label">${lab}</div><div class="bk-sub">0 matches</div></div><div class="bk-barwrap"></div><div class="bk-margin">—</div></div>`;
+      const win=g.winFrac*100,col=win>=50?'var(--win)':'var(--loss)';
+      return `<div class="bucket"><div><div class="bk-label">${lab}</div><div class="bk-sub">${ms.length} matches</div></div>`
+        +`<div class="bk-barwrap"><div class="bk-bar" style="width:${Math.max(win,9).toFixed(0)}%;background:${col}"><span>${win.toFixed(0)}%</span></div><div class="bk-mid"></div></div>`
+        +`<div class="bk-margin ${g.normMargin>=0?'imp-up':'imp-dn'} mono">${sgn(g.normMargin)}</div></div>`;
+    }).join('');
+  }
   function renderClose(list){
     const gs=[];
     list.forEach(m=>{const n=Math.min(m.scores.length,m.oppScores.length);
@@ -1458,7 +1512,13 @@
   // Everyone you've played against (or with) in the filtered matches, ranked. Fewer than
   // PPL_MIN matches is too small a sample to rank on, so those go in a separate, muted list.
   const PPL_MIN=4;
-  let pplMode='opp',pplSort='value',pplSel='',pplAll=false;
+  let pplMode='opp',pplSort='value',pplSel='',pplAll=false,pplRecent=false;
+  const RECENT_DAYS=60;
+  const recentOk=r=>!pplRecent||(!r.last)||((Date.now()-tms(r.last))/864e5<=RECENT_DAYS);
+  // "2026-10-18 · 3d ago"
+  const lastPlayedTxt=d=>{if(!d)return 'last played —';const days=Math.round((Date.now()-tms(d))/864e5);
+    const ago=days<=1?'today':days<30?days+'d ago':days<365?Math.round(days/30)+'mo ago':(Math.round(days/365*10)/10)+'y ago';
+    return 'last played '+d+' · '+ago;};
   // Keys take the person row (r.g = their agg); "now" is their current rating, not a result.
   const PPL_KEY={value:r=>r.g.value,win:r=>r.g.winFrac,pts:r=>r.g.ptsFrac,margin:r=>r.g.normMargin,
     impact:r=>r.g.impAvg,beat:r=>r.g.upFrac,now:r=>r.now};
@@ -1580,7 +1640,7 @@
       const mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
       return {...r,n:ms.length,w,exp,woe,z:sd?woe/sd:0,expPct:exp/ms.length,
         edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length,mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null};
-    }).filter(Boolean).filter(matchName);
+    }).filter(Boolean).filter(matchName).filter(recentOk);
     const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
     const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
@@ -1636,9 +1696,28 @@
     tile('Favourite opponent',fo);if(no&&no!==fo)tile('Nemesis',no);
     byId('standCard').hidden=!tiles.length;byId('standKpis').innerHTML=tiles.join('');
   }
+  // Your average per-11 margin WITH each partner vs your overall margin (the baseline).
+  function renderChem(list){
+    const base=agg(list,'then'),baseM=base?base.normMargin:null,card=byId('chemCard');
+    if(baseM==null){card.hidden=true;return;}
+    const g=new Map();
+    list.forEach(m=>{if(m.partner&&m.partner.id!=null&&m.normMargin!=null){const k=String(m.partner.id);
+      const r=g.get(k)||{name:nameCase(m.partner.name||''),ms:[]};r.ms.push(m);g.set(k,r);}});
+    let rows=[...g.values()].map(r=>{const avg=r.ms.reduce((s,x)=>s+x.normMargin,0)/r.ms.length;
+      return {name:r.name,n:r.ms.length,with:avg,delta:avg-baseM};}).filter(r=>r.n>=PPL_MIN).filter(matchName);
+    rows.sort((a,b)=>b.delta-a.delta);
+    card.hidden=!rows.length;if(!rows.length)return;
+    byId('chemBase').textContent=sgn(baseM);
+    const maxAbs=Math.max(0.1,...rows.map(r=>Math.abs(r.delta)))*1.1;
+    byId('chem').innerHTML=rows.map(r=>{const pos=r.delta>=0,w=Math.abs(r.delta)/maxAbs*50;
+      const fill=pos?'left:50%;background:var(--win)':'right:50%;background:var(--loss)';
+      return `<div class="pw"><div><div class="pw-name">${enc(r.name)}</div><div class="pw-sub">${r.n} matches · margin ${sgn(r.with)}</div></div>`
+        +`<div class="pw-track"><div class="pw-fill" style="${fill};width:${w.toFixed(1)}%"></div><div class="pw-zero"></div></div>`
+        +`<div class="pw-delta ${pos?'imp-up':'imp-dn'} mono">${(pos?'+':'−')+Math.abs(r.delta).toFixed(1)}</div></div>`;}).join('');
+  }
   function renderPeople(list){
     const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
-    const all=peopleOf(list).filter(matchName),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
+    const all=peopleOf(list).filter(matchName).filter(recentOk),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
     if(pplSel&&!all.some(r=>r.id===pplSel))pplSel='';
     const sortName=byId('pplSort').selectedOptions[0].textContent.replace('Rank by ','');
     // Top and bottom few of the reliable list get a Best / Worst tag (never overlapping).
@@ -1650,7 +1729,7 @@
     const row=(r,i,n,tags)=>{
       const tag=!tags?'':i<tagN?'<span class="ptag best">Best</span>':i>=n-tagN?'<span class="ptag worst">Worst</span>':'';
       return`<tr class="clk${pplSel===r.id?' on':''}" data-pid="${enc(r.id)}"><td><span class="evname" title="${enc(r.name)}">${enc(r.name)}</span>${tag}`
-        +`<span class="evtd">last played ${r.last}</span></td>`
+        +`<span class="evtd">${lastPlayedTxt(r.last)}</span></td>`
         +`<td class="mono" data-l="M">${r.g.n}</td><td class="mono" data-l="W–L">${r.g.wins}–${r.g.losses}</td>`
         +`<td class="mono" data-l="Win %">${pct(r.g.winFrac)}</td><td class="mono" data-l="Pts %">${pct(r.g.ptsFrac)}</td>`
         +`<td class="mono" data-l="Margin">${sgn(r.g.normMargin)}</td><td class="mono valcell" data-l="Value">${r.g.value.toFixed(1)}</td>`
@@ -1684,6 +1763,7 @@
   byId('pplSort').onchange=e=>{pplSort=e.target.value;render();};
   byId('pxSort').onchange=e=>{pxSort=e.target.value;render();};
   byId('pplSearch').addEventListener('input',e=>{pplQuery=e.target.value;render();});
+  byId('recentSw').onclick=()=>{pplRecent=!pplRecent;byId('recentSw').classList.toggle('on',pplRecent);render();};
   // ---- matchup predictor (independent of filters; reuses MODEL) ----
   (function initPredict(){
     const players={};   // name -> current rating, from your own match history
