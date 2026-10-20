@@ -2,6 +2,20 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — clarity cleanup (from AI review)
+- **Rating changes now shown as DUPR deltas** (`+0.388`, `+0.011`) instead of `+388 pts` — ends
+  the clash with "Pts Won" (rally points). `ptsTxt` reformatted; affects every Change / DUPR-change
+  cell, the Form hover and Recent-rating-change tiles.
+- **Name casing**: `nameCase()` title-cases all-lowercase DUPR names ("clark janssen" → "Clark
+  Janssen") in the viewing bar and scout messages, without mangling cased ones ("OConnor").
+- **Beat-expectations tile** relabelled **Rating rose** with an unambiguous sub ("20 of 123 losses
+  too") so the % and the loss note no longer read as the same measure.
+- **Recent rating changes** gains a caption: Per event/date/match = typical swing; per win/loss =
+  average signed change.
+- **Match log** now reads "vs <opponents> … with <partner> (rating)" instead of a bare bracket.
+- **Close Games**: the "Deciding game 3" row is hidden when there are no best-of-3 deciders.
+- **Guide**: notes Value can exceed 100, and ties "Rating rose" to "beat expectations". SW rj-v67.
+
 ## 2026-10-19 — DUPR page link in the viewing bar
 - The 👁 Viewing bar now shows a **DUPR page ↗** link to the current player's DUPR profile
   (`dashboard.dupr.com/dashboard/player/<id>`), for your own view and any scouted player. Only

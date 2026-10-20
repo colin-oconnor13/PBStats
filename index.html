@@ -452,7 +452,7 @@
 
   <!-- ===== TAB 2: ANALYSIS ===== -->
   <div id="tab-analysis" hidden>
-    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Recent rating changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— your most recent matches; the filters above don’t change these</span></div><div class="kpis" id="dkpis"></div></div>
+    <div class="card pad" style="margin-bottom:16px"><div class="sect-h">Recent rating changes <span style="font-weight:500;text-transform:none;letter-spacing:0;opacity:.7">— your most recent matches; the filters above don’t change these</span></div><div class="kpis" id="dkpis"></div><div class="caphint" style="padding:10px 0 0">“Per event / date / match” is the <b>typical swing</b> (how much your rating moves either way). “Per win / loss” is the <b>average change</b>, with its sign.</div></div>
 
     <div class="card pad" style="margin-bottom:16px">
       <div class="chart-head"><h3>Rating Over Time</h3><div class="zoom" id="zoom"></div></div>
@@ -602,9 +602,9 @@
       <div class="gdef"><b>Win %</b><span class="d">The share of matches you won.</span></div>
       <div class="gdef"><b>Points won %</b><span class="d">Of all the points played, how many you won. A truer measure of how close things were than win–loss alone.</span></div>
       <div class="gdef"><b>Margin</b><span class="d">On average, how many points you win or lose a game by — rescaled to an 11-point game so an 11–9 and a 15–12 compare fairly. <em>+2.0 means you typically win by about 2; −2.0 means you lose by about 2.</em></span></div>
-      <div class="gdef"><b>Value</b><span class="d">One overall score combining your win %, points won, and how strong your opponents were. Higher is better — around 60 is a solid, even run; 90+ is a strong one; below 40 is a rough patch.</span></div>
-      <div class="gdef"><b>DUPR change</b><span class="d">How much a match (or a group of matches) moved your rating — DUPR’s own number. It already takes the strength of everyone on court into account.</span></div>
-      <div class="gdef"><b>Beat expectations</b><span class="d">How often your rating went <em>up</em>. You can lose a match and still gain rating if you played a strong team closely — that counts here.</span></div>
+      <div class="gdef"><b>Value</b><span class="d">One overall score combining your win %, points won, and how strong your opponents were. Higher is better — around 60 is a solid, even run; 90+ is a strong one; below 40 is a rough patch. It can go above 100 for a dominant stretch, or against opponents you consistently beat.</span></div>
+      <div class="gdef"><b>DUPR change</b><span class="d">How much a match (or a group of matches) moved your rating — DUPR’s own number, shown as a rating amount like <b>+0.013</b>. It already takes the strength of everyone on court into account.</span></div>
+      <div class="gdef"><b>Rating rose</b> <span class="d">(a.k.a. “beat expectations”) How often your rating went <em>up</em>. You can lose a match and still gain rating if you played a strong team closely — that counts here.</span></div>
       <div class="gdef"><b>Avg Opp</b><span class="d">The average DUPR of the opponents in that slice. Shows how tough your schedule was.</span></div>
     </div>
 
@@ -703,6 +703,8 @@
   const tms=d=>+new Date(d+'T00:00:00');
   const dayLabel=d=>{const [y,m,dd]=d.split('-');return `${MON[+m-1]} ${+dd}, ${y}`;};
   const titleCase=s=>String(s||'').toLowerCase().replace(/\s+/g,' ').trim().replace(/(^|[\s\-'])([a-z])/g,(m,p,c)=>p+c.toUpperCase());
+  // Fix all-lowercase names from DUPR (e.g. "clark janssen") without mangling cased ones ("OConnor").
+  const nameCase=s=>{s=String(s||'');return s&&s===s.toLowerCase()?titleCase(s):s;};
 
   function eventType(e){e=(e||'').toLowerCase();
     return /tournament|festival|open|championship|state games|classic|shootout/.test(e)?'Tournament':'League';}
@@ -924,9 +926,9 @@
     return p.length?p.join(' · '):'All matches';
   }
   const endCell=v=>`<td class="mono enddupr" data-l="DUPR">${v==null?'—':v.toFixed(3)}</td>`;
-  // Rating changes read as whole "points" (thousandths of a DUPR rating): 0.013 -> "13 pts".
+  // Rating changes shown as DUPR deltas: 0.013 -> "+0.013" (signed) or "0.013" (magnitude only).
   const ptsTxt=(v,signed)=>v==null?'—'
-    :((signed&&v>=0?'+':'')+Math.round(v*1000)+' pts');
+    :((signed&&v>=0?'+':'')+v.toFixed(3));
 
   // Diverging bar for the rating change: zero is the centre line, green right, clay left.
   // Widths are scaled to the biggest move on screen, so the column is self-relative.
@@ -968,7 +970,7 @@
       ['',pct(a.ptsFrac),'Pts Won',''],
       ['',sgn(a.normMargin),'Margin','per 11'],
       ['',f2(a.oThen),`Avg Opp (Now: ${f2(a.oNow)})`,''],
-      ['',pct(a.upFrac),'Beat expectations',a.lossRated?`${a.lossUp} of ${a.lossRated} losses gained`:''],
+      ['',pct(a.upFrac),'Rating rose',a.lossRated?`${a.lossUp} of ${a.lossRated} losses too`:'of your matches'],
     ].map(x=>`<div class="kpi"><div class="v ${x[0]} mono">${x[1]}</div><div class="l">${x[2]}${x[3]?` <span class="sub">${x[3]}</span>`:''}</div></div>`).join('');
 
     // Event table (tab 1)
@@ -1185,8 +1187,9 @@
       ['Close','won or lost by 2 or fewer',gs.filter(by(0,2))],
       ['Comfortable','by 3 to 5',gs.filter(by(3,5))],
       ['One-sided','by 6 or more',gs.filter(by(6,99))],
-      ['Deciding game 3','best-of-3 matches that went to a third game',gs.filter(g=>g.of===3&&g.i===2)],
     ];
+    // Only show the game-3 row when there actually are best-of-3 deciders (most ladders are 1 game).
+    const g3=gs.filter(g=>g.of===3&&g.i===2);if(g3.length)rows.push(['Deciding game 3','best-of-3 matches that went to a third game',g3]);
     const body=rows.map(([name,hint,g])=>{
       const lab=`<span class="evname">${name}</span>${hint?`<span class="evtd">${hint}</span>`:''}`;
       if(!g.length)return`<tr class="dim"><td>${lab}</td><td class="mono">0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
@@ -1341,11 +1344,11 @@
       const opps=(m.opponents||[]).slice().sort((a,b)=>(num(b.ratingThen)??-1)-(num(a.ratingThen)??-1));
       const opp=opps.map(o=>o.name+oRt(o)).join(' & ')||'—';
       const pv=num(basis==='now'?m.partnerNow:m.partnerThen);
-      const partner=m.partnerName+(pv==null?'':' - '+pv.toFixed(2));
+      const partner=m.partnerName==='—'?'':'with '+m.partnerName+(pv==null?'':' ('+pv.toFixed(2)+')');
       const sc=m.scores.length?m.scores.map((s,i)=>s+'-'+(m.oppScores[i]??'')).join(', '):'—';
       const imp=m.impact,ih=imp==null?'':`<div class="m-imp ${imp>=0?'imp-up':'imp-dn'} mono">${ptsTxt(imp,true)}</div>`;
       return`<div class="match"><div class="wl ${m.won?'W':'L'}">${m.won?'W':'L'}</div>
-        <div><div class="m-opp">${enc(opp)}</div><div class="m-partner">[${enc(partner)}]</div><div class="m-event">${enc(((levelOf(m)?levelOf(m)+' ':'')+typeOf(m))+' - '+evName(m))}</div></div>
+        <div><div class="m-opp">vs ${enc(opp)}</div>${partner?`<div class="m-partner">${enc(partner)}</div>`:''}<div class="m-event">${enc(((levelOf(m)?levelOf(m)+' ':'')+typeOf(m))+' - '+evName(m))}</div></div>
         <div class="m-right"><div class="m-score mono">${sc}</div><div class="m-date mono">${m.date}</div>${ih}</div></div>`;}).join('')+
       (rows.length>12?`<button class="showmore">Show all ${rows.length}</button>`:'');
     const sm=log.querySelector('.showmore');if(sm)sm.onclick=()=>{log.classList.remove('collapsed');sm.remove();};
@@ -1609,7 +1612,7 @@
     document.querySelectorAll(BROWSER?'.gh-only':'.br-only').forEach(el=>el.hidden=true);
     // Player switcher: shown once any other player has been synced from their DUPR page.
     const ids=Object.keys(SCOUTS);
-    if(ids.length){const bar=byId('viewBar'),nm=d=>(d.player&&d.player.name)||('player '+(d.player&&d.player.id));
+    if(ids.length){const bar=byId('viewBar'),nm=d=>nameCase((d.player&&d.player.name)||'')||('player '+(d.player&&d.player.id));
       const mine=OWN.matches.length?`My matches (${enc(nm(OWN))})`:'My matches';
       bar.hidden=false;bar.classList.toggle('other',!!VIEW);
       // Link to the current player's DUPR page (works for "My matches" and any scouted player).
@@ -1696,7 +1699,7 @@
       try{fresh=duprToData(d);}catch(err){show('Couldn’t read DUPR’s data: '+err.message,true);buttons([closeBtn]);return;}
       if(d.scout){
         // Another player's history, synced from their DUPR page: view-only, this browser only.
-        const id=String(fresh.player.id),nm=fresh.player.name||('player '+id),rt0=fresh.player.currentDoubles;
+        const id=String(fresh.player.id),nm=nameCase(fresh.player.name)||('player '+id),rt0=fresh.player.currentDoubles;
         const keep=()=>IDB.put(id,fresh).then(()=>setView(id),
           ()=>{show('This browser wouldn’t store another player (private window or out of room?). Remove one with the 👁 Viewing bar, then try again.',true);buttons([closeBtn]);});
         show(`Fetched ${fresh.matches.length} matches for ${nm}${rt0!=null?' (DUPR '+rt0.toFixed(3)+')':''}. They’re kept in this browser only to view, and ${BROWSER?'not mixed with your own data.':'never saved to GitHub or mixed with your own data.'}`);
@@ -1713,7 +1716,7 @@
       if(n<had){show(`DUPR returned ${n} matches but you already have ${had}, so your own data wasn’t replaced. DUPR may have changed its data format.`+alsoTxt,true);buttons([closeBtn]);return;}
       const rt=fresh.player.currentDoubles;
       const summary=`${n} matches${n>had?` (${n-had} new)`:''}${rt!=null?', DUPR '+rt.toFixed(3):''}`;
-      const who=fresh.player.name||('player '+fresh.player.id);
+      const who=nameCase(fresh.player.name)||('player '+fresh.player.id);
       const open=()=>{try{sessionStorage.setItem('pb-fresh',JSON.stringify(fresh));}catch(err){}setView('');};
       const same=x=>JSON.stringify([x.player,x.matches]);
       if(same(fresh)===same(OWN)){show('✓ Already up to date: '+summary+'.'+alsoTxt);buttons([['Open app',()=>setView(''),true]]);return;}
