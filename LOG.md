@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — sortable Event table + player search
+- **Performance by Event** headers are clickable to sort (Event / M / Win% / Pts% / Margin /
+  Value / DUPR / Change), with a ▲/▼ arrow; re-click toggles direction (`evSort`). Default stays
+  newest-event-first.
+- **Player search** box on Opponents & Partners filters the Index and the ranked lists by name
+  (`pplQuery` / `matchName`), live as you type — helps with 45+ rows and the small-sample list.
+  SW rj-v69.
+
 ## 2026-10-19 — matchup predictor
 - New card at the top of Opponents & Partners: enter your partner and two opponents (pick a
   player from your history or type a rating) and it shows your expected win % and margin, using

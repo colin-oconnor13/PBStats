@@ -192,6 +192,7 @@
   tbody tr.dim td{color:var(--muted)}
   tbody tr.tot td{border-top:2px solid var(--line);font-weight:700}
   tbody tr.clk{cursor:pointer} tbody tr.clk:hover td{background:var(--surface-2)}
+  thead th.sortable{cursor:pointer;white-space:nowrap} thead th.sortable:hover{color:var(--ink)}
   tbody tr.champ td{background:var(--champ)}
   .bandname{font-weight:600;display:flex;align-items:center;gap:8px}
   .bandtag{width:9px;height:9px;border-radius:3px;flex:none}
@@ -281,6 +282,8 @@
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stepn{color:#0E1512}}
   .synctip{margin-bottom:14px;padding:12px 16px;border-radius:12px;border:1px solid var(--accent);background:var(--accent-soft);font-size:13px;line-height:1.55;display:flex;gap:10px;align-items:flex-start}
   .synctip button{margin-left:auto;background:none;border:0;color:var(--muted);font-family:inherit;font-size:16px;cursor:pointer;line-height:1}
+  .pplsearch{font-family:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);min-width:110px;max-width:170px}
+  .pplsearch:focus{outline:none;border-color:var(--accent)}
   .predict-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
   @media(max-width:620px){.predict-grid{grid-template-columns:1fr 1fr}}
   .pdfld{display:flex;flex-direction:column;gap:4px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
@@ -539,6 +542,7 @@
           <div class="caphint" style="padding:4px 0 0" id="pxHint"></div></div>
         <div class="pplctl">
           <div class="toggle" id="pplMode"><button data-p="opp" class="on">Opponents</button><button data-p="partner">Partners</button></div>
+          <input id="pplSearch" class="pplsearch" type="search" placeholder="🔎 Search player…" autocomplete="off">
           <select id="pxSort" title="Order">
             <option value="under">Most below expected first</option>
             <option value="over">Most above expected first</option>
@@ -787,6 +791,9 @@
   const F={year:[],type:[],level:[],event:[],partner:[],wl:'all',date:''};
   const Z={year:'',months:0};   // months>0 = rolling window (3/6/12) ending at the latest match
   let logSort='new';
+  let evSort={k:'date',dir:-1};   // Performance-by-Event sort (click a header)
+  let pplQuery='';                // name filter for the Opponents/Partners people lists
+  const matchName=r=>{const q=pplQuery.trim().toLowerCase();return !q||(r.name||'').toLowerCase().includes(q);};
   let tab='overview', basis='then', filtersOpen=false, panelOpen=false, msSig='';
   const MSKEYS=['year','type','level','event','partner'];
 
@@ -999,12 +1006,20 @@
     const lvlType=ms=>{const l=levelOf(ms[0]),t=typeOf(ms[0]);return (l?l+' ':'')+t;};
     const evRows=Object.keys(groups).map(e=>{const ds=groups[e].map(m=>m.date);
       const sp=spanOf(groups[e]);
-      return {e,g:agg(groups[e],'then'),end:sp.end,delta:sp.delta,lt:lvlType(groups[e]),min:ds.reduce((a,b)=>a<b?a:b),max:ds.reduce((a,b)=>a>b?a:b)};})
-      .sort((a,b)=>b.max.localeCompare(a.max)||b.g.n-a.g.n);
+      return {e,g:agg(groups[e],'then'),end:sp.end,delta:sp.delta,lt:lvlType(groups[e]),min:ds.reduce((a,b)=>a<b?a:b),max:ds.reduce((a,b)=>a>b?a:b)};});
+    // Sortable columns (click a header). Default: most recent event first.
+    const evKey={event:r=>r.e.toLowerCase(),m:r=>r.g.n,win:r=>r.g.winFrac,pts:r=>r.g.ptsFrac,margin:r=>r.g.normMargin,value:r=>r.g.value,dupr:r=>r.end,change:r=>r.delta,date:r=>r.max};
+    const ek=evKey[evSort.k]||evKey.date;
+    evRows.sort((a,b)=>{const x=ek(a),y=ek(b);const c=(x==null&&y==null)?0:x==null?1:y==null?-1:(typeof x==='string'?x.localeCompare(y):x-y);
+      return (c*evSort.dir)||b.max.localeCompare(a.max);});
+    const arrow=k=>evSort.k===k?(evSort.dir<0?' ▼':' ▲'):'';
+    const eh=(k,l)=>`<th class="sortable" data-k="${k}">${l}${arrow(k)}</th>`;
     const evBody=evRows.map(r=>`<tr class="clk ${r.e.trim().endsWith('🏆')?'champ':''}" data-ev="${enc(r.e)}"><td><span class="evname" title="${enc(r.e)}">${enc(r.e)}</span><span class="evtd">${enc(r.lt)} | ${r.min.slice(0,7)}</span></td>${statRow(r.g,endCell(r.end)+barCell(r.delta)+deltaCell(r.delta))}</tr>`).join('');
-    byId('evTable').innerHTML=`<thead><tr><th>Event</th><th>M</th><th>Win%</th><th>Pts%</th><th>Margin</th><th>Value</th><th>DUPR</th><th class="chgbar"></th><th>Change</th><th>Opponent</th></tr></thead>`+
+    byId('evTable').innerHTML=`<thead><tr>${eh('event','Event')}${eh('m','M')}${eh('win','Win%')}${eh('pts','Pts%')}${eh('margin','Margin')}${eh('value','Value')}${eh('dupr','DUPR')}<th class="chgbar"></th>${eh('change','Change')}<th>Opponent</th></tr></thead>`+
       `<tbody>${evBody||'<tr class="dim"><td colspan="10" class="caphint">No matches in this filter.</td></tr>'}</tbody>`;
     byId('evTable').querySelectorAll('[data-ev]').forEach(tr=>tr.onclick=()=>{F.event=[dec(tr.dataset.ev)];render();});
+    byId('evTable').querySelectorAll('th[data-k]').forEach(th=>th.onclick=()=>{const k=th.dataset.k;
+      if(evSort.k===k)evSort.dir*=-1;else evSort={k,dir:k==='event'?1:-1};render();});
 
     // Date table (tab 2) — same columns as Performance by Event, grouped by day instead.
     const dGroups=byDate(list);
@@ -1500,7 +1515,7 @@
       const mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
       return {...r,n:ms.length,w,exp,woe,z:sd?woe/sd:0,expPct:exp/ms.length,
         edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length,mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null};
-    }).filter(Boolean);
+    }).filter(Boolean).filter(matchName);
     const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
     const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
@@ -1542,7 +1557,7 @@
   }
   function renderPeople(list){
     const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
-    const all=peopleOf(list),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
+    const all=peopleOf(list).filter(matchName),solid=all.filter(r=>r.g.n>=PPL_MIN),low=all.filter(r=>r.g.n<PPL_MIN);
     if(pplSel&&!all.some(r=>r.id===pplSel))pplSel='';
     const sortName=byId('pplSort').selectedOptions[0].textContent.replace('Rank by ','');
     // Top and bottom few of the reliable list get a Best / Worst tag (never overlapping).
@@ -1587,6 +1602,7 @@
   document.querySelectorAll('#pplMode button').forEach(b=>b.onclick=()=>{pplMode=b.dataset.p;pplSel='';pplAll=false;pxAll=false;render();});
   byId('pplSort').onchange=e=>{pplSort=e.target.value;render();};
   byId('pxSort').onchange=e=>{pxSort=e.target.value;render();};
+  byId('pplSearch').addEventListener('input',e=>{pplQuery=e.target.value;render();});
   // ---- matchup predictor (independent of filters; reuses MODEL) ----
   (function initPredict(){
     const players={};   // name -> current rating, from your own match history
