@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — Highlights: recent/lifetime, peak-low, clickable
+- **Recent · 60 days / All-time toggle** on Highlights (`hlWindow`): the upset index and notable
+  results recompute over the chosen window (from `M`, independent of the top filters).
+- **Your rating, all-time** card: peak and lowest DUPR with their dates, plus current.
+- **Notable results and the Overview teasers are clickable** — `goToMatch(matchId)` switches to
+  Matches, un-collapses the log, scrolls to that match (now tagged `data-mid`) and flashes it.
+- The **Recent · 60d toggle moved onto the Opponent/Partner Index** card header (it already
+  filtered both the Index and the ranked lists; now it's prominent there). SW rj-v74.
+
 ## 2026-10-20 — layout rebuild, phase 3: Highlights tab
 - New **Highlights** tab (6th): **upset index** (upset wins = won as rating underdog by `diffPre`;
   given up = lost as favorite; net; biggest upset) and **notable results** (biggest upset win,

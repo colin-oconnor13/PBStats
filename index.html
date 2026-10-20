@@ -229,6 +229,10 @@
   .note .t{font-weight:700;font-size:13.5px} .note .d{font-size:12.5px;color:var(--muted);margin-top:2px}
   .teaser{display:flex;gap:10px;align-items:center;padding:11px 20px;border-top:1px solid var(--line);font-size:13px}
   .teaser:first-child{border-top:0} .teaser .tic{font-size:15px}
+  .hlbar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+  .note.clk,.ubig.clk,.teaser.clk{cursor:pointer} .note.clk:hover,.ubig.clk:hover{border-color:var(--accent)} .teaser.clk:hover{background:var(--surface-2)}
+  .match.flash{animation:flash 1.6s ease-out}
+  @keyframes flash{0%,30%{background:var(--accent-soft)}100%{background:transparent}}
   @media(max-width:620px){.notable{grid-template-columns:1fr}}
 
   /* tables / breakdown */
@@ -606,12 +610,19 @@
   <!-- ===== HIGHLIGHTS ===== -->
   <div id="tab-highlights" hidden>
     <div class="card pad" style="margin-bottom:16px">
+      <div class="sect-h" style="margin:0 0 10px">Your rating, all-time</div>
+      <div class="utiles" id="rangeTiles"></div>
+    </div>
+
+    <div class="hlbar"><div class="toggle" id="hlWin"><button data-w="recent" class="on">Recent · 60 days</button><button data-w="all">All-time</button></div><span class="caphint" style="padding:0" id="hlCount"></span></div>
+
+    <div class="card pad" style="margin-bottom:16px">
       <div class="sect-h" style="margin:0 0 4px">Upset index</div>
       <div class="caphint" style="padding:0 0 12px">An <b>upset win</b> = you won when your team's average rating was below your opponents'. <b>Given up</b> = you lost when you were the higher-rated team.</div>
       <div class="utiles" id="upsetTiles"></div>
       <div id="upsetBig"></div>
     </div>
-    <div class="sec-h" style="margin:22px 0 12px"><h2 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Notable results</h2><span class="note" style="font-size:12px;color:var(--faint)">moments that stand out from the ratings</span></div>
+    <div class="sec-h" style="margin:22px 0 12px"><h2 style="font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)">Notable results</h2><span class="note" style="font-size:12px;color:var(--faint)">tap one to see the match</span></div>
     <div class="notable" id="notable"></div>
   </div>
 
@@ -646,6 +657,7 @@
           <div class="caphint" style="padding:4px 0 0" id="pxHint"></div></div>
         <div class="pplctl">
           <div class="toggle" id="pplMode"><button data-p="opp" class="on">Opponents</button><button data-p="partner">Partners</button></div>
+          <label class="switch" id="recentSw"><span>Recent · 60d</span><span class="track"><i></i></span></label>
           <input id="pplSearch" class="pplsearch" type="search" placeholder="🔎 Search player…" autocomplete="off">
           <select id="pxSort" title="Order">
             <option value="under">Most below expected first</option>
@@ -681,7 +693,6 @@
         <div><div class="sect-h" style="margin:0" id="pplTitle">Opponents</div>
           <div class="caphint" style="padding:4px 0 0" id="pplHint"></div></div>
         <div class="pplctl">
-          <label class="switch" id="recentSw"><span>Recent · 60d</span><span class="track"><i></i></span></label>
           <select id="pplSort" title="Rank by">
             <option value="value">Rank by Value</option>
             <option value="win">Rank by Win %</option>
@@ -1172,7 +1183,7 @@
 
     drawZoom();drawOverall();renderManage();
     renderLog(list,'log');renderLatest();
-    renderPeople(list);renderIndex(list);renderStandouts(list);renderChem(list);renderPatterns(list);renderBuckets(list);renderClose(list);renderHighlights(list);renderStreaks(list);drawForm(list);
+    renderPeople(list);renderIndex(list);renderStandouts(list);renderChem(list);renderPatterns(list);renderBuckets(list);renderClose(list);renderHighlights();renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
@@ -1537,7 +1548,7 @@
       const partner=m.partnerName==='—'?'':'with '+m.partnerName+(pv==null?'':' ('+pv.toFixed(2)+')');
       const sc=m.scores.length?m.scores.map((s,i)=>s+'-'+(m.oppScores[i]??'')).join(', '):'—';
       const imp=m.impact,ih=imp==null?'':`<div class="m-imp ${imp>=0?'imp-up':'imp-dn'} mono">${ptsTxt(imp,true)}</div>`;
-      return`<div class="match"><div class="wl ${m.won?'W':'L'}">${m.won?'W':'L'}</div>
+      return`<div class="match" data-mid="${m.matchId}"><div class="wl ${m.won?'W':'L'}">${m.won?'W':'L'}</div>
         <div><div class="m-opp">vs ${enc(opp)}</div>${partner?`<div class="m-partner">${enc(partner)}</div>`:''}<div class="m-event">${enc(((levelOf(m)?levelOf(m)+' ':'')+typeOf(m))+' - '+evName(m))}</div></div>
         <div class="m-right"><div class="m-score mono">${sc}</div><div class="m-date mono">${m.date}</div>${ih}</div></div>`;}).join('')+
       (rows.length>12?`<button class="showmore">Show all ${rows.length}</button>`:'');
@@ -1717,34 +1728,54 @@
       +(unrated?` ${unrated} ${opp?'opponent':'partner'}${unrated>1?'s':''} left out: no ratings on file for those matches.`:'');
   }
   // Upset index + notable results (Highlights tab) and the Overview teaser strip.
-  function renderHighlights(list){
-    const oppStr=m=>(m.opponents||[]).map(o=>o.name).join(' & ')||'—';
-    const scoreStr=m=>m.scores.length?m.scores.map((s,i)=>s+'–'+(m.oppScores[i]??'')).join(', '):'—';
-    const rated=list.filter(m=>m.diffPre!=null);
+  let hlWindow='recent';
+  const oppStr=m=>(m.opponents||[]).map(o=>o.name).join(' & ')||'—';
+  const scoreStr=m=>m.scores.length?m.scores.map((s,i)=>s+'–'+(m.oppScores[i]??'')).join(', '):'—';
+  // Jump from a highlight to that match in the Match Log: switch tab, un-collapse, scroll, flash.
+  function goToMatch(mid){goTab('matches');setTimeout(()=>{const log=byId('log');if(log)log.classList.remove('collapsed');
+    const sm=log&&log.querySelector('.showmore');if(sm)sm.remove();
+    const row=log&&log.querySelector(`[data-mid="${mid}"]`);
+    if(row){row.scrollIntoView({behavior:'smooth',block:'center'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1600);}},80);}
+  function renderHighlights(){
+    // Lifetime rating range (peak / low / current), always all-time.
+    if(series.length){let hi=series[0],lo=series[0];series.forEach(m=>{if(m.postRating>hi.postRating)hi=m;if(m.postRating<lo.postRating)lo=m;});
+      byId('rangeTiles').innerHTML=
+        `<div class="ut"><div class="v imp-up mono">${hi.postRating.toFixed(3)}</div><div class="l">Peak <span class="sub">${dayLabel(hi.date)}</span></div></div>`
+        +`<div class="ut"><div class="v imp-dn mono">${lo.postRating.toFixed(3)}</div><div class="l">Lowest <span class="sub">${dayLabel(lo.date)}</span></div></div>`
+        +`<div class="ut"><div class="v blue mono">${ME_NOW==null?'—':ME_NOW.toFixed(3)}</div><div class="l">Current</div></div>`;}
+    // Windowed moments (independent of the top filters): recent 60 days or all-time.
+    const cut=Date.now()-60*864e5,win=hlWindow==='recent'?M.filter(m=>tms(m.date)>=cut):M;
+    byId('hlCount').textContent=hlWindow==='recent'?`last 60 days · ${win.length} matches`:`all ${win.length} matches`;
+    const rated=win.filter(m=>m.diffPre!=null);
     const uw=rated.filter(m=>m.won&&m.diffPre<0),gu=rated.filter(m=>!m.won&&m.diffPre>0),net=uw.length-gu.length;
     byId('upsetTiles').innerHTML=
       `<div class="ut"><div class="v imp-up mono">${uw.length}</div><div class="l">Upset wins</div></div>`
       +`<div class="ut"><div class="v imp-dn mono">${gu.length}</div><div class="l">Given up</div></div>`
       +`<div class="ut"><div class="v mono" style="color:var(--muted)">${net>=0?'+':'−'}${Math.abs(net)}</div><div class="l">Net</div></div>`;
     const big=uw.slice().sort((a,b)=>a.diffPre-b.diffPre)[0];
-    byId('upsetBig').innerHTML=big?`<div class="ubig"><div class="ic">🔼</div><div><div class="t">Biggest upset win</div>`
+    byId('upsetBig').innerHTML=big?`<div class="ubig clk" data-mid="${big.matchId}"><div class="ic">🔼</div><div><div class="t">Biggest upset win</div>`
       +`<div class="d">With ${enc(big.partnerName)} you beat ${enc(oppStr(big))} (${Math.abs(big.diffPre).toFixed(2)} higher-rated) ${enc(scoreStr(big))} on ${big.date}.</div></div></div>`:'';
     const weak=gu.slice().sort((a,b)=>b.diffPre-a.diffPre)[0];
-    const blow=list.filter(m=>m.won&&m.normMargin!=null).sort((a,b)=>b.normMargin-a.normMargin)[0];
-    const close=list.filter(m=>!m.won&&m.normMargin!=null).sort((a,b)=>b.normMargin-a.normMargin)[0];
+    const blow=win.filter(m=>m.won&&m.normMargin!=null).sort((a,b)=>b.normMargin-a.normMargin)[0];
+    const close=win.filter(m=>!m.won&&m.normMargin!=null).sort((a,b)=>b.normMargin-a.normMargin)[0];
     const notes=[];
-    if(big)notes.push(['good','🔼','Biggest upset win',`Beat ${oppStr(big)} — ${Math.abs(big.diffPre).toFixed(2)} above you — with ${big.partnerName}.`]);
-    if(weak)notes.push(['bad','🔽','Toughest loss on paper',`Lost to ${oppStr(weak)} with your team ${weak.diffPre.toFixed(2)} higher rated.`]);
-    if(blow)notes.push(['big','🎯','Biggest win',`${scoreStr(blow)} vs ${oppStr(blow)} — margin ${sgn(blow.normMargin)} per 11.`]);
-    if(close)notes.push(['bad','⏱️','Closest call',`Lost ${scoreStr(close)} to ${oppStr(close)} — nearly stole it.`]);
-    byId('notable').innerHTML=notes.map(([c,ic,t,d])=>`<div class="note ${c}"><div class="ic">${ic}</div><div><div class="t">${enc(t)}</div><div class="d">${enc(d)}</div></div></div>`).join('')||'<div class="caphint">No rated matches in this filter.</div>';
-    // Overview teasers: a couple of the above + current streak.
+    if(big)notes.push(['good','🔼','Biggest upset win',`Beat ${oppStr(big)} — ${Math.abs(big.diffPre).toFixed(2)} above you — with ${big.partnerName}.`,big.matchId]);
+    if(weak)notes.push(['bad','🔽','Toughest loss on paper',`Lost to ${oppStr(weak)} with your team ${weak.diffPre.toFixed(2)} higher rated.`,weak.matchId]);
+    if(blow)notes.push(['big','🎯','Biggest win',`${scoreStr(blow)} vs ${oppStr(blow)} — margin ${sgn(blow.normMargin)} per 11.`,blow.matchId]);
+    if(close)notes.push(['bad','⏱️','Closest call',`Lost ${scoreStr(close)} to ${oppStr(close)} — nearly stole it.`,close.matchId]);
+    byId('notable').innerHTML=notes.map(([c,ic,t,d,mid])=>`<div class="note clk ${c}" data-mid="${mid}"><div class="ic">${ic}</div><div><div class="t">${enc(t)}</div><div class="d">${enc(d)}</div></div></div>`).join('')
+      ||`<div class="caphint">No rated matches ${hlWindow==='recent'?'in the last 60 days':'yet'}.</div>`;
+    byId('tab-highlights').querySelectorAll('[data-mid]').forEach(el=>el.onclick=()=>goToMatch(el.dataset.mid));
+    // Overview teasers (all-time): biggest upset + biggest win + current streak.
+    const aw=M.filter(m=>m.diffPre!=null&&m.won&&m.diffPre<0).sort((a,b)=>a.diffPre-b.diffPre)[0];
+    const ab=M.filter(m=>m.won&&m.normMargin!=null).sort((a,b)=>b.normMargin-a.normMargin)[0];
     const tz=[];
-    if(big)tz.push(['🔼',`Biggest upset — beat ${oppStr(big)} (${Math.abs(big.diffPre).toFixed(2)} above you)`]);
-    if(blow)tz.push(['🎯',`Biggest win — ${scoreStr(blow)} vs ${oppStr(blow)}`]);
-    const st=streakNow();if(st)tz.push(['🔥',`Current streak — ${st}`]);
+    if(aw)tz.push([aw.matchId,'🔼',`Biggest upset — beat ${oppStr(aw)} (${Math.abs(aw.diffPre).toFixed(2)} above you)`]);
+    if(ab)tz.push([ab.matchId,'🎯',`Biggest win — ${scoreStr(ab)} vs ${oppStr(ab)}`]);
+    const st=streakNow();if(st)tz.push(['','🔥',`Current streak — ${st}`]);
     byId('teaserCard').hidden=!tz.length;
-    byId('teasers').innerHTML=tz.map(([ic,t])=>`<div class="teaser"><span class="tic">${ic}</span><span>${enc(t)}</span></div>`).join('');
+    byId('teasers').innerHTML=tz.map(([mid,ic,t])=>`<div class="teaser${mid?' clk':''}"${mid?` data-mid="${mid}"`:''}><span class="tic">${ic}</span><span>${enc(t)}</span></div>`).join('');
+    byId('teasers').querySelectorAll('[data-mid]').forEach(el=>el.onclick=()=>goToMatch(el.dataset.mid));
   }
   // Current win/loss streak across all matches in processing order.
   function streakNow(){const s=M.slice().sort((a,b)=>a.date.localeCompare(b.date)||(ordOf(a)-ordOf(b)));if(!s.length)return '';
@@ -1889,6 +1920,8 @@
   const goTab=name=>{tab=name;document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x.dataset.tab===name));render();window.scrollTo(0,0);};
   document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>goTab(t.dataset.tab));
   byId('teaserGo').onclick=()=>goTab('highlights');
+  document.querySelectorAll('#hlWin button').forEach(b=>b.onclick=()=>{hlWindow=b.dataset.w;
+    document.querySelectorAll('#hlWin button').forEach(x=>x.classList.toggle('on',x===b));renderHighlights();});
   document.querySelectorAll('.basisToggle button').forEach(b=>b.onclick=()=>{basis=b.dataset.b;render();});
   byId('logSort').onchange=e=>{logSort=e.target.value;render();};
   document.querySelectorAll('[data-wl]').forEach(c=>c.onclick=()=>{F.wl=c.dataset.wl;
