@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — hide owner-only pieces when viewing another player
+- When a scouted player is being viewed (`VIEW` set → `VIEWING_OTHER`, root `data-viewing="other"`),
+  the pieces that are "you"-centric or need your full career history are hidden (CSS), since we
+  only hold the scouted player's capped recent history: the **matchup predictor**, **rating goal**,
+  the Overview **teasers**, and the whole **Highlights** tab (button + panel). `renderHighlights`
+  is also skipped in that mode. Everything that recomputes from the viewed player's matches
+  (KPIs, rating line, Trends, the people lists, Standouts, chemistry) still shows. SW rj-v76.
+
 ## 2026-10-20 — page-level 60-day filter (Opponents + Matches)
 - Replaced the per-person "recent" toggle with a **page-level Last-60-days report filter**
   (`recent60` / `inRecent60`) shown at the top of the **Opponents & Partners** page and the

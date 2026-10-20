@@ -233,6 +233,10 @@
   .note.clk,.ubig.clk,.teaser.clk{cursor:pointer} .note.clk:hover,.ubig.clk:hover{border-color:var(--accent)} .teaser.clk:hover{background:var(--surface-2)}
   .match.flash{animation:flash 1.6s ease-out}
   @keyframes flash{0%,30%{background:var(--accent-soft)}100%{background:transparent}}
+  /* Viewing another player: hide pieces that need your own / full history and can't update. */
+  :root[data-viewing="other"] #predictCard,:root[data-viewing="other"] #goalCard,
+  :root[data-viewing="other"] #teaserCard,:root[data-viewing="other"] [data-tab="highlights"],
+  :root[data-viewing="other"] #tab-highlights{display:none!important}
   @media(max-width:620px){.notable{grid-template-columns:1fr}}
 
   /* tables / breakdown */
@@ -837,6 +841,10 @@
   try{const old=JSON.parse(localStorage.getItem(SKEY)||'null');if(old){for(const k in old){if(!SCOUTS[k]){SCOUTS[k]=old[k];await IDB.put(k,old[k]);}}localStorage.removeItem(SKEY);}}catch(e){}
   let VIEW='';try{VIEW=localStorage.getItem(VKEY)||'';}catch(e){}
   if(VIEW&&SCOUTS[VIEW]&&Array.isArray(SCOUTS[VIEW].matches))DATA=SCOUTS[VIEW];else VIEW='';
+  // Viewing another player: we only hold their (capped) history, so hide the "you"-centric and
+  // full-history pieces that can't update — the matchup predictor, rating goal, teasers and Highlights.
+  const VIEWING_OTHER=!!VIEW;
+  document.documentElement.setAttribute('data-viewing',VIEWING_OTHER?'other':'self');
   const setView=id=>{try{if(id)localStorage.setItem(VKEY,id);else localStorage.removeItem(VKEY);}catch(e){}location.replace(location.pathname);};
   const ME_NOW=DATA.player.currentDoubles;
   document.getElementById('idpill').textContent=DATA.player.id?'DUPR · '+DATA.player.id:'DUPR';
@@ -1187,7 +1195,7 @@
     const recentList=recent60?list.filter(inRecent60):list;
     document.querySelectorAll('.recentNote').forEach(e=>e.textContent=recent60?`${recentList.length} matches in the last 60 days`:'');
     renderLog(recentList,'log');renderLatest();
-    renderPeople(recentList);renderIndex(recentList);renderStandouts(recentList);renderChem(recentList);renderPatterns(recentList);renderBuckets(list);renderClose(list);renderHighlights();renderStreaks(list);drawForm(list);
+    renderPeople(recentList);renderIndex(recentList);renderStandouts(recentList);renderChem(recentList);renderPatterns(recentList);renderBuckets(list);renderClose(list);if(!VIEWING_OTHER)renderHighlights();renderStreaks(list);drawForm(list);
     if(F.event.length){byId('eventLogTitle').textContent=F.event.length===1?'Matches — '+F.event[0]:F.event.length+' events selected';renderLog(list,'eventLog');}
     else{byId('eventLogTitle').textContent='Event Matches';
       byId('eventLog').innerHTML='<div class="caphint" style="padding:32px 20px;text-align:center">Click an event in <b>Performance by Event</b> above to see its matches here.</div>';}
