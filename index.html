@@ -267,6 +267,8 @@
   .viewbar select{font-family:inherit;font-size:13px;font-weight:700;padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:100%}
   .viewbar .vnote{color:var(--muted);font-size:12px}
   .viewbar button{font-family:inherit;font-size:12px;font-weight:600;padding:5px 10px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+  .viewbar .vdupr{font-size:12px;font-weight:600;color:var(--accent);text-decoration:none;white-space:nowrap;padding:2px 0}
+  .viewbar .vdupr:hover{text-decoration:underline}
   .viewbar button.danger{color:var(--loss)}
   .syncgo{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 4px}
   .syncgo .muted{flex:1;min-width:180px;font-size:12px}
@@ -1610,8 +1612,11 @@
     if(ids.length){const bar=byId('viewBar'),nm=d=>(d.player&&d.player.name)||('player '+(d.player&&d.player.id));
       const mine=OWN.matches.length?`My matches (${enc(nm(OWN))})`:'My matches';
       bar.hidden=false;bar.classList.toggle('other',!!VIEW);
+      // Link to the current player's DUPR page (works for "My matches" and any scouted player).
+      const curId=DATA.player&&DATA.player.id;
+      const duprLink=(curId!=null&&/^\d+$/.test(String(curId)))?`<a class="vdupr" href="https://dashboard.dupr.com/dashboard/player/${enc(String(curId))}" target="_blank" rel="noopener">DUPR page ↗</a>`:'';
       bar.innerHTML=`<span>👁 Viewing</span><select id="viewSel"><option value="">${mine}</option>`
-        +ids.map(id=>`<option value="${enc(id)}"${id===VIEW?' selected':''}>${enc(nm(SCOUTS[id]))} · ${SCOUTS[id].matches.length} matches</option>`).join('')+`</select>`
+        +ids.map(id=>`<option value="${enc(id)}"${id===VIEW?' selected':''}>${enc(nm(SCOUTS[id]))} · ${SCOUTS[id].matches.length} matches</option>`).join('')+`</select>`+duprLink
         +(VIEW?`<span class="vnote">synced ${enc((SCOUTS[VIEW].generated||'').slice(0,10))} · kept in this browser only${BROWSER?'':', never saved to GitHub'}</span><button class="danger" id="viewDel">Remove</button>`:'');
       byId('viewSel').onchange=e=>setView(e.target.value);
       const del=byId('viewDel');if(del)del.onclick=()=>{if(!del.dataset.sure){del.dataset.sure=1;del.textContent='Tap again to remove';return;}

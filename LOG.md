@@ -2,6 +2,11 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-19 — DUPR page link in the viewing bar
+- The 👁 Viewing bar now shows a **DUPR page ↗** link to the current player's DUPR profile
+  (`dashboard.dupr.com/dashboard/player/<id>`), for your own view and any scouted player. Only
+  rendered when the id is numeric. (The bar appears once you've pulled in another player.) SW rj-v66.
+
 ## 2026-10-19 — clear viewed players from Clean up
 - Clean up data now has a **Viewed players** section (shown when any other players are cached)
   with a **Clear all viewed players** button (two-tap confirm). It empties the on-device
