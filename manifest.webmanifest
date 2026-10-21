@@ -1,7 +1,7 @@
 {
-  "name": "Pickleball",
-  "short_name": "Pickleball",
-  "description": "Your DUPR pickleball history — filters, splits, and tags.",
+  "name": "Dink Data",
+  "short_name": "Dink Data",
+  "description": "Dink Data — your DUPR history, analysed.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

@@ -2,6 +2,14 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — renamed Dink Data, new logo
+- App name **Dink Data**, tagline *your DUPR history, analysed* (header, tab title, home-screen
+  name, manifest, welcome card, setup page, the bookmark button and the on-DUPR sync panel
+  "🔄 Sync to Dink Data"). Repo names and URLs unchanged.
+- New logo (picked from mock-ups): a lime pickleball whose holes become a rising trend line, the
+  last point larger. `favicon.svg`, the header SVG, and `icons/icon-192/512.png` (dark tile, mark
+  inside the maskable safe zone) were re-rendered. SW rj-v86.
+
 ## 2026-10-20 — setup page: steps for your browser
 - The bookmark helper's steps were Chrome-only. It now guesses the browser from the user agent
   (Edge → `edge`; iOS Safari → `safari`; Android Chrome/Brave → `chrome`; anything else,

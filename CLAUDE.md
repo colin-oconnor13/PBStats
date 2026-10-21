@@ -4,7 +4,8 @@ Personal DUPR tracker PWA for Colin OConnor (short DUPR id `Z49MRW`). Repo
 **colin-oconnor13/PBStats**; started 2026-10-11 as a fresh-history copy of
 [kyeill/pickleball](https://github.com/kyeill/pickleball). Static site, no build. Normally run
 locally with `python tools/serve_local.py` (data in git-ignored `local/data/`); the committed
-`data/` files are empty seeds. Displayed app name is "Pickleball".
+`data/` files are empty seeds. Displayed app name is "Dink Data" (tagline "your DUPR history, analysed"); the logo is a
+lime pickleball whose holes form a rising trend line (`favicon.svg`, header SVG, `icons/`).
 See README for the user-facing story; see LOG.md for change history.
 
 **`site.json` is the only per-copy setting** (whose copy, where data goes, the Sync bookmark's
@@ -33,7 +34,7 @@ Delete. Code is meant to stay identical across copies: port changes by copying e
   (rename/merge-by-name, Type, Level, hide, 🏆-highlight), hides one-off partners, and saves
   overrides to the repo via the GitHub Contents API (token in localStorage `gh-token`).
   Standard sans throughout (Archivo for headings; no monospace). SW `sw.js` (network-first,
-  cache bumped on shell changes). Lime pickleball logo (header SVG + `favicon.svg` + `icons/`).
+  cache bumped on shell changes). Logo: lime pickleball whose holes form a rising trend line (header SVG + `favicon.svg` + `icons/`).
 - **Sync** — `tools/sync_bookmarklet.js` runs on dashboard.dupr.com (login cookie works there),
   shows a progress panel on that page, fetches profile + paged history + every other player's
   current rating (6 parallel), trims to the fields `duprToData` reads, gzips, and opens the app in

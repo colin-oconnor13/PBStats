@@ -1,6 +1,6 @@
 # PBStats
 
-A personal, installable web app (PWA) for your DUPR pickleball history: filter every match by
+**Dink Data** (*your DUPR history, analysed*): a personal, installable web app (PWA) for your DUPR pickleball history: filter every match by
 year / type / level / event / partner, see subset performance (win %, points won %, a normalized
 margin and a custom **Value** score), watch your rating and form over time, and find out who you
 play best and worst with and against, measured against what the ratings expected.
@@ -30,7 +30,7 @@ Sync whenever you've played. It runs in your own browser while you're logged in 
 **no DUPR password, 2FA code or token is stored anywhere**.
 
 **One time, computer:** open the app → **🔄 Sync from DUPR** card (bottom of the page) → drag the
-**🔄 Sync to Pickleball** button to your bookmarks bar.
+**🔄 Sync to Dink Data** button to your bookmarks bar.
 
 **One time, phone:** you need a *second* bookmark just for syncing (your normal bookmark of the
 app stays). In the same card tap **📌 Set up on this phone**. It opens a setup-only page at its own

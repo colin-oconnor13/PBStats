@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Pickleball</title>
+<title>Dink Data</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0E1512">
 <meta name="color-scheme" content="light dark">
@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Pickleball">
+<meta name="apple-mobile-web-app-title" content="Dink Data">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&family=Instrument+Sans:wght@400;500;600&display=swap">
@@ -60,7 +60,8 @@
 
   .top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px}
   .brand .name{font-family:"Archivo",sans-serif;font-weight:900;font-size:20px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
-  .logo{width:28px;height:28px;flex:none}
+  .logo{width:34px;height:34px;flex:none}
+  .brand .tagline{font-family:inherit;font-weight:500;font-size:12px;letter-spacing:0;color:var(--muted);margin-top:1px}
   .idpill{font-size:12px;padding:2px 8px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
   .btn{background:var(--surface);border:1px solid var(--line);color:var(--muted);border-radius:999px;
     padding:7px 14px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
@@ -485,7 +486,7 @@
 
 <div class="wrap">
   <div class="card pad bmpage" id="bmPage">
-    <div class="kicker">Pickleball · one-time phone setup</div>
+    <div class="kicker">Dink Data · one-time phone setup</div>
     <h2>Make your <span style="white-space:nowrap">PB Sync</span> bookmark</h2>
     <p class="muted">This page is only here to be bookmarked. You’ll turn that bookmark into a sync button you run on DUPR. Your normal bookmark for the app stays as it is.</p>
     <div class="bwpick"><span>Your browser:</span>
@@ -535,8 +536,8 @@
   <div class="top">
     <div class="brand">
       <div class="name">
-        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><mask id="lm"><rect width="32" height="32" fill="#000"/><circle cx="16" cy="16" r="15" fill="#fff"/><circle cx="16" cy="16" r="1.9" fill="#000"/><circle cx="16" cy="8" r="1.9" fill="#000"/><circle cx="22.9" cy="12" r="1.9" fill="#000"/><circle cx="22.9" cy="20" r="1.9" fill="#000"/><circle cx="16" cy="24" r="1.9" fill="#000"/><circle cx="9.1" cy="20" r="1.9" fill="#000"/><circle cx="9.1" cy="12" r="1.9" fill="#000"/></mask><circle cx="16" cy="16" r="15" fill="var(--optic-bright)" mask="url(#lm)"/></svg>
-        Pickleball
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="29" fill="var(--optic-bright)"/><g fill="#0E1512" opacity=".2"><circle cx="22" cy="15" r="3"/><circle cx="36" cy="11.5" r="3"/><circle cx="48" cy="38" r="3"/><circle cx="40" cy="51" r="3"/><circle cx="25" cy="52" r="3"/><circle cx="10.5" cy="28" r="3"/></g><polyline points="13,44 24,34 34,38.5 49,19.5" fill="none" stroke="#0E1512" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><g fill="#0E1512"><circle cx="13" cy="44" r="4.3"/><circle cx="24" cy="34" r="4.3"/><circle cx="34" cy="38.5" r="4.3"/><circle cx="49" cy="19.5" r="5.4"/></g></svg>
+        <div><div>Dink Data</div><div class="tagline">your DUPR history, analysed</div></div>
       </div>
     </div>
     <div style="display:flex;gap:9px;align-items:center">
@@ -547,7 +548,7 @@
   </div>
 
   <div class="card pad welcome" id="welcome" hidden>
-    <h2>👋 Your DUPR history, analysed</h2>
+    <h2>👋 Welcome to Dink Data</h2>
     <p>See how you do by event, partner and opponent, who you play best and worst with compared with what the ratings expect, your form, close games and streaks.</p>
     <ol>
       <li>Set up the <b>🔄 Sync</b> bookmark (one time, about a minute).</li>
@@ -881,7 +882,7 @@
             <div><b>On a computer</b><span>About 10 seconds</span></div></div>
           <ol class="dev-steps">
             <li>Show your bookmarks bar: <b>Ctrl+Shift+B</b> (Mac: <b>⌘+Shift+B</b>).</li>
-            <li>Drag this button onto it: <a class="bm" id="syncBm" href="javascript:(()=>{const s=document.createElement('script');s.src='https://colin-oconnor13.github.io/PBStats/sync.js?'+Date.now();s.onerror=()=>alert('PB Sync could not load https://colin-oconnor13.github.io/PBStats/sync.js. Check your connection and try again.');document.body.appendChild(s);})()">🔄 Sync to Pickleball</a></li>
+            <li>Drag this button onto it: <a class="bm" id="syncBm" href="javascript:(()=>{const s=document.createElement('script');s.src='https://colin-oconnor13.github.io/PBStats/sync.js?'+Date.now();s.onerror=()=>alert('PB Sync could not load https://colin-oconnor13.github.io/PBStats/sync.js. Check your connection and try again.');document.body.appendChild(s);})()">🔄 Sync to Dink Data</a></li>
             <li>To sync: tap <b>🔄 Sync now</b>, then click the bookmark on the DUPR page.</li>
           </ol>
         </div>
@@ -923,7 +924,7 @@
   if(!DATA)try{DATA=await fetch('./data/data.json?_='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json();});}
   catch(e){if(BROWSER)DATA=EMPTY;else{document.body.innerHTML='<div style="max-width:560px;margin:60px auto;padding:0 24px;font-family:system-ui;line-height:1.6">'
     +'<h2>Couldn’t load your data</h2><p>The app reads <code>data/data.json</code>, which didn’t load. '
-    +'If this is a fresh deploy, sync from DUPR with the 🔄 Sync to Pickleball bookmark.</p></div>';return;}}
+    +'If this is a fresh deploy, sync from DUPR with the 🔄 Sync to Dink Data bookmark.</p></div>';return;}}
   try{COMMITTED=await fetch('./data/overrides.json?_='+Date.now()).then(r=>r.ok?r.json():{});}catch(e){COMMITTED={};}
   // A just-synced data.json, used until GitHub Pages serves the new commit (~1 min).
   try{const f=JSON.parse(sessionStorage.getItem('pb-fresh')||'null');
@@ -1603,7 +1604,7 @@
         rd.onload=()=>{try{const o=JSON.parse(rd.result),d=o.data||o;if(!Array.isArray(d.matches))throw 0;
           localStorage.setItem(DKEY,JSON.stringify(d));const ov=o.overrides;
           if(ov){const m=ov.meta||{};save(MKEY,{events:m.events||{},partnersHidden:m.partnersHidden||[]});save(TKEY,ov.tags||{});}
-          location.reload();}catch(err){byId('syncMsg').textContent='That isn’t a Pickleball export file.';}};rd.readAsText(f);};
+          location.reload();}catch(err){byId('syncMsg').textContent='That isn’t a Dink Data export file.';}};rd.readAsText(f);};
       const ca=byId('clrAll');ca.onclick=()=>{if(ca.dataset.sure){[DKEY,MKEY,TKEY,SKEY,VKEY].forEach(k=>{try{localStorage.removeItem(k);}catch(e){}});IDB.clear().catch(()=>{}).then(()=>location.reload());}
         else{ca.dataset.sure=1;ca.textContent='Tap again to delete everything';}};
       return;
@@ -2293,7 +2294,7 @@
       decodePb(hash).then(d=>handle(d,true),err=>{show('The sync data didn’t come through intact ('+err.message+'). Run the bookmark again on dashboard.dupr.com.',true);buttons([closeBtn]);});
       return;
     }
-    if(!window.opener){show('To sync, open dashboard.dupr.com (logged in) and run your 🔄 Sync to Pickleball bookmark there.');buttons([closeBtn]);return;}
+    if(!window.opener){show('To sync, open dashboard.dupr.com (logged in) and run your 🔄 Sync to Dink Data bookmark there.');buttons([closeBtn]);return;}
     show('Fetching your matches from DUPR…');buttons([]);
     let got=false;
     const timer=setTimeout(()=>{if(!got){show('Nothing arrived from DUPR. Make sure you clicked the bookmark on dashboard.dupr.com while logged in, then try again.',true);buttons([closeBtn]);}},120000);

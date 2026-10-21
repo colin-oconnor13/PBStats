@@ -1,4 +1,4 @@
-// "🔄 Sync to Pickleball" bookmarklet — readable source.
+// "🔄 Sync to Dink Data" bookmarklet — readable source.
 // Runs on dashboard.dupr.com, where your login cookie already works, so no DUPR
 // token is ever copied or stored. It fetches your history right there (with a small
 // progress panel, so the page stays in front — phones pause background tabs), trims
@@ -24,7 +24,7 @@
   box.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:2147483647;max-width:420px;margin:0 auto;'
     + 'background:#14201a;color:#eef3ef;border:1px solid #35B79E;border-radius:14px;padding:16px 18px;'
     + 'font:15px/1.5 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.4)';
-  box.innerHTML = '<b style="font-size:16px">🔄 Sync to Pickleball</b><div id="pb-sync-msg" style="margin-top:6px">Starting…</div>';
+  box.innerHTML = '<b style="font-size:16px">🔄 Sync to Dink Data</b><div id="pb-sync-msg" style="margin-top:6px">Starting…</div>';
   document.body.appendChild(box);
   const say = t => { box.querySelector('#pb-sync-msg').textContent = t; };
   const fail = t => {

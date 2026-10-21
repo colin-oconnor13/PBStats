@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run the Pickleball app locally for your own DUPR account.
+"""Run the Dink Data app locally for your own DUPR account.
 
     python tools/serve_local.py            # then open http://localhost:8000
     python tools/serve_local.py --port 8123
@@ -124,7 +124,7 @@ def main():
     Handler.port = a.port
     srv = http.server.ThreadingHTTPServer(("127.0.0.1", a.port), Handler)
     who = cfg.get("code") or "(whoever is logged in to DUPR)"
-    print(f"Pickleball (local) for DUPR {who}: http://localhost:{a.port}/   Ctrl+C to stop")
+    print(f"Dink Data (local) for DUPR {who}: http://localhost:{a.port}/   Ctrl+C to stop")
     try:
         srv.serve_forever()
     except KeyboardInterrupt:
