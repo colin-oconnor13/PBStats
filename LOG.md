@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — phone setup: a separate bookmark via a helper page
+- The phone steps said to ☆ "this page" and edit it into PB Sync. In Chrome that edits the
+  bookmark you already have for the app (or leaves you without one), and Chrome won't make a
+  second bookmark of the same address. New step 1, **📌 Open bookmark helper**, opens the app
+  at `?bm=1`, a distinct address, so the ☆ makes a new bookmark. That page shows a "you're on
+  the helper page" note, opens the sync card, marks step 1 done and offers **Done — back to the
+  app**. Steps now: open helper → copy code → ☆ → Edit (name PB Sync, paste over the URL).
+  README updated. SW rj-v80.
+
 ## 2026-10-20 — Standouts: no green "Toughest partner" / "Nemesis"
 - Standout tiles were coloured by the sign of wins-vs-expected, so in a view where everyone beat
   expectations the toughest partner / nemesis showed green with a "+". Tiles are now coloured by

@@ -32,8 +32,11 @@ Sync whenever you've played. It runs in your own browser while you're logged in 
 **One time, computer:** open the app → **🔄 Sync from DUPR** card (bottom of the page) → drag the
 **🔄 Sync to Pickleball** button to your bookmarks bar.
 
-**One time, phone:** in the same card tap **📋 Copy bookmark code**, bookmark any page, edit that
-bookmark, name it **PB Sync** and paste the code over its address.
+**One time, phone:** you need a *second* bookmark just for syncing (your normal bookmark of the
+app stays). In the same card tap **📌 Open bookmark helper**. That's the app at its own address
+(`?bm=1`), so Chrome's ☆ makes a new bookmark there rather than editing your existing one. Tap
+**📋 Copy bookmark code**, bookmark the helper page (⋮ → ☆), then **Edit** it: name it **PB Sync**
+and replace its address with the code.
 
 **Each sync:**
 
