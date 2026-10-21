@@ -1859,11 +1859,16 @@
       return [...g.values()].map(r=>({name:r.name,s:expStats(r.ms)})).filter(r=>r.s&&r.s.n>=PPL_MIN);};
     const partners=build('partner'),opps=build('opp');
     const by=(arr,best)=>arr.length?arr.slice().sort((a,b)=>best?b.s.woe-a.s.woe:a.s.woe-b.s.woe)[0]:null;
-    const tiles=[];const tile=(lab,r)=>{if(!r)return;const v=(r.s.woe>=0?'+':'')+r.s.woe.toFixed(1);
-      tiles.push(`<div class="kpi"><div class="v mono ${r.s.woe>=0?'imp-up':'imp-dn'}" style="font-size:15px;line-height:1.2">${enc(r.name)}</div><div class="l">${lab} <span class="sub">${v} vs exp · ${r.s.n} M</span></div></div>`);};
+    // A "best" tile needs someone above expected and a "toughest" tile someone below; otherwise
+    // it says so (muted) rather than naming, say, a toughest partner who still beat expectations.
+    const tiles=[];const tile=(lab,r,good)=>{if(!r)return;
+      const st=`style="font-size:15px;line-height:1.2"`;
+      if(good?r.s.woe<=0:r.s.woe>=0){tiles.push(`<div class="kpi"><div class="v" style="font-size:15px;line-height:1.2;color:var(--muted)">Nobody</div><div class="l">${lab} <span class="sub">no one ${good?'above':'below'} expected</span></div></div>`);return;}
+      const v=(r.s.woe>=0?'+':'')+r.s.woe.toFixed(1);
+      tiles.push(`<div class="kpi"><div class="v mono ${good?'imp-up':'imp-dn'}" ${st}>${enc(r.name)}</div><div class="l">${lab} <span class="sub">${v} vs exp · ${r.s.n} M</span></div></div>`);};
     const bp=by(partners,true),wp=by(partners,false),fo=by(opps,true),no=by(opps,false);
-    tile('Best partner',bp);if(wp&&wp!==bp)tile('Toughest partner',wp);
-    tile('Favourite opponent',fo);if(no&&no!==fo)tile('Nemesis',no);
+    tile('Best partner',bp,true);if(wp&&wp!==bp)tile('Toughest partner',wp,false);
+    tile('Favourite opponent',fo,true);if(no&&no!==fo)tile('Nemesis',no,false);
     byId('standCard').hidden=!tiles.length;byId('standKpis').innerHTML=tiles.join('');
   }
   // Your average per-11 margin WITH each partner vs your overall margin (the baseline).

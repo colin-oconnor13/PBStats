@@ -2,6 +2,12 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — Standouts: no green "Toughest partner" / "Nemesis"
+- Standout tiles were coloured by the sign of wins-vs-expected, so in a view where everyone beat
+  expectations the toughest partner / nemesis showed green with a "+". Tiles are now coloured by
+  role (best = green, toughest = red) and only name someone on the right side of expected;
+  otherwise the tile reads "Nobody — no one below (above) expected", muted. SW rj-v79.
+
 ## 2026-10-20 — Signal uses points as well as wins; Leaning ↑/↓
 - **Evidence score** (`expStats` → `z`, with `zw`/`zm` kept): wins-vs-expected z plus a points
   z (mean margin-vs-expected × √n ÷ `MODEL.sig`, the residual spread across all matches),
