@@ -2,6 +2,15 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — phone tip: use the desktop site if DUPR sends you to its app
+- Tester feedback: logging in at dashboard.dupr.com on a phone with the DUPR app took them into
+  the app. DUPR's mobile site runs a Branch "Journeys" redirect (`window.top.location` to
+  `mydupr-alternate.app.link/…?__branch_flow_type=viewapp`), which hands off to the app, and it
+  doesn't fire on every visit. The **On a phone** panel now has a "DUPR keeps sending you to its
+  app?" tip: switch the DUPR tab to the desktop site (Chrome/Brave ⋮ → Desktop site; Edge … →
+  View desktop site; Safari aA → Request Desktop Website), log in, run PB Sync. Not yet
+  confirmed by the tester. SW rj-v84.
+
 ## 2026-10-20 — clearer first-time setup; iPhone + DUPR app; no Edge warning
 - **Setup section redesigned:** a bigger "First time on this device?" heading and two panels with
   drawn icons, **On a computer** (Ctrl/⌘+Shift+B, drag the button, sync) and **On a phone**

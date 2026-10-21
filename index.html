@@ -353,6 +353,8 @@
   .dev-head b{display:block;font-family:"Archivo",sans-serif;font-weight:800;font-size:15px}
   .dev-head span{font-size:12px;color:var(--muted)}
   .dev-note{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
+  .dev-tip{margin-top:12px;padding:10px 12px;border-radius:10px;background:var(--accent-soft);font-size:12.5px;line-height:1.55}
+  .th-body .dev-tip ul{margin:6px 0 0;padding-left:18px} .th-body .dev-tip li{margin-bottom:3px}
   .th-body .dev-steps{padding-left:20px;margin:8px 0 0}
   .th-body .dev-steps li{margin-bottom:9px}
   @media(max-width:620px){.devices{grid-template-columns:1fr}.dev-phone{order:-1}}
@@ -850,6 +852,12 @@
             <li>Tap this and follow the steps:<br><a class="syncbtn prim" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none;margin-top:6px">📌 Set up on this phone</a></li>
             <li>To sync: tap <b>🔄 Sync now</b>, then on DUPR type <b>PB Sync</b> in the address bar and tap the ☆ suggestion.</li>
           </ol>
+          <div class="dev-tip"><b>DUPR keeps sending you to its app?</b> On the DUPR page in your browser, switch to the desktop site, then log in and run <b>PB Sync</b>. DUPR’s app redirect is aimed at phones, so the desktop site should stay in the browser.
+            <ul>
+              <li><b>Chrome / Brave:</b> <b>⋮</b> menu → tick <b>Desktop site</b></li>
+              <li><b>Edge:</b> <b>…</b> menu → <b>View desktop site</b></li>
+              <li><b>Safari (iPhone):</b> <b>aA</b> in the address bar → <b>Request Desktop Website</b></li>
+            </ul></div>
         </div>
       </div>
       <p class="muted gh-only">The first sync on a device asks for your GitHub token so it can save.</p>
