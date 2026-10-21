@@ -367,6 +367,12 @@
   .bmpage h2{margin:6px 0 8px}
   .bmpage .steps{gap:16px;margin:18px 0}
   .bmpage .step{font-size:14.5px}
+  .bwpick{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:14px 0 4px;font-size:12.5px;color:var(--muted)}
+  .bwpick button{font:inherit;font-weight:600;color:var(--ink);background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+  .bwpick button.on{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+  .bmpage .bwsteps{margin-top:0}
+  .bmpage .bwsteps:not(.on){display:none}
+  .bmpage .bwnote{font-size:12px;margin:0 0 4px}
   .bmpage .use{padding:12px 14px;border-radius:10px;background:var(--accent-soft);font-size:13.5px;line-height:1.5;margin:14px 0}
   .step{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.5}
   .stepn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
@@ -482,15 +488,50 @@
     <div class="kicker">Pickleball · one-time phone setup</div>
     <h2>Make your <span style="white-space:nowrap">PB Sync</span> bookmark</h2>
     <p class="muted">This page is only here to be bookmarked. You’ll turn that bookmark into a sync button you run on DUPR. Your normal bookmark for the app stays as it is.</p>
+    <div class="bwpick"><span>Your browser:</span>
+      <button type="button" data-bw="chrome">Chrome / Brave</button><button type="button" data-bw="edge">Edge</button><button type="button" data-bw="safari">Safari (iPhone)</button><button type="button" data-bw="other">Other</button></div>
     <div class="steps">
       <div class="step"><span class="stepn">1</span><div><b>Copy the sync code</b><br><button class="syncbtn prim" id="copyBm" type="button" style="margin-top:6px">📋 Copy code</button> <span id="copyMsg"></span></div></div>
+    </div>
+    <div class="steps bwsteps" data-bw="chrome">
       <div class="step"><span class="stepn">2</span><div><b>Bookmark this page</b><br>Tap <b>⋮</b> (top right), then the <b>☆</b>.</div></div>
       <div class="step"><span class="stepn">3</span><div><b>Edit that bookmark</b><br>Tap <b>Edit</b> in the bar that pops up at the bottom. Missed it? Tap <b>⋮</b> → <b>★</b> again.</div></div>
       <div class="step"><span class="stepn">4</span><div><b>Paste the code as its URL</b><br>The name is already <b>PB Sync</b>. In the <b>URL</b> box, delete what’s there and paste. Go back to save.</div></div>
+      <div class="step"><span class="stepn">5</span><div><b>To sync from then on</b><br>On <b>dashboard.dupr.com</b> (logged in), tap the address bar, type <b>PB Sync</b> and tap the suggestion with the ☆. Tapping it in the Bookmarks list won’t run it.</div></div>
     </div>
-    <div class="use"><b>To sync from then on:</b> open <b>dashboard.dupr.com</b> and log in, tap the address bar, type <b>PB Sync</b>, and tap the suggestion with the ☆. Tapping it in the Bookmarks list won’t work.<br><br>Have the DUPR app? Type <b>dashboard.dupr.com</b> into the address bar rather than tapping a link to it. Typing keeps you in the browser, where the bookmark works.</div>
+    <div class="steps bwsteps" data-bw="edge">
+      <div class="step"><span class="stepn">2</span><div><b>Add this page to Favorites</b><br>Edge calls bookmarks <b>Favorites</b>. Open the <b>…</b> menu and tap the <b>☆</b> (Add to favorites).</div></div>
+      <div class="step"><span class="stepn">3</span><div><b>Edit that favorite</b><br>Open <b>…</b> → <b>Favorites</b>, find <b>PB Sync</b>, open its menu (<b>⋮</b> or long-press) → <b>Edit</b>.</div></div>
+      <div class="step"><span class="stepn">4</span><div><b>Paste the code as its URL</b><br>The name is already <b>PB Sync</b>. In the <b>URL</b> box, delete what’s there and paste. Save.</div></div>
+      <div class="step"><span class="stepn">5</span><div><b>To sync from then on</b><br>On <b>dashboard.dupr.com</b> (logged in), tap the address bar, type <b>PB Sync</b> and tap the favorite in the suggestions.</div></div>
+    </div>
+    <div class="steps bwsteps" data-bw="safari">
+      <div class="step"><span class="stepn">2</span><div><b>Bookmark this page</b><br>Tap <b>Share</b> (the square with an arrow ↑), then <b>Add Bookmark</b> → <b>Save</b>.</div></div>
+      <div class="step"><span class="stepn">3</span><div><b>Open it for editing</b><br>Open your <b>Bookmarks</b> (the open-book icon), tap <b>Edit</b>, then tap <b>PB Sync</b>.</div></div>
+      <div class="step"><span class="stepn">4</span><div><b>Paste the code as its address</b><br>The name is already <b>PB Sync</b>. In the address box under it, delete what’s there and paste. Tap <b>Done</b>.</div></div>
+      <div class="step"><span class="stepn">5</span><div><b>To sync from then on</b><br>On <b>dashboard.dupr.com</b> (logged in), open your <b>Bookmarks</b> and tap <b>PB Sync</b>.</div></div>
+    </div>
+    <div class="steps bwsteps" data-bw="other">
+      <div class="step"><span class="stepn">2</span><div><b>Bookmark this page</b><br>Use your browser’s bookmark or favorite (☆) option.</div></div>
+      <div class="step"><span class="stepn">3</span><div><b>Edit that bookmark</b><br>Find it in your bookmarks and choose Edit.</div></div>
+      <div class="step"><span class="stepn">4</span><div><b>Paste the code as its address (URL)</b><br>Keep the name <b>PB Sync</b>, delete the address and paste the code. Save.</div></div>
+      <div class="step"><span class="stepn">5</span><div><b>To sync from then on</b><br>On <b>dashboard.dupr.com</b> (logged in), run the bookmark: type <b>PB Sync</b> in the address bar and pick it, or tap it in your bookmarks. Some browsers only run it one of those ways.</div></div>
+    </div>
+    <p class="muted bwnote">Menus differ a little between browser versions. If yours doesn’t match, look for the same idea: bookmark this page, edit it, and paste the code as its address.</p>
+    <div class="use"><b>DUPR keeps sending you to its app?</b> On the DUPR page, switch to the desktop site, then log in and run <b>PB Sync</b>. Chrome / Brave: <b>⋮</b> → <b>Desktop site</b>. Edge: <b>…</b> → <b>View desktop site</b>. Safari: the <b>menu button next to the web address</b> (shows <b>aA</b> or <b>⋯</b>, depending on your iPhone) → <b>Request Desktop Website</b>.</div>
     <a class="syncbtn" href="./" style="display:inline-block;text-decoration:none">← Back to the app</a>
   </div>
+  <script>
+  // Bookmark helper: show the steps for this browser (a guess from the user agent; the pills switch).
+  (function(){
+    var ua=navigator.userAgent,ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+    var bw=/EdgA|EdgiOS|Edg\//.test(ua)?'edge':(ios&&!/CriOS|FxiOS/.test(ua))?'safari':(/Chrome\//.test(ua)&&!/SamsungBrowser|OPR\//.test(ua)&&!ios)?'chrome':'other';
+    var page=document.getElementById('bmPage');
+    function show(b){page.querySelectorAll('[data-bw]').forEach(function(e){e.classList.toggle('on',e.getAttribute('data-bw')===b);});}
+    page.querySelectorAll('.bwpick button').forEach(function(btn){btn.onclick=function(){show(btn.getAttribute('data-bw'));};});
+    show(bw);
+  })();
+  </script>
   <div class="top">
     <div class="brand">
       <div class="name">
@@ -850,13 +891,13 @@
           <p class="dev-note">You can’t drag a bookmark on a phone, so you make a second one just for syncing. Your normal bookmark for this app stays.</p>
           <ol class="dev-steps">
             <li>Tap this and follow the steps:<br><a class="syncbtn prim" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none;margin-top:6px">📌 Set up on this phone</a></li>
-            <li>To sync: tap <b>🔄 Sync now</b>, then on DUPR type <b>PB Sync</b> in the address bar and tap the ☆ suggestion.</li>
+            <li>To sync: tap <b>🔄 Sync now</b>, then run <b>PB Sync</b> on the DUPR page. The setup page shows how in your browser.</li>
           </ol>
           <div class="dev-tip"><b>DUPR keeps sending you to its app?</b> On the DUPR page in your browser, switch to the desktop site, then log in and run <b>PB Sync</b>. DUPR’s app redirect is aimed at phones, so the desktop site should stay in the browser.
             <ul>
               <li><b>Chrome / Brave:</b> <b>⋮</b> menu → tick <b>Desktop site</b></li>
               <li><b>Edge:</b> <b>…</b> menu → <b>View desktop site</b></li>
-              <li><b>Safari (iPhone):</b> <b>aA</b> in the address bar → <b>Request Desktop Website</b></li>
+              <li><b>Safari (iPhone):</b> the <b>menu button next to the web address</b> (shows <b>aA</b> or <b>⋯</b>, depending on your iPhone) → <b>Request Desktop Website</b></li>
             </ul></div>
         </div>
       </div>
@@ -2093,7 +2134,7 @@
       const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
       const w=window.open('https://dashboard.dupr.com'+(ios?'/session':''),'_blank');
       const tip=byId('syncTip');
-      tip.innerHTML=`<span>DUPR opened in a new tab. There: tap the address bar, type <b>${SYNC_KW}</b>${copied?' (copied — paste it)':''}, and tap the <b>★ ${SYNC_KW}</b> bookmark. It syncs and returns to the app.`
+      tip.innerHTML=`<span>DUPR opened in a new tab. There, run your <b>${SYNC_KW}</b> bookmark: type <b>${SYNC_KW}</b> in the address bar${copied?' (copied — paste it)':''} and pick the bookmark (in Safari, you can tap it in Bookmarks). It syncs and returns to the app.`
         +(ios?` DUPR may say <b>page not found</b>: that’s expected (it keeps you out of the DUPR app). Run ${SYNC_KW} there anyway.`:'')
         +`<br><span class="muted">No <b>${SYNC_KW}</b> bookmark yet? Set it up below first. The DUPR app opened instead? Switch back to your browser, type <b>dashboard.dupr.com</b> in the address bar and go. Typing it keeps you in the browser.</span></span><button title="Dismiss" aria-label="Dismiss">✕</button>`;
       tip.hidden=false;tip.querySelector('button').onclick=()=>{tip.hidden=true;};

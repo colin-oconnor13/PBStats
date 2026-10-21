@@ -35,8 +35,8 @@ Sync whenever you've played. It runs in your own browser while you're logged in 
 **One time, phone:** you need a *second* bookmark just for syncing (your normal bookmark of the
 app stays). In the same card tap **📌 Set up on this phone**. It opens a setup-only page at its own
 address (`?bm=1`, titled "PB Sync"), so Chrome's ☆ makes a new, already-named bookmark rather
-than editing your existing one. Tap **📋 Copy code**, bookmark that page (⋮ → ☆), tap **Edit**
-and replace its URL with the code.
+than editing your existing one. It shows the steps for your browser (Chrome/Brave, Edge, Safari or other):
+copy the code, bookmark that page, edit the bookmark and replace its URL with the code.
 
 **Each sync:**
 

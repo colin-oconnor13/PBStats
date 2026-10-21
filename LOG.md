@@ -2,6 +2,17 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — setup page: steps for your browser
+- The bookmark helper's steps were Chrome-only. It now guesses the browser from the user agent
+  (Edge → `edge`; iOS Safari → `safari`; Android Chrome/Brave → `chrome`; anything else,
+  incl. Chrome on iOS and Samsung Internet → `other`) and shows that set of steps 2–5, with
+  pills to switch. Edge uses Favorites wording; Safari uses Share → Add Bookmark, then
+  Bookmarks → Edit, and runs from Bookmarks. Edge/Safari menu wording is best-effort and
+  untested on devices; a note says menus vary by version.
+- The desktop-site tip is on the setup page too, and Safari's is worded as "the menu button
+  next to the web address (aA or ⋯)" since the icon differs across iOS versions. The phone
+  panel and Sync-now tip no longer assume Chrome's ☆ suggestion. SW rj-v85.
+
 ## 2026-10-20 — phone tip: use the desktop site if DUPR sends you to its app
 - Tester feedback: logging in at dashboard.dupr.com on a phone with the DUPR app took them into
   the app. DUPR's mobile site runs a Branch "Journeys" redirect (`window.top.location` to
