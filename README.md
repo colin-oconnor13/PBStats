@@ -111,8 +111,12 @@ account needs a public repo, and the synced `data/data.json` would then be publi
 - **Matchup strength / edge (Δ)**: (your DUPR + partner's) / 2 − opponents' average DUPR.
 - **Expected win %**: `1 / (1 + 10^(−Δ / S))`, the predictor repo's DUPR curve, with S fitted to
   your own matches. Δ uses everyone's DUPR going into the match.
-- **Wins vs expected**: actual wins − expected wins. **Signal** (z = gap ÷ what chance alone gives):
-  Strong when |z| clears a cutoff that allows for how many rows the table tests (two-sided 5%
-  shared across them; about 3.3 for 45 people, never below 2), Some at |z| ≥ 2, otherwise
-  Could be luck.
+- **Wins vs expected**: actual wins − expected wins.
+- **Signal**: an evidence score z built from two surprises, each divided by what chance alone
+  gives: wins vs expected, and margin vs expected (spread measured across all your matches).
+  They're added and scaled by √(2 + 2ρ), ρ being how closely the two track each other in your
+  matches (about 0.85), so shared evidence isn't counted twice. **Strong** when |z| clears a
+  cutoff that allows for how many rows the table tests (two-sided 5% shared across them; about
+  3.3 for 45 people, never below 2), **Some** at |z| ≥ 2, **Leaning** at 1–2 (direction only),
+  otherwise **Could be luck**. An arrow shows the direction.
 - **DUPR Δ / match**: DUPR's own rating change, which already accounts for the opponents.

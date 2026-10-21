@@ -771,7 +771,7 @@
     <div class="card pad guide">
       <h3>How much to trust a row</h3>
       <p>A few good or bad nights can make any split look dramatic. Two things help you tell a real pattern from a fluke:</p>
-      <div class="gdef"><b>Signal</b><span class="d"><span class="pill-ex pe-good">Strong</span> a real pattern, beyond luck even allowing for how many people the table lists. <span class="pill-ex pe-mid">Some</span> would be convincing on its own, but in a long list one or two like it turn up by chance. <span class="pill-ex pe-mid">Could be luck</span> within the range of normal chance — don’t read into it.</span></div>
+      <div class="gdef"><b>Signal</b><span class="d">Weighs your wins <em>and</em> your points against what the ratings expected; the arrow says which way (↑ better, ↓ worse). <span class="pill-ex pe-good">Strong</span> a real pattern, beyond luck even allowing for how many people the table lists. <span class="pill-ex pe-mid">Some</span> would be convincing on its own, but in a long list one or two like it turn up by chance. <span class="pill-ex pe-mid">Leaning</span> a direction only, well within luck so far. <span class="pill-ex pe-mid">Could be luck</span> within the range of normal chance — don’t read into it.</span></div>
       <div class="gdef"><b>Small samples</b><span class="d">Anyone you’ve played fewer than <b>4</b> times (or fewer than <b>10</b> games, in the games table) is listed separately and greyed out. One result swings these a lot, so treat them as early hints, not conclusions.</span></div>
     </div>
 
@@ -1640,7 +1640,18 @@
     const Y=X.filter(m=>m.normMargin!=null);let a=0,b=0;
     if(Y.length>=10){const mx=Y.reduce((s,m)=>s+m.diffPre,0)/Y.length,my=Y.reduce((s,m)=>s+m.normMargin,0)/Y.length;
       const sxx=Y.reduce((s,m)=>s+(m.diffPre-mx)**2,0);b=sxx?Y.reduce((s,m)=>s+(m.diffPre-mx)*(m.normMargin-my),0)/sxx:0;a=my-b*mx;}
-    return {S,fitted,n:X.length,nPre:X.filter(m=>m.allPre).length,a,b,pWin:d=>1/(1+Math.pow(10,-d/S)),margin:d=>a+b*d};
+    const pWin=d=>1/(1+Math.pow(10,-d/S)),margin=d=>a+b*d;
+    // For the Signal: how much a match's margin normally strays from the expected one (sig), and
+    // how closely that tracks the win/loss surprise (rho; ~0.85, since points and wins move
+    // together). Both are measured once across all your matches.
+    let sig=null,rho=0;
+    if(Y.length>=10){
+      const rw=Y.map(m=>{const p=pWin(m.diffPre);return (m.won-p)/Math.sqrt(p*(1-p));}),rm=Y.map(m=>m.normMargin-margin(m.diffPre));
+      sig=Math.sqrt(rm.reduce((s,v)=>s+v*v,0)/(Y.length-2));
+      const mw=rw.reduce((s,v)=>s+v,0)/Y.length,mm=rm.reduce((s,v)=>s+v,0)/Y.length;
+      const cov=rw.reduce((s,v,i)=>s+(v-mw)*(rm[i]-mm),0),vw=rw.reduce((s,v)=>s+(v-mw)**2,0),vm=rm.reduce((s,v)=>s+(v-mm)**2,0);
+      rho=vw&&vm?Math.max(0,cov/Math.sqrt(vw*vm)):0;}
+    return {S,fitted,n:X.length,nPre:X.filter(m=>m.allPre).length,a,b,sig,rho,pWin,margin};
   })();
   // Expected-vs-actual for any set of matches (same maths as the index), one table row each.
   function expStats(ms){
@@ -1648,19 +1659,30 @@
     const ps=ms.map(m=>MODEL.pWin(m.diffPre)),exp=ps.reduce((s,p)=>s+p,0),w=ms.filter(m=>m.won).length;
     const sd=Math.sqrt(ps.reduce((s,p)=>s+p*(1-p),0)),mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
     const im=ms.filter(m=>m.impact!=null).map(m=>m.impact);
-    return {n:ms.length,w,exp,woe:w-exp,z:sd?(w-exp)/sd:0,expPct:exp/ms.length,
-      mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null,imp:im.length?im.reduce((s,v)=>s+v,0)/im.length:null};
+    const mres=mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null;
+    // Evidence score z: the wins surprise (zw) and the points surprise (zm, margin vs expected in
+    // units of its normal spread) added, then scaled down for how much they overlap (rho), so the
+    // same evidence isn't counted twice. Falls back to wins alone without score data.
+    const zw=sd?(w-exp)/sd:0,zm=(MODEL.sig&&mr.length)?mres*Math.sqrt(mr.length)/MODEL.sig:null;
+    const z=zm==null?zw:(zw+zm)/Math.sqrt(2+2*MODEL.rho);
+    return {n:ms.length,w,exp,woe:w-exp,z,zw,zm,expPct:exp/ms.length,mres,imp:im.length?im.reduce((s,v)=>s+v,0)/im.length:null};
   }
-  // Signal for a wins-vs-expected z score, judged against the k rows tested in the same table.
+  // Signal for an evidence score z, judged against the k rows tested in the same table.
   // A list of 45 opponents throws up a |z|≥2 or two by luck alone, so Strong needs to clear a
-  // Bonferroni cutoff (two-sided 5% shared across k rows, never below 2); |z|≥2 alone is Some.
+  // Bonferroni cutoff (two-sided 5% shared across k rows, never below 2); |z|≥2 alone is Some;
+  // 1–2 is shown as a direction only (Leaning), below 1 as Could be luck.
   const zTail=z=>{const x=z/Math.SQRT2,t=1/(1+0.3275911*x);   // two-sided normal tail, A&S 7.1.26
     return t*(0.254829592+t*(-0.284496736+t*(1.421413741+t*(-1.453152027+t*1.061405429))))*Math.exp(-x*x);};
   const zCrit=k=>{let lo=0,hi=10;for(let i=0;i<50;i++){const mid=(lo+hi)/2;if(zTail(mid)>0.05/Math.max(1,k))lo=mid;else hi=mid;}return Math.max(2,hi);};
-  const sigPill=(r,k)=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';const z=Math.abs(r.z);
-    return z>=zCrit(k)?`<span class="pxconf c2" title="A real pattern: beyond luck even allowing for the ${k} rows in this table">Strong</span>`
-      :z>=2?'<span class="pxconf c1" title="Would be convincing on its own, but in a long list one or two rows like this turn up by luck">Some</span>'
-      :'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
+  const sigPill=(r,k)=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';
+    const z=Math.abs(r.z),zc=zCrit(k),up=r.z>0,arrow=`<span class="${up?'imp-up':'imp-dn'}">${up?'↑':'↓'}</span>`;
+    const dir=up?'better':'worse',ev=`Evidence score ${z.toFixed(1)} from wins and points (${r.woe>=0?'+':''}${r.woe.toFixed(1)} wins`
+      +(r.mres!=null?`, ${sgn(r.mres)} per 11 points`:'')+` vs expected). Leaning from 1, Some from 2, Strong from ${zc.toFixed(1)} for this ${k}-row table.`;
+    const pill=(c,l,t)=>`<span class="pxconf ${c}" title="${t} ${ev}">${l}</span>`;
+    return z>=zc?pill('c2',`Strong ${arrow}`,`A real pattern: ${dir} than the ratings expect, beyond luck even allowing for how many rows this table has.`)
+      :z>=2?pill('c1',`Some ${arrow}`,`Probably ${dir} than the ratings expect, but in a long list one or two rows like this turn up by luck.`)
+      :z>=1?pill('c0',`Leaning ${arrow}`,`Tilting ${dir} than the ratings expect, but well within normal luck so far.`)
+      :pill('c0','Could be luck','Close to what the ratings expect.');};
   function expTable(id,label,rows){
     const k=rows.filter(([,,ms])=>ms.length>=PPL_MIN).length;
     const sig=s=>sigPill(s,k);
@@ -1734,12 +1756,9 @@
     const opp=pplMode==='opp',who=opp?'Opponent':'Partner';
     let unrated=0;
     const rows=peopleOf(list).map(r=>{
-      const ms=r.ms.filter(m=>m.diffPre!=null);if(!ms.length){unrated++;return null;}
-      const ps=ms.map(m=>MODEL.pWin(m.diffPre)),exp=ps.reduce((s,p)=>s+p,0),w=ms.filter(m=>m.won).length;
-      const sd=Math.sqrt(ps.reduce((s,p)=>s+p*(1-p),0)),woe=w-exp;
-      const mr=ms.filter(m=>m.normMargin!=null).map(m=>m.normMargin-MODEL.margin(m.diffPre));
-      return {...r,n:ms.length,w,exp,woe,z:sd?woe/sd:0,expPct:exp/ms.length,
-        edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length,mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null};
+      const s=expStats(r.ms);if(!s){unrated++;return null;}
+      const ms=r.ms.filter(m=>m.diffPre!=null);
+      return {...r,...s,edge:ms.reduce((s,m)=>s+m.diffPre,0)/ms.length};
     }).filter(Boolean).filter(matchName);
     const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));

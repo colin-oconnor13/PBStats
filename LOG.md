@@ -2,6 +2,19 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — Signal uses points as well as wins; Leaning ↑/↓
+- **Evidence score** (`expStats` → `z`, with `zw`/`zm` kept): wins-vs-expected z plus a points
+  z (mean margin-vs-expected × √n ÷ `MODEL.sig`, the residual spread across all matches),
+  combined as (zw + zm) / √(2 + 2·`MODEL.rho`), rho being the win/margin residual correlation
+  (~0.85 on real data), so the overlap isn't double-counted. Wins only when there are no scores.
+- **Leaning ↑/↓** for |z| 1–2 (a direction, well within luck); every non-luck pill carries an
+  arrow. The tap/hover text spells out the score, the wins and points behind it, and the
+  cutoffs for that table.
+- `renderIndex` now takes its numbers from `expStats` (it had its own copy of the maths).
+- On real data, opponents: wins-only 2 Some / 18 Leaning → combined 4 Some / 14 Leaning
+  (Rwit Chakravorty and Missy Netland join); partners unchanged (6 Leaning). Guide and README
+  updated. SW rj-v78.
+
 ## 2026-10-20 — sync-link hardening, stricter Signal, tap-to-explain on phones
 - **Crafted `#pb=` links no longer write anything by themselves.** Recent players bundled with a
   sync (`d.scouts`) used to go into IndexedDB as soon as the link was decoded, before any
