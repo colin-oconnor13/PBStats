@@ -343,7 +343,19 @@
   .syncgo{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 4px}
   .syncgo .muted{flex:1;min-width:180px;font-size:12px}
   .syncbtn.big{font-size:15px;padding:11px 20px}
-  .setup-h{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-weight:700;font-size:13px;color:var(--ink)}
+  .setup-h{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-family:"Archivo",sans-serif;font-weight:800;font-size:16px;color:var(--ink)}
+  /* First-time setup: one panel per device, side by side; stacked on phones with the phone first. */
+  .devices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+  .device{background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+  .dev-head{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+  .dev-ic{flex:none;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+  .dev-ic svg{width:28px;height:28px}
+  .dev-head b{display:block;font-family:"Archivo",sans-serif;font-weight:800;font-size:15px}
+  .dev-head span{font-size:12px;color:var(--muted)}
+  .dev-note{margin:4px 0 0;font-size:12.5px;color:var(--muted)}
+  .th-body .dev-steps{padding-left:20px;margin:8px 0 0}
+  .th-body .dev-steps li{margin-bottom:9px}
+  @media(max-width:620px){.devices{grid-template-columns:1fr}.dev-phone{order:-1}}
   .steps{display:flex;flex-direction:column;gap:10px;margin:10px 0}
   /* Phone bookmark helper (?bm=1): its own page, nothing of the app behind it. */
   :root:not(.bm-only) #bmPage{display:none}
@@ -474,7 +486,7 @@
       <div class="step"><span class="stepn">3</span><div><b>Edit that bookmark</b><br>Tap <b>Edit</b> in the bar that pops up at the bottom. Missed it? Tap <b>⋮</b> → <b>★</b> again.</div></div>
       <div class="step"><span class="stepn">4</span><div><b>Paste the code as its URL</b><br>The name is already <b>PB Sync</b>. In the <b>URL</b> box, delete what’s there and paste. Go back to save.</div></div>
     </div>
-    <div class="use"><b>To sync from then on:</b> open <b>dashboard.dupr.com</b> and log in, tap the address bar, type <b>PB Sync</b>, and tap the suggestion with the ☆. Use Chrome. Tapping it in the Bookmarks list won’t work.</div>
+    <div class="use"><b>To sync from then on:</b> open <b>dashboard.dupr.com</b> and log in, tap the address bar, type <b>PB Sync</b>, and tap the suggestion with the ☆. Tapping it in the Bookmarks list won’t work.<br><br>Have the DUPR app? Type <b>dashboard.dupr.com</b> into the address bar rather than tapping a link to it. Typing keeps you in the browser, where the bookmark works.</div>
     <a class="syncbtn" href="./" style="display:inline-block;text-decoration:none">← Back to the app</a>
   </div>
   <div class="top">
@@ -819,11 +831,28 @@
       <p>Pull in your latest matches whenever you’ve played. The sync runs in your own browser while you’re logged in to DUPR, so no DUPR token is stored anywhere.</p>
       <div class="syncgo"><button class="syncbtn prim big" id="cardSync">🔄 Sync now</button>
         <span class="muted">Already set up the bookmark below? Use this. It opens DUPR — then run <b>PB Sync</b> there.</span></div>
-      <div class="setup-h">First time? Set up the one-tap bookmark (once per device)</div>
-      <p class="muted"><b>Computer:</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(()=>{const s=document.createElement('script');s.src='https://colin-oconnor13.github.io/PBStats/sync.js?'+Date.now();s.onerror=()=>alert('PB Sync could not load https://colin-oconnor13.github.io/PBStats/sync.js. Check your connection and try again.');document.body.appendChild(s);})()">🔄 Sync to Pickleball</a></p>
-      <p class="muted" style="margin-top:10px"><b>Phone:</b> you can’t drag a bookmark, so you make a second bookmark just for syncing. This opens a short page that walks you through it (about a minute). Your normal bookmark for this app stays as it is.</p>
-      <p><a class="syncbtn" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none">📌 Set up on this phone</a></p>
-      <p class="muted">To sync after that: tap <b>🔄 Sync now</b> above (or in the header), then on the DUPR tab type <b>PB Sync</b> in the address bar and tap the bookmark. <span class="gh-only">The first sync on a device asks for your GitHub token so it can save. </span>On Android use <b>Chrome</b> — Edge won’t run bookmarks like this (viewing in Edge is fine).</p>
+      <div class="setup-h">First time on this device? Set up the <span style="white-space:nowrap">PB Sync</span> bookmark</div>
+      <div class="devices">
+        <div class="device dev-pc">
+          <div class="dev-head"><span class="dev-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="7" width="20" height="14" rx="2"/><path d="M3 25h26l-2-4H5z"/></svg></span>
+            <div><b>On a computer</b><span>About 10 seconds</span></div></div>
+          <ol class="dev-steps">
+            <li>Show your bookmarks bar: <b>Ctrl+Shift+B</b> (Mac: <b>⌘+Shift+B</b>).</li>
+            <li>Drag this button onto it: <a class="bm" id="syncBm" href="javascript:(()=>{const s=document.createElement('script');s.src='https://colin-oconnor13.github.io/PBStats/sync.js?'+Date.now();s.onerror=()=>alert('PB Sync could not load https://colin-oconnor13.github.io/PBStats/sync.js. Check your connection and try again.');document.body.appendChild(s);})()">🔄 Sync to Pickleball</a></li>
+            <li>To sync: tap <b>🔄 Sync now</b>, then click the bookmark on the DUPR page.</li>
+          </ol>
+        </div>
+        <div class="device dev-phone">
+          <div class="dev-head"><span class="dev-ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="3"/><path d="M14 25.5h4"/></svg></span>
+            <div><b>On a phone</b><span>About a minute</span></div></div>
+          <p class="dev-note">You can’t drag a bookmark on a phone, so you make a second one just for syncing. Your normal bookmark for this app stays.</p>
+          <ol class="dev-steps">
+            <li>Tap this and follow the steps:<br><a class="syncbtn prim" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none;margin-top:6px">📌 Set up on this phone</a></li>
+            <li>To sync: tap <b>🔄 Sync now</b>, then on DUPR type <b>PB Sync</b> in the address bar and tap the ☆ suggestion.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="muted gh-only">The first sync on a device asks for your GitHub token so it can save.</p>
     </div>
   </div>
 
@@ -2048,9 +2077,17 @@
     const SYNC_KW='PB Sync';
     const syncNow=()=>{
       let copied=false;try{navigator.clipboard.writeText(SYNC_KW);copied=true;}catch(e){}
-      const w=window.open('https://dashboard.dupr.com','_blank');
+      // iPhones with the DUPR app open every tapped dashboard.dupr.com link in the app except
+      // /session (DUPR's apple-app-site-association keeps sign-in links in the browser), so iOS
+      // goes there. Logged in it shows DUPR's "not found" page, which is fine: the bookmark works
+      // on any dashboard.dupr.com page. Android (Chrome, Edge, Brave) stays in the browser for
+      // the home page even with the app installed, so everyone else gets the normal page.
+      const ios=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+      const w=window.open('https://dashboard.dupr.com'+(ios?'/session':''),'_blank');
       const tip=byId('syncTip');
-      tip.innerHTML=`<span>DUPR opened in a new tab. There: tap the address bar, type <b>${SYNC_KW}</b>${copied?' (copied — paste it)':''}, and tap the <b>★ ${SYNC_KW}</b> bookmark. It syncs and returns to the app.<br><span class="muted">No <b>${SYNC_KW}</b> bookmark yet? Set it up below first.</span></span><button title="Dismiss" aria-label="Dismiss">✕</button>`;
+      tip.innerHTML=`<span>DUPR opened in a new tab. There: tap the address bar, type <b>${SYNC_KW}</b>${copied?' (copied — paste it)':''}, and tap the <b>★ ${SYNC_KW}</b> bookmark. It syncs and returns to the app.`
+        +(ios?` DUPR may say <b>page not found</b>: that’s expected (it keeps you out of the DUPR app). Run ${SYNC_KW} there anyway.`:'')
+        +`<br><span class="muted">No <b>${SYNC_KW}</b> bookmark yet? Set it up below first. The DUPR app opened instead? Switch back to your browser, type <b>dashboard.dupr.com</b> in the address bar and go. Typing it keeps you in the browser.</span></span><button title="Dismiss" aria-label="Dismiss">✕</button>`;
       tip.hidden=false;tip.querySelector('button').onclick=()=>{tip.hidden=true;};
       tip.scrollIntoView({behavior:'smooth',block:'center'});
       if(!w){/* pop-up blocked: at least open setup so they can find the bookmark */ toggle(true);}

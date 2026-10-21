@@ -2,6 +2,20 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — clearer first-time setup; iPhone + DUPR app; no Edge warning
+- **Setup section redesigned:** a bigger "First time on this device?" heading and two panels with
+  drawn icons, **On a computer** (Ctrl/⌘+Shift+B, drag the button, sync) and **On a phone**
+  (why a second bookmark, **📌 Set up on this phone**, how to sync). Side by side on wide
+  screens; stacked on phones with the phone panel first.
+- **DUPR app installed:** iPhones open every tapped dashboard.dupr.com link in the app except
+  `/session` (DUPR's apple-app-site-association), so on iOS **Sync now** opens `/session`, with a
+  note that DUPR's "page not found" there is expected (the bookmark runs on any DUPR page).
+  Android (Chrome, Edge, Brave) stays in the browser, so it keeps the home page. The Sync-now
+  tip and the setup page add a fallback: type dashboard.dupr.com in the address bar. Running
+  PB Sync on the `/session` page is not yet confirmed on an iPhone.
+- **Edge works:** removed the "use Chrome, Edge won't run bookmarks" text (app, setup page,
+  READMEs). SW rj-v83.
+
 ## 2026-10-20 — bookmark helper is its own simple page
 - `?bm=1` no longer shows the whole app with a note (it wasn't obvious it was a different page).
   The `bm-only` class is set before first paint and hides everything but `#bmPage`: a single
