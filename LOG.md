@@ -2,6 +2,13 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — bookmark helper is its own simple page
+- `?bm=1` no longer shows the whole app with a note (it wasn't obvious it was a different page).
+  The `bm-only` class is set before first paint and hides everything but `#bmPage`: a single
+  "Make your PB Sync bookmark" card with 4 steps (Copy code → ⋮ ☆ → Edit → paste as URL), how to
+  run it on DUPR, and Back to the app. The page title is "PB Sync", so the new bookmark arrives
+  already named. The app's sync card now just has **📌 Set up on this phone** for phones. SW rj-v82.
+
 ## 2026-10-20 — short loader bookmark (phone sync did nothing)
 - On Chrome for Android the pasted bookmark was cut off at ~2,000 of its 9,100 characters, so it
   was a syntax error and nothing ran. `build_bookmarklet.py` now writes **`sync.js`** (the

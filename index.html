@@ -345,7 +345,15 @@
   .syncbtn.big{font-size:15px;padding:11px 20px}
   .setup-h{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-weight:700;font-size:13px;color:var(--ink)}
   .steps{display:flex;flex-direction:column;gap:10px;margin:10px 0}
-  .bmhere{margin:10px 0;padding:10px 12px;border-radius:10px;background:var(--accent-soft);font-size:13px;line-height:1.5}
+  /* Phone bookmark helper (?bm=1): its own page, nothing of the app behind it. */
+  :root:not(.bm-only) #bmPage{display:none}
+  .bm-only .wrap>*:not(#bmPage){display:none!important}
+  .bmpage{max-width:520px;margin:18px auto}
+  .bmpage .kicker{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+  .bmpage h2{margin:6px 0 8px}
+  .bmpage .steps{gap:16px;margin:18px 0}
+  .bmpage .step{font-size:14.5px}
+  .bmpage .use{padding:12px 14px;border-radius:10px;background:var(--accent-soft);font-size:13.5px;line-height:1.5;margin:14px 0}
   .step{display:flex;gap:11px;align-items:flex-start;font-size:13px;line-height:1.5}
   .stepn{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
   :root[data-theme="dark"] .stepn{color:#0E1512}
@@ -450,9 +458,25 @@
     if(!t&&matchMedia('(max-width:620px)').matches)t='dark';
     if(t)document.documentElement.setAttribute('data-theme',t);
   }catch(e){}})();
+  // ?bm=1 is the phone bookmark helper: show only its setup page, never the app behind it.
+  // Titled PB Sync so the ☆ bookmark arrives already named.
+  if(/[?&]bm=/.test(location.search)){document.documentElement.classList.add('bm-only');document.title='PB Sync';}
 </script>
 
 <div class="wrap">
+  <div class="card pad bmpage" id="bmPage">
+    <div class="kicker">Pickleball · one-time phone setup</div>
+    <h2>Make your <span style="white-space:nowrap">PB Sync</span> bookmark</h2>
+    <p class="muted">This page is only here to be bookmarked. You’ll turn that bookmark into a sync button you run on DUPR. Your normal bookmark for the app stays as it is.</p>
+    <div class="steps">
+      <div class="step"><span class="stepn">1</span><div><b>Copy the sync code</b><br><button class="syncbtn prim" id="copyBm" type="button" style="margin-top:6px">📋 Copy code</button> <span id="copyMsg"></span></div></div>
+      <div class="step"><span class="stepn">2</span><div><b>Bookmark this page</b><br>Tap <b>⋮</b> (top right), then the <b>☆</b>.</div></div>
+      <div class="step"><span class="stepn">3</span><div><b>Edit that bookmark</b><br>Tap <b>Edit</b> in the bar that pops up at the bottom. Missed it? Tap <b>⋮</b> → <b>★</b> again.</div></div>
+      <div class="step"><span class="stepn">4</span><div><b>Paste the code as its URL</b><br>The name is already <b>PB Sync</b>. In the <b>URL</b> box, delete what’s there and paste. Go back to save.</div></div>
+    </div>
+    <div class="use"><b>To sync from then on:</b> open <b>dashboard.dupr.com</b> and log in, tap the address bar, type <b>PB Sync</b>, and tap the suggestion with the ☆. Use Chrome. Tapping it in the Bookmarks list won’t work.</div>
+    <a class="syncbtn" href="./" style="display:inline-block;text-decoration:none">← Back to the app</a>
+  </div>
   <div class="top">
     <div class="brand">
       <div class="name">
@@ -797,15 +821,8 @@
         <span class="muted">Already set up the bookmark below? Use this. It opens DUPR — then run <b>PB Sync</b> there.</span></div>
       <div class="setup-h">First time? Set up the one-tap bookmark (once per device)</div>
       <p class="muted"><b>Computer:</b> drag this button to your bookmarks bar → <a class="bm" id="syncBm" href="javascript:(()=>{const s=document.createElement('script');s.src='https://colin-oconnor13.github.io/PBStats/sync.js?'+Date.now();s.onerror=()=>alert('PB Sync could not load https://colin-oconnor13.github.io/PBStats/sync.js. Check your connection and try again.');document.body.appendChild(s);})()">🔄 Sync to Pickleball</a></p>
-      <p class="muted" style="margin-top:10px"><b>Phone:</b> you can’t drag a bookmark, so you make a <b>second, separate bookmark</b> just for syncing and paste the code into it. Your normal bookmark (or home-screen icon) for this app stays as it is.</p>
-      <div class="bmhere" id="bmHere" hidden>📌 <b>You’re on the bookmark helper page.</b> It has its own address, so bookmarking it makes a <em>new</em> bookmark. Your normal one isn’t touched.</div>
-      <div class="steps">
-        <div class="step"><span class="stepn">1</span><div><b>Open the bookmark helper.</b><br><span id="bmStep1">It’s this same page at a different address, so the ☆ in step 3 makes a new bookmark instead of editing the one you already have.<br><a class="syncbtn" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none;margin-top:6px">📌 Open bookmark helper</a></span></div></div>
-        <div class="step"><span class="stepn">2</span><div><b>Copy the code.</b><br><button class="syncbtn" id="copyBm" type="button">📋 Copy bookmark code</button> <span id="copyMsg"></span></div></div>
-        <div class="step"><span class="stepn">3</span><div><b>Bookmark the helper page.</b><br>In Chrome tap <b>⋮</b> → the <b>☆</b> star.</div></div>
-        <div class="step"><span class="stepn">4</span><div><b>Turn that bookmark into PB Sync.</b><br>Tap <b>Edit</b> (Chrome offers it right after you bookmark; or <b>⋮</b> → <b>Bookmarks</b>, long-press it → <b>Edit</b>). Name it <b>PB Sync</b> and replace its web address (URL) with the code. Save.</div></div>
-      </div>
-      <div id="bmDone" hidden style="margin:4px 0 10px"><a class="syncbtn prim" href="./" style="display:inline-block;text-decoration:none">✓ Done — back to the app</a></div>
+      <p class="muted" style="margin-top:10px"><b>Phone:</b> you can’t drag a bookmark, so you make a second bookmark just for syncing. This opens a short page that walks you through it (about a minute). Your normal bookmark for this app stays as it is.</p>
+      <p><a class="syncbtn" id="bmOpen" href="./?bm=1" style="display:inline-block;text-decoration:none">📌 Set up on this phone</a></p>
       <p class="muted">To sync after that: tap <b>🔄 Sync now</b> above (or in the header), then on the DUPR tab type <b>PB Sync</b> in the address bar and tap the bookmark. <span class="gh-only">The first sync on a device asks for your GitHub token so it can save. </span>On Android use <b>Chrome</b> — Edge won’t run bookmarks like this (viewing in Edge is fine).</p>
     </div>
   </div>
@@ -2060,15 +2077,11 @@
     if(VIEW)byId('staleBanner').hidden=true;
     if(!DATA.matches.length){byId('welcome').hidden=false;
       byId('welcomeGo').onclick=()=>{toggle(true);byId('tokenHelp').scrollIntoView({behavior:'smooth',block:'start'});};}
-    // Bookmark helper (?bm=1): the same app at its own address, so the phone's ☆ makes a new
-    // bookmark to turn into PB Sync instead of editing the user's normal bookmark of the app.
-    if(new URLSearchParams(location.search).has('bm')){
-      byId('bmHere').hidden=false;byId('bmDone').hidden=false;
-      byId('bmStep1').innerHTML='<span class="imp-up">✓</span> You’re on it.';
-      toggle(true);setTimeout(()=>byId('tokenHelp').scrollIntoView({block:'start'}),50);}
     // Phones can't drag a link to the bookmarks bar, so hand over the same javascript: URL as text.
+    // The Copy button lives on the bookmark helper page (?bm=1, #bmPage): a page of its own, so
+    // the phone's ☆ makes a new bookmark instead of editing the user's bookmark of the app.
     byId('copyBm').onclick=async()=>{const code=byId('syncBm').getAttribute('href'),msg=byId('copyMsg');
-      try{await navigator.clipboard.writeText(code);msg.textContent='✓ Copied';}
+      try{await navigator.clipboard.writeText(code);msg.textContent='✓ Copied, now step 2';}
       catch(e){msg.innerHTML='';const ta=document.createElement('textarea');ta.value=code;ta.readOnly=true;ta.rows=3;
         ta.style.cssText='width:100%;font-size:11px;margin-top:6px';msg.appendChild(ta);ta.focus();ta.select();
         msg.insertAdjacentText('afterbegin','Copy this (select all → copy):');}};

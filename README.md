@@ -33,10 +33,10 @@ Sync whenever you've played. It runs in your own browser while you're logged in 
 **🔄 Sync to Pickleball** button to your bookmarks bar.
 
 **One time, phone:** you need a *second* bookmark just for syncing (your normal bookmark of the
-app stays). In the same card tap **📌 Open bookmark helper**. That's the app at its own address
-(`?bm=1`), so Chrome's ☆ makes a new bookmark there rather than editing your existing one. Tap
-**📋 Copy bookmark code**, bookmark the helper page (⋮ → ☆), then **Edit** it: name it **PB Sync**
-and replace its address with the code.
+app stays). In the same card tap **📌 Set up on this phone**. It opens a setup-only page at its own
+address (`?bm=1`, titled "PB Sync"), so Chrome's ☆ makes a new, already-named bookmark rather
+than editing your existing one. Tap **📋 Copy code**, bookmark that page (⋮ → ☆), tap **Edit**
+and replace its URL with the code.
 
 **Each sync:**
 
