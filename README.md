@@ -101,7 +101,8 @@ account needs a public repo, and the synced `data/data.json` would then be publi
 | `data/data.json`, `data/overrides.json` | Empty starters for a hosted copy. Locally, `local/data/` is used. |
 | `tools/serve_local.py` | Local server: serves the app, builds your bookmark, saves to `local/data/`. |
 | `tools/sync_bookmarklet.js` | Readable source of the 🔄 Sync bookmark (runs on dashboard.dupr.com). |
-| `tools/build_bookmarklet.py` | Injects that source into `index.html`. Run after editing it. |
+| `tools/build_bookmarklet.py` | Writes `sync.js` from that source and puts a short loader bookmark for it in `index.html`. Run after editing it or `site.json`. |
+| `sync.js` | Generated: the sync code the bookmark loads on dashboard.dupr.com. Don't edit by hand. |
 | `manifest.webmanifest`, `sw.js`, `icons/` | PWA install + offline. |
 
 ## Metric definitions

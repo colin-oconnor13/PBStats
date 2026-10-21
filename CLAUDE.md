@@ -42,7 +42,10 @@ Delete. Code is meant to stay identical across copies: port changes by copying e
   fewer matches, skips unchanged, **asks before saving** (crafted links), prompts for a gh-token
   inline if missing, commits via `ghPutJSON()` and stashes `pb-fresh` in sessionStorage. Old
   pop-up bookmarks still postMessage after `pb-ready` (origins checked) into the same `handle()`.
-  After editing the bookmarklet source run `python tools/build_bookmarklet.py` (escapes % & ").
+  After editing the bookmarklet source run `python tools/build_bookmarklet.py`: it writes `sync.js`
+  (the source with site.json values filled in) and puts a ~300-char **loader** bookmark in index.html
+  that adds `<site>/sync.js` to the DUPR page (the full 9 KB inline code got truncated at ~2,000
+  chars when pasted into Chrome-for-Android bookmarks). `serve_local.py` still inlines the full code.
   data.json: `{player:{id,name,currentDoubles(number)}, generated, syncedAt, matches:[...]}`.
 - `data/overrides.json` — durable user edits:
   `{meta:{events:{<rawEventStr>:{name,type,level,hidden}}, partnersHidden:[]}, tags:{}}`.
