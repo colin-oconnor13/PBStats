@@ -2,6 +2,22 @@
 
 Newest first. Repo `colin-oconnor13/PBStats`.
 
+## 2026-10-20 — sync-link hardening, stricter Signal, tap-to-explain on phones
+- **Crafted `#pb=` links no longer write anything by themselves.** Recent players bundled with a
+  sync (`d.scouts`) used to go into IndexedDB as soon as the link was decoded, before any
+  confirmation. They're now parsed up front and stored (`keepScouts`) only on Save, Open app, or
+  a new "Keep the N recent players" button; "View without saving" doesn't keep them.
+- **Signal corrected for multiple comparisons** (`sigPill`, `zCrit`). Strong now needs |z| to
+  clear a Bonferroni cutoff over the reliable rows in that table (≈3.3 for 45 people, floor 2);
+  Some is |z| ≥ 2; the old 1–2 band is now Could be luck. Index Above/Below-expected tags moved
+  from |z| ≥ 1 to |z| ≥ 2. On real data the partner Index went from 1 Strong / 19 Some of 44 to
+  0 / 1. Guide and README updated.
+- **Tap-to-explain on touch screens.** Title text never shows on phones, so a touch tap on any
+  element with a title (the dotted Overview labels, Signal pills, …) shows it in a `.taptip`
+  bubble; tap again, elsewhere or scroll to close. `labelTables` also copies each header's title
+  into the phone cards (`data-tip`, label gets an ⓘ). Buttons/inputs/links and titles that just
+  repeat the visible text (names) keep their normal tap, so rows still open. SW rj-v77.
+
 ## 2026-10-20 — hide owner-only pieces when viewing another player
 - When a scouted player is being viewed (`VIEW` set → `VIEWING_OTHER`, root `data-viewing="other"`),
   the pieces that are "you"-centric or need your full career history are hidden (CSS), since we

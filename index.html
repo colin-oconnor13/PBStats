@@ -185,6 +185,9 @@
   .tile .l{font-size:12px;color:var(--muted);margin-top:5px}
   .tile .l .sub{color:var(--muted);opacity:.8}
   .help{border-bottom:1px dotted var(--muted);cursor:help}
+  /* Tap-to-explain bubble: touch screens never show title text, so a tap shows it here instead. */
+  .taptip{position:fixed;z-index:1000;max-width:min(300px,calc(100vw - 24px));background:var(--surface);color:var(--ink);
+    border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px;line-height:1.4;box-shadow:var(--shadow)}
   .spark{flex:none;width:52px;height:22px}
   @media(max-width:760px){.clusters{grid-template-columns:1fr}}
   /* opponent strength buckets */
@@ -415,6 +418,7 @@
     .tblscroll tbody td:first-child,.tblscroll td[colspan]{grid-column:1/-1}
     .tblscroll td[data-l]::before{content:attr(data-l);display:block;margin-bottom:1px;font-size:9px;
       letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700}
+    .tblscroll td[data-l][data-tip]::before{content:attr(data-l) " ⓘ"}
     .tblscroll .chgbar{display:none}
     .tblscroll tbody tr.champ{background:var(--champ)}
     .tblscroll tbody tr.on{background:var(--accent-soft)}
@@ -767,7 +771,7 @@
     <div class="card pad guide">
       <h3>How much to trust a row</h3>
       <p>A few good or bad nights can make any split look dramatic. Two things help you tell a real pattern from a fluke:</p>
-      <div class="gdef"><b>Signal</b><span class="d"><span class="pill-ex pe-good">Strong</span> a real pattern, well beyond luck. <span class="pill-ex pe-mid">Some</span> a hint, not certain. <span class="pill-ex pe-mid">Could be luck</span> within the range of normal chance — don’t read into it.</span></div>
+      <div class="gdef"><b>Signal</b><span class="d"><span class="pill-ex pe-good">Strong</span> a real pattern, beyond luck even allowing for how many people the table lists. <span class="pill-ex pe-mid">Some</span> would be convincing on its own, but in a long list one or two like it turn up by chance. <span class="pill-ex pe-mid">Could be luck</span> within the range of normal chance — don’t read into it.</span></div>
       <div class="gdef"><b>Small samples</b><span class="d">Anyone you’ve played fewer than <b>4</b> times (or fewer than <b>10</b> games, in the games table) is listed separately and greyed out. One result swings these a lot, so treat them as early hints, not conclusions.</span></div>
     </div>
 
@@ -1207,10 +1211,34 @@
   // on any cell that doesn't set its own (the first column is the row's title, so it's skipped).
   function labelTables(){
     document.querySelectorAll('.tblscroll table').forEach(t=>{
-      const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+      const ths=[...t.querySelectorAll('thead th')],hs=ths.map(th=>th.textContent.trim()),tips=ths.map(th=>th.title);
       t.querySelectorAll('tbody tr').forEach(tr=>{if(tr.querySelector('td[colspan]'))return;
-        [...tr.children].forEach((td,i)=>{if(i&&!td.dataset.l&&hs[i])td.dataset.l=hs[i];});});});
+        [...tr.children].forEach((td,i)=>{if(i&&!td.dataset.l&&hs[i])td.dataset.l=hs[i];
+          if(i&&!td.dataset.tip&&tips[i])td.dataset.tip=tips[i];});});});
   }
+  // Touch screens never show title text. On a touch tap, show it (or a phone card's column
+  // explanation, data-tip) in a bubble instead. Buttons, inputs and links keep their own tap,
+  // and a title that only repeats the visible text (full event/player names) is left alone so
+  // the tap still reaches its row.
+  (()=>{let touch=false,tip=null,openEl=null;
+    const hide=()=>{if(tip)tip.remove();tip=null;openEl=null;};
+    document.addEventListener('pointerdown',e=>{touch=e.pointerType==='touch';},true);
+    addEventListener('scroll',hide,{passive:true,capture:true});addEventListener('resize',hide);
+    document.addEventListener('click',e=>{
+      const prev=openEl;hide();
+      if(!touch||e.target.closest('button,select,input,textarea,a,label'))return;
+      const el=e.target.closest('[title],[data-tip]');if(!el||el.closest('svg'))return;
+      const text=(el.getAttribute('title')||el.dataset.tip||'').trim();
+      if(!text||text===el.textContent.trim())return;
+      e.stopPropagation();e.preventDefault();
+      if(el===prev)return;   // second tap on the same item closes it
+      openEl=el;tip=document.createElement('div');tip.className='taptip';tip.setAttribute('role','tooltip');tip.textContent=text;
+      document.body.appendChild(tip);
+      const r=el.getBoundingClientRect(),w=tip.offsetWidth,h=tip.offsetHeight;
+      tip.style.left=Math.max(12,Math.min(r.left+r.width/2-w/2,innerWidth-w-12))+'px';
+      tip.style.top=(r.bottom+8+h>innerHeight?Math.max(8,r.top-h-8):r.bottom+8)+'px';
+    },true);
+  })();
 
   // ---- recent DUPR movement (fixed windows, independent of the filters) ----
   function renderDeltaKpis(){
@@ -1623,9 +1651,19 @@
     return {n:ms.length,w,exp,woe:w-exp,z:sd?(w-exp)/sd:0,expPct:exp/ms.length,
       mres:mr.length?mr.reduce((s,v)=>s+v,0)/mr.length:null,imp:im.length?im.reduce((s,v)=>s+v,0)/im.length:null};
   }
+  // Signal for a wins-vs-expected z score, judged against the k rows tested in the same table.
+  // A list of 45 opponents throws up a |z|≥2 or two by luck alone, so Strong needs to clear a
+  // Bonferroni cutoff (two-sided 5% shared across k rows, never below 2); |z|≥2 alone is Some.
+  const zTail=z=>{const x=z/Math.SQRT2,t=1/(1+0.3275911*x);   // two-sided normal tail, A&S 7.1.26
+    return t*(0.254829592+t*(-0.284496736+t*(1.421413741+t*(-1.453152027+t*1.061405429))))*Math.exp(-x*x);};
+  const zCrit=k=>{let lo=0,hi=10;for(let i=0;i<50;i++){const mid=(lo+hi)/2;if(zTail(mid)>0.05/Math.max(1,k))lo=mid;else hi=mid;}return Math.max(2,hi);};
+  const sigPill=(r,k)=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';const z=Math.abs(r.z);
+    return z>=zCrit(k)?`<span class="pxconf c2" title="A real pattern: beyond luck even allowing for the ${k} rows in this table">Strong</span>`
+      :z>=2?'<span class="pxconf c1" title="Would be convincing on its own, but in a long list one or two rows like this turn up by luck">Some</span>'
+      :'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
   function expTable(id,label,rows){
-    const sig=s=>{if(s.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';const z=Math.abs(s.z);
-      return z>=2?'<span class="pxconf c2" title="A real pattern — well beyond what luck alone would give">Strong</span>':z>=1?'<span class="pxconf c1" title="Some sign of a pattern, but not certain">Some</span>':'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
+    const k=rows.filter(([,,ms])=>ms.length>=PPL_MIN).length;
+    const sig=s=>sigPill(s,k);
     const body=rows.map(([name,hint,ms])=>{const s=expStats(ms),lab=`<span class="evname">${name}</span>${hint?`<span class="evtd">${hint}</span>`:''}`;
       if(!s)return`<tr class="dim"><td>${lab}</td><td class="mono">0</td><td colspan="7"></td></tr>`;
       const low=s.n<PPL_MIN;
@@ -1706,13 +1744,11 @@
     const ord={under:(a,b)=>a.woe-b.woe,over:(a,b)=>b.woe-a.woe,exp:(a,b)=>b.expPct-a.expPct}[pxSort];
     rows.sort((a,b)=>ord(a,b)||(b.n-a.n)||a.name.localeCompare(b.name));
     const solid=rows.filter(r=>r.n>=PPL_MIN),low=rows.filter(r=>r.n<PPL_MIN);
-    const conf=r=>{if(r.n<PPL_MIN)return'<span class="pxconf c0" title="Too few matches to judge">—</span>';
-      const z=Math.abs(r.z);return z>=2?'<span class="pxconf c2" title="A real pattern — well beyond what luck alone would give">Strong</span>'
-      :z>=1?'<span class="pxconf c1" title="Some sign of a pattern, but not certain">Some</span>':'<span class="pxconf c0" title="Within the range of normal luck — not enough to read into">Could be luck</span>';};
+    const conf=r=>sigPill(r,solid.length);
     const row=(r,tags)=>{
-      // Tagged only when the gap is beyond chance (signal Some or Strong), whatever the odds were.
-      const tag=!tags?'':r.z<=-1?'<span class="ptag worst">Below expected</span>'
-        :r.z>=1?'<span class="ptag best">Above expected</span>':'';
+      // Tagged only when the signal is Some or Strong, whatever the odds were.
+      const tag=!tags?'':r.z<=-2?'<span class="ptag worst">Below expected</span>'
+        :r.z>=2?'<span class="ptag best">Above expected</span>':'';
       return`<tr class="clk${pplSel===r.id?' on':''}" data-pid="${enc(r.id)}"><td><span class="evname" title="${enc(r.name)}">${enc(r.name)}</span>${tag}`
         +`<span class="evtd">avg edge ${sgn(r.edge)} DUPR · DUPR now ${f2(r.now)}</span></td>`
         +`<td class="mono">${r.n}</td><td class="mono">${pct(r.expPct)}</td><td class="mono">${pct(r.w/r.n)}</td>`
@@ -2075,26 +2111,31 @@
         buttons([[`View ${nm}’s matches`,keep,true],closeBtn]);return;
       }
       // Recent opponents/partners synced alongside your own matches: view-only, this browser only.
-      let alsoTxt='';
-      if(Array.isArray(d.scouts)&&d.scouts.length){let k=0;
+      // Stored only once you act (Save / Open app / Keep): a crafted #pb= link must not write anything by itself.
+      let alsoTxt='';const scouts=[];
+      if(Array.isArray(d.scouts)&&d.scouts.length){
         d.scouts.forEach(x=>{try{const sd=duprToData({profile:x.profile,hits:x.hits,now:d.now||{}});
-          if(sd.matches.length){SCOUTS[String(sd.player.id)]=sd;IDB.put(String(sd.player.id),sd).catch(()=>{});k++;}}catch(err){}});
-        alsoTxt=` Also kept ${k} recent player${k===1?'':'s'} to view (👁 bar at the top; this browser only).`;}
+          if(sd.matches.length)scouts.push(sd);}catch(err){}});
+        const k=scouts.length;
+        alsoTxt=` Includes ${k} recent player${k===1?'':'s'} to view (👁 bar at the top; this browser only).`;}
       if(Array.isArray(d.skipped)&&d.skipped.length)alsoTxt+=` Skipped: ${d.skipped.join(', ')}.`;
+      const keepScouts=()=>Promise.all(scouts.map(sd=>{const id=String(sd.player.id);SCOUTS[id]=sd;return IDB.put(id,sd).catch(()=>{});}));
       const had=OWN.matches.length,n=fresh.matches.length;
-      if(n<had){show(`DUPR returned ${n} matches but you already have ${had}, so your own data wasn’t replaced. DUPR may have changed its data format.`+alsoTxt,true);buttons([closeBtn]);return;}
+      if(n<had){show(`DUPR returned ${n} matches but you already have ${had}, so your own data wasn’t replaced. DUPR may have changed its data format.`+alsoTxt,true);
+        buttons(scouts.length?[[`Keep the ${scouts.length} recent players`,()=>keepScouts().then(()=>setView('')),true],closeBtn]:[closeBtn]);return;}
       const rt=fresh.player.currentDoubles;
       const summary=`${n} matches${n>had?` (${n-had} new)`:''}${rt!=null?', DUPR '+rt.toFixed(3):''}`;
       const who=nameCase(fresh.player.name)||('player '+fresh.player.id);
       const open=()=>{try{sessionStorage.setItem('pb-fresh',JSON.stringify(fresh));}catch(err){}setView('');};
       const same=x=>JSON.stringify([x.player,x.matches]);
-      if(same(fresh)===same(OWN)){show('✓ Already up to date: '+summary+'.'+alsoTxt);buttons([['Open app',()=>setView(''),true]]);return;}
+      if(same(fresh)===same(OWN)){show('✓ Already up to date: '+summary+'.'+alsoTxt);buttons([['Open app',()=>keepScouts().then(()=>setView('')),true]]);return;}
       const download=['⤓ Download data.json',()=>{const b=new Blob([JSON.stringify(fresh,null,1)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');
         a.href=u;a.download='data.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1500);}];
       const save=async()=>{
         show('Saving '+summary+' '+WHERE+'…');buttons([]);
         const r=await ghPutJSON('data/data.json',fresh,'Sync DUPR data: '+fresh.generated+' (from app)');
         if(!r.ok){show('Fetched '+summary+', but saving failed: '+r.text,true);buttons([['Try again',save,true],['View without saving',open],download]);return;}
+        await keepScouts();
         show('✓ Synced '+summary+'.'+alsoTxt+' Opening the app…');setTimeout(open,1200);
       };
       // A different player than the one on file is almost always a mistake (or a crafted link).
